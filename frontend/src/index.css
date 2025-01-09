@@ -1,0 +1,39 @@
+:root {
+  --first-color: ;
+  --second-color: ;
+  --accent-color: ;
+  --title-font: ;
+  --text-font: ;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+button {
+    border: none;
+}
