@@ -1,7 +1,3 @@
-import React from "react";
-import "../index.css";
-import logoEjemplo from "./img/alianza-logo-test.jpg";
-
 export const Home = () => (
   <div className="container">
     <div className="row g-3">
@@ -24,7 +20,7 @@ export const Home = () => (
       </div>
 
       <div className="col-6">
-        <img src={logoEjemplo} alt="Alianza No Country & Vos y Tu Voz" className="img-fluid" />
+        <img src="./images/alianza-logo-test.jpg" alt="Alianza No Country & Vos y Tu Voz" className="img-fluid" />
       </div>
     </div>
   </div>

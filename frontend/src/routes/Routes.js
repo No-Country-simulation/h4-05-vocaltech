@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "../views/home";
-import { NavbarVocalTech } from "../component/navbar";
-import { FooterVocalTech } from "../component/footer";
+import { Home } from "../views/Home";
+import { NavbarVocalTech } from "../components/Navbar";
+import { FooterVocalTech } from "../components/Footer";
 
 const AppRoutes = () => {
   return (

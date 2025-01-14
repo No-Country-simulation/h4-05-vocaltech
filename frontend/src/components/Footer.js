@@ -1,4 +1,3 @@
-import React from 'react';  
 import { CDBBox, CDBBtn, CDBIcon } from 'cdbreact';  
 
 export const FooterVocalTech = () => {  
