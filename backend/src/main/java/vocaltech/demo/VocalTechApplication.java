@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VocalTechAppApplication {
+public class VocalTechApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VocalTechAppApplication.class, args);
+		SpringApplication.run(VocalTechApplication.class, args);
 	}
 
 }
