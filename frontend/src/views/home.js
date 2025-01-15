@@ -1,10 +1,11 @@
 import React from "react";
 import "../index.css";
+import { Link } from "react-router-dom";
 import logoEjemplo from "./img/alianza-logo-test.jpg";
 
 export const Home = () => (
   <div className="container">
-    <div className="row g-3">
+    <div className="row g-5">
       <div className="col-6 pt-5">
         <h2 className="display-5 fw-bolder">
           Trabajamos con tu voz para impulsar tu carrera
@@ -14,6 +15,7 @@ export const Home = () => (
         </h6>
         <p className="lead mb-3">Selecciona tu perfil:</p>
         <div className="d-grid gap-3">
+
           <button type="button" className="btn btn-outline-dark btn-lg">
             Emprendedor
           </button>
