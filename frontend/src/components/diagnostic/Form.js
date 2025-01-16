@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { AudioRecorder } from './AudioRecorder';
 
 export const Form = ({ needs, audioTitle }) => {
     const [formData, setFormData] = useState({needs: [], audio: null});
@@ -46,6 +47,7 @@ export const Form = ({ needs, audioTitle }) => {
             </div>
             <div className="form-group">
                 <label htmlFor="audio">{audioTitle} (30-60 segundos)</label>
+                <AudioRecorder />
             </div>
             <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
