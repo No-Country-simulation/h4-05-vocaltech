@@ -2,15 +2,18 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "../views/Home";
 import { NavbarVocalTech } from "../components/Navbar";
 import { FooterVocalTech } from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AppRoutes = () => {
   return (
     <div>
-      <NavbarVocalTech />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <FooterVocalTech />
+      <ScrollToTop>
+        <NavbarVocalTech />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <FooterVocalTech />
+      </ScrollToTop>
     </div>
   );
 };
