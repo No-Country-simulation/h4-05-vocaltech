@@ -11,9 +11,9 @@ export const Diagnostic = () => {
 
     const getAudioTitle = () => 
         selectedOption === "Emprendedor"
-        ? "Cargar un audio de tu pitch"
+        ? "Cargar o grabar un audio de tu pitch"
         : selectedOption === "Empresa"
-        ? "Cargar un audio sobre el problema/necesidad de tu empresa"
+        ? "Cargar o grabar un audio sobre el problema/necesidad de tu empresa"
         : ""; 
 
     return (
@@ -32,9 +32,10 @@ export const Diagnostic = () => {
                     <DiagnosticForm
                         needs={diagnosticNeeds[selectedOption.toLowerCase()]} 
                         audioTitle={getAudioTitle()}
+                        key={selectedOption}
                     />
                 )
             }
         </div>
     );
-}
+};
