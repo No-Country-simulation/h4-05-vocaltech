@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { AudioRecorder } from './AudioRecorder';
+import { audioRecorderService } from '../../services/audioRecorder';
 
 export const Form = ({ needs, audioTitle }) => {
     const [selectedNeeds, setSelectedNeeds] = useState([]); 
-    const [audioUrl, setAudioUrl] = useState(null); 
+    const [file, setFile] = useState(null); 
 
     const handleCheckboxChange = (e) => {
         const { value, checked } = e.target;
@@ -16,18 +17,23 @@ export const Form = ({ needs, audioTitle }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const dataToSend = {
-            needs: selectedNeeds,
-            audio: audioUrl,
-        };
-
-        console.log(dataToSend);
-        setSelectedNeeds([]);
-        setAudioUrl(null);
-        console.log(dataToSend);
+        try {
+            const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
+            
+            const dataToSend = {
+                needs: selectedNeeds,
+                audio: uploadedAudioUrl,
+            };
+    
+            console.log(dataToSend);
+            setSelectedNeeds([]);
+            setFile(null);
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     return (
@@ -48,9 +54,11 @@ export const Form = ({ needs, audioTitle }) => {
             </div>
             <div className="form-group">
                 <label htmlFor="audio">{audioTitle} (30-60 segundos)</label>
-                <AudioRecorder setAudioUrl={setAudioUrl} /> 
+                <AudioRecorder file={file} setFile={setFile} /> 
             </div>
-            <button type="submit" className="btn btn-primary">Enviar</button>
+            <button 
+                disabled={selectedNeeds.length === 0 || !file} 
+                type="submit" className="btn btn-primary">Enviar</button>
         </form>
     );
 };
