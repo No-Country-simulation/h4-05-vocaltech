@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { diagnosticNeeds } from "../utils/diagnosticNeeds";
 import { Form as DiagnosticForm } from "../components/diagnostic/Form";
 
@@ -19,10 +20,9 @@ export const Diagnostic = () => {
     return (
         <div className="container">
             <h1 className="text-center">Diagnóstico</h1>
-            <section className="container">
+            <section className="container pb-5">
                 <p>El primer paso es seleccionar tu perfil</p>
-            </section>
-            <select className="form-select w-25" value={selectedOption} onChange={handleSelect}>
+                <select className="form-select w-25" value={selectedOption} onChange={handleSelect}>
                 <option value="Seleccionar" disabled>Seleccionar</option>
                 <option value="Emprendedor">Emprendedor</option>
                 <option value="Empresa">Empresa</option>
@@ -36,6 +36,13 @@ export const Diagnostic = () => {
                     />
                 )
             }
+            </section>
+            <section>
+                <h5>Deseas agendar una cita? Contanos, qué necesitas?</h5>
+                <Link to="/agendar-cita">
+                    <button className="btn btn-success">Ir al calendario</button>
+                </Link>
+            </section>
         </div>
     );
 };
