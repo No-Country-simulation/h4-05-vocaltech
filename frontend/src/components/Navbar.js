@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { navLinks } from "../utils/navLinks";
 import "../styles/navbar.css"
 
 export const NavbarVocalTech = () => {
@@ -22,19 +23,13 @@ export const NavbarVocalTech = () => {
           </Offcanvas.Header>
           <Offcanvas.Body className="bg-dark">
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link as={Link} to="/" className="navbar-menu-item text-white me-4">
-                Nuestra alianza
-              </Nav.Link>{" "}
-              {/* Use Link for React Router */}
-              <Nav.Link as={Link} to="#action2" className="navbar-menu-item text-white me-4">
-                Empresas
-              </Nav.Link>
-              <Nav.Link as={Link} to="#action2" className="navbar-menu-item text-white me-4">
-                Emprendedores
-              </Nav.Link>
-              <Nav.Link as={Link} to="#action3" className="navbar-menu-item text-white">
-                Diagnóstico
-              </Nav.Link>
+              {
+              navLinks.map((link, index) => (
+                   <Nav.Link as={Link} to={link.to} className="text-white" key={index}>
+                         {link.label}
+                 </Nav.Link>
+                                ))
+                            }
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
