@@ -1,0 +1,12 @@
+.navbar-menu-item {
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.navbar-menu-item:hover {
+  transform: translateY(-3px);
+  text-shadow: 2px 2px 6px rgba(214, 244, 255, 0.5);
+  color: rgb(214, 244, 255) !important;
+}
