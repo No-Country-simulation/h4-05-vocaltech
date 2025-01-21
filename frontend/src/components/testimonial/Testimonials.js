@@ -3,7 +3,7 @@ import { testimonials } from "../../utils/testimonials";
 
 export const Testimonials = () => {
     return (
-        <section className="container">
+        <section className="container py-5">
             <h2 className="display-6 fw-bolder text-center pb-5">Historias de éxito que inspiran</h2>
             <div className="row">
                 {
