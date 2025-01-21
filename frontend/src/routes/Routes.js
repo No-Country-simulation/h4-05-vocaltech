@@ -4,12 +4,12 @@ import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
 import { NavbarVocalTech } from "../components/Navbar";
 import { FooterVocalTech } from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export const AppRoutes = () => {
     return (
         <>
-            <ScrollToTop>
+            <ScrollToTop />
               <NavbarVocalTech />
               <Routes>
                   <Route path="/" element={<Home />} />
@@ -17,7 +17,7 @@ export const AppRoutes = () => {
                   <Route path="/empresa" element={<Company />} />
               </Routes>
               <FooterVocalTech />
-            </ScrollToTop>
+
         </>
     );
 };
