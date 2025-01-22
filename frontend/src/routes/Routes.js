@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
@@ -8,18 +8,25 @@ import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 
 export const AppRoutes = () => {
+    const location = useLocation(); 
+    const isAdminRoute = location.pathname.startsWith("/admin");
+
     return (
         <>
             <ScrollToTop />
-              <NavbarVocalTech />
-              <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/emprendedor" element={<Entrepreneur />} />
-                  <Route path="/empresa" element={<Company />} />
-                  <Route path="/admin" element={<Admin />} />
-              </Routes>
-              <FooterVocalTech />
-
+            {
+                !isAdminRoute && <NavbarVocalTech />
+            }
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/emprendedor" element={<Entrepreneur />} />
+                <Route path="/empresa" element={<Company />} />
+                <Route path="/admin-dashboard" element={<Admin />} />
+            </Routes>
+            {
+                !isAdminRoute && <FooterVocalTech />
+            }
         </>
     );
 };
+
