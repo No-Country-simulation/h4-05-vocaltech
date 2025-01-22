@@ -1,8 +1,4 @@
-import { useCompanySelect } from "../../../contexts/CompanySelected";
-
-export const Home = () => {
-    const { selectedValue } = useCompanySelect();
-
+export const Home = ( {selectedValue} ) => {
     return (
         <>
             {

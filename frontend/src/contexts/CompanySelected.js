@@ -4,7 +4,6 @@ const CompanySelectContext = createContext();
 
 export const CompanySelected = ({ children }) => {
     const [selectedValue, setSelectedValue] = useState("General");
-
     const changeSelectedValue = (value) => setSelectedValue(value);
 
     return (
