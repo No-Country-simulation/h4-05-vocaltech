@@ -12,7 +12,6 @@ import { NavbarVocalTech } from "../components/Navbar";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { CompanySelected } from "../contexts/CompanySelected";
-import { MenuSelected } from "../contexts/MenuSelected";
 
 export const AppRoutes = () => {
     const location = useLocation(); 
@@ -28,9 +27,7 @@ export const AppRoutes = () => {
                 <Route path="/empresa" element={<Company />} />
                 <Route path="/admin-dashboard/*" element={
                     <CompanySelected>
-                        <MenuSelected>
-                            <Admin />  
-                        </MenuSelected>    
+                        <Admin />     
                     </CompanySelected>}>
                     <Route index element={<AdminHome />} />
                     <Route path="templates" element={<Templates />} />
