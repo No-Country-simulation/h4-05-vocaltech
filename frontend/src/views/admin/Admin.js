@@ -17,24 +17,25 @@ export const Admin = () => {
             <Navbar />
             <div className="d-flex">
                 <Sidebar />
-                <div className="container">
-                  
-                    <h1>Dashboard {selectedValue}</h1>
-                    {
-                        selectedMenu === "Inicio" ? (
-                            <Home selectedValue={selectedValue} />
-                        ) : selectedMenu === "Plantillas de Mensajes" ? (
-                            <Templates />
-                        ) : selectedMenu === "Citas" ? (
-                            <Appointments />
-                        ) : selectedMenu === "Leads" ? (
-                            <Leads />
-                        ) : (
-                            <AddAdmin />
-                        )
-                    }
+                <div className="container py-5 px-md-4 px-lg-5">            
+                    <h1 className="display-6 fw-bolder pb-5">Dashboard {selectedValue}</h1>
+                    <div className="row">
+                        {
+                            selectedMenu === "Inicio" ? (
+                                <Home selectedValue={selectedValue} />
+                            ) : selectedMenu === "Plantillas de Mensajes" ? (
+                                <Templates />
+                            ) : selectedMenu === "Citas" ? (
+                                <Appointments />
+                            ) : selectedMenu === "Leads" ? (
+                                <Leads />
+                            ) : (
+                                <AddAdmin />
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </>
-    )
+    );
 };
