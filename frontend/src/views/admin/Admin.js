@@ -11,7 +11,7 @@ export const Admin = () => {
             <Navbar />
             <div className="d-flex">
                 <Sidebar />
-                <div className="container py-5 px-md-4 px-lg-5">            
+                <div className="container py-5 px-md-4 px-lg-5 overflow-auto" style={{ height: "100vh" }}>            
                     <h1 className="display-6 fw-bolder pb-5">Dashboard {selectedValue}</h1>
                     <div className="row">
                         <Outlet /> 
