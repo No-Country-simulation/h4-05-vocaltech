@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { columnsTable } from "../../utils/columnsTable";
 import { Table } from "../../components/admin/Table";
+import { RoleSelect } from "../../components/admin/RoleSelect";
 import { prueba } from "../../utils/infoPrueba"; 
 import { useCompanySelect } from "../../contexts/CompanySelected";
 
@@ -20,7 +21,10 @@ export const Leads = () => {
 
     return (
         <section>
-            <h2 className="pb-5">Leads</h2>
+            <div className="pb-5 d-flex justify-content-between align-items-center">
+                <h2>Leads</h2>
+                <RoleSelect />
+            </div>
                 {
                     selectedValue === "Vos y tu Voz" ? (
                         'Leads Vos y tu voz'

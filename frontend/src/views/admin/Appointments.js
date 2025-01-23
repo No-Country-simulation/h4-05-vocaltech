@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { columnsTable } from "../../utils/columnsTable";
 import { Table } from "../../components/admin/Table";
+import { RoleSelect } from "../../components/admin/RoleSelect";
 import { prueba } from "../../utils/infoPrueba"; 
 import { useCompanySelect } from "../../contexts/CompanySelected";
 
@@ -20,16 +21,19 @@ export const Appointments = () => {
 
     return (
         <section>
-            <h2 className="pb-5">Citas</h2>
-                {
-                    selectedValue === "Vos y tu Voz" ? (
-                        'Tabla Vos y tu voz'
-                    ) : selectedValue === "No Country" ? (
-                        'Tabla No Country'
-                    ) : (
-                        <Table columns={columnsTable.appointments} data={appointmentsData} />
-                    )
-                }
+            <div className="pb-5 d-flex justify-content-between align-items-center">
+                <h2>Citas</h2>
+                <RoleSelect />
+            </div>
+            {
+                selectedValue === "Vos y tu Voz" ? (
+                    'Tabla Vos y tu voz'
+                ) : selectedValue === "No Country" ? (
+                    'Tabla No Country'
+                ) : (
+                    <Table columns={columnsTable.appointments} data={appointmentsData} />
+                )
+            }
         </section>
     );
 };
