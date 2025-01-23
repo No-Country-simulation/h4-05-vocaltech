@@ -1,0 +1,9 @@
+.table td {
+    padding: 16px; 
+}
+
+@media (max-width: 1200px) {
+    .table th, .table td {
+        white-space: nowrap; 
+    }
+}
