@@ -11,14 +11,14 @@ export const Diagnostic = () => {
           <div className="d-flex justify-content-center gap-3">
             <button
               type="button"
-              className="btn btn-outline-dark text-center"
+              className="btn btn-outline-dark rounded-pill text-center"
               style={{ width: "50%" }}
             >
               Realiza tu diagnóstico gratuito
             </button>
             <button
               type="button"
-              className="btn btn-outline-dark text-center"
+              className="btn btn-outline-dark rounded-pill text-center"
               style={{ width: "50%" }}
             >
               CTA Whatsapp
