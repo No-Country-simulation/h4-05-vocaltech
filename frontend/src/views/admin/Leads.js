@@ -10,18 +10,12 @@ export const Leads = () => {
     const { selectedValue } = useCompanySelect();
     
     useEffect(() => {
-        const processedLeads = prueba.leads.map(item => ({
-            ...item,
-            diagnostic: item.diagnostic ? 'Si' : 'No', 
-            plan: item.plan ? 'Si' : 'No',
-        }));
-
-        setLeadsData(processedLeads);
+        setLeadsData(prueba.leads);
     }, []);
 
     return (
         <section>
-            <div className="pb-5 d-flex justify-content-between align-items-center">
+            <div className="pb-3 d-md-flex justify-content-between align-items-center">
                 <h2>Leads</h2>
                 <RoleSelect />
             </div>

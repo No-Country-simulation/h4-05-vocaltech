@@ -1,4 +1,9 @@
-.table td {
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.table th, .table td {
     padding: 16px; 
 }
 
@@ -7,6 +12,7 @@
 }
 
 ::-webkit-scrollbar {
+    height: 8px;
     width: 8px;  
 }
   

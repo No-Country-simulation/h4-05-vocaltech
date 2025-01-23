@@ -10,18 +10,12 @@ export const Appointments = () => {
     const { selectedValue } = useCompanySelect();
     
     useEffect(() => {
-        const processedAppointments = prueba.appointments.map(item => ({
-            ...item,
-            diagnostic: item.diagnostic ? 'Si' : 'No', 
-            plan: item.plan ? 'Si' : 'No',
-        }));
-
-        setAppointmentsData(processedAppointments);
+        setAppointmentsData(prueba.appointments);
     }, []);
 
     return (
         <section>
-            <div className="pb-5 d-flex justify-content-between align-items-center">
+            <div className="pb-3 d-flex justify-content-between align-items-center">
                 <h2>Citas</h2>
                 <RoleSelect />
             </div>
