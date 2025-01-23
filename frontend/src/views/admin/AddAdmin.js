@@ -1,6 +1,17 @@
+import React, { useState } from "react";
+
 export const AddAdmin = () => {
+  const [ selectedPartner, changeSelectedPartner ] = useState("Partners");
   const handleNewAdmin = (e) => {
     e.preventDefault();
+    console.log("New admin added with ID:", selectedPartner);
+
+  };
+
+  const handleChange = (e) => {
+    const selectedOption = e.target.options[e.target.selectedIndex];
+    const selectedId = selectedOption.id;
+    changeSelectedPartner(selectedId);
   };
 
   return (
@@ -31,12 +42,17 @@ export const AddAdmin = () => {
               <div className="mb-3">
                 <label className="form-label">Selecciona un Partner</label>
                 <select
+                  name={selectedPartner}
                   className="form-select"
-                  aria-label="Default select example"
+                  onChange={handleChange}
                 >
-                  <option selected>Partners...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
+                  <option value="general">Partners</option>
+                  <option id="1" value="noCountry">
+                    No Country
+                  </option>
+                  <option id="2" value="vosYtuVoz">
+                    Vos y tu Voz
+                  </option>
                 </select>
               </div>
               <div className="d-flex justify-content-center">
