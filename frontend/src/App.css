@@ -1,4 +1,4 @@
-.btn-width {
+.btn-width, .btn-width-services {
     width: 80%;
 }
 
@@ -12,7 +12,7 @@
     .header-padding {
         padding-bottom: 4.6rem;
     }
-    .btn-width {
+    .btn-width, .btn-width-services {
         width: 50%;
     }
 }
