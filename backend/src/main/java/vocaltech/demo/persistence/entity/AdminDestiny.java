@@ -2,7 +2,6 @@ package vocaltech.demo.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import vocaltech.demo.common.enums.RoleEnum;
 
 @Entity
 @Setter
@@ -10,12 +9,17 @@ import vocaltech.demo.common.enums.RoleEnum;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role {
+@Table(name = "admin_destiny")
+public class AdminDestiny {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(value = EnumType.STRING)
-    private RoleEnum value;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "form_id", nullable = false)
+    private Form form;
 
+    @Column(name = "role_id", nullable = false)
+    private Long roleId;
 }

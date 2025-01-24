@@ -10,12 +10,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
+@Entity
 @Setter
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name = "_user")
 public class User implements UserDetails {
 

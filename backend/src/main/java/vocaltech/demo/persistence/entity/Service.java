@@ -1,8 +1,10 @@
 package vocaltech.demo.persistence.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
-import vocaltech.demo.common.enums.RoleEnum;
 
 @Entity
 @Setter
@@ -10,12 +12,10 @@ import vocaltech.demo.common.enums.RoleEnum;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role {
+public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(value = EnumType.STRING)
-    private RoleEnum value;
-
+    private String value;
 }

@@ -1,4 +1,4 @@
-package vocaltech.demo.persistence.repository;
+package vocaltech.demo.security.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import vocaltech.demo.persistence.entity.User;

@@ -50,6 +50,11 @@ public class SecurityConfig {
 
                     // PUBLIC Endpoints
                     http.requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/forms/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/services/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/options/**").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/leads/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/leads/**").permitAll();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
