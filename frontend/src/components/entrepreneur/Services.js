@@ -53,7 +53,7 @@ export const Services = () => {
                                     Conocer opciones
                                 </button>
                             </div>
-                            <div className="collapse mt-3" id="2">
+                            <div className="collapse mt-4" id="2">
                                 <ol className="list-group-numbered">
                                     <li className="list-group-item border-0">MVPs de alta fidelidad en 5 semanas</li>
                                 </ol>

@@ -59,9 +59,9 @@ export const Services = () => {
                                     Conocer opciones
                                 </button>
                             </div>
-                            <div className="collapse mt-3" id="2">
+                            <div className="collapse mt-4" id="2">
                                 <ol className="list-group-numbered">
-                                    <li className="list-group-item border-0">Evidencia de comportamientos</li>
+                                    <li className="list-group-item border-0 pb-3">Evidencia de comportamientos</li>
                                     <li className="list-group-item border-0">Contratación de nuevo talento</li>
                                 </ol>
                             </div>
