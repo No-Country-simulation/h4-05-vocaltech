@@ -1,8 +1,8 @@
-package com.example.appointmentsystem.repository;
+package vocaltech.demo.persistence.repository;
 
-import com.example.appointmentsystem.entity.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import vocaltech.demo.persistence.entity.Appointment;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {

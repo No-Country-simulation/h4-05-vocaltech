@@ -55,6 +55,14 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.GET, "/api/v1/options/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/leads/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/leads/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.DELETE, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.PUT, "/api/v1/appointments/**").permitAll();
+                    /* Swagger */
+                    http.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
