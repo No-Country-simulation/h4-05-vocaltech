@@ -2,7 +2,8 @@ package vocaltech.demo.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import vocaltech.demo.common.enums.RoleEnum;
+
+import java.util.Set;
 
 @Entity
 @Setter
@@ -10,12 +11,15 @@ import vocaltech.demo.common.enums.RoleEnum;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role {
+@Table(name = "`option`")
+public class Option {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(value = EnumType.STRING)
-    private RoleEnum value;
+    String value;
 
+    @ManyToMany(mappedBy = "options")
+    private Set<Rule> rules;
 }

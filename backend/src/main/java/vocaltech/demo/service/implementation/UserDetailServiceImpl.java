@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vocaltech.demo.persistence.entity.User;
-import vocaltech.demo.persistence.repository.UserRepository;
+import vocaltech.demo.security.repository.UserRepository;
 
 import java.util.Optional;
 
