@@ -1,50 +1,53 @@
 import { Link } from "react-router-dom";
-import { Button, Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { navLinks } from "../utils/navLinks";
+import "../styles/navbar.css"
 
 export const NavbarVocalTech = () => {
-  return (
-    <Navbar expand="sm" className="bg-dark mb-3 sticky-top">
-      <Container className="mx-3" fluid>
-        <Navbar.Brand className="text-white" href="#">VocalTech</Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
-        <Navbar.Offcanvas
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-          placement="end"
-        >
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="offcanvasNavbarLabel">
-              Offcanvas
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-center flex-grow-1 pe-3">
-              <Nav.Link as={Link} to="/" className="text-white">
-                Inicio
-              </Nav.Link>{" "}
-              {/* Use Link for React Router */}
-              <Nav.Link as={Link} to="#action2" className="text-white">
-                Emprendedores
-              </Nav.Link>
-              <Nav.Link as={Link} to="#action2" className="text-white">
-                Empresas
-              </Nav.Link>
-              <NavDropdown title={<span style={{ color: 'white' }}>Diagnósticos</span>} id="offcanvasNavbarDropdown" menuVariant="dark">
-                <NavDropdown.Item className="text-white" href="#action3">Emprendedores</NavDropdown.Item>
-                <NavDropdown.Item className="text-white" href="#action4">
-                  Empresas
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <div className="d-flex">
-              <Button className="me-3" variant="outline-light">
-                Contacto
-              </Button>
-              <Button variant="outline-info">Agenda cita</Button>
+    return (
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+            <div className="container">
+                <Link className="navbar-brand text-white" to="/">
+                    VocalTech
+                </Link>
+                <button
+                    className="navbar-toggler text-white"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    className="offcanvas offcanvas-end bg-dark"
+                    tabIndex="-1"
+                    id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div className="offcanvas-header bg-dark">
+                        <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
+                            VocalTech
+                        </h5>
+                        <button
+                            type="button"
+                            className="btn-close btn-close-white"
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close">
+                        </button>
+                    </div>
+                    <div className="offcanvas-body bg-dark">
+                        <ul className="navbar-nav justify-content-end flex-grow-1">
+                            {
+                                navLinks.map((link, index) => (
+                                    <li className="nav-item" key={index}>
+                                        <Link className="nav-link text-white ms-4" to={link.to}>
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </Offcanvas.Body>
-        </Navbar.Offcanvas>
-      </Container>
-    </Navbar>
-  );
+        </nav>    
+    );
 };

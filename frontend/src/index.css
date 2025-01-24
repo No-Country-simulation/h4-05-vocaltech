@@ -17,6 +17,8 @@ html {
 body {
     box-sizing: inherit;
     margin: 0;
+    font-family: "Montserrat", serif;
+    font-style: normal;
 }
 
 h1,
