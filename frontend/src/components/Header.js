@@ -1,50 +1,42 @@
 export const Header = () => {
-  return (
-    <section className="container-fluid bg-info">
-      <div className="container">
-        <div className="row">
-          <div
-            className="col-md-6 d-none d-md-block"
-            style={{
-              backgroundImage: "url(./images/banner-home.png)",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              height: "600px",
-            }}
-          ></div>{" "}
-          {/*  solo se muestra a partir de 768px */}
-          <div className="col-md-6 pb-5 align-self-center">
-            <h2 className="display-5 text-center fw-bolder mt-5 mb-3">
-              Trabajamos con tu voz para impulsar tus ideas
-            </h2>
-            <h6 className="lead text-center mb-4">
-              Desarrolla tu proyecto o mejora tu negocio con nuestro
-              acompañamiento y las herramientas que necesitas para crecer.
-            </h6>
-            <div className="d-flex justify-content-center">
-              <button
-                type="button"
-                className="btn btn-outline-dark rounded-pill text-center"
-                style={{ width: "50%" }}
-              >
-                Conoce más
-              </button>
+    return (
+        <section className="bg-info">
+            <div className="container pt-5 text-center">
+                <div className="row">
+                    {/* solo se muestra a partir de 768px */}
+                    <div className="col-lg-6 col-xl-5 d-none d-lg-block"
+                        style={{
+                            backgroundImage: "url(./images/banner-home.png)",
+                            backgroundSize: "contain",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "center",
+                        }}>
+                    </div>
+                    <div className="col-lg-6 col-xl-7 header-padding">
+                        <h2 className="display-5 fw-bolder">
+                            Trabajamos con tu voz para impulsar tus ideas
+                        </h2>
+                        <p className="py-4">
+                            Desarrolla tu proyecto o mejora tu negocio con nuestro
+                            acompañamiento y las herramientas que necesitas para crecer.
+                        </p>
+                        <button type="button"
+                            className="btn btn-outline-dark rounded-pill btn-width">
+                            Conoce más
+                        </button>
+                    </div>
+                    {/* solo se ve en mobile */}
+                    <div className="d-lg-none mt-4"
+                        style={{
+                            backgroundImage: "url(./images/banner-home.png)",
+                            backgroundPosition: "center",
+                            backgroundSize: "contain",
+                            backgroundRepeat: "no-repeat",
+                            height: "260px",
+                        }}>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div
-            className="col-md-6 d-md-none"
-            style={{
-              backgroundImage: "url(./images/banner-home.png)",
-              width: "100%",
-              height: "380px",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          ></div>{" "}
-          {/*  solo se ve en mobile */}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
