@@ -1,8 +1,6 @@
-import "../../styles/header.css";
-
 export const Header = () => {
     return (
-        <section className="container py-5">
+        <section className="container py-5 overflow-hidden">
             <div className="row align-items-center">
                 <div className="col-md-6 text-center text-md-start mb-5 mb-md-0">
                     <h1 className="display-5 fw-bolder">Impulsa tu emprendimiento</h1>

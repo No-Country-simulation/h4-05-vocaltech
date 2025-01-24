@@ -32,6 +32,12 @@
     z-index: 1;
 }
 
+@media (min-width: 768px) {
+    .entrepreneur-header .container {
+        overflow: visible !important;
+    }
+}
+
 @media (min-width: 1024px) {
     .img-entrepreneur, .img-company {
         height: 300px;
