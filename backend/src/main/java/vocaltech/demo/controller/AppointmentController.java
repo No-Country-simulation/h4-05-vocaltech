@@ -1,16 +1,16 @@
-package com.example.appointmentsystem.controller;
+package vocaltech.demo.controller;
 
-import com.example.appointmentsystem.entity.Appointment;
-import com.example.appointmentsystem.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vocaltech.demo.persistence.entity.Appointment;
+import vocaltech.demo.service.AppointmentService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/appointments")
+@RequestMapping("/api/v1/appointments")
 public class AppointmentController {
 
     @Autowired
@@ -18,6 +18,7 @@ public class AppointmentController {
 
     @GetMapping
     public List<Appointment> getAllAppointments() {
+
         return appointmentService.getAllAppointments();
     }
 

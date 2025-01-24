@@ -1,9 +1,9 @@
-package com.example.appointmentsystem.service;
+package vocaltech.demo.service;
 
-import com.example.appointmentsystem.entity.Appointment;
-import com.example.appointmentsystem.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import vocaltech.demo.persistence.entity.Appointment;
+import vocaltech.demo.persistence.repository.AppointmentRepository;
 
 import java.util.List;
 import java.util.Optional;
