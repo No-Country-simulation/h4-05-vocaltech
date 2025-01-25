@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { columnsTable } from "../../utils/columnsTable";
 import { Table } from "../../components/admin/Table";
-import { RoleSelect } from "../../components/admin/RoleSelect";
+import { SelectRole } from "../../components/SelectRole";
 import { prueba } from "../../utils/infoPrueba"; 
 import { useCompanySelect } from "../../contexts/CompanySelected";
 
@@ -17,7 +17,10 @@ export const Appointments = () => {
         <section>
             <div className="pb-3 d-flex justify-content-between align-items-center">
                 <h2>Citas</h2>
-                <RoleSelect />
+                <div className="d-flex flex-column align-items-end">
+                    <label htmlFor="selectRole" className="form-label">Filtrar por</label>
+                    <SelectRole />
+                </div>
             </div>
             {
                 selectedValue === "Vos y tu Voz" ? (
