@@ -40,3 +40,5 @@ public class VocalTechApplication {
 }
 ```
 El servidor estará disponible en el puerto 8080 por defecto.
+
+La documentación de la api estará disponible en la ruta [http://localhost:8080/swagger-ui.html](URL)
