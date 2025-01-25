@@ -3,6 +3,7 @@ package vocaltech.demo.init;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,24 @@ public class DataInitializer implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final FormRepository formRepository;
 
+    @Value("${admin1.name}")
+    private String admin1Name;
+
+    @Value("${admin1.email}")
+    private String admin1Email;
+
+    @Value("${admin1.password}")
+    private String admin1Password;
+
+    @Value("${admin2.name}")
+    private String admin2Name;
+
+    @Value("${admin2.email}")
+    private String admin2Email;
+
+    @Value("${admin2.password}")
+    private String admin2Password;
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -40,15 +59,15 @@ public class DataInitializer implements CommandLineRunner {
             this.roleRepository.save(role1);
             this.roleRepository.save(role2);
             User admin1 = User.builder()
-                    .email("nocountry@mail.com")
-                    .fullname("Leandro Buzeta Bernasconi")
-                    .password(this.passwordEncoder.encode("mypassword"))
+                    .email(admin1Email)
+                    .fullname(admin1Name)
+                    .password(this.passwordEncoder.encode(admin1Password))
                     .roles(Set.of(role1))
                     .build();
             User admin2 = User.builder()
-                    .email("vosytuvoz@mail.com")
-                    .fullname("Inés Mones Cazon")
-                    .password(this.passwordEncoder.encode("mypassword"))
+                    .email(admin2Email)
+                    .fullname(admin2Name)
+                    .password(this.passwordEncoder.encode(admin2Password))
                     .roles(Set.of(role2))
                     .build();
             this.userRepository.save(admin1);
