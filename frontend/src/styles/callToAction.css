@@ -1,0 +1,77 @@
+.call-to-action {
+    background: linear-gradient(135deg, #6dd5fa, #2980b9); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    position: relative;
+}
+
+.call-to-action .wave {
+    animation: waveAnimation 3s ease-out infinite;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    left: 50%;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    z-index: 0;
+}
+
+.call-to-action .wave:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 4s;
+}
+
+.call-to-action .wave:nth-child(2) {
+    animation-delay: 1s; 
+    animation-duration: 4s;
+}
+
+.call-to-action .wave:nth-child(3) {
+    animation-delay: 2s;
+    animation-duration: 4s;
+}
+
+@keyframes waveAnimation {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.2); 
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3); 
+        opacity: 0;
+    }
+}
+
+.call-to-action .digital-lines-top {
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath d="M0 10 L10 20 L20 15 L30 25 L40 20 L50 30 L60 25 L70 35 L80 30 L90 40 L100 35" stroke="white" stroke-width="0.5" fill="none" stroke-dasharray="5" /%3E%3C/svg%3E') repeat-x;
+    height: 80%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.call-to-action .digital-lines-bottom {
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath d="M100 35 L90 30 L80 40 L70 30 L60 25 L50 20 L40 25 L30 15 L20 25 L10 20 L0 10" stroke="white" stroke-width="0.5" fill="none" stroke-dasharray="5" /%3E%3C/svg%3E') repeat-x;
+    bottom: -65%;
+    height: 80%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.call-to-action .zindex {
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .call-to-action .digital-lines-bottom {
+        bottom: -63%;
+    }
+}
