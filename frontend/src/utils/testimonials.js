@@ -1,7 +1,7 @@
 export const testimonials = [
     {
         id: 1,
-        name: "Juan Pérez",
+        name: "Ezequiel Díaz",
         role: "CEO de XYZ",
         description: "La capacitación en técnicas de pitch ha transformado nuestra forma de presentar proyectos. Ahora tenemos las herramientas necesarias para comunicar nuestras ideas de manera clara y efectiva.",
         imgUrl: "https://picsum.photos/200?random=1",

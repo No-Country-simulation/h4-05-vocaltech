@@ -26,3 +26,29 @@
     background-color: #f1f1f1; 
     border-radius: 10px; 
 }  
+
+.btn-width, .btn-width-services {
+    width: 80%;
+}
+
+@media (min-width: 768px) {
+    .btn-width {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-padding {
+        padding-bottom: 4.6rem;
+    }
+    .btn-width, .btn-width-services {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-padding {
+        padding-bottom: 6.6rem;
+        padding-top: 2rem;
+    }
+}

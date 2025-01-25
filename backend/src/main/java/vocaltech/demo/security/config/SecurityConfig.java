@@ -20,7 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import vocaltech.demo.security.filter.JwtAuthenticationFilter;
 import vocaltech.demo.security.utils.JwtUtils;
-import vocaltech.demo.service.implementation.UserDetailServiceImpl;
+import vocaltech.demo.service.implementation.UserDetailsServiceImpl;
 
 import java.util.List;
 
@@ -50,6 +50,23 @@ public class SecurityConfig {
 
                     // PUBLIC Endpoints
                     http.requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/users/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/forms/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/services/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/options/**").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/leads/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/leads/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.DELETE, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/appointments/**").permitAll();
+                    http.requestMatchers(HttpMethod.PUT, "/api/v1/appointments/**").permitAll();
+                    /* Swagger */
+                    http.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll();
+
+                    // PRIVATE Endpoints
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/users/**").authenticated();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
@@ -64,11 +81,11 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationProvider authenticationProvider(
-            UserDetailServiceImpl userDetailService
+            UserDetailsServiceImpl userDetailsService
     ) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
-        provider.setUserDetailsService(userDetailService);
+        provider.setUserDetailsService(userDetailsService);
         return provider;
     }
 
