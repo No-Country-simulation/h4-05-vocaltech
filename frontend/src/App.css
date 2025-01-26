@@ -31,9 +31,26 @@
     width: 80%;
 }
 
+.calendly-inline-widget {
+    height: 200vh !important;
+    min-width: 100% !important;
+}
+
 @media (min-width: 768px) {
     .btn-width {
         width: 40%;
+    } 
+    .shadow-md-form {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    .bg-md-light-form {
+        background-color: #f8f9fa;
+    }
+}
+
+@media (min-width: 919px) {
+    .calendly-inline-widget {
+        height: 170vh !important;
     }
 }
 
@@ -44,11 +61,23 @@
     .btn-width, .btn-width-services {
         width: 50%;
     }
+    .diagnostic form {
+        width: 80%;
+    }
+    .calendly-inline-widget {
+        height: 150vh !important;
+    }
 }
 
 @media (min-width: 1200px) {
     .header-padding {
         padding-bottom: 6.6rem;
         padding-top: 2rem;
+    }
+    .diagnostic form {
+        width: 70%;
+    }
+    .calendly-inline-widget {
+        height: 120vh !important;
     }
 }

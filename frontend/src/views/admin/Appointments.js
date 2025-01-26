@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { columnsTable } from "../../utils/columnsTable";
 import { Table } from "../../components/admin/Table";
-import { RoleSelect } from "../../components/admin/RoleSelect";
+import { SelectRole } from "../../components/SelectRole";
 import { prueba } from "../../utils/infoPrueba"; 
 import { useCompanySelect } from "../../contexts/CompanySelected";
 
 export const Appointments = () => {
     const [appointmentsData, setAppointmentsData] = useState([]);
-    const { selectedValue } = useCompanySelect();
+    const { selectedCompany } = useCompanySelect();
+    const [selectedRole, setSelectedRole] = useState("Todos");
     
     useEffect(() => {
         setAppointmentsData(prueba.appointments);
@@ -17,12 +18,15 @@ export const Appointments = () => {
         <section>
             <div className="pb-3 d-flex justify-content-between align-items-center">
                 <h2>Citas</h2>
-                <RoleSelect />
+                <div className="d-flex flex-column align-items-end">
+                    <label htmlFor="selectRole" className="form-label">Filtrar por</label>
+                    <SelectRole all selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+                </div>
             </div>
             {
-                selectedValue === "Vos y tu Voz" ? (
+                selectedCompany === "Vos y tu Voz" ? (
                     'Tabla Vos y tu voz'
-                ) : selectedValue === "No Country" ? (
+                ) : selectedCompany === "No Country" ? (
                     'Tabla No Country'
                 ) : (
                     <Table columns={columnsTable.appointments} data={appointmentsData} />

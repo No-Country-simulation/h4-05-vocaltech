@@ -5,7 +5,7 @@ import { useCompanySelect } from "../../contexts/CompanySelected";
 
 export const Home = () => {
     const [generalData, setGeneralData] = useState([]);
-    const { selectedValue } = useCompanySelect();
+    const { selectedCompany } = useCompanySelect();
 
     useEffect(() => {
         setGeneralData(prueba.informacionGeneral);
@@ -14,9 +14,9 @@ export const Home = () => {
     return (
         <>
             {
-                selectedValue === "Vos y tu Voz" ? (
+                selectedCompany === "Vos y tu Voz" ? (
                     'cards Vos y tu voz'
-                ) : selectedValue === "No Country" ? (
+                ) : selectedCompany === "No Country" ? (
                     'cards No Country'
                 ) : (
                     generalData.map((data, index) => (
