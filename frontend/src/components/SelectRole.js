@@ -9,8 +9,8 @@ export const SelectRole = ({ all, selectedRole, setSelectedRole }) => {
                     <option value="todos">Todos</option>
                 ) : <option value="Seleccionar" disabled>Seleccionar</option>
             }
-            <option value="emprendedor">Emprendedor</option>
-            <option value="empresa">Empresa</option>
+            <option value="1">Emprendedor</option>
+            <option value="2">Empresa</option>
         </select>
     );
 };

@@ -26,9 +26,9 @@ const uploadToCloudinary = async (file) => {
     } catch {
         throw new Error("Error al subir audio al servidor. Inténtalo de nuevo más tarde.");
     }
-}
+};
 
 export const audioRecorderService = {
     audioFile,
     uploadToCloudinary,
-} 
+}; 

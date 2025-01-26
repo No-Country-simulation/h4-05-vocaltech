@@ -1,28 +1,28 @@
 export const diagnosticNeeds = {
-    tuvozEmprendedor: [
+    1: [
         "Levantamiento de capital",
         "Pitch a inversores",
         "Comunicación efectiva para ventas"
     ],
-    nocountryEmprendedor: [
+    2: [
         "Construcción de MVP"
     ],
-    ambosEmprendedor: [
+    3: [
         "Levantamiento de capital",
         "Pitch a inversores",
         "Construcción de MVP",
         "Comunicación efectiva para ventas"
     ],
-    tuvozEmpresa: [
+    4: [
         "Comunicación y liderazgo",
         "Cultura empresarial",
         "Reskilling - Upskilling",
         "Evidencia de comportamiento",
     ],
-    nocountryEmpresa: [
+    5: [
         "Contratación de nuevo talento"
     ],
-    ambosEmpresa: [
+    6: [
         "Comunicación y liderazgo",
         "Cultura empresarial",
         "Reskilling - Upskilling",

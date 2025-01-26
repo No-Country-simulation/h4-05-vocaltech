@@ -10,9 +10,11 @@ export const Form = () => {
     const [selectedService, setSelectedService] = useState("Seleccionar");
     const [selectedNeeds, setSelectedNeeds] = useState([]); 
     const [file, setFile] = useState(null); 
+    const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
 
-    const handleChange = (e) => setEmail(e.target.value);
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handleFullnameChange = (e) => setFullname(e.target.value);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,8 +23,11 @@ export const Form = () => {
             const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
             
             const dataToSend = {
-                needs: selectedNeeds,
-                audio: uploadedAudioUrl,
+                profileId: selectedRole,
+                selectedOptions: selectedNeeds,
+                voiceRecordingPath: uploadedAudioUrl,
+                fullname: fullname,
+                email: email
             };
     
             console.log(dataToSend);
@@ -58,6 +63,16 @@ export const Form = () => {
                                 <AudioRecorder file={file} setFile={setFile} />
                             </div>
                             <div className="form-group mb-4">
+                                <label htmlFor="fullname" className="form-label fw-bold">Nombre Completo</label>
+                                <input 
+                                    id="fullname" 
+                                    name="fullname" 
+                                    className="form-control" 
+                                    placeholder="Vocaltech" 
+                                    onChange={handleFullnameChange} 
+                                />
+                            </div>
+                            <div className="form-group mb-4">
                                 <label htmlFor="email" className="form-label fw-bold">Correo Electrónico</label>
                                 <input 
                                     autoComplete="email" 
@@ -65,11 +80,11 @@ export const Form = () => {
                                     name="email" 
                                     className="form-control" 
                                     placeholder="prueba@vocaltech.com" 
-                                    onChange={handleChange} 
+                                    onChange={handleEmailChange} 
                                 />
                             </div>
                             <button 
-                                disabled={selectedNeeds.length === 0 || !file || !email} 
+                                disabled={selectedNeeds.length === 0 || !file || !email || !fullname} 
                                 type="submit" 
                                 className="btn btn-primary rounded-pill btn-width-services">
                                 Enviar
