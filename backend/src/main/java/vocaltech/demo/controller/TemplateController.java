@@ -1,17 +1,16 @@
-package com.example.appointmentsystem.controller;
+package vocaltech.demo.controller;
 
-import com.example.appointmentsystem.entity.Template;
-import com.example.appointmentsystem.service.TemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vocaltech.demo.persistence.entity.Template;
+import vocaltech.demo.service.TemplateService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/template")
-
+@RequestMapping("/api/v1/templates")
 public class TemplateController{
 
     @Autowired
@@ -23,25 +22,25 @@ public class TemplateController{
     }
 
     @GetMapping
-    public ResponseEntityList<<Template> getAllTemplates() {
-        return ResponseEntity.ok(templateService.getAllTemplates(Template));
+    public ResponseEntity<List<Template>> getAllTemplates() {
+        return ResponseEntity.ok(templateService.getAllTemplates());
     }
 
-    @PutMapping(/{id})
+    @PutMapping("/{id}")
     public ResponseEntity<Template> updateTemplate(@PathVariable Long id, @RequestBody Template template) {
-        return ResposneEntity.ok(templateService.updateTemplate(id, template));
+        return ResponseEntity.ok(templateService.updateTemplate(id, template));
     }
 
-    @DeleteMapping(/{id})
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTemplate(@PathVariable Long id) {
         templateService.deleteTemplate(id);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{service}")
+    /*@GetMapping("/{service}")
     public ResponseEntity<Template> getTemplateByService(@PathVariable String service) {
         return ResponseEntity.ok(templateService.getTemplateByService(service));
-    }
+    }*/
 
 }
 
