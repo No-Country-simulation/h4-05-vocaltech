@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import vocaltech.demo.controller.data.request.LoginRequest;
 import vocaltech.demo.controller.data.response.LoginResponse;
 import vocaltech.demo.persistence.entity.User;
-import vocaltech.demo.persistence.repository.UserRepository;
+import vocaltech.demo.security.repository.UserRepository;
 import vocaltech.demo.security.utils.JwtUtils;
 import vocaltech.demo.service.AuthService;
 
@@ -52,8 +52,7 @@ public class AuthServiceImpl implements AuthService {
                         .builder()
                         .id(user.getId())
                         .email(user.getEmail())
-                        .firstName(user.getFirstName())
-                        .lastName(user.getLastName())
+                        .fullname(user.getFullname())
                         .roles(
                                 user.getRoles()
                                         .stream().map(role -> role.getValue().name())

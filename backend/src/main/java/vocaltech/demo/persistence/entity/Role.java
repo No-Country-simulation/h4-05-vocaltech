@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import vocaltech.demo.common.enums.RoleEnum;
 
+@Entity
 @Setter
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

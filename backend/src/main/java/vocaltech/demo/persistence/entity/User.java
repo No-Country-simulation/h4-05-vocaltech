@@ -10,12 +10,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
+@Entity
 @Setter
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name = "_user")
 public class User implements UserDetails {
 
@@ -23,8 +23,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
-    private String lastName;
+    private String fullname;
     private String email;
     private String password;
 
