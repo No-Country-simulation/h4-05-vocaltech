@@ -1,40 +1,18 @@
-import { useState } from 'react';
-import { AudioRecorder } from './AudioRecorder';
-import { audioRecorderService } from '../../services/audioRecorder';
-import { diagnosticNeeds } from '../../utils/diagnosticNeeds';
+import { useState } from "react";
+import { SelectRole } from "../SelectRole";
+import { Services } from "./Services";
+import { Needs } from "./Needs";
+import { AudioRecorder } from "./AudioRecorder";
+import { audioRecorderService } from "../../services/audioRecorder";
 
-export const Form = ({ needs }) => {
+export const Form = () => {
+    const [selectedRole, setSelectedRole] = useState("Seleccionar");
+    const [selectedService, setSelectedService] = useState("Seleccionar");
     const [selectedNeeds, setSelectedNeeds] = useState([]); 
     const [file, setFile] = useState(null); 
-    const [selectedOption, setSelectedOption] = useState('Seleccionar');
-    const [selectedServiceOption, setSelectedServiceOption] = useState('Seleccionar');
+    const [email, setEmail] = useState("");
 
-    const handleSelect = e => {
-        setSelectedOption(e.target.value);
-    };
-
-    const handleServiceSelect = e => {
-        setSelectedServiceOption(e.target.value);
-    };
-
-    const getAudioTitle = () => 
-        selectedOption === "emprendedor"
-        ? "Cargar o grabar un audio de tu pitch"
-        : selectedOption === "empresa"
-        ? "Cargar o grabar un audio sobre el problema/necesidad de tu empresa"
-        : ""; 
-
-
-    const handleCheckboxChange = (e) => {
-        const { value, checked } = e.target;
-        setSelectedNeeds((prevNeeds) => {
-            if (checked) {
-                return [...prevNeeds, value];
-            } else {
-                return prevNeeds.filter((need) => need !== value);
-            }
-        });
-    };
+    const handleChange = (e) => setEmail(e.target.value);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,69 +34,50 @@ export const Form = ({ needs }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="mt-4">
-            <div className="form-group">
-                <p>¿Cuál es tu perfil?</p>
-                <select className="form-select w-25" value={selectedOption} onChange={handleSelect}>
-                    <option value="Seleccionar" disabled>Seleccionar</option>
-                    <option value="emprendedor">Emprendedor</option>
-                    <option value="empresa">Empresa</option>
-                </select>
-            </div>
+        <div className="container pb-5 mb-4">
+            <form onSubmit={handleSubmit} className="p-md-5 mx-auto bg-md-light-form rounded shadow-md-form">
+                <div className="form-group mb-4">
+                    <label htmlFor="selectRole" className="form-label fw-bold">¿Cuál es tu perfil?</label>
+                        <SelectRole selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
+                </div>
+                <div className="form-group mb-4">
+                    <Services selectedRole={selectedRole} selectedService={selectedService} 
+                        setSelectedService={setSelectedService} />
+                </div>
+                <div className="form-group mb-4">
+                    <Needs selectedService={selectedService} selectedNeeds={selectedNeeds} 
+                        setSelectedNeeds={setSelectedNeeds} />
+                </div>
                 {
-                    selectedOption === "emprendedor" ? (
-                        <div className="form-group">
-                            <p>¿Cuál servico requieres/necesitas?</p>
-                            <select key={selectedOption} className="form-select w-25" value={selectedServiceOption} onChange={handleServiceSelect}>
-                                <option value="Seleccionar" disabled>Seleccionar</option>
-                                <option value="tuvozEmprendedor">Coaching de comunicación y liderazgo</option>
-                                <option value="nocountryEmprendedor">Desarrollo de MVPs de alta fidelidad en 5 semanas</option>
-                                <option value="ambosEmprendedor">Ambos servicios</option>
-                            </select>   
-                        </div>
-                    ) : selectedOption === "empresa" && (
-                        <div className="form-group">
-                            <p>¿Cuál servico requieres/necesitas?</p>
-                            <select key={selectedOption} className="form-select w-25" value={selectedServiceOption} onChange={handleServiceSelect}>
-                                <option value="Seleccionar" disabled>Seleccionar</option>
-                                <option value="tuvozEmpresa">Workshops y coaching de comunicación y liderazgo</option>
-                                <option value="nocountryEmpresa">Búsqueda y selección de talento</option>
-                                <option value="ambosEmpresa">Ambos servicios</option>
-                            </select>   
-                        </div>
+                    selectedService !== "Seleccionar" && (
+                        <>
+                            <div className="form-group mb-4">
+                                <p className="fw-bold pb-3">
+                                    {selectedRole === "emprendedor" ? "Grabar o cargar un audio de tu pitch (30-60 segundos)" : "Grabar o cargar un audio sobre el problema/necesidad de tu empresa (30-60 segundos)"}
+                                </p>
+                                <AudioRecorder file={file} setFile={setFile} />
+                            </div>
+                            <div className="form-group mb-4">
+                                <label htmlFor="email" className="form-label fw-bold">Correo Electrónico</label>
+                                <input 
+                                    autoComplete="email" 
+                                    id="email" 
+                                    name="email" 
+                                    className="form-control" 
+                                    placeholder="prueba@vocaltech.com" 
+                                    onChange={handleChange} 
+                                />
+                            </div>
+                            <button 
+                                disabled={selectedNeeds.length === 0 || !file || !email} 
+                                type="submit" 
+                                className="btn btn-primary rounded-pill btn-width-services">
+                                Enviar
+                            </button>
+                        </>
                     )
-                   
                 }
-          
-            <div className="form-group">
-                {diagnosticNeeds[selectedServiceOption]?.map((need, index) => (
-                    <div key={index}>
-                        <input
-                            type="checkbox"
-                            value={need}
-                            onChange={handleCheckboxChange}
-                            id={`need-${index}`}
-                            checked={selectedNeeds.includes(need)}
-                        />
-                        <label htmlFor={`need-${index}`}>{need}</label>
-                    </div>
-                ))}
-            </div>
-            {
-                selectedServiceOption !== "Seleccionar" && (
-                    <div className="form-group">
-                <label htmlFor="audio">{getAudioTitle()} (30-60 segundos)</label>
-                <AudioRecorder file={file} setFile={setFile} /> 
-                <label for="">Correo Electrónico</label>
-                <input className="form-control" />
-                <button 
-                disabled={selectedNeeds.length === 0 || !file} 
-                type="submit" className="btn btn-primary">Enviar</button>
-            </div>
-            
-                )
-            }
-            
-        </form>
+            </form>
+        </div>
     );
 };
