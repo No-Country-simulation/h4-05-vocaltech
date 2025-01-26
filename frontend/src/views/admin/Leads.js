@@ -7,7 +7,8 @@ import { useCompanySelect } from "../../contexts/CompanySelected";
 
 export const Leads = () => {
     const [leadsData, setLeadsData] = useState([]);
-    const { selectedValue } = useCompanySelect();
+    const { selectedCompany } = useCompanySelect();
+    const [selectedRole, setSelectedRole] = useState("Todos");
     
     useEffect(() => {
         setLeadsData(prueba.leads);
@@ -19,13 +20,13 @@ export const Leads = () => {
                 <h2>Leads</h2>
                 <div className="d-flex flex-column align-items-end">
                     <label htmlFor="selectRole" className="form-label">Filtrar por</label>
-                    <SelectRole />
+                    <SelectRole all selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
                 </div>
             </div>
                 {
-                    selectedValue === "Vos y tu Voz" ? (
+                    selectedCompany === "Vos y tu Voz" ? (
                         'Leads Vos y tu voz'
-                    ) : selectedValue === "No Country" ? (
+                    ) : selectedCompany === "No Country" ? (
                         'Leads No Country'
                     ) : (
                         <Table columns={columnsTable.leads} data={leadsData} />
