@@ -4,17 +4,20 @@ import { Partners } from "../components/Partners";
 import { Services } from "../components/Services";
 import { Benefits } from "../components/Benefits";
 import { Testimonials } from "../components/testimonial/Testimonials";
-import { Diagnostic } from "../components/Diagnostic";
+import { CallToAction } from "../components/CallToAction";
+import "../styles/callToAction.css";
 
 export const Home = () => {
-  return (
-    <>
-      <Header />
-      <Partners />
-      <Services />
-      <Benefits />
-      <Testimonials />
-      <Diagnostic />   
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Partners />
+            <Services />
+            <Benefits />
+            <section className="call-to-action">
+                <CallToAction />
+            </section>
+            <Testimonials />  
+        </>
+    );
 };
