@@ -4,13 +4,13 @@ import "../styles/navbar.css"
 
 export const NavbarVocalTech = () => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top py-3">
             <div className="container">
                 <Link className="navbar-brand text-white" to="/">
-                    VocalTech
+                    <strong>V</strong>ocal<strong>T</strong>ech
                 </Link>
                 <button
-                    className="navbar-toggler text-white"
+                    className="navbar-toggler text-white border-0"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
@@ -24,7 +24,7 @@ export const NavbarVocalTech = () => {
                     aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header bg-dark">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
-                            VocalTech
+                            <strong>V</strong>ocal<strong>T</strong>ech
                         </h5>
                         <button
                             type="button"
@@ -38,7 +38,7 @@ export const NavbarVocalTech = () => {
                             {
                                 navLinks.map((link, index) => (
                                     <li className="nav-item" key={index}>
-                                        <Link className="nav-link text-white ms-4" to={link.to}>
+                                        <Link className="nav-link text-white" to={link.to}>
                                             {link.label}
                                         </Link>
                                     </li>

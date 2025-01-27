@@ -27,6 +27,10 @@
     border-radius: 10px; 
 }  
 
+button:focus {
+    box-shadow: none !important;
+}
+
 .btn-width, .btn-width-services {
     width: 100%;
 }
