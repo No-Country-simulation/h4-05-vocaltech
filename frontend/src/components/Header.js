@@ -1,6 +1,8 @@
+import "../styles/header.css"
+
 export const Header = () => {
     return (
-        <section className="bg-info">
+        <section className="container-home-header">
             <div className="container pt-5 text-center">
                 <div className="row">
                     {/* solo se muestra a partir de 768px */}
@@ -13,15 +15,15 @@ export const Header = () => {
                         }}>
                     </div>
                     <div className="col-lg-6 col-xl-7 header-padding">
-                        <h2 className="display-5 fw-bolder">
+                        <h2 className="display-5 fw-bolder ">
                             Trabajamos con tu voz para impulsar tus ideas
                         </h2>
-                        <p className="py-4">
+                        <p className="py-4 lead">
                             Desarrolla tu proyecto o mejora tu negocio con nuestro
                             acompañamiento y las herramientas que necesitas para crecer.
                         </p>
                         <button type="button"
-                            className="btn btn-outline-dark rounded-pill btn-width">
+                            className="btn btn-outline-light rounded-pill btn-width">
                             Conoce más
                         </button>
                     </div>

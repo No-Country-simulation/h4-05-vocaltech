@@ -1,8 +1,13 @@
 import { CardTemplates } from "../../components/admin/CardAdmin/CardTemplates";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import useModal from "../../hooks/useModal";
+import { Modal } from "../../components/Modal";
+import { Form } from "../../components/admin/Form";
 
 export const Templates = () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
+
   return (
     <>
       <div className="container">
@@ -14,7 +19,7 @@ export const Templates = () => {
                 Selecciona un template
               </h2>
               <div className="col-md-4 text-end me-2">
-                <button className="btn btn-outline-success rounded-pill">
+                <button className="btn btn-outline-success rounded-pill" onClick={openModal}>
                   <FontAwesomeIcon className="me-2" icon={faPlus} />
                   Crear Plantilla
                 </button>
@@ -26,6 +31,9 @@ export const Templates = () => {
           </div>
         </div>
       </div>
+      <Modal title={"Crear Plantilla"} isOpen={isModalOpen} closeModal={closeModal}>
+        <Form />
+      </Modal>
     </>
   );
 };
