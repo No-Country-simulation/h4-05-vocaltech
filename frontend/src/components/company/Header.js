@@ -19,7 +19,7 @@ export const Header = () => {
                         y éxito de tu organización.
                     </p>
                     <button type="button"
-                        className="btn btn-dark rounded-pill btn-width-services">
+                        className="btn btn-dark rounded-pill btn-personalized">
                         Solicitar Diagnóstico
                     </button>
                 </div>

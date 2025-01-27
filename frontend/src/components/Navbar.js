@@ -7,10 +7,10 @@ export const NavbarVocalTech = () => {
         <nav className="navbar navbar-expand-sm navbar-dark navbar-bg sticky-top">
             <div className="container">
                 <Link className="navbar-brand text-white" to="/">
-                    VocalTech
+                    <strong>V</strong>ocal<strong>T</strong>ech
                 </Link>
                 <button
-                    className="navbar-toggler text-white"
+                    className="navbar-toggler text-white border-0"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
@@ -24,7 +24,7 @@ export const NavbarVocalTech = () => {
                     aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header navbar-bg">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
-                            VocalTech
+                            <strong>V</strong>ocal<strong>T</strong>ech
                         </h5>
                         <button
                             type="button"

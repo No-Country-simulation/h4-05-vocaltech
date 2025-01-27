@@ -7,16 +7,14 @@ export const CallToAction = () => {
             <div className="digital-lines-top"></div>
             <div className="row align-items-center">
                 <div className="col-md-6 pe-lg-5">
-                    <h2 className="display-5 pb-4 fw-bolder">¿Listo para impulsar tu pitch y conectar 
-                        con inversores?
-                    </h2>
-                    <p className="fw-bold pb-4">¿Te cuesta comunicar tu propuesta de valor y conectar con 
-                        inversores o clientes clave?
-                    </p>
+                    <h2 className="display-5 pb-4 fw-bolder">¡Da el siguiente paso hoy mismo!</h2>
+                   
                 </div>
                 <div className="col-md-6">
-                    <p className="lead pb-5">Completa el diagnóstico y recibe una hoja de ruta personalizada 
-                        para mejorar tu pitch, validar tu negocio y construir tu MVP.</p>
+                    <p className="lead pb-5">Descubre cómo podemos ayudarte a lograr tus objetivos. 
+                        Completa nuestro diagnóstico personalizado o agenda una cita para comenzar a 
+                        transformar tu proyecto
+                    </p>
                     <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
                         <button type="button" className="btn btn-dark rounded-pill btn-personalized zindex">
                             ¡Hazlo AHORA!
