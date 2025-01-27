@@ -86,7 +86,7 @@ export const Form = () => {
                             <button 
                                 disabled={selectedNeeds.length === 0 || !file || !email || !fullname} 
                                 type="submit" 
-                                className="btn btn-primary rounded-pill btn-width-services">
+                                className="btn btn-primary rounded-pill btn-personalized">
                                 Enviar
                             </button>
                         </>

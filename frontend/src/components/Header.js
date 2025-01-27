@@ -21,7 +21,7 @@ export const Header = () => {
                             acompañamiento y las herramientas que necesitas para crecer.
                         </p>
                         <button type="button"
-                            className="btn btn-outline-dark rounded-pill btn-width">
+                            className="btn btn-outline-dark rounded-pill btn-personalized">
                             Conoce más
                         </button>
                     </div>

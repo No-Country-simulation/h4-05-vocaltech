@@ -13,7 +13,7 @@ export const CallToAction = () => {
                     <p className="lead pb-5">¡Elige la fecha y hora que mejor te convenga y démosle impulso a tu próximo paso!
                     </p>
                     <Link to="/agendar-cita">
-                        <button className="btn btn-dark rounded-pill btn-width-services">Ir al calendario</button>
+                        <button className="btn btn-dark rounded-pill btn-personalized">Ir al calendario</button>
                     </Link>
                 </div>
             </div>

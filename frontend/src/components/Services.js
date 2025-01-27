@@ -26,7 +26,7 @@ export const Services = () => {
                             <Link to="/emprendedor">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-dark rounded-pill btn-width-services">
+                                    className="btn btn-outline-dark rounded-pill btn-personalized">
                                     <FontAwesomeIcon className="me-1" icon={faLightbulb} /> Descubrir más
                                 </button>
                             </Link>
@@ -52,7 +52,7 @@ export const Services = () => {
                             <Link to="/empresa">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-dark rounded-pill btn-width-services">
+                                    className="btn btn-outline-dark rounded-pill btn-personalized">
                                         <FontAwesomeIcon className="me-1" icon={faBuilding} /> Descubrir más
                                 </button>
                             </Link>    

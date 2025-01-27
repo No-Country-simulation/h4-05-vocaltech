@@ -8,7 +8,7 @@ export const Header = () => {
                         servicios y descubre herramientas y estrategias personalizadas para tu negocio
                     </p>
                     <button type="button"
-                        className="btn btn-dark rounded-pill btn-width-services">
+                        className="btn btn-dark rounded-pill btn-personalized">
                         Solicitar Diagnóstico
                     </button>
                 </div>

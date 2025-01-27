@@ -1,3 +1,7 @@
+.show .nav-item a {
+  margin-left: 0 !important;
+}
+
 .nav-link {
   transition-duration: 0.3s;
   transition-property: transform;

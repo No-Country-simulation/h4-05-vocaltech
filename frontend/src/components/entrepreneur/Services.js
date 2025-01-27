@@ -17,7 +17,7 @@ export const Services = () => {
                             <p className="pb-4">Desarrolla la habilidad de inspirar a otros y <strong>lograr tus objetivos 
                                 personales y profesionales</strong> con mayor impacto.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" 
                                     aria-controls="1">
                                     Conocer opciones
@@ -47,7 +47,7 @@ export const Services = () => {
                                 que buscan llevar su idea al siguiente nivel y obtener feedback clave 
                                 antes de una inversión mayor.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#2" aria-expanded="false" 
                                     aria-controls="2">
                                     Conocer opciones

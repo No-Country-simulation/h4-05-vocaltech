@@ -20,7 +20,7 @@ export const Services = () => {
                             <p className="pb-4"><strong>Ideal para empresas que buscan maximizar el 
                                 talento y mejorar su desempeño colectivo</strong>.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" 
                                     aria-controls="1">
                                     Conocer opciones
@@ -53,7 +53,7 @@ export const Services = () => {
                             <p className="pb-4"><strong>Ideal para empresas que buscan 
                                 un proceso de selección más riguroso y confiable</strong>.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#2" aria-expanded="false" 
                                     aria-controls="2">
                                     Conocer opciones

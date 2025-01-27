@@ -31,7 +31,8 @@ button:focus {
     box-shadow: none !important;
 }
 
-.btn-width, .btn-width-services {
+.btn-personalized {
+    padding: 8px 12px;
     width: 100%;
 }
 
@@ -41,9 +42,6 @@ button:focus {
 }
 
 @media (min-width: 768px) {
-    .btn-width {
-        width: 40%;
-    } 
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
@@ -62,7 +60,7 @@ button:focus {
     .header-padding {
         padding-bottom: 4.6rem;
     }
-    .btn-width, .btn-width-services {
+    .btn-personalized {
         width: 50%;
     }
     .diagnostic form {

@@ -38,7 +38,7 @@ export const NavbarVocalTech = () => {
                             {
                                 navLinks.map((link, index) => (
                                     <li className="nav-item" key={index}>
-                                        <Link className="nav-link text-white" to={link.to}>
+                                        <Link className="nav-link text-white ms-4" to={link.to}>
                                             {link.label}
                                         </Link>
                                     </li>
