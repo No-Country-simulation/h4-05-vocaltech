@@ -8,6 +8,17 @@
     position: relative;
 }
 
+.container-home-header {
+    background: linear-gradient(135deg,  #cac8ff,  #52528b ); 
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    position: relative;
+}
+
+.header-button {
+    background-color: #938ff4;
+}
+
 .img-wrapper {
     position: relative;
 }

@@ -4,7 +4,7 @@ import "../styles/navbar.css"
 
 export const NavbarVocalTech = () => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top py-3">
+        <nav className="navbar navbar-expand-sm navbar-dark navbar-bg sticky-top">
             <div className="container">
                 <Link className="navbar-brand text-white" to="/">
                     <strong>V</strong>ocal<strong>T</strong>ech
@@ -18,11 +18,11 @@ export const NavbarVocalTech = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div
-                    className="offcanvas offcanvas-end bg-dark"
+                    className="offcanvas offcanvas-end navbar-bg"
                     tabIndex="-1"
                     id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
-                    <div className="offcanvas-header bg-dark">
+                    <div className="offcanvas-header navbar-bg">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
                             <strong>V</strong>ocal<strong>T</strong>ech
                         </h5>
@@ -33,7 +33,7 @@ export const NavbarVocalTech = () => {
                             aria-label="Close">
                         </button>
                     </div>
-                    <div className="offcanvas-body bg-dark">
+                    <div className="offcanvas-body navbar-bg">
                         <ul className="navbar-nav justify-content-end flex-grow-1">
                             {
                                 navLinks.map((link, index) => (

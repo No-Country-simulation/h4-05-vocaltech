@@ -1,9 +1,8 @@
 :root {
-  --first-color: ;
-  --second-color: ;
-  --accent-color: ;
-  --title-font: ;
-  --text-font: ;
+  --navbar-footer-color: #000419;
+  --bg-sections-color: #f8f4f9;
+  --title-font: #000419;
+  --text-font: #0e1224;
 }
 
 * {
@@ -19,6 +18,8 @@ body {
     margin: 0;
     font-family: "Montserrat", serif;
     font-style: normal;
+    font-style: var(--text-font);
+    background-color: var(--bg-sections-color);
 }
 
 h1,
@@ -29,6 +30,7 @@ p,
 ul {
     margin-bottom: 0;
     margin-top: 0;
+    color: var(--title-font);
 }
 
 ul {
