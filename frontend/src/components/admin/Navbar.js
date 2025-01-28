@@ -7,7 +7,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
  
     return (
         <nav className="navbar navbar-dark bg-dark sticky-top d-md-none">
@@ -60,9 +60,7 @@ export const Navbar = () => {
                         <p className="text-white pb-3">
                             <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                         </p>
-                        <Link to="/" className="btn btn-primary w-50">
-                            Cerrar sesión
-                        </Link>
+                        <button onClick={logout} className="btn btn-primary w-75">Cerrar sesión</button>
                     </div>
                 </div>
             </div>

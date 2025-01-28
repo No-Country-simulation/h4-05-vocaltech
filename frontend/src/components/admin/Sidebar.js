@@ -7,7 +7,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Sidebar = () => {
     const { user, logout } = useAuth();
-    console.log(user)
     
     return (
         <div className="d-md-flex d-none ">
