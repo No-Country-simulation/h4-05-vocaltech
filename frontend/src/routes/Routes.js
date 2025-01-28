@@ -14,6 +14,7 @@ import { Leads } from "../views/admin/Leads";
 import { AddAdmin } from "../views/admin/AddAdmin";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { AuthProvider } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 
 export const AppRoutes = () => {
@@ -30,11 +31,17 @@ export const AppRoutes = () => {
                 <Route path="/empresa" element={<Company />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
-                <Route path="/login-admin" element={<Login />} />
+                <Route path="/login-admin" element={
+                    <AuthProvider>
+                        <Login />
+                    </AuthProvider>
+                } />
                 <Route path="/admin-dashboard/*" element={
-                    <CompanySelected>
-                        <Admin />     
-                    </CompanySelected>}>
+                    <AuthProvider>
+                        <CompanySelected>
+                            <Admin />
+                        </CompanySelected>
+                    </AuthProvider> }>
                     <Route index element={<AdminHome />} />
                     <Route path="templates" element={<Templates />} />
                     <Route path="appointments" element={<Appointments />} />

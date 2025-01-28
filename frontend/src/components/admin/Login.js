@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { Loader } from "../Loader";
 import { authService } from "../../services/auth";
+import { useAuth } from "../../contexts/Auth";
 
 export const Login = () => {
     const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ export const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [errorEmail, setErrorEmail] = useState("");
     const [errorPass, setErrorPass] = useState("");
-    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -33,14 +34,14 @@ export const Login = () => {
             };
 
             const response = await authService.admin(data);
-            console.log(response)
+            login(response);
             reset();
-            navigate("/admin-dashboard");
-            
+   
         } catch (error) {
             setErrorEmail("Correo inválido");
             setErrorPass("Contraseña inválida");
             toast.error(error.message);
+
         } finally {
             setIsLoading(false);
         }

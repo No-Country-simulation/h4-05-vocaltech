@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { DashSelect } from "./DashSelect";
+import { useAuth } from "../../contexts/Auth";
 import { sidebarLinks } from "../../utils/sidebarLinks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
+    const { user } = useAuth();
+ 
     return (
         <nav className="navbar navbar-dark bg-dark sticky-top d-md-none">
             <div className="container">
@@ -54,8 +57,9 @@ export const Navbar = () => {
                         </ul>
                     </div>
                     <div className="text-center pb-4">
-                        <p className="text-white pb-5">
-                            <FontAwesomeIcon icon={faUser} className="pe-1" /> Nombre Usuario</p>
+                        <p className="text-white pb-3">
+                            <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
+                        </p>
                         <Link to="/" className="btn btn-primary w-50">
                             Cerrar sesión
                         </Link>
