@@ -1,6 +1,7 @@
 import { CardTemplates } from "../../components/admin/CardAdmin/CardTemplates";
 import { Modall } from "../../components/Modal";
 import { useModal } from "../../hooks/useModal";
+import { FormTemplate } from "../../components/admin/FormTemplate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,8 +35,8 @@ export const Templates = () => {
       <Modall
         showModal={showModal}
         closeModal={closeModal}
-        title="Título del Modal">
-        <p>Aquí va el componente form</p>
+        title="Crear nueva plantilla">
+        <FormTemplate />
       </Modall>
     </>
   );
