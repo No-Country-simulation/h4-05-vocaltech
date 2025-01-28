@@ -4,6 +4,7 @@ import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
 import { Diagnostic } from "../views/Diagnostic";
+import { Login } from "../views/admin/Login";
 import { Admin } from "../views/admin/Admin"; 
 import { Appointment } from "../views/Appointment";
 import { Home as AdminHome } from "../views/admin/Home";
@@ -29,6 +30,7 @@ export const AppRoutes = () => {
                 <Route path="/empresa" element={<Company />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
+                <Route path="/login-admin" element={<Login />} />
                 <Route path="/admin-dashboard/*" element={
                     <CompanySelected>
                         <Admin />     
