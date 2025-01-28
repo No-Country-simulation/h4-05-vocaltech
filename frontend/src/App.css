@@ -43,12 +43,13 @@ button:focus {
     transition-duration: 0.3s;
     transition-property: transform;
     transform: translateZ(0);
+    border: none;
 }
 
 .btn-personalized:hover {
     transform: translateY(-2px);
     background-color: #938ff4;
-    color: #fff;
+    color: var(--color-text-dark);
     border-color: transparent;
 }
 

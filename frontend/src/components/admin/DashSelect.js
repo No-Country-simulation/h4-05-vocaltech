@@ -2,7 +2,7 @@ import { useCompanySelect } from "../../contexts/CompanySelected";
 
 export const DashSelect = () => {
     const { selectedCompany, changeSelectedCompany } = useCompanySelect();
-    const handleChange = (e) => changeSelectedCompany(e.target.value);
+    const handleChange = (e) => changeSelectedCompany(Number(e.target.value));
 
     return (
         <>
