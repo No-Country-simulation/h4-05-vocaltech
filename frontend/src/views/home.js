@@ -5,6 +5,7 @@ import { Services } from "../components/Services";
 import { Benefits } from "../components/Benefits";
 import { Testimonials } from "../components/testimonial/Testimonials";
 import { CallToAction } from "../components/CallToAction";
+import "../styles/header.css"
 import "../styles/callToAction.css";
 
 export const Home = () => {

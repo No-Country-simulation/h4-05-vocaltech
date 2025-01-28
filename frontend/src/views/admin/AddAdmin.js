@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useCompanySelect } from "../../contexts/CompanySelected";
 const BASE_URL = "";
 
+
 export const AddAdmin = () => {
+  const { selectedCompany } = useCompanySelect();
+  console.log(selectedCompany);
   const navigate = useNavigate();
   const [adminData, setAdminData] = useState({
     fullName: "",
     email: "",
     password: ""
   });
+
+
   const handleNewAdmin = async (e) => {
     e.preventDefault();
-
+    
     try {
-      const response = await axios.post(`${BASE_URL}/`, adminData);
+      const response = await axios.post(`${BASE_URL}/`, {...adminData, role_id: selectedCompany});
       console.log("Admin added successfully:", response.data);
       setAdminData({
         fullName: "",

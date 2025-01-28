@@ -1,9 +1,12 @@
 :root {
-  --first-color: ;
-  --second-color: ;
-  --accent-color: ;
-  --title-font: ;
-  --text-font: ;
+  --bg-dark: #000419;
+  --bg-light: #f8f4f9;
+  --color-title-dark: #000419;
+  --color-title-light: ;
+  --color-text-dark: #0e1224;
+  --color-text-light: ;
+  --color-accent-1: ;
+  --color-accent-2: ; 
 }
 
 * {
@@ -19,16 +22,19 @@ body {
     margin: 0;
     font-family: "Montserrat", serif;
     font-style: normal;
+    font-style: var(--color-text-dark);
+    background-color: var(--bg-light);
 }
 
 h1,
 h2,
 h3,
 h4,
-p,
-ul {
+h5,
+h6 {
     margin-bottom: 0;
     margin-top: 0;
+    color: var(--color-title-dark);
 }
 
 ul {
