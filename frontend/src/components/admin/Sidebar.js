@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 import { DashSelect } from "./DashSelect";
 import { sidebarLinks } from "../../utils/sidebarLinks";
-import { useMenuSelect } from "../../contexts/MenuSelected";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Sidebar = () => {
-    const { changeSelectedMenu } = useMenuSelect();
-    const handleMenuClick = (option) => changeSelectedMenu(option);
-
     return (
         <div className="d-md-flex d-none ">
             <div
@@ -26,8 +22,7 @@ export const Sidebar = () => {
                             sidebarLinks.map((link, index) => (
                                 <li className="nav-item" key={index}>
                                     <Link className="nav-link text-white" 
-                                        to={link.to}
-                                        onClick={() => handleMenuClick(link.label)}>
+                                        to={link.to}>
                                         {link.label}
                                     </Link>
                                 </li>

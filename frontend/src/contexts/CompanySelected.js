@@ -3,11 +3,11 @@ import { createContext, useState, useContext } from "react";
 const CompanySelectContext = createContext();
 
 export const CompanySelected = ({ children }) => {
-    const [selectedValue, setSelectedValue] = useState("General");
-    const changeSelectedValue = (value) => setSelectedValue(value);
+    const [selectedCompany, setSelectedCompany] = useState("General");
+    const changeSelectedCompany = (value) => setSelectedCompany(value);
 
     return (
-        <CompanySelectContext.Provider value={{ selectedValue, changeSelectedValue }}>
+        <CompanySelectContext.Provider value={{ selectedCompany, changeSelectedCompany }}>
             {children}
         </CompanySelectContext.Provider>
     );

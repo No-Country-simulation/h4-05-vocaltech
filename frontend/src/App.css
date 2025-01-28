@@ -1,10 +1,79 @@
-.btn-width, .btn-width-services {
-    width: 80%;
+.navbar-bg, .footer-bg {
+    background-color: var(--bg-dark);
+}
+
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.table th, .table td {
+    padding: 16px; 
+}
+
+.table th, .table td {
+    white-space: nowrap; 
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;  
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #2575fc; 
+    border-radius: 10px;         
+    border: 2px solid #fff;    
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+    border-radius: 10px; 
+}  
+
+button:focus {
+    box-shadow: none !important;
+}
+
+.btn-personalized {
+    padding: 8px 12px;
+    width: 100%;
+    background-color: #0e1224;
+    color: #fff;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+    border: none;
+}
+
+.btn-personalized:hover {
+    transform: translateY(-2px);
+    background-color: #938ff4;
+    color: var(--color-text-dark);
+    border-color: transparent;
+}
+
+.calendly-inline-widget {
+    height: 200vh !important;
+    min-width: 100% !important;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
-    .btn-width {
-        width: 40%;
+    .shadow-md-form {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    .bg-md-light-form {
+        background-color: #f8f9fa;
+    }
+}
+
+@media (min-width: 919px) {
+    .calendly-inline-widget {
+        height: 170vh !important;
     }
 }
 
@@ -12,8 +81,14 @@
     .header-padding {
         padding-bottom: 4.6rem;
     }
-    .btn-width, .btn-width-services {
+    .btn-personalized {
         width: 50%;
+    }
+    .diagnostic form {
+        width: 80%;
+    }
+    .calendly-inline-widget {
+        height: 150vh !important;
     }
 }
 
@@ -21,5 +96,11 @@
     .header-padding {
         padding-bottom: 6.6rem;
         padding-top: 2rem;
+    }
+    .diagnostic form {
+        width: 70%;
+    }
+    .calendly-inline-widget {
+        height: 120vh !important;
     }
 }
