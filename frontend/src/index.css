@@ -2,11 +2,11 @@
   --bg-dark: #000419;
   --bg-light: #f8f4f9;
   --color-title-dark: #000419;
-  --color-title-light: ;
+  --color-title-light: #f8f4f9;
   --color-text-dark: #0e1224;
-  --color-text-light: ;
-  --color-accent-1: ;
-  --color-accent-2: ; 
+  --color-text-light: #f8f4f9;
+  --color-accent-1: #535a7c;
+  --color-accent-2: #938ff4; 
 }
 
 * {
