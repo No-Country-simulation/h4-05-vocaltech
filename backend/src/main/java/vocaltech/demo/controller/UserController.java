@@ -3,8 +3,6 @@ package vocaltech.demo.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import vocaltech.demo.controller.data.request.RegisterUserRequest;
 import vocaltech.demo.controller.data.response.RegisterUserResponse;
@@ -16,10 +14,8 @@ import vocaltech.demo.service.EmailService;
 import vocaltech.demo.service.implementation.RoleServiceImpl;
 import vocaltech.demo.service.implementation.UserDetailsServiceImpl;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/users")

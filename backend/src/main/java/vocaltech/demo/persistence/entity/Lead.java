@@ -23,6 +23,7 @@ public class Lead {
     private String email;
 
     private boolean isProposalSent;
+    private boolean diagnostic;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "form_id", nullable = false)
