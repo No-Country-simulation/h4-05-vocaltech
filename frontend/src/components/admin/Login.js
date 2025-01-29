@@ -62,7 +62,7 @@ export const Login = () => {
                         onChange={handlePasswordChange} placeholder="contraseña" />
                     <small className="text-danger">{errorPass}</small>
                 </div>
-                <button type="submit" disabled={isLoading} className="btn btn-primary w-100">
+                <button type="submit" disabled={isLoading} className="btn btn-login rounded-pill w-100">
                     {
                         isLoading ? (
                             <Loader />
