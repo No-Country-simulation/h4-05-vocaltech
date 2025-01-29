@@ -36,7 +36,7 @@ h6 {
     margin-top: 0;
 }
 
-p {
+p, label, small {
     color: var(--color-text-dark) !important;
 }
 
@@ -46,16 +46,7 @@ ul {
 }
 
 button {
-    border: none;
-}
-
-button:active {
-    background-color: var(--color-accent-2) !important;
-    color: var(--color-text-dark) !important;
-}
-
-.btn:focus-visible {
-    box-shadow: none !important;
+    border: none !important;
 }
 
 ::-webkit-scrollbar {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from 'sonner';
+import { Loader } from "../Loader";
 import { SelectRole } from "../SelectRole";
 import { Services } from "./Services";
 import { Needs } from "./Needs";
@@ -14,6 +15,7 @@ export const Form = () => {
     const [file, setFile] = useState(null); 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handleFullnameChange = (e) => setFullname(e.target.value);
@@ -34,6 +36,7 @@ export const Form = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         try {
             const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
@@ -47,14 +50,13 @@ export const Form = () => {
                 email: email
             };
 
-            console.log(data);
-            const response = await diagnosticService.sendDiagnostic(data)
-            console.log(response)
-
+            await diagnosticService.sendDiagnostic(data);
             reset();
             toast.success("Enviado exitosamente! Esté pendiente de su correo.")
         } catch (error) {
-            console.log(error)
+            toast.error(error.message);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -107,12 +109,18 @@ export const Form = () => {
                                     onChange={handleEmailChange} 
                                 />
                             </div>
-                            <button 
-                                disabled={selectedNeeds.length === 0 || !file || !fullname || !email } 
-                                type="submit" 
-                                className="btn btn-primary rounded-pill btn-personalized">
-                                Enviar
-                            </button>
+                            <div className="text-center">
+                                <button 
+                                    disabled={selectedNeeds.length === 0 || !file || !fullname || !email || isLoading } 
+                                    type="submit" 
+                                    className="btn rounded-pill btn-form-diagnostic">
+                                    {
+                                        isLoading ? (
+                                            <Loader />
+                                        ) : "Enviar"
+                                    }
+                                </button>
+                            </div>
                         </>
                     )
                 }

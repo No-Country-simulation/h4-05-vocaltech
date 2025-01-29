@@ -4,7 +4,7 @@ export const Header = () => {
             <div className="row">
                 <div className="text-center">
                     <h1 className="display-5 fw-bolder" 
-                        style={{background: "linear-gradient(135deg, #6a11cb, #2575fc)", 
+                        style={{background: "linear-gradient(135deg, #938ff4, #535a7c)", 
                         WebkitBackgroundClip: "text",  
                         WebkitTextFillColor: "transparent"}}>¡Haz tu Diagnóstico!
                     </h1>
