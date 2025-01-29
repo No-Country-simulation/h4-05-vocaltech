@@ -53,6 +53,17 @@ button:focus {
     border-color: transparent;
 }
 
+.btn-login {
+    background-color: var(--bg-dark);
+    border: none;
+    color: var(--color-text-light);
+    padding: 8px 12px;
+}
+
+.btn-login:hover, .btn-login:disabled {
+    background-color: var(--color-accent-2);
+}
+
 .calendly-inline-widget {
     height: 200vh !important;
     min-width: 100% !important;
