@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import vocaltech.demo.controller.data.request.AddPlanRequest;
 import vocaltech.demo.controller.data.request.LeadRequest;
 import vocaltech.demo.controller.data.response.LeadResponse;
+import vocaltech.demo.email.EmailTemplates;
 import vocaltech.demo.mapper.LeadMapper;
 import vocaltech.demo.persistence.entity.*;
 import vocaltech.demo.service.EmailService;
@@ -14,7 +15,9 @@ import vocaltech.demo.service.TemplateService;
 import vocaltech.demo.service.implementation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,6 +38,9 @@ public class LeadController {
 
     @PostMapping
     public ResponseEntity<LeadResponse> createLead(@RequestBody LeadRequest request) {
+
+        /* Persist Lead */
+
         Form form = this.formService.getForm(request.getProfileId(), request.getServiceId());
 
         Set<Option> answers = this.optionService.getOptions(request.getSelectedOptions());
@@ -61,7 +67,28 @@ public class LeadController {
 
         response.setRoles(roles);
 
+        /* Send Templates by email */
+
+        List<Template> templates = answers.stream()
+                .map(answer -> {
+                    List<Template> templateList = answer.getTemplates().stream().toList();
+                    return templateList.isEmpty() ? null : templateList.get(ThreadLocalRandom.current().nextInt(templateList.size()));
+                })
+                .filter(Objects::nonNull).toList();
+
         /* TODO SEND OPTIONS AND TEMPLATES BY EMAIL */
+        if(!templates.isEmpty()){
+            String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
+            this.emailService.sendEmail(
+                    lead.getEmail(),
+                    "Resultado de Diagnóstico Vocaltech.",
+                    emailTemplate);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
+        }
+
+
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
