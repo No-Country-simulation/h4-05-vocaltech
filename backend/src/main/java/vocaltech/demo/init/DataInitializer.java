@@ -28,6 +28,8 @@ public class DataInitializer implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final FormRepository formRepository;
 
+    private final AdminDestinyRepository adminDestinyRepository;
+
     @Value("${admin1.name}")
     private String admin1Name;
 
@@ -56,8 +58,10 @@ public class DataInitializer implements CommandLineRunner {
             Role role2 = Role.builder()
                     .value(RoleEnum.ROLE_ADMIN_VOSYTUVOZ)
                     .build();
-            this.roleRepository.save(role1);
-            this.roleRepository.save(role2);
+
+            role1 = this.roleRepository.save(role1);
+            role2 = this.roleRepository.save(role2);
+
             User admin1 = User.builder()
                     .email(admin1Email)
                     .fullname(admin1Name)
@@ -70,16 +74,20 @@ public class DataInitializer implements CommandLineRunner {
                     .password(this.passwordEncoder.encode(admin2Password))
                     .roles(Set.of(role2))
                     .build();
+
             this.userRepository.save(admin1);
             this.userRepository.save(admin2);
+
             Profile profile1 = Profile.builder()
                     .value("Emprendedor")
                     .build();
             Profile profile2 = Profile.builder()
                     .value("Empresa")
                     .build();
+
             profile1 = this.profileRepository.save(profile1);
             profile2 = this.profileRepository.save(profile2);
+
             Option option1 = Option.builder().value("Levantamiento de capital").build();
             Option option2 = Option.builder().value("Pitch a inversores").build();
             Option option3 = Option.builder().value("Comunicación efectiva para ventas").build();
@@ -89,6 +97,7 @@ public class DataInitializer implements CommandLineRunner {
             Option option7 = Option.builder().value("Reskilling - Upskilling").build();
             Option option8 = Option.builder().value("Evidencia de comportamiento").build();
             Option option9 = Option.builder().value("Contratación de nuevo talento").build();
+
             option1 = this.optionRepository.save(option1);
             option2 = this.optionRepository.save(option2);
             option3 = this.optionRepository.save(option3);
@@ -98,11 +107,13 @@ public class DataInitializer implements CommandLineRunner {
             option7 = this.optionRepository.save(option7);
             option8 = this.optionRepository.save(option8);
             option9 = this.optionRepository.save(option9);
+
             Service service1 = Service.builder().value("Coaching de comunicación y liderazgo").build();
             Service service2 = Service.builder().value("Desarrollo de MVPs de alta fidelidad en 5 semanas").build();
             Service service3 = Service.builder().value("Workshops y coaching de comunicación y liderazgo").build();
             Service service4 = Service.builder().value("Busqueda y selección de talento").build();
             Service service5 = Service.builder().value("Ambos servicios").build();
+
             service1 = this.serviceRepository.save(service1);
             service2 = this.serviceRepository.save(service2);
             service3 = this.serviceRepository.save(service3);
@@ -113,7 +124,7 @@ public class DataInitializer implements CommandLineRunner {
                     .name("Emprendedor - Coaching de Comunicación y Liderazgo")
                     .profile(profile1)
                     .service(service1)
-                    .checkList(Set.of(option1,option2,option3))
+                    .checkList(Set.of(option1, option2, option3))
                     .build();
             Form form2 = Form.builder()
                     .name("Emprendedor - Desarrollo de MVPs de alta fidelidad en 5 semanas")
@@ -125,13 +136,13 @@ public class DataInitializer implements CommandLineRunner {
                     .name("Emprendedor - Ambos Servicios")
                     .profile(profile1)
                     .service(service5)
-                    .checkList(Set.of(option1,option2,option3,option4))
+                    .checkList(Set.of(option1, option2, option3, option4))
                     .build();
             Form form4 = Form.builder()
                     .name("Empresa - Workshops y coaching de comunicación y liderazgo")
                     .profile(profile2)
                     .service(service3)
-                    .checkList(Set.of(option5,option6,option7,option8))
+                    .checkList(Set.of(option5, option6, option7, option8))
                     .build();
             Form form5 = Form.builder()
                     .name("Empresa - Busqueda y selección de talento")
@@ -143,8 +154,9 @@ public class DataInitializer implements CommandLineRunner {
                     .name("Empresa - Ambos Servicios")
                     .profile(profile2)
                     .service(service5)
-                    .checkList(Set.of(option5,option6,option7,option8,option9))
+                    .checkList(Set.of(option5, option6, option7, option8, option9))
                     .build();
+
             this.formRepository.save(form1);
             this.formRepository.save(form2);
             this.formRepository.save(form3);
@@ -152,6 +164,47 @@ public class DataInitializer implements CommandLineRunner {
             this.formRepository.save(form5);
             this.formRepository.save(form6);
 
+            AdminDestiny adminDestiny1 = AdminDestiny.builder()
+                    .form(form1)
+                    .roleId(role2.getId())
+                    .build();
+            AdminDestiny adminDestiny2 = AdminDestiny.builder()
+                    .form(form2)
+                    .roleId(role1.getId())
+                    .build();
+            AdminDestiny adminDestiny3 = AdminDestiny.builder()
+                    .form(form3)
+                    .roleId(role1.getId())
+                    .build();
+            AdminDestiny adminDestiny4 = AdminDestiny.builder()
+                    .form(form3)
+                    .roleId(role2.getId())
+                    .build();
+            AdminDestiny adminDestiny5 = AdminDestiny.builder()
+                    .form(form4)
+                    .roleId(role2.getId())
+                    .build();
+            AdminDestiny adminDestiny6 = AdminDestiny.builder()
+                    .form(form5)
+                    .roleId(role1.getId())
+                    .build();
+            AdminDestiny adminDestiny7 = AdminDestiny.builder()
+                    .form(form6)
+                    .roleId(role1.getId())
+                    .build();
+            AdminDestiny adminDestiny8 = AdminDestiny.builder()
+                    .form(form6)
+                    .roleId(role2.getId())
+                    .build();
+
+            this.adminDestinyRepository.save(adminDestiny1);
+            this.adminDestinyRepository.save(adminDestiny2);
+            this.adminDestinyRepository.save(adminDestiny3);
+            this.adminDestinyRepository.save(adminDestiny4);
+            this.adminDestinyRepository.save(adminDestiny5);
+            this.adminDestinyRepository.save(adminDestiny6);
+            this.adminDestinyRepository.save(adminDestiny7);
+            this.adminDestinyRepository.save(adminDestiny8);
             logger.info("Initial data inserted.");
         } else {
             logger.info("Initial data already exists.");
