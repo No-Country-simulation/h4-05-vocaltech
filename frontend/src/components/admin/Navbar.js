@@ -60,7 +60,9 @@ export const Navbar = () => {
                         <p className="text-white pb-3">
                             <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                         </p>
-                        <button onClick={logout} className="btn btn-primary w-75">Cerrar sesión</button>
+                        <button onClick={logout} className="btn btn-logout rounded-pill w-75">
+                            Cerrar sesión
+                        </button>
                     </div>
                 </div>
             </div>
