@@ -29,7 +29,29 @@ export const getTemplates = async () => {
     }
 };
 
+export const editTemplates = async (data) => {
+    try {
+        const response = await axios.put(`${BASE_URL}/templates/${data.id}`, data); 
+        return response.data;
+        
+    } catch  {
+        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+    }
+};
+
+export const deleteTemplates = async (id) => {
+    try {
+        const response = await axios.delete(`${BASE_URL}/templates/${id}`); 
+        return response.data;
+        
+    } catch  {
+        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+    }
+};
+
 export const templateService = {
     addTemplates,
-    getTemplates
+    getTemplates,
+    editTemplates,
+    deleteTemplates
 }; 

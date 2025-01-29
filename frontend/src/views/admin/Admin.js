@@ -14,10 +14,10 @@ export const Admin = () => {
                 <div className="container py-5 px-md-4 px-lg-5 overflow-auto" style={{ height: "100vh" }}>            
                     <h1 className="display-6 fw-bolder pb-5">Dashboard
                         {
-                            selectedCompany === 1 ? (
+                            selectedCompany === 2 ? (
                                 " Vos y Tu Voz"
                             ) : (
-                                selectedCompany === 2 ? (
+                                selectedCompany === 1 ? (
                                     " No Country"
                                 ) : (
                                     " General"

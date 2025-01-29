@@ -14,9 +14,9 @@ export const Home = () => {
     return (
         <>
             {
-                selectedCompany === 1 ? (
+                selectedCompany === 2 ? (
                     'cards Vos y tu voz'
-                ) : selectedCompany === 2 ? (
+                ) : selectedCompany === 1 ? (
                     'cards No Country'
                 ) : (
                     generalData.map((data, index) => (
