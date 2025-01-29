@@ -1,10 +1,10 @@
 export const Services = () => {
     return (
-        <section className="container py-5">
-            <h2 className="display-7 fw-bolder text-center pb-5">Servicios</h2>
+        <section className="services container py-5">
+            <h2 className="display-7 fw-bolder text-center pb-5">Nuestros Servicios</h2>
             <div className="row">
                 <div className="col-md-6 pe-md-4">
-                    <div className="card mb-4 border-0">
+                    <div className="card mb-4 border-0 bg-transparent">
                         <img src="./images/empresas.jpg" className="rounded d-md-none" alt="" />
                         <div className="card-body px-0 pb-0 pt-md-0 pb-md-5">
                             <h5 className="card-title fw-bold">Workshops y coaching de comunicación y 
@@ -38,7 +38,7 @@ export const Services = () => {
                     </div>
                 </div>
                 <div className="col-md-6 pt-4 pt-md-0 ps-md-4">
-                    <div className="card mb-4 border-0">
+                    <div className="card mb-4 border-0 bg-transparent">
                         <img src="./images/empresas.jpg" className="rounded" alt="" />
                         <div className="card-body px-0 pb-0 pt-md-4">
                             <h5 className="card-title fw-bold">Búsqueda y selección de talento</h5>

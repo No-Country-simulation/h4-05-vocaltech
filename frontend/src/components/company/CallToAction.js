@@ -19,10 +19,12 @@ export const CallToAction = () => {
                         para potenciar tu comunicación, fortalecer tu liderazgo y desarrollar tu organización 
                         con el mejor talento validado.</p>
                     <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                        <button type="button" className="btn btn-dark rounded-pill btn-personalized zindex">
+                        <button type="button" className="btn btn-dark rounded-pill 
+                            btn-personalized btn-call-to-action zindex">
                             ¡Hazlo AHORA!
                         </button>
-                        <button type="button" className="btn btn-dark rounded-pill btn-personalized zindex">
+                        <button type="button" className="btn btn-dark rounded-pill 
+                            btn-personalized btn-call-to-action zindex">
                             Agenda una cita
                         </button>
                     </div>
