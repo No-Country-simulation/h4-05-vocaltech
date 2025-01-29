@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { NavbarVocalTech } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
@@ -14,12 +14,13 @@ import { Leads } from "../views/admin/Leads";
 import { AddAdmin } from "../views/admin/AddAdmin";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
-import { AuthProvider } from "../contexts/Auth";
+import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 
 export const AppRoutes = () => {
     const location = useLocation(); 
     const isAdminRoute = location.pathname.startsWith("/admin");
+    const { isAuthenticated } = useAuth();
 
     return (
         <>
@@ -31,17 +32,18 @@ export const AppRoutes = () => {
                 <Route path="/empresa" element={<Company />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
-                <Route path="/login-admin" element={
-                    <AuthProvider>
-                        <Login />
-                    </AuthProvider>
-                } />
+                <Route path="/login-admin" 
+                    element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />} 
+                />
                 <Route path="/admin-dashboard/*" element={
-                    <AuthProvider>
+                    isAuthenticated ? (
                         <CompanySelected>
                             <Admin />
                         </CompanySelected>
-                    </AuthProvider> }>
+                    ) : (
+                        <Navigate to="/login-admin" />
+                    )
+                }>
                     <Route index element={<AdminHome />} />
                     <Route path="templates" element={<Templates />} />
                     <Route path="appointments" element={<Appointments />} />
