@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vocaltech.demo.controller.data.request.AddPlanRequest;
 import vocaltech.demo.controller.data.request.LeadRequest;
 import vocaltech.demo.controller.data.response.LeadResponse;
 import vocaltech.demo.mapper.LeadMapper;
@@ -47,7 +48,6 @@ public class LeadController {
                 )
                 .diagnostic(true)
                 .fullname(request.getFullname())
-                .isProposalSent(false)
                 .build();
 
         lead = this.leadService.createLead(lead);
@@ -64,6 +64,24 @@ public class LeadController {
         /* TODO SEND OPTIONS AND TEMPLATES BY EMAIL */
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}/add-plan")
+    public ResponseEntity<LeadResponse> addPlanToLead(
+            @PathVariable Long id,
+            @RequestBody AddPlanRequest request
+    ) {
+        Lead lead = this.leadService.getLead(id);
+
+        lead.setPlan(Plan.builder()
+                .path(request.getPath())
+                .build());
+
+        lead = this.leadService.createLead(lead);
+
+        LeadResponse response = this.leadMapper.toLeadResponse(lead);
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

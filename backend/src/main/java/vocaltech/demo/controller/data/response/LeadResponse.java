@@ -22,7 +22,7 @@ public class LeadResponse {
     private String email;
     private Set<Option> answers;
     private boolean diagnostic;
-    private boolean plan;
+    private String plan;
     private Set<Role> roles;
 
 }

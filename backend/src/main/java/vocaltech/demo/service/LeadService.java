@@ -9,5 +9,6 @@ public interface LeadService {
 
     Lead createLead(Lead lead);
     List<Lead> getLeads();
+    Lead getLead(Long id);
 
 }
