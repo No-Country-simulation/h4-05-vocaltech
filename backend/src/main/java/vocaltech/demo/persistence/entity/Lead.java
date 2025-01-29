@@ -22,7 +22,6 @@ public class Lead {
 
     private String email;
 
-    private boolean isProposalSent;
     private boolean diagnostic;
 
     @ManyToOne(optional = false)
@@ -40,5 +39,9 @@ public class Lead {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "voice_recording_id", referencedColumnName = "id")
     private VoiceRecording voiceRecording;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "plan_id", referencedColumnName = "id")
+    private Plan plan;
 
 }
