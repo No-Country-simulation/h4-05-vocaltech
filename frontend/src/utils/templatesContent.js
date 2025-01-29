@@ -1,22 +1,25 @@
-export const templatesContent = [
-    {
-        id: 1,
-        title: "Plantilla 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quia."
-    },
-    {
-        id: 2,
-        title: "Plantilla 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quia."
-    },
-    {
-        id: 3,
-        title: "Plantilla 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quia."
-    },
-    {
-        id: 4,
-        title: "Plantilla 4",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quia."
-    }
-];
+import { useEffect, useState } from "react";
+import { templateService } from "../services/templates";
+
+export const useTemplates = () => {
+  const [templates, setTemplates] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTemplates = async () => {
+      try {
+        const templates = await templateService.getTemplates();
+        setTemplates(templates);
+      } catch (error) {
+        console.error(error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTemplates();
+  }, []);
+
+  return { templates, loading, error };
+};
