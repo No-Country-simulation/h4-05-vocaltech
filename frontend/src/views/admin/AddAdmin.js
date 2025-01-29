@@ -6,7 +6,6 @@ import { userService } from "../../services/user";
 
 export const AddAdmin = () => {
   const { selectedCompany } = useCompanySelect();
-  console.log(selectedCompany);
   const navigate = useNavigate();
   const [adminData, setAdminData] = useState({
     fullName: "",
