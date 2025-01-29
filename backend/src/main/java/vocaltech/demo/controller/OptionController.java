@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vocaltech.demo.controller.data.response.FormResponse;
 import vocaltech.demo.controller.data.response.OptionResponse;
+import vocaltech.demo.mapper.OptionMapper;
+import vocaltech.demo.persistence.entity.Option;
 import vocaltech.demo.service.implementation.OptionServiceImpl;
 
 import java.util.List;
@@ -18,16 +20,23 @@ import java.util.List;
 public class OptionController {
 
     private final OptionServiceImpl optionService;
+    private final OptionMapper optionMapper;
 
     @GetMapping
     public ResponseEntity<List<OptionResponse>> getOptions() {
-        List<OptionResponse> response = this.optionService.getOptions();
+        List<Option> optionList = this.optionService.getOptions();
+
+        List<OptionResponse> response = optionList.stream().map(
+                this.optionMapper::toOptionResponse
+        ).toList();
+
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<OptionResponse> getOption(@PathVariable Long id) {
-        OptionResponse response = this.optionService.getOption(id);
+        Option option = this.optionService.getOption(id);
+        OptionResponse response = this.optionMapper.toOptionResponse(option);
         return ResponseEntity.ok(response);
     }
 }

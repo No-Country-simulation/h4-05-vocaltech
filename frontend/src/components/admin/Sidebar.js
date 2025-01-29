@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { DashSelect } from "./DashSelect";
+import { useAuth } from "../../contexts/Auth";
 import { sidebarLinks } from "../../utils/sidebarLinks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Sidebar = () => {
+    const { user, logout } = useAuth();
+    
     return (
         <div className="d-md-flex d-none ">
             <div
@@ -32,13 +35,11 @@ export const Sidebar = () => {
                         }
                     </ul>
                 </div>
-                <div className="text-center mt-auto pb-4">
-                    <p className="text-white pb-5">
-                        <FontAwesomeIcon icon={faUser} className="pe-1" /> Nombre Usuario
+                <div className="text-center mt-auto pb-1">
+                    <p className="text-white pb-2">
+                        <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                     </p>
-                    <Link to="/" className="btn btn-primary w-100">
-                        Cerrar sesión
-                    </Link>
+                    <button onClick={logout} className="btn btn-primary w-100">Cerrar sesión</button>
                 </div>
             </div>
         </div>

@@ -47,9 +47,9 @@ export const Leads = () => {
                 </div>
             </div>
             {
-                selectedCompany === 1 ? (
+                selectedCompany === 2 ? (
                     'Leads Vos y tu voz'
-                ) : selectedCompany === 2 ? (
+                ) : selectedCompany === 1 ? (
                     'Leads No Country'
                 ) : (
                     <Table columns={columnsTable.leads} data={filteredLeads} />
