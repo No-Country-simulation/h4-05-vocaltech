@@ -39,7 +39,9 @@ export const Sidebar = () => {
                     <p className="text-white pb-2">
                         <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                     </p>
-                    <button onClick={logout} className="btn btn-primary w-100">Cerrar sesión</button>
+                    <button onClick={logout} className="btn btn-logout rounded-pill w-100">
+                        Cerrar sesión
+                    </button>
                 </div>
             </div>
         </div>

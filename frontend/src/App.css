@@ -60,8 +60,14 @@ button:focus {
     padding: 8px 12px;
 }
 
-.btn-login:hover, .btn-login:disabled {
+.btn-logout {
+    border: 2px solid var(--color-accent-2);
+    color: var(--color-text-light);
+}
+
+.btn-login:hover, .btn-logout:hover, .btn-login:disabled {
     background-color: var(--color-accent-2);
+    color: var(--color-text-dark);
 }
 
 .calendly-inline-widget {
