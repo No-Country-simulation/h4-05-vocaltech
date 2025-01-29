@@ -10,13 +10,13 @@ export const Navbar = () => {
     const { user, logout } = useAuth();
  
     return (
-        <nav className="navbar navbar-dark bg-dark sticky-top d-md-none">
+        <nav className="navbar navbar-dark navbar-bg sticky-top d-md-none py-3">
             <div className="container">
                 <Link className="navbar-brand text-white" to="/">
-                    VocalTech
+                    <strong>V</strong>ocal<strong>T</strong>ech
                 </Link>
                 <button
-                    className="navbar-toggler text-white"
+                    className="navbar-toggler text-white border-0"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
@@ -24,13 +24,13 @@ export const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div
-                    className="offcanvas offcanvas-start bg-dark"
+                    className="offcanvas offcanvas-start navbar-bg"
                     tabIndex="-1"
                     id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
-                    <div className="offcanvas-header bg-dark">
+                    <div className="offcanvas-header navbar-bg">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
-                            VocalTech
+                            <strong>V</strong>ocal<strong>T</strong>ech
                         </h5>
                         <button
                             type="button"
@@ -39,7 +39,7 @@ export const Navbar = () => {
                             aria-label="Close">
                         </button>
                     </div>
-                    <div className="offcanvas-body bg-dark">
+                    <div className="offcanvas-body navbar-bg">
                         <div className="pb-3">
                             <DashSelect />
                         </div>

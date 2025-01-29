@@ -11,12 +11,14 @@ export const Sidebar = () => {
     return (
         <div className="d-md-flex d-none ">
             <div
-                className="sidebar bg-dark text-white" 
+                className="sidebar navbar-bg text-white" 
                 style={{position: 'relative', top: 0, left: 0, height: '100vh', 
                 width: '300px', padding: '20px 40px', display: 'flex', flexDirection: 'column', 
                 justifyContent: 'space-between'}}>
                 <div>
-                    <h5 className="pb-">Logo</h5>
+                    <h4 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
+                        <strong>V</strong>ocal<strong>T</strong>ech
+                    </h4>
                     <div className="py-4 py-lg-5">
                         <DashSelect />
                     </div>
