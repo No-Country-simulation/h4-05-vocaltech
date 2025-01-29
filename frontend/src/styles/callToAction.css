@@ -1,13 +1,22 @@
 .call-to-action {
-    background: #938ff4; 
+    background-color: #938ff4; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
     overflow: hidden;
     position: relative;
 }
 
+.call-to-action-diagnostic {
+    background: linear-gradient(135deg, #938ff4, #535a7c);
+}
+
 .btn-call-to-action:hover {
     background-color: var(--color-accent-1) !important;
     color: var(--color-text-light) !important
+}
+
+.call-to-action .btn-call-to-action:active {
+    background-color: var(--color-accent-1) !important;
+    color: var(--color-text-light) !important;
 }
 
 .call-to-action .digital-lines-top {

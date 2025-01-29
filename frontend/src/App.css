@@ -15,38 +15,8 @@
     white-space: nowrap; 
 }
 
-.btn-personalized {
-    background-color: #0e1224;
+.icon-audio-recorder {
     color: var(--color-text-light);
-    border: none;
-    padding: 8px 12px;
-    transform: translateZ(0);
-    transition-duration: 0.3s;
-    transition-property: transform;
-    width: 100%;
-}
-
-.btn-personalized:hover {
-    background-color: var(--color-accent-2);
-    color: var(--color-text-dark);
-    transform: translateY(-2px);
-}
-
-.btn-login {
-    background-color: var(--bg-dark);
-    border: none;
-    color: var(--color-text-light);
-    padding: 8px 12px;
-}
-
-.btn-logout {
-    border: 2px solid var(--color-accent-2);
-    color: var(--color-text-light);
-}
-
-.btn-login:hover, .btn-logout:hover, .btn-login:disabled {
-    background-color: var(--color-accent-2);
-    color: var(--color-text-dark);
 }
 
 .calendly-inline-widget {
@@ -60,6 +30,15 @@
 
 .services strong {
     color: #535a7c;
+}
+
+.form-select, .form-control {
+    color: var(--color-text-dark) !important;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
 }
 
 @media (min-width: 768px) {
@@ -80,9 +59,6 @@
 @media (min-width: 1024px) {
     .header-padding {
         padding-bottom: 4.6rem;
-    }
-    .btn-personalized {
-        width: 50%;
     }
     .diagnostic form {
         width: 80%;

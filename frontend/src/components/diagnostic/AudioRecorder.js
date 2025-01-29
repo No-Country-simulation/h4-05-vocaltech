@@ -75,12 +75,12 @@ export const AudioRecorder = ({ file, setFile }) => {
     return (
         <>
             <p className="pb-2">Pulse para iniciar la grabación de voz</p>
-            <button type="button" className="btn btn-success rounded-circle p-3" disabled={fileInputValue}
+            <button type="button" className="btn btn-audio-recorder rounded-circle p-3" disabled={fileInputValue}
                 onClick={() => (isRecording ? handleStopRecording() : handleStartRecording())}>
                 {
                     isRecording ? 
-                        <FontAwesomeIcon icon={faPauseCircle} className="fs-1 align-middle" /> 
-                    : <FontAwesomeIcon icon={faPlayCircle} className="fs-1 align-middle" />
+                        <FontAwesomeIcon icon={faPauseCircle} className="fs-1 align-middle icon-audio-recorder" /> 
+                    : <FontAwesomeIcon icon={faPlayCircle} className="fs-1 align-middle icon-audio-recorder" />
                 }
             </button>
             <small className="d-block pt-2">00:{time.toString().padStart(2, "0")} / 01:00</small>
