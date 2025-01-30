@@ -24,9 +24,9 @@ export const Appointments = () => {
                 </div>
             </div>
             {
-                selectedCompany === "Vos y tu Voz" ? (
+                selectedCompany === 2 ? (
                     'Tabla Vos y tu voz'
-                ) : selectedCompany === "No Country" ? (
+                ) : selectedCompany === 1 ? (
                     'Tabla No Country'
                 ) : (
                     <Table columns={columnsTable.appointments} data={appointmentsData} />

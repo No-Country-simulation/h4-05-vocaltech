@@ -1,0 +1,69 @@
+.btn-personalized {
+    background-color: var(--bg-dark);
+    color: var(--color-text-light);
+    padding: 8px 12px;
+    transform: translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    width: 100%;
+}
+
+.btn-personalized:hover {
+    transform: translateY(-2px);
+}
+
+.btn-personalized:hover,
+.btn-personalized:active {
+    background-color: var(--color-accent-2) !important;
+    color: var(--color-text-dark) !important;
+}
+
+.btn-login, 
+.btn-form-diagnostic {
+    background-color: var(--bg-dark);
+    color: var(--color-text-light);
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.btn-logout {
+    border: 2px solid var(--color-accent-2);
+    color: var(--color-text-light);
+}
+
+.btn-login:hover, 
+.btn-logout:hover, 
+.btn-form-diagnostic:hover,
+.btn-login:disabled, 
+.btn-form-diagnostic:disabled,
+.btn-login:active,
+.btn-form-diagnostic:active {
+    background-color: var(--color-accent-2) !important;
+    color: var(--color-text-dark) !important;
+}
+
+.btn-audio-recorder,
+.btn-audio-recorder:hover,
+.btn-audio-recorder:active {
+    background-color: var(--bg-dark) !important;
+}
+
+.btn-audio-recorder:disabled {
+    background-color: rgba(118, 118, 118, 0.5) !important;
+}
+
+.btn:focus-visible {
+    box-shadow: none !important;
+}
+
+@media (min-width: 768px) {
+    .btn-form-diagnostic {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .btn-personalized {
+        width: 50%;
+    }
+}

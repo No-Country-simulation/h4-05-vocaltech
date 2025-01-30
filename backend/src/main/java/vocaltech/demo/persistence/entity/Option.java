@@ -1,5 +1,6 @@
 package vocaltech.demo.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,8 @@ public class Option {
 
     String value;
 
-    @ManyToMany(mappedBy = "options")
-    private Set<Rule> rules;
+    @OneToMany(mappedBy = "option", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // 👈 Indica el "lado padre" de la relación
+    private Set<Template> templates;
+
 }

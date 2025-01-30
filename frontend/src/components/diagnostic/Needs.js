@@ -1,32 +1,37 @@
 import { diagnosticNeeds } from "../../utils/diagnosticNeeds";
 
-export const Needs = ({ selectedService, selectedNeeds, setSelectedNeeds }) => {
-    
+export const Needs = ({ selectedRole, selectedService, selectedNeeds, setSelectedNeeds }) => {
+
     const handleChange = (e) => {
         const { value, checked } = e.target;
-        
-        setSelectedNeeds((prevNeeds) => {
-            if (checked) {
-                return [...prevNeeds, value];
-            } else {
-                return prevNeeds.filter((need) => need !== value);
-            }
-        });
+        const id = Number(value); 
+
+        setSelectedNeeds((prevNeeds) => checked ? [...prevNeeds, id] : prevNeeds.filter((need) => need !== id));
     };
+
+    const getNeedsForService = () => {
+        return selectedService === 5
+            ? diagnosticNeeds[5][selectedRole === 1 ? 'emprendedor' : 'empresa']
+            : diagnosticNeeds[selectedService] || [];
+    };
+
+    const needsList = getNeedsForService();
 
     return (
         <>
             {
-                diagnosticNeeds[selectedService]?.map((need, index) => (
-                    <div key={index}>
+                needsList.map((need) => (
+                    <div key={need.id}>
                         <input
                             type="checkbox"
-                            value={need}
+                            value={need.id}
                             onChange={handleChange}
-                            id={`need-${index}`}
-                            checked={selectedNeeds.includes(need)}
+                            id={need.id}
+                            checked={selectedNeeds.includes(need.id)}
                         />
-                        <label htmlFor={`need-${index}`} className="form-label ps-1 ps-md-3">{need}</label>
+                        <label htmlFor={need.id} className="form-label ps-1 ps-md-3">
+                            {need.text} 
+                        </label>
                     </div>
                 ))
             }

@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { Toaster, toast } from 'sonner';
+import { Loader } from "../Loader";
 import { SelectRole } from "../SelectRole";
 import { Services } from "./Services";
 import { Needs } from "./Needs";
 import { AudioRecorder } from "./AudioRecorder";
 import { audioRecorderService } from "../../services/audioRecorder";
+import { diagnosticService } from "../../services/diagnostic";
 
 export const Form = () => {
     const [selectedRole, setSelectedRole] = useState("Seleccionar");
@@ -12,29 +15,48 @@ export const Form = () => {
     const [file, setFile] = useState(null); 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handleFullnameChange = (e) => setFullname(e.target.value);
 
+    const reset = () => {
+        setSelectedRole("Seleccionar");
+        setSelectedService("Seleccionar");
+        setSelectedNeeds([]);
+        setFile(null);
+        setFullname("");
+        setEmail("");
+        
+        window.scrollTo({
+            behavior: "smooth" ,
+            top: 0,   
+        });
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         try {
             const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
             
-            const dataToSend = {
+            const data = {
                 profileId: selectedRole,
+                serviceId: selectedService,
                 selectedOptions: selectedNeeds,
                 voiceRecordingPath: uploadedAudioUrl,
                 fullname: fullname,
                 email: email
             };
-    
-            console.log(dataToSend);
-            setSelectedNeeds([]);
-            setFile(null);
+
+            await diagnosticService.sendDiagnostic(data);
+            reset();
+            toast.success("Enviado exitosamente! Esté pendiente de su correo.")
         } catch (error) {
-            console.log(error)
+            toast.error(error.message);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -50,7 +72,7 @@ export const Form = () => {
                         setSelectedService={setSelectedService} />
                 </div>
                 <div className="form-group mb-4">
-                    <Needs selectedService={selectedService} selectedNeeds={selectedNeeds} 
+                    <Needs selectedRole={selectedRole} selectedService={selectedService} selectedNeeds={selectedNeeds} 
                         setSelectedNeeds={setSelectedNeeds} />
                 </div>
                 {
@@ -58,7 +80,10 @@ export const Form = () => {
                         <>
                             <div className="form-group mb-4">
                                 <p className="fw-bold pb-3">
-                                    {selectedRole === "emprendedor" ? "Grabar o cargar un audio de tu pitch (30-60 segundos)" : "Grabar o cargar un audio sobre el problema/necesidad de tu empresa (30-60 segundos)"}
+                                    {
+                                        selectedRole === 1 ? "Grabar o cargar un audio de tu pitch (30-60 segundos)" 
+                                        : "Grabar o cargar un audio sobre el problema/necesidad de tu empresa (30-60 segundos)"
+                                    }
                                 </p>
                                 <AudioRecorder file={file} setFile={setFile} />
                             </div>
@@ -78,21 +103,32 @@ export const Form = () => {
                                     autoComplete="email" 
                                     id="email" 
                                     name="email" 
+                                    type="email"
                                     className="form-control" 
                                     placeholder="prueba@vocaltech.com" 
                                     onChange={handleEmailChange} 
                                 />
                             </div>
-                            <button 
-                                disabled={selectedNeeds.length === 0 || !file || !email || !fullname} 
-                                type="submit" 
-                                className="btn btn-primary rounded-pill btn-width-services">
-                                Enviar
-                            </button>
+                            <div className="text-center">
+                                <button 
+                                    disabled={selectedNeeds.length === 0 || !file || !fullname || !email || isLoading } 
+                                    type="submit" 
+                                    className="btn rounded-pill btn-form-diagnostic">
+                                    {
+                                        isLoading ? (
+                                            <Loader />
+                                        ) : "Enviar"
+                                    }
+                                </button>
+                            </div>
                         </>
                     )
                 }
             </form>
+            <Toaster
+                richColors
+                position="top-center"
+            />
         </div>
     );
 };

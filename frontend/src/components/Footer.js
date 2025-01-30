@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { socialLinks } from "../utils/socialLinks";
+import "../styles/navbar.css"
 
 export const FooterVocalTech = () => {
     return (
-        <footer className="bg-dark py-4">
+        <footer className="footer-bg py-4">
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-4 pb-5 pb-md-0 text-center text-md-start">

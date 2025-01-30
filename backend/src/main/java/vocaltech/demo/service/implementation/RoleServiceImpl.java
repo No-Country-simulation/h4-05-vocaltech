@@ -25,4 +25,10 @@ public class RoleServiceImpl implements RoleService {
         return this.roleRepository.findByValue(roleEnum)
                 .orElseThrow(RoleNotFoundException::new);
     }
+
+    @Override
+    public Role getRole(Long id) {
+        return this.roleRepository.findById(id)
+                .orElseThrow(RoleNotFoundException::new);
+    }
 }

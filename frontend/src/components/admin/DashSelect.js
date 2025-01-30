@@ -2,15 +2,15 @@ import { useCompanySelect } from "../../contexts/CompanySelected";
 
 export const DashSelect = () => {
     const { selectedCompany, changeSelectedCompany } = useCompanySelect();
-    const handleChange = (e) => changeSelectedCompany(e.target.options[e.target.selectedIndex].text);
+    const handleChange = (e) => changeSelectedCompany(Number(e.target.value));
 
     return (
         <>
             <p className="form-label text-white">Seleccionar Organización</p>
             <select name={selectedCompany} className="form-select" onChange={handleChange}>
                 <option value="general">General</option>
-                <option value="vosYtuVoz">Vos y tu Voz</option>
-                <option value="noCountry">No Country</option>
+                <option value="1">Vos y tu Voz</option>
+                <option value="2">No Country</option>
             </select>
         </>
     );

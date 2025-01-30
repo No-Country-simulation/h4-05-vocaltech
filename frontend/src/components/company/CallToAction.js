@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const CallToAction = () => {
     return (
         <section className="container py-5 my-5 text-center text-md-start">
@@ -19,12 +21,18 @@ export const CallToAction = () => {
                         para potenciar tu comunicación, fortalecer tu liderazgo y desarrollar tu organización 
                         con el mejor talento validado.</p>
                     <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                        <button type="button" className="btn btn-dark rounded-pill btn-width-services zindex">
+                        <Link to="/diagnostico" className="w-100 zindex">
+                            <button type="button" className="btn btn-dark rounded-pill 
+                                btn-personalized btn-call-to-action w-100">
                             ¡Hazlo AHORA!
-                        </button>
-                        <button type="button" className="btn btn-dark rounded-pill btn-width-services zindex">
-                            Agenda una cita
-                        </button>
+                            </button>
+                        </Link>
+                        <Link to="/agendar-cita" className="w-100 zindex">
+                            <button type="button" className="btn btn-dark rounded-pill 
+                                btn-personalized btn-call-to-action w-100">
+                                Agenda una cita
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-md-6 px-md-0 d-none d-md-block ps-lg-2">

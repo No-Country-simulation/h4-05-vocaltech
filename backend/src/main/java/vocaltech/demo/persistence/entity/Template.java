@@ -1,16 +1,13 @@
 package vocaltech.demo.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.Set;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "template")
@@ -18,10 +15,10 @@ public class Template {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "role_id", nullable = false)
-    private long role_id;
+    private Long role_id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -32,9 +29,8 @@ public class Template {
     @Column(name = "body", nullable = false)
     private String body;
 
-    @Column(name = "service_id", nullable = false)
-    private long service_id;
-
-    @Column(name="option_id", nullable = false)
-    private long option_id;
+    @ManyToOne
+    @JoinColumn(name = "option_id", nullable = false)
+    @JsonBackReference // 👈 Indica el "lado hijo" de la relación
+    private Option option;
 }

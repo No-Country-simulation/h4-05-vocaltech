@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Set;
 
+
 @Entity
 @Setter
 @Getter
@@ -21,7 +22,9 @@ public class Lead {
 
     private String email;
 
-    private boolean isProposalSent;
+    private boolean diagnostic;
+
+    private String creationDate;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "form_id", nullable = false)

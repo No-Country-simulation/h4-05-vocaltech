@@ -1,31 +1,39 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { Toaster, toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-const BASE_URL = "";
+import { useCompanySelect } from "../../contexts/CompanySelected";
+import { userService } from "../../services/user";
 
 export const AddAdmin = () => {
+  const { selectedCompany } = useCompanySelect();
   const navigate = useNavigate();
   const [adminData, setAdminData] = useState({
     fullName: "",
     email: "",
-    password: ""
+    password: "",
   });
+
   const handleNewAdmin = async (e) => {
     e.preventDefault();
 
+    // const response = await userService.addUser({
+    //   ...adminData,
+    //   role_id: selectedCompany
+    // })
+
     try {
-      const response = await axios.post(`${BASE_URL}/`, adminData);
-      console.log("Admin added successfully:", response.data);
+      const response = await userService.addUser(adminData);
+      console.log("Admin added successfully:", response);
       setAdminData({
         fullName: "",
         email: "",
-        password: ""
+        password: "",
       });
-      alert("Administrador agregado con exito");
+      toast.success("Administrador agregado con exito");
       navigate("/admin-dashboard");
     } catch (error) {
       console.error("Error adding admin:", error);
-      alert("Error al añadir administrador, por favor inténtalo más tarde");
+      toast.error("Error al agregar administrador");
     }
   };
 
@@ -90,6 +98,7 @@ export const AddAdmin = () => {
           </div>
         </div>
       </div>
+      <Toaster richColors position="top-center" />
     </>
   );
 };

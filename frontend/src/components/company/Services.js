@@ -1,10 +1,10 @@
 export const Services = () => {
     return (
-        <section className="container py-5">
-            <h2 className="display-7 fw-bolder text-center pb-5">Servicios</h2>
+        <section className="services container py-5">
+            <h2 className="display-7 fw-bolder text-center pb-5">Nuestros Servicios</h2>
             <div className="row">
                 <div className="col-md-6 pe-md-4">
-                    <div className="card mb-4 border-0">
+                    <div className="card mb-4 border-0 bg-transparent">
                         <img src="./images/empresas.jpg" className="rounded d-md-none" alt="" />
                         <div className="card-body px-0 pb-0 pt-md-0 pb-md-5">
                             <h5 className="card-title fw-bold">Workshops y coaching de comunicación y 
@@ -20,7 +20,7 @@ export const Services = () => {
                             <p className="pb-4"><strong>Ideal para empresas que buscan maximizar el 
                                 talento y mejorar su desempeño colectivo</strong>.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" 
                                     aria-controls="1">
                                     Conocer opciones
@@ -38,7 +38,7 @@ export const Services = () => {
                     </div>
                 </div>
                 <div className="col-md-6 pt-4 pt-md-0 ps-md-4">
-                    <div className="card mb-4 border-0">
+                    <div className="card mb-4 border-0 bg-transparent">
                         <img src="./images/empresas.jpg" className="rounded" alt="" />
                         <div className="card-body px-0 pb-0 pt-md-4">
                             <h5 className="card-title fw-bold">Búsqueda y selección de talento</h5>
@@ -53,7 +53,7 @@ export const Services = () => {
                             <p className="pb-4"><strong>Ideal para empresas que buscan 
                                 un proceso de selección más riguroso y confiable</strong>.</p>
                             <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-width-services" type="button" 
+                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#2" aria-expanded="false" 
                                     aria-controls="2">
                                     Conocer opciones
