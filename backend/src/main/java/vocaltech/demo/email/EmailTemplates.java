@@ -49,7 +49,7 @@ public class EmailTemplates {
                 .append("<tr>")
                 .append("<td style=\"background-color: rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; font-size: 12px; color: #666666;\">")
                 .append("<p>Este es un mensaje automático, por favor no respondas a este correo.</p>")
-                .append("<p>© 2023 Vocaltech. Todos los derechos reservados.</p>")
+                .append("<p>© 2025 Vocaltech. Todos los derechos reservados.</p>")
                 .append("</td>")
                 .append("</tr>")
                 .append("</table>")
@@ -101,13 +101,16 @@ public class EmailTemplates {
         }
 
         builder.append("<p style=\"margin-bottom: 20px; line-height: 1.5;\">Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>")
+                .append("<hr style=\"border: 0; height: 1px; background: #ccc; margin: 30px 0;\">")
+                .append("<p style=\"margin-bottom: 20px; line-height: 1.5; font-weight: bold; text-align: center;\">Además, si deseas una asesoría personalizada, puedes agendar una cita con nuestro equipo:</p>")
+                .append("<p style=\"text-align: center;\"><a href=\"https://frontend-three-sigma-96.vercel.app/agendar-cita\" style=\"display: inline-block; padding: 12px 24px; background-color: #4C51BF; color: #ffffff; text-decoration: none; font-size: 16px; border-radius: 5px; font-weight: bold;\">Agendar una Cita</a></p>")
                 .append("<p style=\"line-height: 1.5;\">Saludos cordiales,<br>El equipo de Vocaltech</p>")
                 .append("</td>")
                 .append("</tr>")
                 .append("<tr>")
                 .append("<td style=\"background-color: rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; font-size: 12px; color: #666666;\">")
                 .append("<p>Este es un mensaje automático, por favor no respondas a este correo.</p>")
-                .append("<p>© 2023 Vocaltech. Todos los derechos reservados.</p>")
+                .append("<p>© 2025 Vocaltech. Todos los derechos reservados.</p>")
                 .append("</td>")
                 .append("</tr>")
                 .append("</table>")
@@ -119,4 +122,6 @@ public class EmailTemplates {
 
         return builder.toString();
     }
+
+
 }
