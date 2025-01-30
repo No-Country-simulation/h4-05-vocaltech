@@ -11,25 +11,25 @@ export const Benefits = () => {
                     </h4>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faRocket} className="me-3 text-success fs-3" />
+                            <FontAwesomeIcon icon={faRocket} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Desarrollo de MVPs funcionales en 5 semanas.</p>
                         </div>
                     </div>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faBullhorn} className="me-3 text-success fs-3" />
+                            <FontAwesomeIcon icon={faBullhorn} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Entrenamiento en pitch para conectar con inversores.</p>
                         </div>
                     </div>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faLightbulb} className="me-3 text-success fs-3" />
+                            <FontAwesomeIcon icon={faLightbulb} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Validación de ideas y modelos de negocio.</p>
                         </div>
                     </div>
                     <div className="card mb-4 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faChartLine} className="me-3 text-success fs-3" />
+                            <FontAwesomeIcon icon={faChartLine} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Estrategias de comunicación efectiva para ventas.</p>
                         </div>
                     </div>
@@ -40,25 +40,25 @@ export const Benefits = () => {
                     </h4>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faUsers} className="me-3 text-primary fs-3" />
+                            <FontAwesomeIcon icon={faUsers} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Workshops en liderazgo y comunicación para equipos.</p>
                         </div>
                     </div>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faStar} className="me-3 text-primary fs-3" />
+                            <FontAwesomeIcon icon={faStar} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Identificación y desarrollo de talento a través de simulaciones.</p>
                         </div>
                     </div>
                     <div className="card mb-3 shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faGraduationCap} className="me-3 text-primary fs-3" />
+                            <FontAwesomeIcon icon={faGraduationCap} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Programas de reskilling y upskilling para mejorar habilidades.</p>
                         </div>
                     </div>
                     <div className="card shadow-sm">
                         <div className="card-body d-flex align-items-center">
-                            <FontAwesomeIcon icon={faCogs} className="me-3 text-primary fs-3" />
+                            <FontAwesomeIcon icon={faCogs} className="me-3 fs-3 icon-benefit" />
                             <p className="mb-0">Creación de estrategias para fortalecer la cultura empresarial.</p>
                         </div>
                     </div>

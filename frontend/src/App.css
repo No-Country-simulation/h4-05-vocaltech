@@ -28,8 +28,14 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.services strong {
-    color: #535a7c;
+.services strong, 
+.partners strong,
+.services .strong {
+    color: var(--color-accent-1) !important;
+}
+
+.icon-benefit {
+    color: var(--color-accent-1);
 }
 
 .form-select, .form-control {

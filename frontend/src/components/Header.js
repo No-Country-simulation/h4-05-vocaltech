@@ -1,9 +1,16 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
+    
+    const handleScroll = () => {
+        const section = document.getElementById("partners");
+        section && section.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
         <section className="landing-header">
             <div className="container pt-5 text-center">
                 <div className="row">
-                    {/* solo se muestra a partir de 768px */}
                     <div className="col-lg-6 col-xl-5 d-none d-lg-block"
                         style={{
                             backgroundImage: "url(./images/banner-home.png)",
@@ -20,12 +27,19 @@ export const Header = () => {
                             Desarrolla tu proyecto o mejora tu negocio con nuestro
                             acompañamiento y las herramientas que necesitas para crecer.
                         </p>
-                        <button type="button"
-                            className="btn btn-outline-dark rounded-pill btn-personalized">
-                            Conoce más
-                        </button>
+                        <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
+                            <Link to="/" onClick={handleScroll} className="w-100">
+                                <button type="button"className="btn rounded-pill btn-personalized btn-landing">
+                                    Conoce más
+                                </button>
+                            </Link>
+                            <Link to="/agendar-cita" className="w-100">
+                                <button type="button" className="btn rounded-pill btn-personalized btn-landing">
+                                    Agendar una cita
+                                </button>
+                            </Link>
+                        </div>
                     </div>
-                    {/* solo se ve en mobile */}
                     <div className="d-lg-none mt-4"
                         style={{
                             backgroundImage: "url(./images/banner-home.png)",
