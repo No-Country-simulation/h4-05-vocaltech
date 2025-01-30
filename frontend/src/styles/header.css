@@ -88,6 +88,9 @@
         left: auto;
         right: 0;
     }
+    .btn-landing {
+        width: 50% !important;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -101,6 +104,9 @@
     .circle-bg-left {
         bottom: -35px;
     }
+    .btn-landing {
+        width: 90% !important;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -110,5 +116,8 @@
     }
     .circle-bg-left {
         bottom: -15px;
+    }
+    .btn-landing {
+        width: 90% !important;
     }
 }

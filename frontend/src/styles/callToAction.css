@@ -9,11 +9,7 @@
     background: linear-gradient(135deg, #938ff4, #535a7c);
 }
 
-.btn-call-to-action:hover {
-    background-color: var(--color-accent-1) !important;
-    color: var(--color-text-light) !important
-}
-
+.call-to-action .btn-call-to-action:hover,
 .call-to-action .btn-call-to-action:active {
     background-color: var(--color-accent-1) !important;
     color: var(--color-text-light) !important;
