@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { templateService } from "../../services/templates";
 
-export const FormTemplate = () => {
+export const FormTemplate = ({ onUpdate, closeModal}) => {
   const [profile, setProfile] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [newTemplate, setNewTemplate] = useState({
@@ -53,6 +53,11 @@ export const FormTemplate = () => {
     try {
       const response = await templateService.addTemplates(newTemplate);
       console.log(response);
+
+      const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
+      cachedTemplates.push(response.data);
+      localStorage.setItem("templates", JSON.stringify(cachedTemplates));
+      
       setNewTemplate({
         role_id: null,
         title: "",
@@ -60,7 +65,9 @@ export const FormTemplate = () => {
         body: "",
         service_id: null,
       });
+      closeModal();
       toast.success("Plantilla agregada con exito");
+      onUpdate();
     } catch (error) {
       console.error("Error adding template:", error);
       toast.error("Error al agregar plantilla");
@@ -91,7 +98,7 @@ export const FormTemplate = () => {
                   aria-label="Select service"
                   onChange={handleSelectedService}
                 >
-                  <option selected>Servicios</option>
+                  <option defaultValue="">Servicios</option>
                   <option value="1">Levantamiento de capital</option>
                   <option value="2">Pitch a inversores</option>
                   <option value="3">Comunicación efectiva para ventas</option>
@@ -108,7 +115,7 @@ export const FormTemplate = () => {
                   aria-label="Select service"
                   onChange={handleSelectedService}
                 >
-                  <option selected>Servicios</option>
+                  <option defaultValue="">Servicios</option>
                   <option value="5">Comunicación y liderazgo</option>
                   <option value="6">Cultura empresarial</option>
                   <option value="8">Evidencia de comportamiento</option>
