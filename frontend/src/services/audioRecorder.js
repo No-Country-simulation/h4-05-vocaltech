@@ -9,7 +9,7 @@ const audioFile = async (mediaBlobUrl) => {
 
         return audioFile;
     } catch  {
-        throw new Error("Error al obtener el blob. Inténtalo de nuevo más tarde.");
+        throw new Error("Error al obtener el audio. Intente nuevamente!");
     }
 };
 
@@ -24,7 +24,7 @@ const uploadToCloudinary = async (file) => {
 
         return url;
     } catch {
-        throw new Error("Error al subir audio al servidor. Inténtalo de nuevo más tarde.");
+        throw new Error("Error al subir el audio. Intente nuevamente!");
     }
 };
 

@@ -22,10 +22,8 @@ public class OptionServiceImpl implements OptionService {
     private final OptionMapper optionMapper;
 
     @Override
-    public List<OptionResponse> getOptions() {
-        List<Option> optionList = this.optionRepository.findAll();
-        return optionList.stream()
-                .map(this.optionMapper::toOptionResponse).toList();
+    public List<Option> getOptions() {
+        return this.optionRepository.findAll();
     }
 
     @Override
@@ -36,9 +34,8 @@ public class OptionServiceImpl implements OptionService {
     }
 
     @Override
-    public OptionResponse getOption(final Long id) {
-        Option option = this.optionRepository.findById(id)
+    public Option getOption(final Long id) {
+        return this.optionRepository.findById(id)
                 .orElseThrow(OptionNotFoundException::new);
-        return this.optionMapper.toOptionResponse(option);
     }
 }

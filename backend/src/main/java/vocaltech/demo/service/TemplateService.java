@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import vocaltech.demo.exception.TemplateNotFoundException;
 import vocaltech.demo.persistence.entity.Template;
 import vocaltech.demo.persistence.repository.TemplateRepository;
+import vocaltech.demo.persistence.entity.Option;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,10 +38,10 @@ public class TemplateService {
         return templateRepository.save(existingTemplate);
     }
 
-    /*public Template getTemplateByService(Service service) {
-        return templateRepository.findByService(service)
+    public Template getTemplateByOption(Option option) {
+        return templateRepository.findByOption(option)
                 .orElseThrow(TemplateNotFoundException::new);
-    }*/
+    }
 
     public void deleteTemplate(Long id) {
         if (!templateRepository.existsById(id)) throw new TemplateNotFoundException();

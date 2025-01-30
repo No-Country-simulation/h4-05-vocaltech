@@ -10,10 +10,12 @@ public class LeadMapper {
         return LeadResponse.builder()
                 .id(lead.getId())
                 .profile(lead.getForm().getProfile())
+                .service(lead.getForm().getService())
+                .name(lead.getFullname())
                 .email(lead.getEmail())
-                .fullname(lead.getFullname())
                 .answers(lead.getAnswers())
-                .isProposalSent(lead.isProposalSent())
+                .diagnostic(lead.isDiagnostic())
+                .creationDate(lead.getCreationDate())
                 .build();
     }
 }

@@ -8,7 +8,7 @@ export const Diagnostic = () => {
         <section className="diagnostic">
             <Header />
             <DiagnosticForm />
-            <section className="call-to-action">
+            <section className="call-to-action call-to-action-diagnostic">
                 <CallToAction />
             </section>
             <Testimonials />

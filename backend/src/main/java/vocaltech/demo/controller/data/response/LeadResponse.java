@@ -3,6 +3,8 @@ package vocaltech.demo.controller.data.response;
 import lombok.*;
 import vocaltech.demo.persistence.entity.Option;
 import vocaltech.demo.persistence.entity.Profile;
+import vocaltech.demo.persistence.entity.Role;
+import vocaltech.demo.persistence.entity.Service;
 
 import java.util.Set;
 
@@ -15,9 +17,12 @@ public class LeadResponse {
 
     private Long id;
     private Profile profile;
-    private String fullname;
+    private Service service;
+    private String name;
     private String email;
     private Set<Option> answers;
-    private boolean isProposalSent;
+    private boolean diagnostic;
+    private Set<Role> roles;
+    private String creationDate;
 
 }

@@ -8,10 +8,10 @@ const appointments = [
 ];
 
 const leads = [
-    "Nombre Cliente",
-    "Correo Electrónico",
-    "Diagnóstico",
-    "Plan de Trabajo",
+    { title: "Nombre Cliente", property: "fullname" },
+    { title: "Correo Electrónico", property: "email" },
+    { title: "Diagnóstico", property: "email" },
+    { title: "Plan de Trabajo", property: "email" },
 ];
 
 export const columnsTable = {

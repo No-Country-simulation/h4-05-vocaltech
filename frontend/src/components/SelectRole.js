@@ -1,5 +1,8 @@
 export const SelectRole = ({ all, selectedRole, setSelectedRole }) => {
-    const handleChange = (e) => setSelectedRole(Number(e.target.value)); 
+    const handleChange = (e) => {
+        const value = e.target.value === "Todos" ? 0 : Number(e.target.value);
+        setSelectedRole(value); 
+    };
 
     return (
         <select id="selectRole" name={selectedRole}  value={selectedRole} aria-label="Seleccionar rol" 

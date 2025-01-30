@@ -1,18 +1,26 @@
-/******** Entrepreneur Header **************************************/
+/******** General headers **************************************/
 
-.entrepreneur-header, .company-header {
-    background: linear-gradient(135deg, #6dd5fa, #2980b9); 
+.landing-header, .entrepreneur-header, .company-header {
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+}
+
+.entrepreneur-header, .company-header {
     padding: 3rem 1rem;
     position: relative;
 }
 
+/******** Landing Header **************************************/
+
 .landing-header {
     background: linear-gradient(135deg, #cac8ff,  #52528b); 
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
     overflow: hidden;
+}
+
+/******** Entrepreneur Header **************************************/
+
+.entrepreneur-header {
+    background: linear-gradient(135deg, rgba(147,143,244,0.9), rgba(83,90,124,0.1), rgba(14,18,36,1));
 }
 
 .img-wrapper {
@@ -20,7 +28,7 @@
 }
 
 .img-entrepreneur, .img-company {
-    border: 5px solid white;
+    border: 5px solid var(--bg-light);
     border-radius: 50%;
     height: 250px;
     object-fit: cover;
@@ -39,33 +47,14 @@
     z-index: 1;
 }
 
-@media (min-width: 768px) {
-    .entrepreneur-header .container {
-        overflow: visible !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    .img-entrepreneur, .img-company {
-        height: 300px;
-        width: 300px;
-    }
-    .circle-bg {
-        top: 0px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .img-entrepreneur, .img-company {
-        height: 350px;
-        width: 350px;
-    }
-}
-
 /******** Company Header **************************************/
 
+.company-header {
+    background: linear-gradient(240deg, rgba(147,143,244,.1), rgba(83,90,124,.1), rgba(14,18,36,.9)) 
+}
+
 .img-company {
-    border: 5px solid aqua !important;
+    border: 5px solid var(--bg-light) !important;
 }
 
 .circle-bg-left {
@@ -79,7 +68,12 @@
     z-index: 1;
 }
 
+/******** Medidas Header **************************************/
+
 @media (min-width: 768px) {
+    .entrepreneur-header .container {
+        overflow: visible !important;
+    }
     .circle-bg-right {
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
@@ -94,16 +88,36 @@
         left: auto;
         right: 0;
     }
+    .btn-landing {
+        width: 50% !important;
+    }
 }
 
 @media (min-width: 1024px) {
+    .img-entrepreneur, .img-company {
+        height: 300px;
+        width: 300px;
+    }
+    .circle-bg {
+        top: 0px;
+    }
     .circle-bg-left {
         bottom: -35px;
+    }
+    .btn-landing {
+        width: 90% !important;
     }
 }
 
 @media (min-width: 1200px) {
+    .img-entrepreneur, .img-company {
+        height: 350px;
+        width: 350px;
+    }
     .circle-bg-left {
         bottom: -15px;
+    }
+    .btn-landing {
+        width: 90% !important;
     }
 }

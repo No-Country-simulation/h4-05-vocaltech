@@ -16,19 +16,7 @@ const appointments = [
     { name: 'Marina', fecha: '27-02-2025', status: 'pendiente', email: 'maria@prueba.com', diagnostic: false, plan: false },
 ]
 
-const leads = [
-    { name: 'Maria', email: 'maria@prueba.com', diagnostic: true, plan: false },
-    { name: 'Gabriela', email: 'maria@prueba.com', diagnostic: false, plan: true },
-    { name: 'Santiago', email: 'maria@prueba.com', diagnostic: false, plan: false },
-    { name: 'Martín', email: 'maria@prueba.com', diagnostic: true, plan: false },
-    { name: 'Juan', email: 'maria@prueba.com', diagnostic: true, plan: true },
-    { name: 'Hernan', email: 'maria@prueba.com', diagnostic: false, plan: true },
-    { name: 'Carlos', email: 'maria@prueba.com', diagnostic: true, plan: false },
-    { name: 'Marina', email: 'maria@prueba.com', diagnostic: false, plan: false },
-]
-
 export const prueba = {
     informacionGeneral,
     appointments,
-    leads,
 }

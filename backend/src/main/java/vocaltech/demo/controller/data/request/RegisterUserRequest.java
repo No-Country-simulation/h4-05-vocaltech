@@ -11,4 +11,5 @@ public class RegisterUserRequest {
     private String fullname;
     private String email;
     private String password;
+    private Long roleId;
 }
