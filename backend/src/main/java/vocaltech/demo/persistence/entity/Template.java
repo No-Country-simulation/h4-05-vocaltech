@@ -34,4 +34,7 @@ public class Template {
 
     @Column(name = "service_id", nullable = false)
     private long service_id;
+
+    @Column(name="option_id", nullable = false)
+    private long option_id;
 }
