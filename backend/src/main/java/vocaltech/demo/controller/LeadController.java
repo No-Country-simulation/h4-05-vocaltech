@@ -4,16 +4,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vocaltech.demo.controller.data.request.AddPlanRequest;
 import vocaltech.demo.controller.data.request.LeadRequest;
 import vocaltech.demo.controller.data.response.LeadResponse;
 import vocaltech.demo.email.EmailTemplates;
 import vocaltech.demo.mapper.LeadMapper;
 import vocaltech.demo.persistence.entity.*;
 import vocaltech.demo.service.EmailService;
-import vocaltech.demo.service.TemplateService;
 import vocaltech.demo.service.implementation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -44,6 +44,8 @@ public class LeadController {
 
         Set<Option> answers = this.optionService.getOptions(request.getSelectedOptions());
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String creationDate = LocalDateTime.now().format(formatter);
         Lead lead = Lead.builder()
                 .form(form)
                 .answers(answers)
@@ -53,6 +55,7 @@ public class LeadController {
                 )
                 .diagnostic(true)
                 .fullname(request.getFullname())
+                .creationDate(creationDate)
                 .build();
 
         lead = this.leadService.createLead(lead);
@@ -75,7 +78,7 @@ public class LeadController {
                 })
                 .filter(Objects::nonNull).toList();
 
-        /* TODO SEND OPTIONS AND TEMPLATES BY EMAIL */
+
         if(!templates.isEmpty()){
             String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
             this.emailService.sendEmail(
@@ -90,24 +93,6 @@ public class LeadController {
 
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}/add-plan")
-    public ResponseEntity<LeadResponse> addPlanToLead(
-            @PathVariable Long id,
-            @RequestBody AddPlanRequest request
-    ) {
-        Lead lead = this.leadService.getLead(id);
-
-        lead.setPlan(Plan.builder()
-                .path(request.getPath())
-                .build());
-
-        lead = this.leadService.createLead(lead);
-
-        LeadResponse response = this.leadMapper.toLeadResponse(lead);
-
-        return ResponseEntity.ok(response);
     }
 
     @GetMapping
