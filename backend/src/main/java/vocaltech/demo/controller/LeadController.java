@@ -29,7 +29,6 @@ public class LeadController {
     private final AdminDestinyServiceImpl adminDestinyService;
     private final RoleServiceImpl roleService;
     private final OptionServiceImpl optionService;
-    private final TemplateService templateService;
     private final EmailService emailService;
 
     private final LeadServiceImpl leadService;
