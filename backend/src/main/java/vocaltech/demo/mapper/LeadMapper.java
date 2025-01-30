@@ -15,7 +15,7 @@ public class LeadMapper {
                 .email(lead.getEmail())
                 .answers(lead.getAnswers())
                 .diagnostic(lead.isDiagnostic())
-                .plan(lead.getPlan() !=null ? lead.getPlan().getPath() : null)
+                .creationDate(lead.getCreationDate())
                 .build();
     }
 }

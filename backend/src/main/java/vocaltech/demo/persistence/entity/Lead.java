@@ -24,6 +24,8 @@ public class Lead {
 
     private boolean diagnostic;
 
+    private String creationDate;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "form_id", nullable = false)
     private Form form;
@@ -39,9 +41,5 @@ public class Lead {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "voice_recording_id", referencedColumnName = "id")
     private VoiceRecording voiceRecording;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "plan_id", referencedColumnName = "id")
-    private Plan plan;
 
 }
