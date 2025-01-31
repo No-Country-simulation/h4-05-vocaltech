@@ -14,6 +14,7 @@ import { Leads } from "../views/admin/Leads";
 import { AddAdmin } from "../views/admin/AddAdmin";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 
@@ -25,6 +26,7 @@ export const AppRoutes = () => {
     return (
         <>
             <ScrollToTop />
+            { !isAdminRoute && <Chatbot /> }
             { !isAdminRoute && <NavbarVocalTech /> }
             <Routes>
                 <Route path="/" element={<Home />} />

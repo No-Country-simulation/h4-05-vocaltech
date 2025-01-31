@@ -27,7 +27,7 @@
 }
 
 .btn-logout {
-    border: 2px solid var(--color-accent-2);
+    border: 2px solid var(--color-accent-2) !important;
     color: var(--color-text-light);
 }
 

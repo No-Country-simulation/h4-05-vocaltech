@@ -2,6 +2,11 @@
   margin-left: 0 !important;
 }
 
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none !important;
+}
+
 .nav-link {
   transition-duration: 0.3s;
   transition-property: transform;
