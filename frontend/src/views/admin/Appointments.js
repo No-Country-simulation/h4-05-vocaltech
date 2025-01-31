@@ -1,17 +1,33 @@
 import { useState, useEffect } from "react";
+import { Toaster, toast } from "sonner";
 import { columnsTable } from "../../utils/columnsTable";
 import { Table } from "../../components/admin/Table";
-import { SelectRole } from "../../components/SelectRole";
-import { prueba } from "../../utils/infoPrueba"; 
+import { SelectRole } from "../../components/SelectRole"; 
 import { useCompanySelect } from "../../contexts/CompanySelected";
+import { appointmentService } from "../../services/appointment";
 
 export const Appointments = () => {
     const [appointmentsData, setAppointmentsData] = useState([]);
     const { selectedCompany } = useCompanySelect();
     const [selectedRole, setSelectedRole] = useState("Todos");
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     
     useEffect(() => {
-        setAppointmentsData(prueba.appointments);
+        setIsLoading(true);
+        const getData = async () => {
+            try {
+                const response = await appointmentService.getAppointments();
+                setAppointmentsData(response);
+            } catch (error) {
+                toast.error(error.message);
+                setIsError(true);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        getData();
     }, []);
 
     return (
@@ -24,14 +40,18 @@ export const Appointments = () => {
                 </div>
             </div>
             {
-                selectedCompany === 2 ? (
-                    'Tabla Vos y tu voz'
-                ) : selectedCompany === 1 ? (
-                    'Tabla No Country'
+                selectedCompany === 1 ? (
+                    <Table columns={columnsTable.appointments} isLoading={isLoading} isError={isError} data={appointmentsData} />
+                ) : selectedCompany === 2 ? (
+                    <Table columns={columnsTable.appointments} isLoading={isLoading} isError={isError} data={appointmentsData} />
                 ) : (
-                    <Table columns={columnsTable.appointments} data={appointmentsData} />
+                    <Table columns={columnsTable.appointments} isLoading={isLoading} isError={isError} data={appointmentsData} />
                 )
             }
+            <Toaster
+                richColors
+                position="top-center"
+            />
         </section>
     );
 };
