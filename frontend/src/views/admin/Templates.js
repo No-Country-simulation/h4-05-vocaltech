@@ -4,9 +4,35 @@ import { useModal } from "../../hooks/useModal";
 import { FormTemplate } from "../../components/admin/FormTemplate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { templateService } from "../../services/templates";
+import { LoadingTemplates } from "../../utils/loadingTemplates";
+import "../../styles/buttons.css";
 
 export const Templates = () => {
   const { showModal, openModal, closeModal } = useModal();
+  const [shouldRefetch, setShouldRefetch] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const fetchTemplates = async () => {
+    setLoading(true);
+    try {
+      const fetchedTemplates = await templateService.getTemplates();
+      localStorage.setItem("templates", JSON.stringify(fetchedTemplates));
+    } catch (error) {
+      console.error("Error fetching templates:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTemplates();
+  }, [shouldRefetch]);
+
+  const handleRefetch = () => {
+    setShouldRefetch((prev) => !prev);
+  };
 
   return (
     <>
@@ -19,15 +45,23 @@ export const Templates = () => {
                 Selecciona un template
               </h2>
               <div className="col-md-4 text-end me-2">
-                <button type="button" className="btn btn-outline-success rounded-pill"
-                  onClick={openModal}>
+                <button
+                  type="button"
+                  className="btn-personalized rounded-pill"
+                  onClick={openModal}
+                  style={{ width: "70%" }}
+                >
                   <FontAwesomeIcon className="me-2" icon={faPlus} />
                   Crear Plantilla
                 </button>
               </div>
             </div>
             <div className="row mb-4">
-              <CardTemplates />
+              {loading ? (
+                <LoadingTemplates />
+              ) : (
+                <CardTemplates />
+              )}
             </div>
           </div>
         </div>
@@ -35,8 +69,9 @@ export const Templates = () => {
       <Modall
         showModal={showModal}
         closeModal={closeModal}
-        title="Crear nueva plantilla">
-        <FormTemplate />
+        title="Crear nueva plantilla"
+      >
+        <FormTemplate onUpdate={handleRefetch} closeModal={closeModal} />
       </Modall>
     </>
   );

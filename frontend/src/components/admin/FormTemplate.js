@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { templateService } from "../../services/templates";
+import "../../styles/buttons.css";
 
-export const FormTemplate = () => {
+export const FormTemplate = ({ onUpdate, closeModal}) => {
   const [profile, setProfile] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [newTemplate, setNewTemplate] = useState({
@@ -53,6 +54,11 @@ export const FormTemplate = () => {
     try {
       const response = await templateService.addTemplates(newTemplate);
       console.log(response);
+
+      const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
+      cachedTemplates.push(response.data);
+      localStorage.setItem("templates", JSON.stringify(cachedTemplates));
+      
       setNewTemplate({
         role_id: null,
         title: "",
@@ -60,7 +66,9 @@ export const FormTemplate = () => {
         body: "",
         service_id: null,
       });
+      closeModal();
       toast.success("Plantilla agregada con exito");
+      onUpdate();
     } catch (error) {
       console.error("Error adding template:", error);
       toast.error("Error al agregar plantilla");
@@ -72,7 +80,7 @@ export const FormTemplate = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h4 className="mb-4 text-start">Selecciona un perfil</h4>
+            <h4 className="mb-4 text-center">Selecciona un perfil</h4>
             <select
               className="form-select mb-4"
               aria-label="Select profile"
@@ -85,13 +93,13 @@ export const FormTemplate = () => {
 
             {profile === "1" && (
               <>
-                <h4 className="mb-4 text-start">Selecciona un servicio</h4>
+                <h4 className="mb-4 text-center">Selecciona un servicio</h4>
                 <select
                   className="form-select mb-4"
                   aria-label="Select service"
                   onChange={handleSelectedService}
                 >
-                  <option selected>Servicios</option>
+                  <option defaultValue="">Servicios</option>
                   <option value="1">Levantamiento de capital</option>
                   <option value="2">Pitch a inversores</option>
                   <option value="3">Comunicación efectiva para ventas</option>
@@ -108,7 +116,7 @@ export const FormTemplate = () => {
                   aria-label="Select service"
                   onChange={handleSelectedService}
                 >
-                  <option selected>Servicios</option>
+                  <option defaultValue="">Servicios</option>
                   <option value="5">Comunicación y liderazgo</option>
                   <option value="6">Cultura empresarial</option>
                   <option value="8">Evidencia de comportamiento</option>
@@ -145,7 +153,7 @@ export const FormTemplate = () => {
                   </div>
                   <div className="text-center mt-2">
                     <button
-                      className="btn btn-primary rounded-pill mt-4"
+                      className="btn btn-form-diagnostic rounded-pill mt-4"
                       type="submit"
                       style={{ width: "50%" }}
                     >
