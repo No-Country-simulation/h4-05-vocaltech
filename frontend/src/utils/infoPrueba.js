@@ -1,10 +1,3 @@
-const informacionGeneral = [
-    { title: 'Leads Totales', quantity: '20' },
-    { title: 'Citas Pendientes', quantity: '4' },
-    { title: 'Citas en la última semana', quantity: '5' },
-    { title: 'Planes de Trabajo enviados', quantity: '15' },
-];
-
 const appointments = [
     { name: 'Maria', fecha: '20-02-2025', status: 'pendiente', email: 'maria@prueba.com', diagnostic: true, plan: false },
     { name: 'Gabriela', fecha: '25-02-2025', status: 'completada', email: 'maria@prueba.com', diagnostic: false, plan: true },
@@ -17,6 +10,5 @@ const appointments = [
 ]
 
 export const prueba = {
-    informacionGeneral,
     appointments,
 }
