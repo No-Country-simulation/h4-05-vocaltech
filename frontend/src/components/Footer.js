@@ -10,7 +10,7 @@ export const FooterVocalTech = () => {
                 <div className="row d-flex align-items-center">
                     <div className="col-md-4 pb-5 pb-md-0 text-center text-md-start">
                         <Link className="navbar-brand text-white fs-2" to="/">
-                            VocalTech
+                            <strong>V</strong>ocal<strong>T</strong>ech
                         </Link>
                     </div>
                     <div className="col-md-4 d-none d-md-block text-center">
@@ -24,7 +24,7 @@ export const FooterVocalTech = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn btn-light rounded-circle d-flex justify-content-center 
+                                    className="btn btn-footer rounded-circle d-flex justify-content-center 
                                     align-items-center mx-2 mx-md-0 ms-md-2"
                                     style={{ width: '40px', height: '40px' }}>
                                     <FontAwesomeIcon icon={link.icon} />
