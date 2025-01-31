@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const token = localStorage.getItem('token');
 
 const addUser = async (user) => {
-    console.log(user);
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const token = storedUser ? storedUser.token : null;
     try {
         const response = await axios.post(`${BASE_URL}/users`, user, {
             headers: {  
