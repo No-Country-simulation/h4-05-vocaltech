@@ -22,7 +22,17 @@ const ChatbotLoader = () => {
     );
 };
 
+const tableLoader = () => {
+    return (
+        <div className="spinner-border text-dark spinner-border-md" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    );
+};
+
+
 export const loader = {
     GeneralLoader,
-    ChatbotLoader
+    ChatbotLoader,
+    tableLoader
 }

@@ -11,17 +11,20 @@ export const Leads = () => {
     const { selectedCompany } = useCompanySelect();
     const [selectedRole, setSelectedRole] = useState("Todos");
     const [filteredLeads, setFilteredLeads] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     
     useEffect(() => {
+        setIsLoading(true);
         const getData = async () => {
             try {
                 const response = await diagnosticService.getLeads();
-                setLeadsData(response); 
-                setFilteredLeads(response);
+                setLeadsData(response);
             } catch (error) {
                 toast.error(error.message);
+                setIsError(true);
             } finally {
-
+                setIsLoading(false);
             }
         };
 
@@ -29,13 +32,17 @@ export const Leads = () => {
     }, []);
 
     useEffect(() => {
-        if (selectedRole === 0 || selectedRole === "Todos") {
-            setFilteredLeads(leadsData); 
-        } else {
-            const filtered = leadsData.filter(lead => lead.profile.id === selectedRole);
-            setFilteredLeads(filtered); 
-        }
-    }, [selectedRole, leadsData]);
+        const leadsByCompany = selectedCompany === 0 || selectedCompany === "General"
+            ? leadsData
+            : leadsData.filter(lead => lead.roles.some(role => role.id === selectedCompany)
+        );
+
+        const filteredLeads = selectedRole === 0 || selectedRole === "Todos"
+            ? leadsByCompany
+            : leadsByCompany.filter(lead => lead.profile.id === selectedRole);
+
+        setFilteredLeads(filteredLeads); 
+    }, [selectedCompany, selectedRole, leadsData]); 
 
     return (
         <section>
@@ -47,12 +54,12 @@ export const Leads = () => {
                 </div>
             </div>
             {
-                selectedCompany === 2 ? (
-                    'Leads Vos y tu voz'
-                ) : selectedCompany === 1 ? (
-                    'Leads No Country'
+                selectedCompany === 1 ? (
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                ) : selectedCompany === 2 ? (
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
                 ) : (
-                    <Table columns={columnsTable.leads} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
                 )
             }
             <Toaster
