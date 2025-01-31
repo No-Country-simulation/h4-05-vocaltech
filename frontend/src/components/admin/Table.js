@@ -11,7 +11,6 @@ import { DiagnosticSheet } from "./DiagnosticSheet";
 export const Table = ({ columns, data, isLoading, isError }) => {
     const { showModal, openModal, closeModal } = useModal();
     const [selectedDiagnostic, setSelectedDiagnostic] = useState({});
-    console.log(data)
 
     return (
         <div className="table-responsive text-center pb-5 pt-3 px-2">

@@ -1,10 +1,10 @@
 const appointments = [
-    "Nombre Cliente",
-    "Fecha",
-    "Estado",
-    "Correo Electrónico",
-    "Diagnóstico",
-    "Plan de Trabajo",
+    { title: "Nombre Cliente", property: "" },
+    { title: "Fecha de la cita", property: "startDate" },
+    { title: "Estado", property: "status" },
+    { title: "Correo Electrónico", property: "email" },
+    { title: "Diagnóstico", property: "" },
+    { title: "Plan de Trabajo", property: "" },
 ];
 
 const leads = [
