@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import "../../../styles/buttons.css";
 
 export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, onUpdate }) => {
   const [showModal, setShowModal] = useState(false);
@@ -138,7 +139,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
                 />
               </div>
               <div className="text-center mt-3 mb-3">
-                <button className="btn btn-outline-success rounded-pill me-3" type="submit" style={{ width: "200px" }}>
+                <button className="btn btn-form-diagnostic rounded-pill me-3" type="submit" style={{ width: "200px" }}>
                   Registrar
                 </button>
               </div>
@@ -152,14 +153,14 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
             </h5>
             <div className="d-flex justify-content-center">
               <button
-                className="btn btn-outline-danger rounded-pill me-3"
+                className="btn btn-danger rounded-pill me-3"
                 onClick={closeModal}
                 style={{ width: "200px" }}
               >
                 Cancelar
               </button>
               <button
-                className="btn btn-outline-success rounded-pill"
+                className="btn btn-success rounded-pill"
                 onClick={handleConfirmDelete}
                 style={{ width: "200px" }}
               >

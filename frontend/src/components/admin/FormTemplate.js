@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { templateService } from "../../services/templates";
+import "../../styles/buttons.css";
 
 export const FormTemplate = ({ onUpdate, closeModal}) => {
   const [profile, setProfile] = useState(null);
@@ -79,7 +80,7 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h4 className="mb-4 text-start">Selecciona un perfil</h4>
+            <h4 className="mb-4 text-center">Selecciona un perfil</h4>
             <select
               className="form-select mb-4"
               aria-label="Select profile"
@@ -92,7 +93,7 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
 
             {profile === "1" && (
               <>
-                <h4 className="mb-4 text-start">Selecciona un servicio</h4>
+                <h4 className="mb-4 text-center">Selecciona un servicio</h4>
                 <select
                   className="form-select mb-4"
                   aria-label="Select service"
@@ -152,7 +153,7 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
                   </div>
                   <div className="text-center mt-2">
                     <button
-                      className="btn btn-primary rounded-pill mt-4"
+                      className="btn btn-form-diagnostic rounded-pill mt-4"
                       type="submit"
                       style={{ width: "50%" }}
                     >

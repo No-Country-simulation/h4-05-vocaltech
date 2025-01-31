@@ -7,6 +7,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { templateService } from "../../services/templates";
 import { LoadingTemplates } from "../../utils/loadingTemplates";
+import "../../styles/buttons.css";
 
 export const Templates = () => {
   const { showModal, openModal, closeModal } = useModal();
@@ -46,8 +47,9 @@ export const Templates = () => {
               <div className="col-md-4 text-end me-2">
                 <button
                   type="button"
-                  className="btn btn-outline-success rounded-pill"
+                  className="btn-personalized rounded-pill"
                   onClick={openModal}
+                  style={{ width: "70%" }}
                 >
                   <FontAwesomeIcon className="me-2" icon={faPlus} />
                   Crear Plantilla
