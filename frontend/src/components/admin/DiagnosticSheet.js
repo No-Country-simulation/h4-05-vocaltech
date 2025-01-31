@@ -6,7 +6,7 @@ export const DiagnosticSheet = ({ data }) => {
             <p><strong>Perfil:</strong> {data.profile.value}</p>
             <p><strong>Servicio seleccionado:</strong> {data.service.value}</p>
             <p><strong>Opciones:</strong></p>    
-            <ol className="list-group-un">
+            <ol className="list-group-numbered">
                 {
                     data.answers.map(answer => (
                         <li key={answer.id} className="list-group-item border-0 mb-2">{answer.value}</li>
