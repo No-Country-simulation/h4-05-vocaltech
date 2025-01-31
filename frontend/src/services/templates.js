@@ -1,18 +1,17 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-//const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2b2NhbHRlY2guZGVtby5wZXJzaXN0ZW5jZS5lbnRpdHkuVXNlckAyMDYzZGY0MCIsImV4cCI6MTczODAyMzIxMiwiaWF0IjoxNzM4MDIxNDEyLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU5fTk9fQ09VTlRSWSIsImp0aSI6ImQwZWFiMDNkLWIwYjgtNDU0Mi05YzVmLTg1ZmJiOTRhOTJlNSJ9.d_6aggllS0_TgDp-bGuwSxqHF0EtXcX2sunDJdb92EI';
+//const token = localStorage.getItem('token');
 
 export const addTemplates = async (data) => {
     try {
         const response = await axios.post(`${BASE_URL}/templates`, data); 
-        //     {
-        //     headers: {  
-        //         'Content-Type': 'application/json',  
-        //         'Authorization': `Bearer ${token}`   
-        //     }
-        // });
-        return response.data;
+        const newTemplate = response.data;
+
+        const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
+        localStorage.setItem("templates", JSON.stringify([...cachedTemplates, newTemplate]));
+
+        return newTemplate;
         
     } catch  {
         throw new Error("Error al enviar el formulario. Intente nuevamente!");
@@ -22,17 +21,33 @@ export const addTemplates = async (data) => {
 export const getTemplates = async () => {
     try {
         const response = await axios.get(`${BASE_URL}/templates`); 
-        return response.data;
+        const templatesData = response.data;
+
+        if (Array.isArray(templatesData)) {
+            localStorage.setItem('templates', JSON.stringify(templatesData));
+            return templatesData;
+        } else {
+            throw new Error("Error al obtener las plantillas.");
+        }
         
-    } catch  {
-        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+    } catch (error)  {
+        console.error("Error al enviar el formulario. Intente nuevamente!");
+        const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
+        return Array.isArray(cachedTemplates) ? cachedTemplates : [];
     }
 };
 
 export const editTemplates = async (data) => {
     try {
         const response = await axios.put(`${BASE_URL}/templates/${data.id}`, data); 
-        return response.data;
+        const updatedTemplate = response.data;
+
+        const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
+        const updatedTemplates = cachedTemplates.map(template => 
+            (template.id === updatedTemplate.id ? updatedTemplate : template));
+        localStorage.setItem("templates", JSON.stringify(updatedTemplates));
+
+        return updatedTemplate;
         
     } catch  {
         throw new Error("Error al enviar el formulario. Intente nuevamente!");
@@ -41,9 +56,12 @@ export const editTemplates = async (data) => {
 
 export const deleteTemplates = async (id) => {
     try {
-        const response = await axios.delete(`${BASE_URL}/templates/${id}`); 
-        return response.data;
+        await axios.delete(`${BASE_URL}/templates/${id}`); 
         
+        const cachedTemplates = JSON.parse(localStorage.getItem('templates') || '[]');
+        const updatedTemplates = cachedTemplates.filter(template => template.id !== id);
+        localStorage.setItem('templates', JSON.stringify(updatedTemplates));
+        return id;
     } catch  {
         throw new Error("Error al enviar el formulario. Intente nuevamente!");
     }
