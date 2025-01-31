@@ -4,7 +4,7 @@ export const Partners = () => {
             <h2 className="display-7 fw-bolder text-center pb-5">Nuestra alianza</h2>
             <div className="row mb-4">
                 <div className="col-xl-10 text-xl-center mx-lg-auto">
-                    <p className="lead pb-3"><strong className="fw-bold">Vos y Tu Voz, y No Country</strong> han formado una alianza estratégica 
+                    <p className="lead pb-3"><strong className="fw-bold">Vos y Tu Voz </strong> y <strong className="fw-bold"> No Country </strong> han formado una alianza estratégica 
                         con un objetivo claro: transformar el talento humano y la innovación tecnológica en 
                         los pilares del éxito empresarial.
                     </p> 

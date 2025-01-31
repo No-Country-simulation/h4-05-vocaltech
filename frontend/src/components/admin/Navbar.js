@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/Auth";
 import { sidebarLinks } from "../../utils/sidebarLinks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { useState } from "react";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
@@ -19,7 +18,6 @@ export const Navbar = () => {
                 <button
                     className="navbar-toggler text-white border-0"
                     type="button"
-                    onClick={toggleOffCanvas}
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
                     aria-controls="offcanvasNavbar"
@@ -27,11 +25,11 @@ export const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div
-                    className={`offcanvas offcanvas-start navbar-bg ${isOffCanvasOpen ? "show" : ""}`}
+                    className="offcanvas offcanvas-start navbar-bg"
                     tabIndex="-1"
                     id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel"
-                    style={{ visibility: isOffCanvasOpen ? "visible" : "hidden"}}>
+                    >
                     <div className="offcanvas-header navbar-bg">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
                             <strong>V</strong>ocal<strong>T</strong>ech
@@ -50,11 +48,9 @@ export const Navbar = () => {
                         <ul className="navbar-nav">
                             {
                                 sidebarLinks.map((link, index) => (
-                                    <li className="nav-item" key={index} >
+                                    <li className="nav-item" data-bs-dismiss="offcanvas" key={index} >
                                         <Link className="nav-link text-white" 
-                                            to={link.to}
-                                            data-bs-dismiss="offcanvas"
-                                            >
+                                            to={link.to}>
                                             {link.label}
                                         </Link>
                                     </li>
