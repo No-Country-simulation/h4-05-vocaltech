@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
-import { Loader } from "../Loader";
+import { loader } from "../Loader";
 import { authService } from "../../services/auth";
 import { useAuth } from "../../contexts/Auth";
 
@@ -65,7 +65,7 @@ export const Login = () => {
                 <button type="submit" disabled={isLoading} className="btn btn-login rounded-pill w-100">
                     {
                         isLoading ? (
-                            <Loader />
+                            <loader.GeneralLoader />
                         ) : "Acceder"
                     }
                 </button>

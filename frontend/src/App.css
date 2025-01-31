@@ -47,6 +47,17 @@
     box-shadow: none !important;
 }
 
+.btn-footer {
+    background-color: var(--bg-light);
+    border: none;
+    color: var(--color-text-dark);
+}
+
+.btn-footer:hover {
+    background-color: var(--color-accent-1);
+    color: var(--color-text-light);
+}
+
 @media (min-width: 768px) {
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
