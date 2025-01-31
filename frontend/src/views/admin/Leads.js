@@ -41,7 +41,12 @@ export const Leads = () => {
             ? leadsByCompany
             : leadsByCompany.filter(lead => lead.profile.id === selectedRole);
 
-        setFilteredLeads(filteredLeads); 
+        const formattedLeads = filteredLeads.map(lead => ({
+            ...lead,
+            creationDate: lead.creationDate.split(" ")[0].split("-").reverse().join("-")  
+        }));
+
+        setFilteredLeads(formattedLeads); 
     }, [selectedCompany, selectedRole, leadsData]); 
 
     return (
