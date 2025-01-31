@@ -37,7 +37,7 @@ export const NavbarVocalTech = () => {
                         <ul className="navbar-nav justify-content-end flex-grow-1">
                             {
                                 navLinks.map((link, index) => (
-                                    <li className="nav-item" key={index}>
+                                    <li className="nav-item" data-bs-dismiss="offcanvas" key={index}>
                                         <Link className="nav-link text-white ms-4" to={link.to}>
                                             {link.label}
                                         </Link>
