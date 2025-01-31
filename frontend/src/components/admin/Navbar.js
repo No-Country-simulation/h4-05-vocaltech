@@ -28,6 +28,7 @@ export const Navbar = () => {
                     tabIndex="-1"
                     id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
+
                     <div className="offcanvas-header navbar-bg">
                         <h5 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
                             <strong>V</strong>ocal<strong>T</strong>ech
@@ -46,7 +47,8 @@ export const Navbar = () => {
                         <ul className="navbar-nav">
                             {
                                 sidebarLinks.map((link, index) => (
-                                    <li className="nav-item" key={index}>
+
+                                    <li className="nav-item" data-bs-dismiss="offcanvas" key={index} >
                                         <Link className="nav-link text-white" 
                                             to={link.to}>
                                             {link.label}
