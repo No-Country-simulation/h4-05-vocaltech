@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from 'sonner';
-import { Loader } from "../Loader";
+import { loader } from "../Loader";
 import { SelectRole } from "../SelectRole";
 import { Services } from "./Services";
 import { Needs } from "./Needs";
@@ -116,7 +116,7 @@ export const Form = () => {
                                     className="btn rounded-pill btn-form-diagnostic">
                                     {
                                         isLoading ? (
-                                            <Loader />
+                                            <loader.GeneralLoader />
                                         ) : "Enviar"
                                     }
                                 </button>
