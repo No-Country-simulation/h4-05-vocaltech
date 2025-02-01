@@ -1,5 +1,4 @@
 export const DiagnosticSheet = ({ data }) => {
-    console.log(data)
     return (
         <div className="container">
             <p><strong>Nombre completo:</strong> {data.name}</p>

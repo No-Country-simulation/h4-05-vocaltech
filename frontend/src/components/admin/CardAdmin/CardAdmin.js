@@ -10,17 +10,20 @@ import "../../../styles/buttons.css";
 
 export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, onUpdate }) => {
   const [showModal, setShowModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
   const [modalType, setModalType] = useState("");
   const [cardTitle, setCardTitle] = useState("");
   const [cardSubject, setCardSubject] = useState("");
   const [content, setContent] = useState("");
 
-  const handleView = () => {
+  const handleView = (title) => {
+    setModalTitle(title);
     setModalType("view");
     setShowModal(true);
   };
 
-  const handleEdit = () => {
+  const handleEdit = (titleModal) => {
+    setModalTitle(titleModal)
     setCardTitle(title);
     setCardSubject(subject);
     setContent(description);
@@ -55,7 +58,8 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
     }
   }
 
-  const handleDelete = () => {
+  const handleDelete = (title) => {
+    setModalTitle(title)
     setModalType("delete");
     setShowModal(true);
   };
@@ -91,79 +95,82 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
           <p className="card-text mt-4 text-truncate">{description}</p>
         </div>
         <div className="card-footer d-flex justify-content-center">
-          <button className="btn btn-outline-info me-3" onClick={handleView}>
+          <button className="btn btn-outline-info me-3" onClick={() => handleView("Información")}>
             <FontAwesomeIcon icon={faEye} />
           </button>
-          <button className="btn btn-outline-warning me-3" onClick={handleEdit}>
+          <button className="btn btn-outline-warning me-3" onClick={() => handleEdit("Editar plantilla")}>
             <FontAwesomeIcon icon={faPen} />
           </button>
-          <button className="btn btn-outline-danger" onClick={handleDelete}>
+          <button className="btn btn-outline-danger" onClick={() => handleDelete("Eliminar plantilla")}>
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>
       </div>
 
-      <Modall showModal={showModal} closeModal={closeModal}>
+      <Modall title={modalTitle} showModal={showModal} closeModal={closeModal}>
         {modalType === "view" && (
-          <div className="d-flex flex-column p-4">
-            <h5 className="mb-3 text-center">{title}</h5>
-            <h6 className="mb-3 text-start">Asunto: {subject}</h6>
-            <p className="lead">{description}</p>
-          </div>
+          <>
+            <h5 className="mb-2">{title}</h5>
+            <p>Asunto: {subject}</p>
+            <p>Descripción: {description}</p>
+          </>
         )}
         {modalType === "edit" && (
           <form onSubmit={handleSubmit}>
-            <div className="d-flex flex-column align-items-center">
-              <div className="d-flex flex-column" style={{ width: "80%" }}>
-                <label className="mb-3 fw-bold">Título:</label>
+            <div className="form-group mb-4">
+              <label className="fw-bold" htmlFor="title">Título</label>
                 <input
-                  className="form-control mb-3"
+                  className="form-control"
                   type="text"
+                  id="title"
                   value={cardTitle}
                   onChange={(e) => setCardTitle(e.target.value)}
                 />
-                <label className="mb-3 fw-bold">Asunto:</label>
+            </div>
+            <div className="form-group mb-4">
+              <label className="w-bold" htmlFor="asunto">Asunto</label>
                 <input
-                  className="form-control mb-3"
+                  className="form-control"
                   type="text"
+                  id="asunto"
                   value={cardSubject}
                   onChange={(e) => setCardSubject(e.target.value)}
                 />
-                <label className="mb-3 fw-bold">Descripción:</label>
+            </div>
+            <div className="form-group">
+              <label className="fw-bold" htmlFor="descripcion">Descripción</label>
                 <textarea
-                  className="form-control mb-3 rounded-4"
+                  className="form-control"
                   rows="6"
+                  id="descripcion"
                   type="text"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                 />
-              </div>
-              <div className="text-center mt-3 mb-3">
-                <button className="btn btn-form-diagnostic rounded-pill me-3" type="submit" style={{ width: "200px" }}>
-                  Registrar
-                </button>
-              </div>
+            </div>
+            <div className="text-center">
+              <button
+                className="btn btn-form-diagnostic rounded-pill mt-4"
+                type="submit">
+                Editar
+              </button>
             </div>
           </form>
         )}
         {modalType === "delete" && (
-          <div>
-            <h5 className="text-center mb-4">
+          <div className="w-100">
+            <h5 className="mb-4">
               ¿Seguro que deseas eliminar esta plantilla?
             </h5>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-between gap-2">
               <button
-                className="btn btn-danger rounded-pill me-3"
-                onClick={closeModal}
-                style={{ width: "200px" }}
-              >
+                className="btn btn-danger rounded-pill w-100"
+                onClick={closeModal}>
                 Cancelar
               </button>
               <button
-                className="btn btn-success rounded-pill"
-                onClick={handleConfirmDelete}
-                style={{ width: "200px" }}
-              >
+                className="btn btn-success rounded-pill w-100"
+                onClick={handleConfirmDelete}>
                 Eliminar
               </button>
             </div>

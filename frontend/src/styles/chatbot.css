@@ -144,11 +144,11 @@
     padding-top: 4px;
 }
 
-textarea {
+.chatbot-footer textarea {
     border: none !important
 }
 
-textarea:focus-visible {
+.chatbot-footer textarea:focus-visible {
     box-shadow: none !important;
 }
 

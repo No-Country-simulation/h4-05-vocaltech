@@ -58,8 +58,8 @@ export const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <div className="text-center pb-4">
-                        <p className="text-white pb-3">
+                    <div className="text-center pb-3">
+                        <p className="text-white pb-1">
                             <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                         </p>
                         <button onClick={logout} className="btn btn-logout rounded-pill w-75">
