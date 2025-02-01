@@ -46,62 +46,62 @@ export const AddAdmin = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-12 col-lg-8">
-            <h3 className="text-center mb-4">
-              Completa los datos para añadir un nuevo administrador
-            </h3>
-            <form onSubmit={handleNewAdmin}>
-              <div className="mb-3">
-                <label className="form-label">Nombre de usuario:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="fullName"
-                  required
-                  value={adminData.fullName}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  required
-                  value={adminData.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  required
-                  value={adminData.password}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="d-flex justify-content-center">
-                <button
-                  type="submit"
-                  className="btn btn-outline-dark mt-3 rounded-pill"
-                  style={{ width: "50%" }}
-                >
-                  Agregar
-                </button>
-              </div>
-            </form>
-          </div>
+    <section>
+      <div className="pb-5">
+        <h2>Completa los datos para añadir un nuevo administrador</h2>
+      </div>
+      <div className="row">
+        <div className="col-lg-10 col-xl-7 mx-auto">
+          <form onSubmit={handleNewAdmin} className="p-md-5 bg-md-light-form rounded shadow-md-form">
+            <div className="form-group mb-4">
+              <label className="form-label" htmlFor="fullName">Nombre de usuario</label>
+              <input
+                type="text"
+                className="form-control"
+                name="fullName"
+                id="fullName"
+                required
+                value={adminData.fullName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label className="form-label" htmlFor="email">Email</label>
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                required
+                id="email"
+                autoComplete="email"
+                value={adminData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label className="form-label" htmlFor="password">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                required
+                id="password"
+                value={adminData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <button
+                type="submit"
+                className="btn btn-login rounded-pill w-100"
+              >
+                Agregar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <Toaster richColors position="top-center" />
-    </>
+    </section>
   );
 };
