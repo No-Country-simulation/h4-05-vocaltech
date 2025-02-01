@@ -22,8 +22,8 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
     setShowModal(true);
   };
 
-  const handleEdit = (title) => {
-    setModalTitle(title)
+  const handleEdit = (titleModal) => {
+    setModalTitle(titleModal)
     setCardTitle(title);
     setCardSubject(subject);
     setContent(description);
