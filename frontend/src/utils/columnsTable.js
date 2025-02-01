@@ -14,7 +14,14 @@ const leads = [
     { title: "Fecha de creación", property: "creationDate" },
 ];
 
+const users = [
+    { title: "Nombre completo", property: "fullname" },
+    { title: "Correo Electrónico", property: "email" },
+    { title: "Organización", property: "role" },
+];
+
 export const columnsTable = {
     appointments,
     leads,
+    users
 };

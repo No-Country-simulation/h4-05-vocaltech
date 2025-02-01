@@ -20,6 +20,17 @@ const addUser = async (user) => {
     }
 };
 
+const getUsers = async () => {
+    try {
+        const response = await axios.get(`${BASE_URL}/users`);
+        return response.data;
+        
+    } catch  {
+        throw new Error("Error al traer a los administradores. Intente nuevamente!");
+    }
+};
+
 export const userService = {
-    addUser
+    addUser,
+    getUsers,
 }; 
