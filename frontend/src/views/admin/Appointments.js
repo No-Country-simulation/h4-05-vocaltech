@@ -18,7 +18,16 @@ export const Appointments = () => {
         const getData = async () => {
             try {
                 const response = await appointmentService.getAppointments();
-                setAppointmentsData(response);
+                
+                const updatedData = response.map(appointment => ({
+                    ...appointment,
+                    name: ['Jose', 'Maria', 'Pedro', 'Ana', 'Luis'][Math.floor(Math.random() * 5)],
+                    diagnostic: Math.random() < 0.5, 
+                    plan: Math.random() < 0.5,      
+
+                }));
+
+                setAppointmentsData(updatedData);
             } catch (error) {
                 toast.error(error.message);
                 setIsError(true);
