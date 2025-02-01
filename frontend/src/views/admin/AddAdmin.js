@@ -16,13 +16,16 @@ export const AddAdmin = () => {
   const handleNewAdmin = async (e) => {
     e.preventDefault();
 
-    // const response = await userService.addUser({
-    //   ...adminData,
-    //   role_id: selectedCompany
-    // })
+    if(selectedCompany === 0) {
+      toast.error("Debe seleccionar una organización para crear un nuevo administrador.");
+      return;
+    }
 
     try {
-      const response = await userService.addUser(adminData);
+      const response = await userService.addUser({
+        ...adminData,
+        roleId: selectedCompany
+      });
       console.log("Admin added successfully:", response);
       setAdminData({
         fullName: "",
