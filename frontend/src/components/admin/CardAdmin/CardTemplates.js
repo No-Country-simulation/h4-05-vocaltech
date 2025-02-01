@@ -35,12 +35,13 @@ export const CardTemplates = () => {
   };
 
   return loading ? (
+    <div className="col-md-6 col-xl-4 mb-4">
     <div
       className="card"
       aria-hidden="true"
-      style={{ width: "18rem", height: "20rem" }}
+      style={{ height: "20rem" }}
     >
-      <div className="card-body">
+      <div className="card-body pt-4 px-4">
         <h5 className="card-title placeholder-glow">
           <span className="placeholder col-12"></span>
         </h5>
@@ -75,11 +76,11 @@ export const CardTemplates = () => {
         </div>
       </div>
   </div>
+  </div>
    ) : (
- 
-    <section className="container">
-      <div className="row ">
-        {templates.length > 0 ? (
+    <>
+      {
+        templates.length > 0 ? (
           templates.map((template) => (
             <div key={template.id} className="col-md-6 col-xl-4 mb-4">
               <CardAdmin
@@ -95,8 +96,8 @@ export const CardTemplates = () => {
           ))
         ) : (
           <h4>Aún no hay plantillas, comienza a crearlas.</h4>
-        )}
-      </div>
-    </section>
+        )
+      }
+    </>
   );
 };
