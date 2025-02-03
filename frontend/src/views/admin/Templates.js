@@ -12,7 +12,7 @@ import "../../styles/buttons.css";
 export const Templates = () => {
   const { showModal, openModal, closeModal } = useModal();
   const [shouldRefetch, setShouldRefetch] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchTemplates = async () => {
     setLoading(true);
