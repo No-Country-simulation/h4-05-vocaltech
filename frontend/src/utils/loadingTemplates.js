@@ -18,7 +18,7 @@ export const LoadingTemplates = () => {
     loadingTemplates();
   }, []);
 
-  const placeholderCount = Math.max(4, templates.length);
+  const placeholderCount = Math.max(6, templates.length);
 
   return (
     <>
@@ -46,7 +46,7 @@ export const LoadingTemplates = () => {
                 <p className="card-text placeholder-glow">
                   <span className="placeholder col-12"></span>
                 </p>
-                <div className="d-flex justify-content-center mt-4 px-2">
+                <div className="card-footer d-flex justify-content-center mt-4 px-2">
                   <button
                     href="#"
                     tabIndex="-1"
