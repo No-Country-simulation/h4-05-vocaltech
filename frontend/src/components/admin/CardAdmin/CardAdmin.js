@@ -95,7 +95,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
           <p className="card-text mt-4 text-truncate">{description}</p>
         </div>
         <div className="card-footer d-flex justify-content-center">
-          <button className="btn btn-outline-info me-3" onClick={() => handleView("Información")}>
+          <button className="btn btn-outline-info me-3" onClick={() => handleView("Contenido")}>
             <FontAwesomeIcon icon={faEye} />
           </button>
           <button className="btn btn-outline-warning me-3" onClick={() => handleEdit("Editar plantilla")}>
