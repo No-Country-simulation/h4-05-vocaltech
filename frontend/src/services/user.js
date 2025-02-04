@@ -30,7 +30,35 @@ const getUsers = async () => {
     }
 };
 
+const deleteUser = async (id, token) => {
+    try {
+        const response = await axios.delete(`${BASE_URL}/users/${id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        return response.data;
+        
+    } catch  {
+        throw new Error("Error al eliminar al administrador. Intente nuevamente!");
+    }
+};
+
+const editUser = async (id, update, token) => {
+    try {
+        const response = await axios.put(`${BASE_URL}/users/${id}`, update, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        return response.data;
+        
+    } catch  {
+        throw new Error("Error al editar al administrador. Intente nuevamente!");
+    }
+};
+
 export const userService = {
     addUser,
     getUsers,
+    deleteUser,
+    editUser,
 }; 
