@@ -16,6 +16,7 @@ public class LeadMapper {
                 .answers(lead.getAnswers())
                 .diagnostic(lead.isDiagnostic())
                 .creationDate(lead.getCreationDate())
+                .voiceRecordingPath(lead.getVoiceRecording().getPath())
                 .build();
     }
 }

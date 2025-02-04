@@ -6,9 +6,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import vocaltech.demo.exception.UserNotFoundException;
 import vocaltech.demo.persistence.entity.User;
 import vocaltech.demo.security.repository.UserRepository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +40,21 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return this.userRepository.findAll();
     }
 
+    public User updateUser(User user, Long id) {
 
+        User userToUpdate = this.userRepository.findById(id)
+                .orElseThrow(UserNotFoundException::new);
+        userToUpdate.setFullname(user.getFullname());
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setRoles(new HashSet<>(user.getRoles()));
+        return this.userRepository.save(userToUpdate);
+    }
+
+    public void deleteUser(Long id) {
+        User userToDelete = this.userRepository.findById(id)
+                .orElseThrow(UserNotFoundException::new);
+        this.userRepository.delete(userToDelete);
+    }
 }
 

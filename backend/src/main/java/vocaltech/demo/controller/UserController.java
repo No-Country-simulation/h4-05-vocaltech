@@ -52,5 +52,24 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<RegisterUserResponse> updateUser(
+            @RequestBody RegisterUserRequest request,
+            @PathVariable Long id
+    ) {
+        User user = this.userMapper.toUser(request);
+        Role role = this.roleService.getRole(request.getRoleId());
+        user.setRoles(Set.of(role));
+        user = this.userDetailsService.updateUser(user, id);
+        RegisterUserResponse response = this.userMapper.toRegisterUserResponse(user);
+        return ResponseEntity.ok(response);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(
+            @PathVariable Long id
+    ) {
+        this.userDetailsService.deleteUser(id);
+        return ResponseEntity.ok(String.format("User with ID %s was deleted.", id));
+    }
 }

@@ -4,6 +4,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const admin = async (data) => {
     try {
+        console.log(BASE_URL)
         const response = await axios.post(`${BASE_URL}/auth/login`, data);
         return response.data;
         
