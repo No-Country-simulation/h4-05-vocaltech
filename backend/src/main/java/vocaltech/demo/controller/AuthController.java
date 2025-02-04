@@ -48,9 +48,7 @@ public class AuthController {
                                 appointment.getStatus().equalsIgnoreCase("PENDING")
                 ).toList().size()*/
                 appointmentList.size())
-                .lastAppointments(appointmentList.stream()
-                        .filter(appointment -> LocalDate.parse(appointment.getStartDate(), formatter).isAfter(LocalDate.now()))
-                        .toList().size())
+                .lastAppointments(appointmentList.size())
                 .sentPlans(0)
                 .build());
         return ResponseEntity.status(HttpStatus.OK).body(response);
