@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faCloudDownloadAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { PaginationComponent as Pagination } from "../Pagination";
 import { loader } from "../Loader";
 import { Modall } from "../Modal";
 import { useModal } from "../../hooks/useModal";
@@ -13,12 +14,23 @@ export const Table = ({ columns, data, isLoading, isError }) => {
     const [selectedDiagnostic, setSelectedDiagnostic] = useState({});
     const [title, setTitle] = useState(""); 
     const [typeChildren, setTypeChildren] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
 
     const handleOpenModal = (item, title, children) => {
         setSelectedDiagnostic(item); 
         setTitle(title);
         setTypeChildren(children)
         openModal(); 
+    };
+
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const lastItem = currentPage * itemsPerPage;
+    const firstItem = lastItem - itemsPerPage;
+    const currentItems = data.slice(firstItem, lastItem);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
     };
 
     return (
@@ -43,11 +55,11 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                             <tr>
                                 <td colSpan={columns.length}>Error al traer la información. Intente nuevamente!</td>
                             </tr>
-                        ) : data.length === 0 ? (
+                        ) : currentItems.length === 0 ? (
                             <tr>
                                 <td colSpan={columns.length}>No hay datos para mostrar</td>
                             </tr>
-                        ) : ( data.map((item, index) => (
+                        ) : ( currentItems.map((item, index) => (
                             <tr key={index}>
                                 {
                                     columns.map((col, idx) => (
@@ -87,6 +99,11 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                     }
                 </tbody>
             </table>
+            <Pagination 
+                totalPages={totalPages} 
+                currentPage={currentPage} 
+                onPageChange={handlePageChange} 
+            />
             <Modall
                 showModal={showModal}
                 closeModal={closeModal}
