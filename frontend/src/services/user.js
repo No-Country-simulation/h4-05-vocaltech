@@ -2,21 +2,16 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const addUser = async (user) => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    const token = storedUser ? storedUser.token : null;
+const addUser = async (token, user) => {
     try {
         const response = await axios.post(`${BASE_URL}/users`, user, {
-            headers: {  
-                'Content-Type': 'application/json',  
-                'Authorization': `Bearer ${token}`   
-            }
+            headers: { Authorization: `Bearer ${token}` }
         });
 
         return response.data;
         
     } catch  {
-        throw new Error("Error al registrar usuario. Intente nuevamente!");
+        throw new Error("Error al registrar al administrador. Intente nuevamente!");
     }
 };
 
@@ -43,9 +38,14 @@ const deleteUser = async (id, token) => {
     }
 };
 
-const editUser = async (id, update, token) => {
+const updateUser = async (idP, data, token) => {
+    const { id, role, ...update } = data; 
+    console.log(idP);
+    console.log(update);
+    console.log(token);
+    
     try {
-        const response = await axios.put(`${BASE_URL}/users/${id}`, update, {
+        const response = await axios.put(`${BASE_URL}/users/${idP}`, update, {
             headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -60,5 +60,5 @@ export const userService = {
     addUser,
     getUsers,
     deleteUser,
-    editUser,
+    updateUser,
 }; 

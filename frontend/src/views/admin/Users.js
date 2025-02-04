@@ -26,7 +26,7 @@ export const Users = () => {
                     return {
                         ...rest,
                         role: roleMap[roles[0].id],
-                        role_id: roles[0].id
+                        roleId: roles[0].id
                     };
                 });
                 setUsersData(updatedResponse);

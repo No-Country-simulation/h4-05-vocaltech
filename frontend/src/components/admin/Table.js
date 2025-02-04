@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { faCloudDownloadAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faEye, faCloudDownloadAlt, faEnvelope, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { PaginationComponent as Pagination } from "../Pagination";
 import { loader } from "../Loader";
 import { Modall } from "../Modal";
 import { useModal } from "../../hooks/useModal";
 import { DiagnosticSheet } from "./DiagnosticSheet";
+import { EditAdmin } from "./EditAdmin";
+import { DeleteAdmin } from "./DeleteAdmin";
 
 export const Table = ({ columns, data, isLoading, isError }) => {
     const { showModal, openModal, closeModal } = useModal();
-    const [selectedDiagnostic, setSelectedDiagnostic] = useState({});
+    const [selectedItem, setSelectedItem] = useState({});
     const [title, setTitle] = useState(""); 
     const [typeChildren, setTypeChildren] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
     const handleOpenModal = (item, title, children) => {
-        setSelectedDiagnostic(item); 
+        setSelectedItem(item); 
         setTitle(title);
         setTypeChildren(children)
         openModal(); 
@@ -89,6 +89,17 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                                                                 className="text-warning fs-4 icon-table" />
                                                         </button>
                                                     )
+                                                ) : col.property === "acciones" ? (
+                                                    <div className="d-flex justify-content-evenly">
+                                                        <button className="btn p-0" type="button"
+                                                            onClick={() => handleOpenModal(item, "Editar administrador", "edit")}>
+                                                            <FontAwesomeIcon icon={faPen} className="text-warning fs-4" />
+                                                        </button>
+                                                        <button className="btn p-0" type="button"
+                                                            onClick={() => handleOpenModal(item, "Eliminar administrador", "delete")}>
+                                                            <FontAwesomeIcon icon={faTrash} className="text-danger fs-4" />
+                                                        </button>
+                                                    </div>
                                                 ) : item[col.property]
                                             }
                                         </td>
@@ -110,12 +121,16 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                 title={title}>
                 {
                     typeChildren === "diagnostic" ? (
-                        <DiagnosticSheet data={selectedDiagnostic} />
-                    ) : (
+                        <DiagnosticSheet data={selectedItem} />
+                    ) : typeChildren === "plan" ? (
                         <div className="py-2">
-                            <p className="pb-1">El plan se enviará al correo {selectedDiagnostic.email}</p>
+                            <p className="pb-1">El plan se enviará al correo {selectedItem.email}</p>
                             <input className="w-100" type="file" />
                         </div>
+                    ) : typeChildren === "edit" ? (
+                        <EditAdmin item={selectedItem} />
+                    ) : typeChildren === "delete" && (
+                        <DeleteAdmin data={selectedItem} />
                     )
                 }
             </Modall>

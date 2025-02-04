@@ -18,6 +18,7 @@ const users = [
     { title: "Nombre completo", property: "fullname" },
     { title: "Correo Electrónico", property: "email" },
     { title: "Organización", property: "role" },
+    { title: "Acciones", property: "acciones" },
 ];
 
 export const columnsTable = {
