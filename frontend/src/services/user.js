@@ -40,9 +40,6 @@ const deleteUser = async (id, token) => {
 
 const updateUser = async (idP, data, token) => {
     const { id, role, ...update } = data; 
-    console.log(idP);
-    console.log(update);
-    console.log(token);
     
     try {
         const response = await axios.put(`${BASE_URL}/users/${idP}`, update, {

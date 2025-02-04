@@ -1,8 +1,8 @@
 import { loader } from "./Loader";
 
-export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText, className="" }) => {
+export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText }) => {
     return (
-        <form onSubmit={handleSubmit} className={className}>
+        <form onSubmit={handleSubmit}>
             <div className="form-group mb-4">
                 <label className="form-label" htmlFor="fullname">Nombre de usuario</label>
                 <input
@@ -13,10 +13,11 @@ export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText, 
                     required
                     value={data.fullname}
                     onChange={handleChange}
+                    placeholder="Vocaltech"
                 />
             </div>
             <div className="form-group mb-4">
-                <label className="form-label" htmlFor="email">Email</label>
+                <label className="form-label" htmlFor="email">Correo Electrónico</label>
                 <input
                     type="email"
                     className="form-control"
@@ -26,12 +27,13 @@ export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText, 
                     autoComplete="email"
                     value={data.email}
                     onChange={handleChange}
+                    placeholder="vocaltech@prueba.com"
                 />
             </div>
             {
                 buttonText !== "Editar" && (
                     <div className="form-group mb-4">
-                        <label className="form-label" htmlFor="password">Password</label>
+                        <label className="form-label" htmlFor="password">Contraseña</label>
                         <input
                             type="password"
                             className="form-control"
@@ -40,6 +42,7 @@ export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText, 
                             id="password"
                             value={data.password}
                             onChange={handleChange}
+                            placeholder="contraseña"
                         />
                     </div>
                 )
