@@ -11,7 +11,7 @@ const addUser = async (token, user) => {
         return response.data;
         
     } catch  {
-        throw new Error("Error al registrar al administrador. Intente nuevamente!");
+        throw new Error("Error al registrar al nuevo administrador. Intente nuevamente!");
     }
 };
 
@@ -49,7 +49,7 @@ const updateUser = async (idP, data, token) => {
         return response.data;
         
     } catch  {
-        throw new Error("Error al editar al administrador. Intente nuevamente!");
+        throw new Error("Error al actualizar la información. Intente nuevamente!");
     }
 };
 

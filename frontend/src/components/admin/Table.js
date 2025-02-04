@@ -128,9 +128,9 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                             <input className="w-100" type="file" />
                         </div>
                     ) : typeChildren === "edit" ? (
-                        <EditAdmin item={selectedItem} />
+                        <EditAdmin item={selectedItem} closeModal={closeModal} />
                     ) : typeChildren === "delete" && (
-                        <DeleteAdmin data={selectedItem} />
+                        <DeleteAdmin data={selectedItem} closeModal={closeModal} />
                     )
                 }
             </Modall>

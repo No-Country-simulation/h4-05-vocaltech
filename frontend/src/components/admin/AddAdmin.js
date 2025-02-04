@@ -5,7 +5,7 @@ import { userService } from "../../services/user";
 import { useAuth } from "../../contexts/Auth";
 import { useCompanySelect } from "../../contexts/CompanySelected";
  
-export const AddAdmin = () => {
+export const AddAdmin = ({ closeModal }) => {
     const { user } = useAuth();
     const { selectedCompany } = useCompanySelect();
     const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +36,8 @@ export const AddAdmin = () => {
                 email: "",
                 password: "",
             });
+            
+            closeModal();
             toast.success("Administrador agregado con éxito!");
         } catch (error) {
             toast.error(error.message);

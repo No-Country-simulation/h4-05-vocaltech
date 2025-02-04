@@ -4,7 +4,7 @@ import { userService } from "../../services/user";
 import { useAuth } from "../../contexts/Auth";
 import { loader } from "../Loader";
 
-export const DeleteAdmin = ({ data }) => {
+export const DeleteAdmin = ({ data, closeModal }) => {
     const [isLoading, setIsLoading] = useState(false);
     const { user } = useAuth();
 
@@ -13,8 +13,8 @@ export const DeleteAdmin = ({ data }) => {
         setIsLoading(true);
     
         try {
-            console.log(data)
             await userService.deleteUser(data.id, user.token); 
+            closeModal();
             toast.success("Administrador eliminado con éxito!");
         } catch (error) {
             toast.error(error.message);

@@ -79,7 +79,7 @@ export const Users = () => {
                 showModal={showModal}
                 closeModal={closeModal}
                 title="Agregar nuevo admin">
-                <AddAdmin />
+                <AddAdmin closeModal={closeModal} />
             </Modall>
             <Toaster
                 richColors
