@@ -38,11 +38,9 @@ const deleteUser = async (id, token) => {
     }
 };
 
-const updateUser = async (idP, data, token) => {
-    const { id, role, ...update } = data; 
-    
+const updateUser = async (updateData, token) => {
     try {
-        const response = await axios.put(`${BASE_URL}/users/${idP}`, update, {
+        const response = await axios.put(`${BASE_URL}/users/${updateData.id}`, updateData, {
             headers: { Authorization: `Bearer ${token}` }
         });
 

@@ -9,7 +9,7 @@ import { DiagnosticSheet } from "./DiagnosticSheet";
 import { EditAdmin } from "./EditAdmin";
 import { DeleteAdmin } from "./DeleteAdmin";
 
-export const Table = ({ columns, data, isLoading, isError }) => {
+export const Table = ({ columns, data, isLoading, isError, updateUser, deleteUser }) => {
     const { showModal, openModal, closeModal } = useModal();
     const [selectedItem, setSelectedItem] = useState({});
     const [title, setTitle] = useState(""); 
@@ -128,9 +128,9 @@ export const Table = ({ columns, data, isLoading, isError }) => {
                             <input className="w-100" type="file" />
                         </div>
                     ) : typeChildren === "edit" ? (
-                        <EditAdmin item={selectedItem} closeModal={closeModal} />
+                        <EditAdmin item={selectedItem} closeModal={closeModal} updateUser={updateUser} />
                     ) : typeChildren === "delete" && (
-                        <DeleteAdmin data={selectedItem} closeModal={closeModal} />
+                        <DeleteAdmin data={selectedItem} closeModal={closeModal} deleteUser={deleteUser} />
                     )
                 }
             </Modall>

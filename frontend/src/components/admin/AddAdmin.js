@@ -5,15 +5,11 @@ import { userService } from "../../services/user";
 import { useAuth } from "../../contexts/Auth";
 import { useCompanySelect } from "../../contexts/CompanySelected";
  
-export const AddAdmin = ({ closeModal }) => {
+export const AddAdmin = ({ addUser, closeModal }) => {
     const { user } = useAuth();
     const { selectedCompany } = useCompanySelect();
     const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState({
-        fullname: "",
-        email: "",
-        password: "",
-    });
+    const [data, setData] = useState({ fullname: "", email: "", password: "" });
 
     const handleNewAdmin = async (e) => {
         e.preventDefault();
@@ -26,17 +22,25 @@ export const AddAdmin = ({ closeModal }) => {
         }
 
         try {
-            await userService.addUser(user.token, {
+            const response = await userService.addUser(user.token, {
                 ...data,
                 roleId: selectedCompany,
             });
+
+            const roleMap = {
+                1: "No Country",
+                2: "Vos y tu Voz"
+            };
         
-            setData({
-                fullname: "",
-                email: "",
-                password: "",
-            });
-            
+            const { roles, ...rest } = response;
+            const updatedResponse = {
+                ...rest,
+                role: roleMap[roles[0].id],  
+                roleId: roles[0].id       
+            };
+
+            addUser(updatedResponse);
+            setData({ fullname: "", email: "", password: "" });
             closeModal();
             toast.success("Administrador agregado con éxito!");
         } catch (error) {

@@ -4,7 +4,7 @@ import { Toaster, toast } from "sonner";
 import { userService } from "../../services/user";
 import { useAuth } from "../../contexts/Auth";
  
-export const EditAdmin = ({ item, closeModal }) => {
+export const EditAdmin = ({ item, closeModal, updateUser }) => {
     const [data, setData] = useState(item);
     const { user } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,9 @@ export const EditAdmin = ({ item, closeModal }) => {
         setIsLoading(true);
     
         try {
-            await userService.updateUser(data.id, data, user.token); 
+            const { role, ...updateData } = data; 
+            await userService.updateUser(updateData, user.token);
+            updateUser(data);
             closeModal();
             toast.success("Administrador actualizado con éxito!");
         } catch (error) {

@@ -16,38 +16,62 @@ export const Users = () => {
     const { selectedCompany } = useCompanySelect();
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    
-   useEffect(() => {
+
+    const getUsers = async () => {
         setIsLoading(true);
-        const getData = async () => {
-            try {
-                const response = await userService.getUsers();
-                const roleMap = {
-                    1: "No Country",
-                    2: "Vos y tu Voz"
+
+        try {
+            const response = await userService.getUsers();
+            const roleMap = {
+                1: "No Country",
+                2: "Vos y tu Voz"
+            };
+
+            const updatedResponse = response.map(user => {
+                const { roles, ...rest } = user;
+                return {
+                    ...rest,
+                    role: roleMap[roles[0].id],
+                    roleId: roles[0].id
                 };
-                  
-                const updatedResponse = response.map(user => {
-                    const { roles, ...rest } = user;
-                    return {
-                        ...rest,
-                        role: roleMap[roles[0].id],
-                        roleId: roles[0].id
-                    };
-                });
-                setUsersData(updatedResponse);
+            });
 
-            } catch (error) {
-                toast.error(error.message);
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+            localStorage.setItem("usersData", JSON.stringify(updatedResponse));
+            setUsersData(updatedResponse);
+        } catch (error) {
+            toast.error(error.message);
+            setIsError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-        getData();
-    }, []);
+    useEffect(() => {
+        const storedUsers = localStorage.getItem("usersData");
+        storedUsers ? setUsersData(JSON.parse(storedUsers)) : getUsers();
+    },[]);
 
+    const addUser = (newUser) => {
+        const updatedUsers = [...usersData, newUser]; 
+        setUsersData(updatedUsers);
+        localStorage.setItem("usersData", JSON.stringify(updatedUsers)); 
+    };
+
+    const updateUser = (update) => {
+        const updatedUsers = usersData.map(user => 
+            user.id === update.id ? update : user
+        );
+
+        setUsersData(updatedUsers);
+        localStorage.setItem("usersData", JSON.stringify(updatedUsers));
+    };
+
+    const deleteUser = (id) => {
+        const updatedUsers = usersData.filter(user => user.id !== id); 
+        setUsersData(updatedUsers);
+        localStorage.setItem("usersData", JSON.stringify(updatedUsers));
+    };
+    
     const filteredUsersData = selectedCompany === 0 || selectedCompany === "General" 
         ? usersData 
         : usersData.filter(user => user.roleId === selectedCompany);
@@ -68,18 +92,21 @@ export const Users = () => {
             </div>
             {
                 selectedCompany === 1 ? (
-                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} data={filteredUsersData} />
+                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
+                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 ) : selectedCompany === 2 ? (
-                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} data={filteredUsersData} />
+                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
+                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 ) : (
-                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} data={filteredUsersData} />
+                    <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
+                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 )
             }
             <Modall
                 showModal={showModal}
                 closeModal={closeModal}
                 title="Agregar nuevo admin">
-                <AddAdmin closeModal={closeModal} />
+                <AddAdmin addUser={addUser} closeModal={closeModal} />
             </Modall>
             <Toaster
                 richColors
