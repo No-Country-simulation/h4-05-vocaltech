@@ -67,11 +67,11 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
         service_id: null,
       });
       closeModal();
-      toast.success("Plantilla agregada con exito");
+      toast.success("Plantilla agregada con éxito!");
       onUpdate();
     } catch (error) {
       console.error("Error adding template:", error);
-      toast.error("Error al agregar plantilla");
+      toast.error(error.message);
     }
   };
 

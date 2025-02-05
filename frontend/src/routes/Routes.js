@@ -11,7 +11,6 @@ import { Home as AdminHome } from "../views/admin/Home";
 import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
-import { AddAdmin } from "../views/admin/AddAdmin";
 import { Users } from "../views/admin/Users";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
@@ -51,7 +50,6 @@ export const AppRoutes = () => {
                     <Route path="templates" element={<Templates />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="leads" element={<Leads />} />
-                    <Route path="add-new-admin" element={<AddAdmin />} />
                     <Route path="users" element={<Users />} />
                 </Route>
             </Routes>

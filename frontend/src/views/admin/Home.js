@@ -22,6 +22,9 @@ export const Home = () => {
 
     return (
         <>
+            <div className="pb-5 d-md-flex justify-content-between">
+                <h2>Métricas generales</h2>
+            </div>
             {
                 selectedCompany === 1 ? (
                     generalData.map((data, index) => (

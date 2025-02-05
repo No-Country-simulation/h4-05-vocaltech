@@ -31,8 +31,8 @@ export const Chatbot = () => {
             const response = await chatbotService.openai(newMessages);
             const botMessage = response.choices[0].message;
             setMessages([...newMessages, botMessage]);
-        } catch {
-            toast.error("Error al comunicarse con Voltebot. Intenté nuevamente!");
+        } catch (error) {
+            toast.error(error.message);
         } finally {
             setIsTyping(false); 
         }

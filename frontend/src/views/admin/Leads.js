@@ -14,20 +14,22 @@ export const Leads = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     
-    useEffect(() => {
+    const getData = async () => {
         setIsLoading(true);
-        const getData = async () => {
-            try {
-                const response = await diagnosticService.getLeads();
-                setLeadsData(response);
-            } catch (error) {
-                toast.error(error.message);
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+        setIsError(false);
+        
+        try {
+            const response = await diagnosticService.getLeads();
+            setLeadsData(response);
+        } catch (error) {
+            toast.error(error.message);
+            setIsError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
+    useEffect(() => {
         getData();
     }, []);
 
@@ -46,12 +48,14 @@ export const Leads = () => {
             creationDate: lead.creationDate.split(" ")[0].split("-").reverse().join("-")  
         }));
 
-        setFilteredLeads(formattedLeads); 
+        const sortedLeads = formattedLeads.reverse();
+
+        setFilteredLeads(sortedLeads); 
     }, [selectedCompany, selectedRole, leadsData]); 
 
     return (
         <section>
-            <div className="pb-3 d-md-flex justify-content-between align-items-center">
+            <div className="pb-3 d-md-flex justify-content-between">
                 <h2>Leads</h2>
                 <div className="d-flex flex-column align-items-end">
                     <label htmlFor="selectRole" className="form-label">Filtrar por</label>
@@ -60,11 +64,14 @@ export const Leads = () => {
             </div>
             {
                 selectedCompany === 1 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 ) : selectedCompany === 2 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 ) : (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 )
             }
             <Toaster

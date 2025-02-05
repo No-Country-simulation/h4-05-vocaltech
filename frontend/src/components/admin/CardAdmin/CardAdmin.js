@@ -43,7 +43,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
         service_id: serviceId
       });
       console.log(response);
-      toast.success("Plantilla actualizada");
+      toast.success("Plantilla actualizada con éxito!");
 
       const updatedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
       const index = updatedTemplates.findIndex(template => template.id === id);
@@ -54,7 +54,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
       onUpdate()
     } catch (error) {
       console.error(error);
-      toast.error("Error al actualizar plantilla");
+      toast.error(error.message);
     }
   }
 
@@ -70,7 +70,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
     try {
       const response = await templateService.deleteTemplates(id);
       console.log(response);
-      toast.success("Plantilla eliminada");
+      toast.success("Plantilla eliminada con éxito!");
 
       const updatedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
       const newTemplates = updatedTemplates.filter(template => template.id !== id);
@@ -79,7 +79,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
       onUpdate()
     } catch (error) {
       console.error(error);
-      toast.error("Error al eliminar plantilla");
+      toast.error(error.message);
     }
     setShowModal(false);
   };
@@ -158,23 +158,13 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
           </form>
         )}
         {modalType === "delete" && (
-          <div className="w-100">
-            <h5 className="mb-4">
-              ¿Seguro que deseas eliminar esta plantilla?
-            </h5>
-            <div className="d-flex justify-content-between gap-2">
-              <button
-                className="btn btn-danger rounded-pill w-100"
-                onClick={closeModal}>
-                Cancelar
-              </button>
-              <button
-                className="btn btn-success rounded-pill w-100"
-                onClick={handleConfirmDelete}>
-                Eliminar
-              </button>
-            </div>
-          </div>
+          <>
+            <p>¿Seguro que deseas eliminar esta plantilla?</p>
+            <button className="btn btn-login rounded-pill w-100"
+              onClick={handleConfirmDelete}>
+              Eliminar
+            </button>
+          </>
         )}
       </Modall>
       <Toaster richColors position="top-center" />

@@ -58,6 +58,25 @@
     color: var(--color-text-light);
 }
 
+.pagination .page-link  {
+    background-color: transparent !important;
+    border: none;
+    color: var(--color-text-dark);
+}
+
+.pagination .disabled>.page-link {
+    background-color: rgba(59, 63, 66, 0.1) !important;
+}
+
+.pagination .active>.page-link {
+    color: var(--color-accent-1);
+    font-weight: bold;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none !important;
+}
+
 @media (min-width: 768px) {
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
