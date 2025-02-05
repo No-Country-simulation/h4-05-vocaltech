@@ -8,6 +8,7 @@ import { useCompanySelect } from "../../contexts/CompanySelected";
 import { userService } from "../../services/user";
 import { Modall } from "../../components/Modal";
 import { useModal } from "../../hooks/useModal";
+import { useActionUser } from "../../hooks/useActionUser";
 import { AddAdmin } from "../../components/admin/AddAdmin";
 
 export const Users = () => {
@@ -16,6 +17,10 @@ export const Users = () => {
     const { selectedCompany } = useCompanySelect();
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const addUser = useActionUser.useAdd(usersData, setUsersData);
+    const updateUser = useActionUser.useUpdate(usersData, setUsersData);
+    const deleteUser = useActionUser.useDelete(usersData, setUsersData);
+
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -50,27 +55,6 @@ export const Users = () => {
         const storedUsers = localStorage.getItem("usersData");
         storedUsers ? setUsersData(JSON.parse(storedUsers)) : getUsers();
     },[]);
-
-    const addUser = (newUser) => {
-        const updatedUsers = [...usersData, newUser]; 
-        setUsersData(updatedUsers);
-        localStorage.setItem("usersData", JSON.stringify(updatedUsers)); 
-    };
-
-    const updateUser = (update) => {
-        const updatedUsers = usersData.map(user => 
-            user.id === update.id ? update : user
-        );
-
-        setUsersData(updatedUsers);
-        localStorage.setItem("usersData", JSON.stringify(updatedUsers));
-    };
-
-    const deleteUser = (id) => {
-        const updatedUsers = usersData.filter(user => user.id !== id); 
-        setUsersData(updatedUsers);
-        localStorage.setItem("usersData", JSON.stringify(updatedUsers));
-    };
     
     const filteredUsersData = selectedCompany === 0 || selectedCompany === "General" 
         ? usersData 
