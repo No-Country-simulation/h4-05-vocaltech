@@ -46,7 +46,9 @@ export const Leads = () => {
             creationDate: lead.creationDate.split(" ")[0].split("-").reverse().join("-")  
         }));
 
-        setFilteredLeads(formattedLeads); 
+        const sortedLeads = formattedLeads.reverse();
+
+        setFilteredLeads(sortedLeads); 
     }, [selectedCompany, selectedRole, leadsData]); 
 
     return (
