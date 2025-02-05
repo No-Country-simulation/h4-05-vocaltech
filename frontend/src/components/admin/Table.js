@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faTimes, faEye, faCloudDownloadAlt, faEnvelope, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { PaginationComponent as Pagination } from "../Pagination";
@@ -32,6 +32,10 @@ export const Table = ({ columns, data, isLoading, isError, updateUser, deleteUse
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+
+    useEffect(() => {
+        setCurrentPage(1); 
+    }, [data]);
 
     return (
         <div className="table-responsive text-center pb-5 pt-3 px-2">
