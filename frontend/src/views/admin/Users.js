@@ -22,8 +22,9 @@ export const Users = () => {
     const deleteUser = useActionUser.useDelete(usersData, setUsersData);
 
 
-    const getUsers = async () => {
+    const getData = async () => {
         setIsLoading(true);
+        setIsError(false);
 
         try {
             const response = await userService.getUsers();
@@ -53,7 +54,7 @@ export const Users = () => {
 
     useEffect(() => {
         const storedUsers = localStorage.getItem("usersData");
-        storedUsers ? setUsersData(JSON.parse(storedUsers)) : getUsers();
+        storedUsers ? setUsersData(JSON.parse(storedUsers)) : getData();
     },[]);
     
     const filteredUsersData = selectedCompany === 0 || selectedCompany === "General" 
@@ -80,13 +81,13 @@ export const Users = () => {
             {
                 selectedCompany === 1 ? (
                     <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
-                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
+                        getData={getData} data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 ) : selectedCompany === 2 ? (
                     <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
-                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
+                        getData={getData} data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 ) : (
                     <Table columns={columnsTable.users} isLoading={isLoading} isError={isError} 
-                        data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
+                        getData={getData} data={filteredUsersData} updateUser={updateUser} deleteUser={deleteUser} />
                 )
             }
             <Modall

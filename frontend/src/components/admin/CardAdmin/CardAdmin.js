@@ -43,7 +43,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
         service_id: serviceId
       });
       console.log(response);
-      toast.success("Plantilla actualizada");
+      toast.success("Plantilla actualizada con éxito!");
 
       const updatedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
       const index = updatedTemplates.findIndex(template => template.id === id);
@@ -54,7 +54,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
       onUpdate()
     } catch (error) {
       console.error(error);
-      toast.error("Error al actualizar plantilla");
+      toast.error(error.message);
     }
   }
 
@@ -70,7 +70,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
     try {
       const response = await templateService.deleteTemplates(id);
       console.log(response);
-      toast.success("Plantilla eliminada");
+      toast.success("Plantilla eliminada con éxito!");
 
       const updatedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
       const newTemplates = updatedTemplates.filter(template => template.id !== id);
@@ -79,7 +79,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
       onUpdate()
     } catch (error) {
       console.error(error);
-      toast.error("Error al eliminar plantilla");
+      toast.error(error.message);
     }
     setShowModal(false);
   };

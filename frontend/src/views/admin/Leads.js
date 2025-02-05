@@ -14,20 +14,22 @@ export const Leads = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     
-    useEffect(() => {
+    const getData = async () => {
         setIsLoading(true);
-        const getData = async () => {
-            try {
-                const response = await diagnosticService.getLeads();
-                setLeadsData(response);
-            } catch (error) {
-                toast.error(error.message);
-                setIsError(true);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+        setIsError(false);
+        
+        try {
+            const response = await diagnosticService.getLeads();
+            setLeadsData(response);
+        } catch (error) {
+            toast.error(error.message);
+            setIsError(true);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
+    useEffect(() => {
         getData();
     }, []);
 
@@ -62,11 +64,14 @@ export const Leads = () => {
             </div>
             {
                 selectedCompany === 1 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 ) : selectedCompany === 2 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 ) : (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} data={filteredLeads} />
+                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
+                        data={filteredLeads} getData={getData} />
                 )
             }
             <Toaster

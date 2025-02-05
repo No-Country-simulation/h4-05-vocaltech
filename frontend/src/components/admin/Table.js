@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
-import { faTimes, faEye, faCloudDownloadAlt, faEnvelope, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faEye, faCloudDownloadAlt, faEnvelope, faPen, faTrash, faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 import { PaginationComponent as Pagination } from "../Pagination";
 import { loader } from "../Loader";
 import { Modall } from "../Modal";
@@ -9,7 +9,7 @@ import { DiagnosticSheet } from "./DiagnosticSheet";
 import { EditAdmin } from "./EditAdmin";
 import { DeleteAdmin } from "./DeleteAdmin";
 
-export const Table = ({ columns, data, isLoading, isError, updateUser, deleteUser }) => {
+export const Table = ({ columns, data, isLoading, isError, getData, updateUser, deleteUser }) => {
     const { showModal, openModal, closeModal } = useModal();
     const [selectedItem, setSelectedItem] = useState({});
     const [title, setTitle] = useState(""); 
@@ -57,7 +57,14 @@ export const Table = ({ columns, data, isLoading, isError, updateUser, deleteUse
                             </tr>
                         ) : isError ? (
                             <tr>
-                                <td colSpan={columns.length}>Error al traer la información. Intente nuevamente!</td>
+                                <td colSpan={columns.length}>
+                                    <button className="btn btn-warning rounded-pill px-5" type="button" 
+                                        onClick={getData}>
+                                        Error al traer la información. Intente nuevamente 
+                                        <FontAwesomeIcon icon={faSyncAlt} 
+                                            className="ms-2" />
+                                    </button> 
+                                </td>
                             </tr>
                         ) : currentItems.length === 0 ? (
                             <tr>
