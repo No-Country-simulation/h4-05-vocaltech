@@ -1,10 +1,13 @@
 export const DiagnosticSheet = ({ data }) => {
+    console.log(data)
+    
+
     return (
         <div className="container">
-            <p><strong>Nombre completo:</strong> {data.name}</p>
-            <p><strong>Perfil:</strong> {data.profile.value}</p>
-            <p><strong>Servicio seleccionado:</strong> {data.service.value}</p>
-            <p><strong>Opciones:</strong></p>    
+            <p>Nombre completo: {data.name}</p>
+            <p>Perfil: {data.profile.value}</p>
+            <p>Servicio seleccionado: {data.service.value}</p>
+            <p>Opciones:</p>    
             <ol className="list-group-numbered">
                 {
                     data.answers.map(answer => (
@@ -12,6 +15,14 @@ export const DiagnosticSheet = ({ data }) => {
                     ))
                 }
             </ol>
+            <p>Pitch:</p> 
+            <audio controls>
+                <source src={data.voiceRecordingPath} type="audio/webm" />
+                <a href={data.voiceRecordingPath} download target="_blank" rel="noopener noreferrer">
+                    Descargar el audio
+                </a>
+                Tu navegador no soporta el elemento de audio.
+            </audio>
         </div>
     );
 };
