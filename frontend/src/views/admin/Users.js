@@ -78,17 +78,20 @@ export const Users = () => {
 
     return (
         <section>
-            <div className="pb-5 d-md-flex justify-content-between align-items-center">
+            <div className="pb-5 d-md-flex justify-content-between">
                 <h2>Administradores</h2>
-                <div className="pt-4 pt-md-0 d-flex flex-column align-items-end">
-                    <button
-                        type="button"
-                        className="btn-personalized rounded-pill w-100"
-                        onClick={openModal}
-                        >
-                        <FontAwesomeIcon className="me-2" icon={faPlus} />Agregar admin
-                    </button>
-                </div>
+                {
+                    (selectedCompany === 1 || selectedCompany === 2) && (
+                        <div className="pt-4 pt-md-0 d-flex flex-column align-items-end">
+                            <button
+                                type="button"
+                                className="btn-personalized rounded-pill w-100"
+                                onClick={openModal}>
+                                <FontAwesomeIcon className="me-2" icon={faPlus} />Agregar admin
+                            </button>
+                        </div>
+                    )
+                }
             </div>
             {
                 selectedCompany === 1 ? (

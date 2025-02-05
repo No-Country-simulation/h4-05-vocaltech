@@ -15,12 +15,6 @@ export const AddAdmin = ({ addUser, closeModal }) => {
         e.preventDefault();
         setIsLoading(true);
 
-        if (selectedCompany === 0 || selectedCompany === "General") {
-            toast.error("Debe seleccionar una organización para crear un nuevo administrador.");
-            setIsLoading(false);
-            return;
-        }
-
         try {
             const response = await userService.addUser(user.token, {
                 ...data,

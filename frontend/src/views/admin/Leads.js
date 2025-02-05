@@ -51,7 +51,7 @@ export const Leads = () => {
 
     return (
         <section>
-            <div className="pb-3 d-md-flex justify-content-between align-items-center">
+            <div className="pb-3 d-md-flex justify-content-between">
                 <h2>Leads</h2>
                 <div className="d-flex flex-column align-items-end">
                     <label htmlFor="selectRole" className="form-label">Filtrar por</label>
