@@ -11,9 +11,10 @@ import { Home as AdminHome } from "../views/admin/Home";
 import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
-import { AddAdmin } from "../views/admin/AddAdmin";
+import { Users } from "../views/admin/Users";
 import { FooterVocalTech } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 
@@ -25,6 +26,7 @@ export const AppRoutes = () => {
     return (
         <>
             <ScrollToTop />
+            { !isAdminRoute && <Chatbot /> }
             { !isAdminRoute && <NavbarVocalTech /> }
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -48,7 +50,7 @@ export const AppRoutes = () => {
                     <Route path="templates" element={<Templates />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="leads" element={<Leads />} />
-                    <Route path="add-new-admin" element={<AddAdmin />} />
+                    <Route path="users" element={<Users />} />
                 </Route>
             </Routes>
             { !isAdminRoute && <FooterVocalTech /> }

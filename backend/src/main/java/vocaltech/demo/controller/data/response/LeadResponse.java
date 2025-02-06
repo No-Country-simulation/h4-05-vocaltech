@@ -24,5 +24,6 @@ public class LeadResponse {
     private boolean diagnostic;
     private Set<Role> roles;
     private String creationDate;
+    private String voiceRecordingPath;
 
 }

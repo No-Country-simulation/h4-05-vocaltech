@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
-import { Loader } from "../Loader";
+import { loader } from "../Loader";
 import { authService } from "../../services/auth";
 import { useAuth } from "../../contexts/Auth";
 
@@ -53,19 +53,19 @@ export const Login = () => {
                 <div className="form-group mb-4">
                     <label htmlFor="email" className="form-label">Correo Electrónico</label>
                     <input type="email" className="form-control" id="email" autoComplete="email" 
-                        onChange={handleEmailChange} placeholder="vocaltech@prueba.com" />
+                        onChange={handleEmailChange} required placeholder="vocaltech@prueba.com" />
                     <small className="text-danger">{errorEmail}</small>
                 </div>
                 <div className="form-group mb-4">
                     <label htmlFor="password" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="password" 
-                        onChange={handlePasswordChange} placeholder="contraseña" />
+                        onChange={handlePasswordChange} required placeholder="contraseña" />
                     <small className="text-danger">{errorPass}</small>
                 </div>
                 <button type="submit" disabled={isLoading} className="btn btn-login rounded-pill w-100">
                     {
                         isLoading ? (
-                            <Loader />
+                            <loader.GeneralLoader />
                         ) : "Acceder"
                     }
                 </button>

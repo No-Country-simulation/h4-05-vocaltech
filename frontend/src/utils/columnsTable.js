@@ -1,20 +1,28 @@
 const appointments = [
-    "Nombre Cliente",
-    "Fecha",
-    "Estado",
-    "Correo Electrónico",
-    "Diagnóstico",
-    "Plan de Trabajo",
+    { title: "Nombre Cliente", property: "name" },
+    { title: "Fecha de la cita", property: "startDate" },
+    { title: "Estado", property: "status" },
+    { title: "Correo Electrónico", property: "email" },
+    { title: "Diagnóstico", property: "diagnostic" },
+    { title: "Plan de Trabajo", property: "plan" },
 ];
 
 const leads = [
-    { title: "Nombre Cliente", property: "fullname" },
+    { title: "Nombre Cliente", property: "name" },
     { title: "Correo Electrónico", property: "email" },
-    { title: "Diagnóstico", property: "email" },
-    { title: "Plan de Trabajo", property: "email" },
+    { title: "Diagnóstico", property: "diagnostic" },
+    { title: "Fecha de creación", property: "creationDate" },
+];
+
+const users = [
+    { title: "Nombre completo", property: "fullname" },
+    { title: "Correo Electrónico", property: "email" },
+    { title: "Organización", property: "role" },
+    { title: "Acciones", property: "acciones" },
 ];
 
 export const columnsTable = {
     appointments,
     leads,
+    users
 };

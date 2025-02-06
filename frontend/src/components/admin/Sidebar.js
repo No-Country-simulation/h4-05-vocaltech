@@ -9,7 +9,7 @@ export const Sidebar = () => {
     const { user, logout } = useAuth();
     
     return (
-        <div className="d-md-flex d-none ">
+        <div className="d-md-flex d-none">
             <div
                 className="sidebar navbar-bg text-white" 
                 style={{position: 'relative', top: 0, left: 0, height: '100vh', 
@@ -19,7 +19,7 @@ export const Sidebar = () => {
                     <h4 className="offcanvas-title text-white" id="offcanvasNavbarLabel">
                         <strong>V</strong>ocal<strong>T</strong>ech
                     </h4>
-                    <div className="py-4 py-lg-5">
+                    <div className="py-2 py-lg-4">
                         <DashSelect />
                     </div>
                     <ul className="navbar-nav">
@@ -35,8 +35,8 @@ export const Sidebar = () => {
                         }
                     </ul>
                 </div>
-                <div className="text-center mt-auto pb-1">
-                    <p className="text-white pb-2">
+                <div className="text-center mt-auto pb-lg-1">
+                    <p className="text-white pb-lg-2">
                         <FontAwesomeIcon icon={faUser} className="pe-1" /> {user?.userInfo.fullname}
                     </p>
                     <button onClick={logout} className="btn btn-logout rounded-pill w-100">

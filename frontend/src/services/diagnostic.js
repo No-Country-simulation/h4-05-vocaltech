@@ -8,7 +8,7 @@ const getLeads = async () => {
         return response.data;
         
     } catch  {
-        throw new Error("Error al traer la información!");
+        throw new Error("Error al traer la información. Intente nuevamente!");
     }
 };
 

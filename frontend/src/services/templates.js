@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-//const token = localStorage.getItem('token');
 
 export const addTemplates = async (data) => {
     try {
@@ -14,7 +13,7 @@ export const addTemplates = async (data) => {
         return newTemplate;
         
     } catch  {
-        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+        throw new Error("Error al crear una plantilla. Intente nuevamente!");
     }
 };
 
@@ -31,7 +30,7 @@ export const getTemplates = async () => {
         }
         
     } catch (error)  {
-        console.error("Error al enviar el formulario. Intente nuevamente!");
+        console.error("Error al obtener las plantillas. Intente nuevamente!");
         const cachedTemplates = JSON.parse(localStorage.getItem("templates") || "[]");
         return Array.isArray(cachedTemplates) ? cachedTemplates : [];
     }
@@ -50,7 +49,7 @@ export const editTemplates = async (data) => {
         return updatedTemplate;
         
     } catch  {
-        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+        throw new Error("Error al actualizar una plantilla. Intente nuevamente!");
     }
 };
 
@@ -63,7 +62,7 @@ export const deleteTemplates = async (id) => {
         localStorage.setItem('templates', JSON.stringify(updatedTemplates));
         return id;
     } catch  {
-        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+        throw new Error("Error al eliminar una plantilla. Intente nuevamente!");
     }
 };
 

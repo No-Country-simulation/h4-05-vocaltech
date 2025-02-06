@@ -72,6 +72,8 @@ public class SecurityConfig {
 
                     // PRIVATE Endpoints
                     http.requestMatchers(HttpMethod.POST, "/api/v1/users/**").authenticated();
+                    http.requestMatchers(HttpMethod.PUT, "/api/v1/users/**").authenticated();
+                    http.requestMatchers(HttpMethod.DELETE, "/api/v1/users/**").authenticated();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
