@@ -59,6 +59,7 @@ public class JwtUtils {
     }
 
     private Algorithm getAlgorithm() {
+
         return Algorithm.HMAC256(this.privateKey);
     }
 

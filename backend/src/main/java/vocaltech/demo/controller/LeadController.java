@@ -9,6 +9,7 @@ import vocaltech.demo.controller.data.response.LeadResponse;
 import vocaltech.demo.email.EmailTemplates;
 import vocaltech.demo.mapper.LeadMapper;
 import vocaltech.demo.persistence.entity.*;
+import vocaltech.demo.security.utils.DeltaToHtmlConverter;
 import vocaltech.demo.service.EmailService;
 import vocaltech.demo.service.implementation.*;
 
@@ -71,6 +72,11 @@ public class LeadController {
 
         /* Send Templates by email */
 
+
+        // Mandar mail tmb al adminsitrador.
+
+        // Mandar qr por el mail.
+
         List<Template> templates = answers.stream()
                 .map(answer -> {
                     List<Template> templateList = answer.getTemplates().stream().toList();
@@ -79,8 +85,15 @@ public class LeadController {
                 .filter(Objects::nonNull).toList();
 
 
-        if(!templates.isEmpty()){
-            String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
+        if (!templates.isEmpty()) {
+            List<Template> templatesWithHtmlBody = templates.stream().map(
+                    template -> {
+                        String htmlBody = DeltaToHtmlConverter.convertDeltaToHtml(template.getBody());
+                        template.setBody(htmlBody);
+                        return template;
+                    }
+            ).toList();
+            String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templatesWithHtmlBody);
             this.emailService.sendEmail(
                     lead.getEmail(),
                     "Resultado de Diagnóstico Vocaltech.",
@@ -89,7 +102,6 @@ public class LeadController {
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
         }
-
 
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);

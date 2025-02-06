@@ -6,9 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vocaltech.demo.controller.data.request.TemplateRequest;
 import vocaltech.demo.controller.data.response.TemplateResponse;
+import vocaltech.demo.email.EmailTemplates;
 import vocaltech.demo.mapper.TemplateMapper;
 import vocaltech.demo.persistence.entity.Option;
 import vocaltech.demo.persistence.entity.Template;
+import vocaltech.demo.security.utils.DeltaToHtmlConverter;
+import vocaltech.demo.service.EmailService;
 import vocaltech.demo.service.TemplateService;
 import vocaltech.demo.service.implementation.OptionServiceImpl;
 
