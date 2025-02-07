@@ -6,7 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import "../../../styles/buttons.css";
+import "../../../styles/templates.css";
 
 export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, onUpdate }) => {
   const [showModal, setShowModal] = useState(false);
@@ -92,7 +95,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
         <div className="card-body pt-4 px-4">
           <h5 className="card-title">{title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{subject}</h6>
-          <p className="card-text mt-4 text-truncate">{description}</p>
+          <div className="card-text mt-4 text-truncate card-content" dangerouslySetInnerHTML={{ __html: description }} />
         </div>
         <div className="card-footer d-flex justify-content-center">
           <button className="btn btn-outline-info me-3" onClick={() => handleView("Contenido")}>
@@ -112,7 +115,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
           <>
             <h5 className="mb-2">{title}</h5>
             <p>Asunto: {subject}</p>
-            <p>Descripción: {description}</p>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
           </>
         )}
         {modalType === "edit" && (
@@ -138,14 +141,11 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
                 />
             </div>
             <div className="form-group">
-              <label className="fw-bold" htmlFor="descripcion">Descripción</label>
-                <textarea
-                  className="form-control"
-                  rows="6"
-                  id="descripcion"
-                  type="text"
+              <label className="fw-bold mb-2" htmlFor="descripcion">Descripción</label>
+                <ReactQuill
+                  theme="snow"
                   value={content}
-                  onChange={(e) => setContent(e.target.value)}
+                  onChange={setContent}
                 />
             </div>
             <div className="text-center">
