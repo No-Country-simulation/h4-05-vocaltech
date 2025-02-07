@@ -26,7 +26,8 @@ public class Template {
     @Column(name = "subject", nullable = false)
     private String subject;
 
-    @Column(name = "body", nullable = false)
+    @Lob
+    @Column(name = "body", columnDefinition = "TEXT", nullable = false)
     private String body;
 
     @ManyToOne
