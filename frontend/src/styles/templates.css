@@ -1,0 +1,14 @@
+.card {
+  overflow: hidden;
+}
+
+.card-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  max-height: 7.2em;
+  white-space: nowrap;
+}

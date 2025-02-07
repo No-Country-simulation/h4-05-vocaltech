@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { templateService } from "../../services/templates";
+import ReacQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 import "../../styles/buttons.css";
 
 export const FormTemplate = ({ onUpdate, closeModal}) => {
@@ -47,6 +49,10 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewTemplate((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleQuillChange = (value) => {
+    setNewTemplate((prev) => ({ ...prev, body: value }));
   };
 
   const handleSubmit = async (event) => {
@@ -141,17 +147,13 @@ export const FormTemplate = ({ onUpdate, closeModal}) => {
                 />
               </div>
               <div className="form-group">
-                <label className="fw-bold" htmlFor="descripcion">
+                <label className="fw-bold mb-2" htmlFor="descripcion">
                   Descripción
                 </label>
-                <textarea
-                  className="form-control"
-                  name="body"
-                  id="descripcion"
-                  rows="4"
-                  required
-                  placeholder="Escriba la descripción..."
-                  onChange={handleChange}
+                <ReacQuill
+                  theme="snow"
+                  value={newTemplate.body}
+                  onChange={handleQuillChange}
                 />
               </div>
               <div className="text-center">
