@@ -1,50 +1,43 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { CalendlyWebhookDto } from '../dtos/calendly-webhook.dto';
+import { log } from 'console';
 
 @Injectable()
 export class AppointmentService {
     constructor(private readonly httpService: HttpService) {}
+    //private readonly logger = new Logger()
 
     // Crear un appointment y retornar los datos para enviarlos a la función createAppointmentinSpringBoot
     async processCalendlyEvent(payload: CalendlyWebhookDto) {
+      log("Hola");
+      console.log(payload.payload.event);
+      const {start_time, location} = payload.payload.event;
+      const {invitee} = payload.payload;
+      //const meetingLink = location.join_url;
+      const email = invitee.email;
 
-        const { 
-            payload: { 
-              event: { start_time, location }, 
-              invitee 
-            } 
-          } = payload;
-    const meetingLink = location.join_url;
-    const email = invitee.email;
-    //const lead = await this.getLeadByEmail(email);
-
-    const appointmentData = {
+      const appointmentData = {
         startDate: start_time,
         status: 'SCHEDULED',
-        meetingLink,
+        //meetingLink,
         email
+      }
+
+      console.log(appointmentData)
+
+      return this.sendAppointment(appointmentData);
+    }  
+
+    // Enviar webhook a la Api en Spring
+    private async sendAppointment(data: any) {
+      const apiLink = process.env.SPRING_BOOT_API;
+      const url = `${apiLink}/appointments`;
+      const headers = { 'X-API-Key': process.env.SPRING_BOOT_API_KEY };
+      return firstValueFrom(this.httpService.post(url, data, {headers}));
     }
 
-    return this.createAppointmentInSpringBoot(appointmentData);
-    }
-
-    /*private async getLeadByEmail(email: string) {
-        console.log('SPRING_BOOT_API:', process.env.SPRING_BOOT_API);
-        const response = await firstValueFrom(
-            this.httpService.post(`${process.env.SPRING_BOOT_API}/api/v1/leads?email=${email}`),
-        );
-        return response.data[0];
-    }
-*/
-    // Enviar los datos del Appointment a SpringBoot
-    private async createAppointmentInSpringBoot(data: any) {
-        const response = await firstValueFrom(
-            this.httpService.post(`${process.env.SPRING_BOOT_API}/api/v1/appointments`, data),
-        );
-        return response.data;
-    }
     // Mostrar appointments traidos desde base de datos en Spring Boot
     async getAppointments(token?: string) {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
@@ -53,4 +46,6 @@ export class AppointmentService {
         );
         return response.data;
       }
+
+      
 }
