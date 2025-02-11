@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { CalendlyWebhookDto } from '../dtos/calendly-webhook.dto';
+//import { CalendlyWebhookDto } from '../dtos/calendly-webhook.dto';
 import { log } from 'console';
 
-@Injectable()
+/*@Injectable()
 export class AppointmentService {
     constructor(private readonly httpService: HttpService) {}
     //private readonly logger = new Logger()
@@ -15,13 +15,13 @@ export class AppointmentService {
       console.log(payload.payload.event);
       const {start_time, location} = payload.payload.event;
       const {invitee} = payload.payload;
-      //const meetingLink = location.join_url;
+      const meetingLink = location.join_url;
       const email = invitee.email;
 
       const appointmentData = {
         startDate: start_time,
         status: 'SCHEDULED',
-        //meetingLink,
+        meetingLink,
         email
       }
 
@@ -49,3 +49,4 @@ export class AppointmentService {
 
       
 }
+      */

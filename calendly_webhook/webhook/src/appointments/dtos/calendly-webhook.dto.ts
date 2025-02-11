@@ -1,5 +1,5 @@
 
-
+/*
 export class CalendlyWebhookDto {
     event: string; // Tipo de evento (ej: "invitee.created")
     payload: {
@@ -16,3 +16,4 @@ export class CalendlyWebhookDto {
       };
     };
   }
+    */
