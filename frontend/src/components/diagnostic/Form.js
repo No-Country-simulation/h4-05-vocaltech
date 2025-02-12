@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Toaster, toast } from 'sonner';
 import { loader } from "../Loader";
 import { SelectRole } from "../SelectRole";
@@ -40,12 +40,12 @@ export const Form = () => {
     const handleFullnameChange = (e) => setFullname(e.target.value);
 
     const reset = () => {
-        setSelectedRole("Seleccionar");
         setSelectedService("Seleccionar");
         setSelectedNeeds([]);
         setFile(null);
         setFullname("");
         setEmail("");
+        setEmailError("");
         
         window.scrollTo({
             behavior: "smooth" ,
@@ -70,6 +70,7 @@ export const Form = () => {
             };
 
             await diagnosticService.sendDiagnostic(data);
+            setSelectedRole("Seleccionar");
             reset();
             toast.success("Enviado exitosamente! Esté pendiente de su correo.")
         } catch (error) {
@@ -78,6 +79,10 @@ export const Form = () => {
             setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        reset();
+    }, [selectedRole]);
 
     return (
         <div className="container pb-5 mb-4">
