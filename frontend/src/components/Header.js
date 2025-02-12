@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
     
     const handleScroll = () => {
-        const section = document.getElementById("partners");
+        const section = document.getElementById("services");
         section && section.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -28,16 +28,16 @@ export const Header = () => {
                             acompañamiento y las herramientas que necesitas para crecer.
                         </p>
                         <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                            <Link to="/" onClick={handleScroll} className="w-100">
+                            <Link to="/" onClick={handleScroll} className="w-50">
                                 <button type="button"className="btn rounded-pill btn-personalized btn-landing">
                                     Conoce más
                                 </button>
                             </Link>
-                            <Link to="/agendar-cita" className="w-100">
+                            {/* <Link to="/agendar-cita" className="w-100">
                                 <button type="button" className="btn rounded-pill btn-personalized btn-landing">
                                     Agendar una cita
                                 </button>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <div className="d-lg-none mt-4"

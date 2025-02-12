@@ -5,7 +5,7 @@ import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 export const Services = () => {
     return (
-        <section className="services container py-5">
+        <section id="services" className="services container py-5">
             <h2 className="display-7 fw-bolder text-center pb-5">Nuestros Servicios</h2>
             <div className="row">
                 <div className="col-md-6 pe-md-4">
