@@ -9,7 +9,7 @@ export const CallToAction = () => {
                     </h2>
                     <p className="fw-bold pb-4">Completa el proceso para que podamos asesorarte de la mejor manera. Recuerda que estamos aquí para brindarte el apoyo que necesitas. 
                     </p>
-                    <p className="lead pb-5">¡Este es el momento, anímate a dar el siguiente paso en tu vida profesional!
+                    <p className="lead mb-0">¡Este es el momento, anímate a dar el siguiente paso en tu vida profesional!
                     </p>
                 </div>
             </div>
