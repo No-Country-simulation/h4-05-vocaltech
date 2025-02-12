@@ -20,17 +20,17 @@ export const Header = () => {
                     <p className="lead py-4">Ofrecemos soluciones innovadoras que impulsan el crecimiento 
                         y éxito de tu organización.
                     </p>
-                    <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                        <Link to="/diagnostico" className="w-100">
+                    <div className="d-flex flex-wrap flex-lg-nowrap gap-3">
+                        <Link to="/diagnostico" className="w-50">
                             <button type="button" className="btn btn-dark rounded-pill btn-personalized w-100">
                                 Solicitar diagnóstico
                             </button>
                         </Link>
-                        <Link to="/agendar-cita" className="w-100">
+                        {/* <Link to="/agendar-cita" className="w-100">
                             <button type="button" className="btn btn-dark rounded-pill btn-personalized w-100">
                                 Agendar una cita
                             </button>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
                 <div className="col-md-6 text-center d-md-none">
