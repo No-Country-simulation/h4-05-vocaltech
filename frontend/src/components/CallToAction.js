@@ -18,18 +18,12 @@ export const CallToAction = () => {
                         transformar tu proyecto
                     </p>
                     <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                        <Link to="/diagnostico" className="text-center w-100 zindex">
+                        <Link to="/diagnostico" className="w-100 zindex">
                             <button type="button" className="btn rounded-pill btn-personalized 
                                 btn-call-to-action w-50">
                                 ¡Hazlo AHORA!
                             </button>
-                            </Link>
-                        {/* <Link to="/agendar-cita" className="w-100 zindex">
-                            <button type="button" className="btn rounded-pill btn-personalized 
-                                btn-call-to-action w-100">
-                                Agenda una cita
-                            </button>
-                        </Link> */}
+                        </Link>
                     </div>
                 </div>
             </div>

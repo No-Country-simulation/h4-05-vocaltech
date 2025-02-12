@@ -23,14 +23,8 @@ export const CallToAction = () => {
                     <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
                         <Link to="/diagnostico" className="w-100 zindex">
                             <button type="button" className="btn btn-dark rounded-pill 
-                                btn-personalized btn-call-to-action w-100">
+                                btn-personalized btn-call-to-action w-50">
                             ¡Hazlo AHORA!
-                            </button>
-                        </Link>
-                        <Link to="/agendar-cita" className="w-100 zindex">
-                            <button type="button" className="btn btn-dark rounded-pill 
-                                btn-personalized btn-call-to-action w-100">
-                                Agenda una cita
                             </button>
                         </Link>
                     </div>
