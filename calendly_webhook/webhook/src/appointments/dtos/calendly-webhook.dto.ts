@@ -1,10 +1,9 @@
 
-/*
 export class CalendlyWebhookDto {
-    event: string; // Tipo de evento (ej: "invitee.created")
+    event: string; 
     payload: {
       event: {
-        start_time: string; // Campo en snake_case
+        start_time: string; 
         end_time: string;
         location: {
           join_url: string;
@@ -16,4 +15,3 @@ export class CalendlyWebhookDto {
       };
     };
   }
-    */

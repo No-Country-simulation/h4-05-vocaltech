@@ -1,13 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-//import { CalendlyWebhookDto } from '../dtos/calendly-webhook.dto';
+import { CalendlyWebhookDto } from '../dtos/calendly-webhook.dto';
 import { log } from 'console';
 
-/*@Injectable()
+@Injectable()
 export class AppointmentService {
     constructor(private readonly httpService: HttpService) {}
-    //private readonly logger = new Logger()
 
     // Crear un appointment y retornar los datos para enviarlos a la función createAppointmentinSpringBoot
     async processCalendlyEvent(payload: CalendlyWebhookDto) {
@@ -49,4 +48,4 @@ export class AppointmentService {
 
       
 }
-      */
+      
