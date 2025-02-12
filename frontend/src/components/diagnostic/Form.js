@@ -15,9 +15,28 @@ export const Form = () => {
     const [file, setFile] = useState(null); 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handleEmailChange = (e) => {
+        const emailValue = e.target.value;
+        setEmail(emailValue);
+        const publicDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com"];
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const domain = emailValue.split("@")[1];
+        
+        if (!emailRegex.test(emailValue)) {
+            setEmailError("Ingrese un correo válido.");
+            return;
+        }
+    
+        if (selectedRole === 2 && domain && publicDomains.includes(domain)) {
+            setEmailError("Debe ingresar un correo corporativo.");
+        } else {
+            setEmailError("");
+        }
+    };
+    
     const handleFullnameChange = (e) => setFullname(e.target.value);
 
     const reset = () => {
@@ -108,10 +127,13 @@ export const Form = () => {
                                     placeholder="prueba@vocaltech.com" 
                                     onChange={handleEmailChange} 
                                 />
+                                {
+                                    emailError && (<small className="text-danger">{emailError}</small>)
+                                }
                             </div>
                             <div className="text-center">
                                 <button 
-                                    disabled={selectedNeeds.length === 0 || !file || !fullname || !email || isLoading } 
+                                    disabled={selectedNeeds.length === 0 || !file || !fullname || !email || isLoading || emailError } 
                                     type="submit" 
                                     className="btn rounded-pill btn-form-diagnostic">
                                     {
