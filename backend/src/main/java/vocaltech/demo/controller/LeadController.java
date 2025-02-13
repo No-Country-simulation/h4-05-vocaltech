@@ -44,7 +44,7 @@ public class LeadController {
 
         Set<Option> answers = this.optionService.getOptions(request.getSelectedOptions());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String creationDate = LocalDateTime.now().format(formatter);
         Lead lead = Lead.builder()
                 .form(form)
