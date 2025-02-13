@@ -18,9 +18,6 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    @Autowired
-    private LeadServiceImpl leadService;
-
     @GetMapping
     public List<Appointment> getAllAppointments() {
 
