@@ -2,14 +2,10 @@ package vocaltech.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vocaltech.demo.controller.data.response.AppointmentResponse;
 import vocaltech.demo.persistence.entity.Appointment;
-import vocaltech.demo.persistence.entity.Lead;
 import vocaltech.demo.service.AppointmentService;
-import vocaltech.demo.service.LeadService;
 import vocaltech.demo.service.implementation.LeadServiceImpl;
 
 import java.util.List;
@@ -41,7 +37,6 @@ public class AppointmentController {
     public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment) {
 
         appointment = this.appointmentService.saveAppointment(appointment);
-
         return new ResponseEntity<>(appointment, HttpStatus.CREATED);
     }
 
