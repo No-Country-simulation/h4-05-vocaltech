@@ -1,7 +1,6 @@
 const appointments = [
     { title: "Nombre Cliente", property: "name" },
-    { title: "Fecha de la cita", property: "startDate" },
-    { title: "Estado", property: "status" },
+    { title: "Fecha de Solicitud", property: "startDate" },
     { title: "Correo Electrónico", property: "email" },
     { title: "Diagnóstico", property: "diagnostic" },
     { title: "Plan de Trabajo", property: "plan" },
