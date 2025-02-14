@@ -48,9 +48,9 @@ Asegúrate de tener instalados los siguientes requisitos:
    ADMIN2_EMAIL=email del admin2
    ADMIN2_PASSWORD=contraseña del admin2
    JWT_KEY=clave jwt
-   EMAIL_USERNAME
-   EMAIL_PASSWORD
-   EMAIL_HOST
+   EMAIL_USERNAME=usuario del servicio de email
+   EMAIL_PASSWORD=password del servicio de email
+   EMAIL_HOST=host del servicio de email
 ```
 
 ### Ejecución del Proyecto
