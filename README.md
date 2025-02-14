@@ -1,4 +1,5 @@
 # H4-05-Vocaltech
+![banner-linkedin.jpg](https://res.cloudinary.com/dpp28f2ek/image/upload/v1739545922/vocaltech_pd7ulv.png)
 
 Vocaltech es un proyecto desarrollado con el enfoque de hacer crecer y asesorar a emprendedores y empresas en el desarrollo profesional y comercial de estos. Este MVP es el resultado de la participación de un equipo multidiciplinario enfocado a solucionar los problemas y necesidades de los clientes Vos y Tu Voz y No Country
 
