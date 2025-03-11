@@ -7,7 +7,7 @@ import "../styles/callToAction.css";
 
 export const Entrepreneur = () => (
     <section className="entrepreneur">
-        <section className="entrepreneur-header px-0 pt-0 pb-xl-0">
+        <section className=" px-0 pt-0 pb-xl-0" style={{backgroundImage: "url(./images/bg-header.png)", backgroundSize: "120%", backgroundRepeat: "no-repeat", backgroundPosition: "bottom"}}>
             <Header />
         </section>
         <Services />
