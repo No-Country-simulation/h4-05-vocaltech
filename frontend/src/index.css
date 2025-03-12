@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --bg-dark: #000419;
-    --bg-light: #f8f4f9;
-    --color-title-dark: #000419;
-    --color-title-light: #f8f4f9;
-    --color-text-dark: #0e1224;
-    --color-text-light: #f8f4f9;
-    --color-accent-1: #535a7c;
-    --color-accent-2: #938ff4; 
+    --dark: #000000;
+    --dark-gray: #424242;
+    --light-gray: #9A9A9A;
+    --primary: #7626CE;
+    --dark-purple: #6A11CB;
+    --secondary:#2684FC;
+    --light: #EAEAEA;
+    --accent: #FFFFFF;
 }
 
 * {
@@ -21,7 +23,7 @@ html {
 body {
     box-sizing: inherit;
     margin: 0;
-    font-family: "Montserrat", serif;
+    font-family: 'DM Sans', sans-serif;
     font-style: normal;
     background-color: var(--bg-light);
 }
