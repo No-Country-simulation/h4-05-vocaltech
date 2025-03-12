@@ -1,67 +1,28 @@
+import { ServiceCard } from "./ServiceCard";
+import { advantages } from "../../utils/advantages";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const Services = () => {
     return (
-        <section className="services container py-5">
-            <h2 className="display-7 fw-bolder text-center pb-5">Nuestros Servicios</h2>
-            <div className="row">
-                <div className="col-md-6 pe-md-4">
-                    <div className="card mb-4 border-0 bg-transparent">
-                        <img src="./images/emprendedores.jpg" className="rounded d-md-none" alt="" />
-                        <div className="card-body px-0 pb-0 pt-md-0 pb-md-5">
-                            <h5 className="card-title fw-bold">Coaching de comunicación y liderazgo</h5>
-                            <p className="card-text pt-2 pb-2">Este servicio te ofrece las herramientas 
-                                esenciales para mejorar tus habilidades de comunicación y liderazgo. 
-                                Aprenderás a captar la atención de inversores, realizar presentaciones 
-                                impactantes y dominar la comunicación efectiva en ventas. Ideal para 
-                                emprendedores que desean influir con confianza y lograr resultados. 
-                            </p>
-                            <p className="pb-4">Desarrolla la habilidad de inspirar a otros y <strong>lograr tus objetivos 
-                                personales y profesionales</strong> con mayor impacto.</p>
-                            <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false" 
-                                    aria-controls="1">
-                                    Conocer opciones
-                                </button>
-                            </div>
-                            <div className="collapse mt-4" id="1">
-                                <ol className="list-group-numbered">
-                                    <li className="list-group-item border-0 pb-3">Levantamiento de capital</li>
-                                    <li className="list-group-item border-0 pb-3">Pitch a inversores</li>
-                                    <li className="list-group-item border-0">Comunicación efectiva para ventas</li>
-                                </ol>
-                            </div>
+        <section className="container py-5">
+            <h2 className="display-7 fw-bolder text-start pb-2">Beneficios para tu emprendimiento</h2>
+            <p>Descubre lo que obtendrás con VocalTech</p>
+            <div className="row d-flex justify-content-sm-between mb-3">
+                {
+                    advantages.map(advantage => (
+                        <div key={advantage.id} className="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4 d-flex justify-content-center">
+                            <ServiceCard
+                                imgUrl={advantage.imgUrl}
+                                title={advantage.title}
+                                description={advantage.description}
+                            />
                         </div>
-                        <img src="./images/emprendedores.jpg" className="rounded d-none d-md-block" alt="" />
-                    </div>
-                </div>
-                <div className="col-md-6 pt-4 pt-md-0 ps-md-4">
-                    <div className="card mb-4 border-0 bg-transparent">
-                        <img src="./images/emprendedores.jpg" className="rounded" alt="" />
-                        <div className="card-body px-0 pb-0 pt-md-4">
-                            <h5 className="card-title fw-bold">Desarrollo de MVPs</h5>
-                            <p className="card-text pt-2 pb-2">Este servicio te guía en el desarrollo de tu MVP 
-                                (Producto Mínimo Viable), permitiéndote validar tu idea de negocio rápidamente 
-                                con un producto funcional. <strong>En solo 5 semanas, creamos un MVP de alta fidelidad, 
-                                listo para ser probado por usuarios reales</strong>.</p>
-                            <p className="pb-4">Ideal para emprendedores 
-                                que buscan llevar su idea al siguiente nivel y obtener feedback clave 
-                                antes de una inversión mayor.</p>
-                            <div className="text-center">
-                                <button className="btn btn-outline-dark rounded-pill btn-personalized" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#2" aria-expanded="false" 
-                                    aria-controls="2">
-                                    Conocer opciones
-                                </button>
-                            </div>
-                            <div className="collapse mt-4" id="2">
-                                <ol className="list-group-numbered">
-                                    <li className="list-group-item border-0">MVPs de alta fidelidad en 5 semanas</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
             </div>
+            <p className="text-center">Accede a nuestra guía de consejos y errores comunes: <Link to="https://drive.google.com/file/d/1DPn7p3NkNvghTgoo5t8EsGZVXfB5ecF8/view" target="_blank">Descargar guía <FontAwesomeIcon icon={faArrowRight} className="ms-1"/> </Link> </p>
         </section>
     );
 };
