@@ -1,9 +1,9 @@
 import { Header } from "../components/entrepreneur/Header";
 import { Services } from "../components/entrepreneur/Services";
-import { CallToAction } from "../components/entrepreneur/CallToAction";
 import { Testimonials } from "../components/testimonial/Testimonials";
+import { Process } from "../components/entrepreneur/Process";
 import "../styles/header.css";
-import "../styles/callToAction.css";
+import "../styles/process.css";
 
 export const Entrepreneur = () => (
     <section className="entrepreneur">
@@ -11,8 +11,8 @@ export const Entrepreneur = () => (
             <Header />
         </section>
         <Services />
-        <section className="call-to-action">
-            <CallToAction />
+        <section className="bg-process">
+            <Process />
         </section>
         <Testimonials />
     </section>

@@ -22,7 +22,8 @@ export const Services = () => {
                     ))
                 }
             </div>
-            <p className="text-center">Accede a nuestra guía de consejos y errores comunes: <Link to="https://drive.google.com/file/d/1DPn7p3NkNvghTgoo5t8EsGZVXfB5ecF8/view" target="_blank">Descargar guía <FontAwesomeIcon icon={faArrowRight} className="ms-1"/> </Link> </p>
+            
+            <p className="text-center">Accede a nuestra guía gratuita de consejos y errores comunes: <Link to="https://drive.google.com/file/d/1DPn7p3NkNvghTgoo5t8EsGZVXfB5ecF8/view" target="_blank">Descargar guía <FontAwesomeIcon icon={faArrowRight} className="ms-1"/> </Link> </p>
         </section>
     );
 };
