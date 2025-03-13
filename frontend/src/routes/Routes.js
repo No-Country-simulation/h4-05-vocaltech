@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { NavbarVocalTech } from "../components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
@@ -27,7 +27,7 @@ export const AppRoutes = () => {
         <>
             <ScrollToTop />
             { !isAdminRoute && <Chatbot /> }
-            { !isAdminRoute && <NavbarVocalTech /> }
+            { !isAdminRoute && <Navbar /> }
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/emprendedor" element={<Entrepreneur />} />
