@@ -1,4 +1,6 @@
 import { useRef } from "react"
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Process = () => { 
 const videoRefs = [useRef(null), useRef(null), useRef(null)];
@@ -19,7 +21,7 @@ const handleMouseLeave = (index) => {
         <div className="container mt-3 p-4">
                 <div className="row mb-4"> 
                     <div className="col-lg-4 col-md-4 col-sm-12 align-self-center">
-                        <p className="text-primary fw-bold mb-3">PASO 1</p>
+                        <p className="text-primary fw-bold mb-3"> <FontAwesomeIcon icon={faCircleCheck} className="me-2"/>PASO 1</p>
                         <h3 className="fw-bolder text-white mb-3">Realiza tu primer diagnóstico gratuito</h3>
                         <p className="text-white mb-4">Dinos qué necesitas y descubre oportunidades clave para mejorar. Nuestro diagnóstico gratuito te ayudará a identificar los desafíos y el mejor camino a seguir.</p>
                     </div>
@@ -34,14 +36,14 @@ const handleMouseLeave = (index) => {
                         onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}></video>
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-12 align-self-center">
-                        <p className="text-primary fw-bold mb-3">PASO 2</p>
+                        <p className="text-primary fw-bold mb-3"><FontAwesomeIcon icon={faCircleCheck} className="me-2"/>PASO 2</p>
                         <h3 className="fw-bolder text-white mb-3">Recibe la solución</h3>
                         <p className="text-white mb-4">Con base en tu diagnóstico, diseñamos una estrategia personalizada para ti. Recibirás un plan de acción claro, alineado con tus objetivos y necesidades.</p>
                     </div>
                  </div>
                 <div className="row"> 
                     <div className="col-lg-4 col-md-4 col-sm-12 align-self-center">
-                        <p className="text-primary fw-bold mb-3">PASO 3</p>
+                        <p className="text-primary fw-bold mb-3"><FontAwesomeIcon icon={faCircleCheck} className="me-2"/>PASO 3</p>
                         <h3 className="fw-bolder text-white mb-3">Comienza a transformar tu empresa</h3>
                         <p className="text-white mb-4">Es hora de implementar cambios y ver resultados. Con el apoyo de nuestros expertos, potenciarás tu comunicación, liderazgo y tecnología para llevar tu negocio al siguiente nivel.</p>
                     </div>

@@ -68,6 +68,14 @@
     z-index: 1;
 }
 
+.text-gradient {
+    background: linear-gradient(to right, #B77C44, #FEE5BB, #BF854A); /* Standard syntax */  
+    background-clip: text;  
+    -webkit-background-clip: text;  
+    color: transparent;  
+    -webkit-text-fill-color: transparent;  
+}
+
 /******** Medidas Header **************************************/
 
 @media (min-width: 768px) {
