@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding } from "@fortawesome/free-regular-svg-icons";
+import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import "../../styles/header.css";
 
 export const Header = () => {
   return (
@@ -9,11 +10,11 @@ export const Header = () => {
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-8 col-lg-6 text-center mb-5 ">
           <span className="d-inline-block text-white bg-primary rounded-4 px-3 py-2 ">
-            <FontAwesomeIcon icon={faBuilding} className="me-2"/>
+            <FontAwesomeIcon icon={faUserTie} className="me-2"/>
             Emprendedores
           </span>
-          <h1 className="display-5 text-white mt-3 fw-bolder">
-            Impulsa tu idea, domina tu mensaje, y haz crecer tu proyecto
+          <h1 className="display-6 text-white mt-3 fw-bolder">
+            Impulsa tu idea, <span className="text-gradient">domina</span> tu mensaje, y haz <span className="text-gradient">crecer</span> tu proyecto
           </h1>
           <p className="text-white py-4">
             Aprende a comunicar tu idea con impacto y accede a herramientas
