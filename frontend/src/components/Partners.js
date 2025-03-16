@@ -6,7 +6,7 @@ export const Partners = () => {
     return (
         <section className="partners container py-5">
             <div className="col-lg-7 mx-lg-auto">
-                <p className="small-subtitle text-lightgray lead text-center pt-5 mt-2 pt-lg-4">Nosotros</p>
+                <p className="small-subtitle text-lightgray lead text-center pt-5 mt-2 pt-lg-4">NOSOTROS</p>
                 <h2 className="subtitle text-black display-2 fw-bolder text-center pb-5">
                     Juntos, impulsamos tu crecimiento
                 </h2>
@@ -19,11 +19,11 @@ export const Partners = () => {
                     <div className="pt-5 pt-lg-0 col-md-7 mx-md-auto me-lg-0 col-lg-9">
                         <img src="./images/blue-arrow.png" alt="Icono flecha azul" className="d-none d-md-block
                             position-absolute start-0" width={200} />
-                        <div className="d-flex p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-60">
+                        <div className="d-flex align-items-center p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-60">
                             <img src="./images/icon-voz-logo.png" width={70} height="70px" alt="Vos y tu Voz icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">Vos y tu Voz</p>
-                                <p className="text-gray fw-semibold mb-0">Más de 20 años ayudando a mejorar la 
+                                <p className="mb-0">Más de 20 años ayudando a mejorar la 
                                     comunicación, liderazgo y presentaciones a través de la voz.
                                 </p>
                             </span>
@@ -38,7 +38,7 @@ export const Partners = () => {
                                 <p className="lead">Combinamos la experiencia de ambos mundos para brindar 
                                     soluciones integrales y personalizadas.
                                 </p>
-                                <Link to="/diagnostico">
+                                <Link to="/">
                                     <button
                                         type="button"
                                         className="btn btn-general btn-lightblue-personalized px-3 py-2 fw-bold text-white">
@@ -52,8 +52,7 @@ export const Partners = () => {
                     <div className="pt-5 col-md-7 mx-md-auto me-lg-0 col-lg-9">
                         <img src="./images/purple-arrow.png" alt="Icono flecha morada" className="d-none d-md-block
                             position-absolute start-0" width={200} />
-                        <div className="d-flex align-items-center p-3 p-lg-4 rounded-4 shadow-md gap-4"
-                            style={{backgroundColor:"#F3F4F6"}}>
+                        <div className="d-flex align-items-center p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-60">
                             <img src="./images/icon-no-country-logo.png" width={70} height="70px" alt="No Country icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">No-Country</p>

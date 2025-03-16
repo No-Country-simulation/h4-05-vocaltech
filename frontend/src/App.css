@@ -60,6 +60,10 @@
     box-shadow: none !important;
 }
 
+.bg-special-gray {
+    background-color: #FBFBFD;
+}
+
 .text-special-gray {
     color: #D4D3F6;
 }
@@ -80,6 +84,11 @@
     font-weight: 400;
 }
 
+.subtitle-card-services {
+    color: var(--light-gray);
+    font-size: 13px;
+}
+
 .woman-img {
     width: 90%;
 }
@@ -90,6 +99,10 @@
 
 .opacity-60 {
     opacity: .6;
+}
+
+.icon-services {
+    color: var(--dark-purple);
 }
 
 @media (min-width: 768px) {
