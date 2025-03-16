@@ -24,7 +24,7 @@ public class Lead {
 
     private String creationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "profile_id")
     private Profile profile;
 

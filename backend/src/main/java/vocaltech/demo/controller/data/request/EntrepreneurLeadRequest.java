@@ -15,5 +15,4 @@ public class EntrepreneurLeadRequest {
     private String projectSector;
     private String email;
     private String phone;
-
 }

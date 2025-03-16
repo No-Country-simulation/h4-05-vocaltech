@@ -26,4 +26,6 @@ public class ExecutiveLeadResponse {
     private String enterpriseEmail;
     private String enterpriseSector;
     private int teamQuantity;
+    // este valor se llena cuando a la pregunta:  ¿Qué te gustaría mejorar en tu equipo? Selecciona Otro(Especificar)
+    private String specifyOther;
 }
