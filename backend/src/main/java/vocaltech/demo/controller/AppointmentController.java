@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vocaltech.demo.persistence.entity.Appointment;
 import vocaltech.demo.service.AppointmentService;
-import vocaltech.demo.service.implementation.LeadServiceImpl;
 
 import java.util.List;
 import java.util.Optional;

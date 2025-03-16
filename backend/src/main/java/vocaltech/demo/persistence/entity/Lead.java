@@ -20,15 +20,13 @@ public class Lead {
 
     private String fullname;
 
-    private String email;
-
-    private boolean diagnostic;
+    private String socialMedia;
 
     private String creationDate;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "form_id", nullable = false)
-    private Form form;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 
     @ManyToMany
     @JoinTable(
@@ -41,5 +39,7 @@ public class Lead {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "voice_recording_id", referencedColumnName = "id")
     private VoiceRecording voiceRecording;
+
+    private Long profileInputsId;
 
 }

@@ -17,8 +17,8 @@ public class AdminDestiny {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "form_id", nullable = false)
-    private Form form;
+    @JoinColumn(name = "lead_id", nullable = false)
+    private Lead lead;
 
     @Column(name = "role_id", nullable = false)
     private Long roleId;

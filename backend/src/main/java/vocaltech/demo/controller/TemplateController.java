@@ -66,10 +66,5 @@ public class TemplateController {
         return ResponseEntity.noContent().build();
     }
 
-    /*@GetMapping("/{service}")
-    public ResponseEntity<Template> getTemplateByService(@PathVariable String service) {
-        return ResponseEntity.ok(templateService.getTemplateByService(service));
-    }*/
-
 }
 

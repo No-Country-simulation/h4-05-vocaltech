@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import vocaltech.demo.common.enums.RoleEnum;
-import vocaltech.demo.persistence.entity.*;
 import vocaltech.demo.persistence.repository.*;
 import vocaltech.demo.security.repository.UserRepository;
 
@@ -26,9 +24,6 @@ public class DataInitializer implements CommandLineRunner {
     private final OptionRepository optionRepository;
     private final ServiceRepository serviceRepository;
     private final PasswordEncoder passwordEncoder;
-    private final FormRepository formRepository;
-
-    private final AdminDestinyRepository adminDestinyRepository;
 
     @Value("${admin1.name}")
     private String admin1Name;
@@ -51,7 +46,7 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        if (this.roleRepository.count() == 0) {
+        /*if (this.roleRepository.count() == 0) {
             Role role1 = Role.builder()
                     .value(RoleEnum.ROLE_ADMIN_NO_COUNTRY)
                     .build();
@@ -208,6 +203,6 @@ public class DataInitializer implements CommandLineRunner {
             logger.info("Initial data inserted.");
         } else {
             logger.info("Initial data already exists.");
-        }
+        }*/
     }
 }
