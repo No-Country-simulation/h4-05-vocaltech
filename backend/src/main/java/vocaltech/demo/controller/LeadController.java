@@ -32,7 +32,6 @@ public class LeadController {
     private final LeadServiceImpl leadService;
     private final ProfileServiceImpl profileService;
     private final EntrepreneurInputsServiceImpl entrepreneurInputsService;
-
     private final ExecutiveInputsServiceImpl executiveInputsService;
     private final LeadMapper leadMapper;
 

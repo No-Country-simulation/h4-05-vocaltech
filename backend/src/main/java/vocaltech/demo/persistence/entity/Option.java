@@ -1,5 +1,6 @@
 package vocaltech.demo.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,9 +20,9 @@ public class Option {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "service_id", nullable = false)
-    private Service service;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "question_id", nullable = false)
+    private Question question;
 
     String value;
 

@@ -1,9 +1,6 @@
 package vocaltech.demo.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,11 +9,14 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Plan {
-
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String path;
+    private String value;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "service_id", nullable = false)
+    private Service service;
 }

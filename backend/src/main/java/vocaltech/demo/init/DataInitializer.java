@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import vocaltech.demo.common.enums.RoleEnum;
+import vocaltech.demo.persistence.entity.*;
 import vocaltech.demo.persistence.repository.*;
 import vocaltech.demo.security.repository.UserRepository;
 
@@ -23,6 +25,7 @@ public class DataInitializer implements CommandLineRunner {
     private final ProfileRepository profileRepository;
     private final OptionRepository optionRepository;
     private final ServiceRepository serviceRepository;
+    private final QuestionRepository questionRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Value("${admin1.name}")
@@ -46,7 +49,7 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        /*if (this.roleRepository.count() == 0) {
+        if (this.roleRepository.count() == 0) {
             Role role1 = Role.builder()
                     .value(RoleEnum.ROLE_ADMIN_NO_COUNTRY)
                     .build();
@@ -77,11 +80,186 @@ public class DataInitializer implements CommandLineRunner {
                     .value("Emprendedor")
                     .build();
             Profile profile2 = Profile.builder()
-                    .value("Empresa")
+                    .value("Ejecutivo de Empresa")
                     .build();
 
             profile1 = this.profileRepository.save(profile1);
             profile2 = this.profileRepository.save(profile2);
+
+            Service service1 = Service.builder().value("Etapa Actual").build();
+            Service service2 = Service.builder().value("Comunicacion y Pitch").build();
+            Service service3 = Service.builder().value("Producto y Crecimiento").build();
+            Service service4 = Service.builder().value("Talento y Equipo").build();
+            Service service5 = Service.builder().value("Comunicacion y Liderazgo").build();
+            Service service6 = Service.builder().value("Gestion y Desarrollo de Talento").build();
+
+            service1 = this.serviceRepository.save(service1);
+            service2 = this.serviceRepository.save(service2);
+            service3 = this.serviceRepository.save(service3);
+            service4 = this.serviceRepository.save(service4);
+            service5 = this.serviceRepository.save(service5);
+            service6 = this.serviceRepository.save(service6);
+
+            // Creando preguntas para el servicio "Etapa Actual"
+            Question question1 = Question.builder().value("¿Donde se encuentra tu proyecto?").service(service1).build();
+
+            // Creando preguntas para el servicio "Comunicacion y Pitch"
+            Question question2 = Question.builder().value("¿Crees que las personas te entienden cuando te comunicas?").service(service2).build();
+            Question question3 = Question.builder().value("¿Tienes un pitch efectivo que genere interes en segundos?").service(service2).build();
+            Question question4 = Question.builder().value("¿Tu voz transmite seguridad y capta la atencion del publico?").service(service2).build();
+
+            // Creando preguntas para el servicio "Producto y Crecimiento"
+            Question question5 = Question.builder().value("¿Cual es tu situacion con el desarrollo del producto o MVP?").service(service3).build();
+
+            // Creando preguntas para el servicio "Talento y Equipo"
+            Question question6 = Question.builder().value("¿Buscas talento estrategico para crecer?").service(service4).build();
+            Question question7 = Question.builder().value("¿Cual es el mayor desafio de tu equipo?").service(service4).build();
+
+            // Creando preguntas para el servicio "Comunicacion y Liderazgo"
+            Question question8 = Question.builder().value("¿Como describirias tu capacidad para influir y liderar a tu equipo?").service(service5).build();
+            Question question9 = Question.builder().value("¿Tu voz transmite autoridad y seguridad al hablar?").service(service5).build();
+            Question question10 = Question.builder().value("¿Que tan comodo/a te sientes en conversaciones dificiles (negociaciones, feedback, gestion de conflictos)?").service(service5).build();
+            Question question11 = Question.builder().value("¿Te resulta facil captar la atencion y el interes de tu equipo o clientes en reuniones o presentaciones?").service(service5).build();
+
+            // Creando preguntas para el servicio "Gestion y Desarrollo de Talento"
+            Question question12 = Question.builder().value("¿Tienes dificultades en la contratacion o retencion de talento clave?").service(service6).build();
+            Question question13 = Question.builder().value("¿Que te gustaria mejorar en tu equipo?").service(service6).build();
+
+            question1 = this.questionRepository.save(question1);
+            question2 = this.questionRepository.save(question2);
+            question3 = this.questionRepository.save(question3);
+            question4 = this.questionRepository.save(question4);
+            question5 = this.questionRepository.save(question5);
+            question6 = this.questionRepository.save(question6);
+            question7 = this.questionRepository.save(question7);
+            question8 = this.questionRepository.save(question8);
+            question9 = this.questionRepository.save(question9);
+            question10 = this.questionRepository.save(question10);
+            question11 = this.questionRepository.save(question11);
+            question12 = this.questionRepository.save(question12);
+            question13 = this.questionRepository.save(question13);
+
+            // Creando opciones para la pregunta ¿Donde se encuentra tu proyecto?
+            Option option1 = Option.builder().value("Idea inicial").question(question1).build();
+            Option option2 = Option.builder().value("Validando mercado").question(question1).build();
+            Option option3 = Option.builder().value("Generando ingresos").question(question1).build();
+            Option option4 = Option.builder().value("Buscando escalar").question(question1).build();
+
+            // Creando opciones para la pregunta ¿Crees que las personas te entienden cuando te comunicas?
+            Option option5 = Option.builder().value("Si").question(question2).build();
+            Option option6 = Option.builder().value("Puede mejorar").question(question2).build();
+            Option option7 = Option.builder().value("Necesito ayuda").question(question2).build();
+
+            // Creando opciones para la pregunta ¿Tienes un pitch efectivo que genere interes en segundos?
+            Option option8 = Option.builder().value("Si, funciona y da resultados").question(question3).build();
+            Option option9 = Option.builder().value("Si, pero podria ser mas impactante").question(question3).build();
+            Option option10 = Option.builder().value("No, y lo necesito para atraer inversores y clientes").question(question3).build();
+
+            // Creando opciones para la pregunta ¿Tu voz transmite seguridad y capta la atencion del publico?
+            Option option11 = Option.builder().value("Si, mi voz refuerza mi mensaje").question(question4).build();
+            Option option12 = Option.builder().value("A veces siento que no impacta lo suficiente").question(question4).build();
+            Option option13 = Option.builder().value("No, y creo que afecta mi comunicacion").question(question4).build();
+
+            // Creando opciones para la pregunta ¿Cual es tu situacion con el desarrollo del producto o MVP?
+            Option option14 = Option.builder().value("Aun no lo hemos desarrollado").question(question5).build();
+            Option option15 = Option.builder().value("Estamos trabajando en un prototipo").question(question5).build();
+            Option option16 = Option.builder().value("Tenemos un MVP en fase de validacion").question(question5).build();
+            Option option17 = Option.builder().value("Ya tenemos un producto funcional y queremos mejorarlo").question(question5).build();
+
+            // Creando opciones para la pregunta ¿Buscas talento estrategico para crecer?
+            Option option18 = Option.builder().value("Si, pero necesitamos mejorar el proceso de seleccion").question(question6).build();
+            Option option19 = Option.builder().value("Si, pero aun no tenemos un plan claro").question(question6).build();
+            Option option20 = Option.builder().value("No en este momento").question(question6).build();
+
+            // Creando opciones para la pregunta ¿Cual es el mayor desafio de tu equipo?
+            Option option21 = Option.builder().value("Reclutamiento").question(question7).build();
+            Option option22 = Option.builder().value("Onboarding").question(question7).build();
+            Option option23 = Option.builder().value("Contratacion").question(question7).build();
+            Option option24 = Option.builder().value("Retencion y rotacion").question(question7).build();
+
+            // Creando opciones para la pregunta ¿Como describirias tu capacidad para influir y liderar a tu equipo?
+            Option option25 = Option.builder().value("Consigo que me escuchen y actuen con claridad").question(question8).build();
+            Option option26 = Option.builder().value("A veces siento que mi mensaje no genera el impacto esperado").question(question8).build();
+            Option option27 = Option.builder().value("Me cuesta que las personas sigan mis ideas").question(question8).build();
+
+            // Creando opciones para la pregunta ¿Tu voz transmite autoridad y seguridad al hablar?
+            Option option28 = Option.builder().value("Si, me siento seguro/a al expresarme").question(question9).build();
+            Option option29 = Option.builder().value("A veces dudo si mi voz refuerza mi liderazgo").question(question9).build();
+            Option option30 = Option.builder().value("No, siento que mi voz no ayuda a mi comunicacion").question(question9).build();
+
+            // Creando opciones para la pregunta ¿Que tan comodo/a te sientes en conversaciones dificiles (negociaciones, feedback, gestion de conflictos)?
+            Option option31 = Option.builder().value("Manejo bien estas situaciones").question(question10).build();
+            Option option32 = Option.builder().value("A veces me cuesta encontrar las palabras adecuadas").question(question10).build();
+            Option option33 = Option.builder().value("Evito este tipo de conversaciones").question(question10).build();
+
+            // Creando opciones para la pregunta ¿Te resulta facil captar la atencion y el interes de tu equipo o clientes en reuniones o presentaciones?
+            Option option34 = Option.builder().value("Si, logro conectar y transmitir mi mensaje").question(question11).build();
+            Option option35 = Option.builder().value("A veces siento que no logro impactar lo suficiente").question(question11).build();
+            Option option36 = Option.builder().value("Me cuesta estructurar y comunicar mis ideas con claridad").question(question11).build();
+
+            // Creando opciones para la pregunta ¿Tienes dificultades en la contratacion o retencion de talento clave?
+            Option option37 = Option.builder().value("Si, encontrar y retener talento es un desafio").question(question12).build();
+            Option option38 = Option.builder().value("Si, pero mas en terminos de integracion y cultura").question(question12).build();
+            Option option39 = Option.builder().value("No, nuestro equipo esta consolidado").question(question12).build();
+
+            // Creando opciones para la pregunta ¿Que te gustaria mejorar en tu equipo?
+            Option option40 = Option.builder().value("Mayor compromiso y alineacion con la vision").question(question13).build();
+            Option option41 = Option.builder().value("Mejor comunicacion interna y fluidez en la toma de decisiones").question(question13).build();
+            Option option42 = Option.builder().value("Mas autonomia y liderazgo en los colaboradores").question(question13).build();
+            Option option43 = Option.builder().value("Otro: Especificar").question(question13).build();
+
+            this.optionRepository.save(option1);
+            this.optionRepository.save(option2);
+            this.optionRepository.save(option3);
+            this.optionRepository.save(option4);
+            this.optionRepository.save(option5);
+            this.optionRepository.save(option6);
+            this.optionRepository.save(option7);
+            this.optionRepository.save(option8);
+            this.optionRepository.save(option9);
+            this.optionRepository.save(option10);
+            this.optionRepository.save(option11);
+            this.optionRepository.save(option12);
+            this.optionRepository.save(option13);
+            this.optionRepository.save(option14);
+            this.optionRepository.save(option15);
+            this.optionRepository.save(option16);
+            this.optionRepository.save(option17);
+            this.optionRepository.save(option18);
+            this.optionRepository.save(option19);
+            this.optionRepository.save(option20);
+            this.optionRepository.save(option21);
+            this.optionRepository.save(option22);
+            this.optionRepository.save(option23);
+            this.optionRepository.save(option24);
+            this.optionRepository.save(option25);
+            this.optionRepository.save(option26);
+            this.optionRepository.save(option27);
+            this.optionRepository.save(option28);
+            this.optionRepository.save(option29);
+            this.optionRepository.save(option30);
+            this.optionRepository.save(option31);
+            this.optionRepository.save(option32);
+            this.optionRepository.save(option33);
+            this.optionRepository.save(option34);
+            this.optionRepository.save(option35);
+            this.optionRepository.save(option36);
+            this.optionRepository.save(option37);
+            this.optionRepository.save(option38);
+            this.optionRepository.save(option39);
+            this.optionRepository.save(option40);
+            this.optionRepository.save(option41);
+            this.optionRepository.save(option42);
+            this.optionRepository.save(option43);
+
+            logger.info("Initial data inserted.");
+
+        } else {
+            logger.info("Initial data already exists.");
+        }
+    }
+
+        /*if (this.roleRepository.count() == 0) {
 
             Option option1 = Option.builder().value("Levantamiento de capital").build();
             Option option2 = Option.builder().value("Pitch a inversores").build();
@@ -204,5 +382,5 @@ public class DataInitializer implements CommandLineRunner {
         } else {
             logger.info("Initial data already exists.");
         }*/
-    }
+
 }
