@@ -5,7 +5,7 @@ import "../styles/navbar.css"
 export const Navbar = () => {
     return (
         <div className="d-flex justify-content-center">
-            <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-sm">
+            <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-md">
                 <div className="container-fluid px-4 px-xl-5">
                     <Link className="navbar-brand py-0" to="/">
                         <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>

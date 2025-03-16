@@ -9,15 +9,15 @@ export const Header = () => {
                 <div className="row pt-5 mt-5 px-3 px-md-4">
                     <span className="d-flex align-items-center border p-2 rounded-4 gap-2 span-top-header 
                         mx-auto w-auto mt-lg-4">
-                        <FontAwesomeIcon icon={faBolt} className="fs-5 text-gray" />
-                        <p className="mb-0 fw-semibold text-gray">Nuevo : ¡Herramienta de 
+                        <FontAwesomeIcon icon={faBolt} className="fs-5 text-special-gray" />
+                        <p className="mb-0 fw-semibold text-special-gray">Nuevo : ¡Herramienta de 
                             diagnóstico personalizado!
                         </p>
                     </span> 
                     <h1 className="display-1 mt-4 fw-bold text-white title-header">
                         VocalTech le pone voz y tecnología a tu proyecto
                     </h1>
-                    <p className="span-bottom-header mt-3 lead fw-semibold px-0 text-gray">
+                    <p className="span-bottom-header mt-3 lead fw-semibold px-0 text-special-gray">
                         Impulsa tu crecimiento con soluciones a medida
                     </p>
                     <div className="d-flex flex-wrap flex-md-nowrap justify-content-center gap-3 mt-3 
@@ -25,7 +25,7 @@ export const Header = () => {
                         <Link to="/" className="w-100">
                             <button
                                 type="button"
-                                className="btn btn-header btn-dark-personalized px-3 py-2 fw-bold text-white">
+                                className="btn btn-general btn-header btn-dark-personalized px-3 py-2 fw-bold text-white">
                                 Soluciones para emprendedores 
                                 <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" />
                             </button>
@@ -33,16 +33,16 @@ export const Header = () => {
                         <Link to="/diagnostico" className="w-100">
                             <button
                                 type="button"
-                                className="btn btn-header btn-multicolor-personalized px-3 py-2 fw-bold text-white">
+                                className="btn btn-general btn-header btn-multicolor-personalized px-3 py-2 fw-bold text-white">
                                 Potencia tu empresa ahora 
                                 <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
                             </button>
                         </Link>
                     </div>
                     <span className="d-md-flex align-items-center px-3 pb-4 pb-lg-5 justify-content-center mt-5">
-                        <p className="fw-semibold text-gray lead mb-md-0 pe-md-2">Powered by</p>
+                        <p className="fw-semibold text-special-gray lead mb-md-0 pe-md-2">Powered by</p>
                         <img src="./images/light-no-country-logo.png" width={130} height={25} alt="No Country logo" />
-                        <p className="fw-semibold text-gray mb-0 px-md-2">&</p>
+                        <p className="fw-semibold text-special-gray mb-0 px-md-2">&</p>
                         <img src="./images/voz-logo.png" width={50} alt="Vos y tu voz logo" />
                     </span>
                 </div>

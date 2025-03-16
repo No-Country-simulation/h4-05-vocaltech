@@ -5,25 +5,6 @@
     border-color: var(--dark-purple) !important;
 }
 
-.btn-header {
-    font-size: 0.875rem;
-    height: 46px;
-    width: 100% !important;
-}
-
-.btn-dark-personalized {
-    background-color: var(--dark);
-}
-
-.btn-dark-personalized:hover {
-    background-color: rgb(26, 26, 26);
-}
-
-.btn-multicolor-personalized {
-    background: linear-gradient(to bottom right, #2575FC, #052855, #D230E3);
-}
-
-
 /******** Landing Header **************************************/
 
 .landing-header {
@@ -123,9 +104,6 @@
     }
     .span-bottom-header {
         font-size: 24px;
-    }
-    .btn-header {
-        font-size: 16px;
     }
 }
 
