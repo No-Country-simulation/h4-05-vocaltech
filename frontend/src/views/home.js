@@ -5,6 +5,7 @@ import { Services } from "../components/Services";
 import { WhyUs } from "../components/WhyUs";
 import { Testimonials } from "../components/testimonial/Testimonials";
 import "../styles/header.css"
+import { CallToAction } from "../components/CallToAction";
 
 export const Home = () => {
     return (
@@ -16,6 +17,9 @@ export const Home = () => {
                 <WhyUs />
             </section>
             <Testimonials />  
+            <section className="call-to-action position-relative overflow-hidden">
+                <CallToAction /> 
+            </section>
         </>
     );
 };

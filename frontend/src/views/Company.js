@@ -1,6 +1,5 @@
 import { Header } from "../components/company/Header";
 import { Services } from "../components/company/Services";
-import { CallToAction } from "../components/company/CallToAction";
 import { Testimonials } from "../components/testimonial/Testimonials";
 
 export const Company = () => (
@@ -9,9 +8,6 @@ export const Company = () => (
             <Header />
         </section>
         <Services />
-        <section className="call-to-action">
-            <CallToAction />
-        </section>
         <Testimonials />
     </section>
 );
