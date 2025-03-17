@@ -12,7 +12,7 @@ import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
 import { Users } from "../views/admin/Users";
-import { FooterVocalTech } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
@@ -53,7 +53,7 @@ export const AppRoutes = () => {
                     <Route path="users" element={<Users />} />
                 </Route>
             </Routes>
-            { !isAdminRoute && <FooterVocalTech /> }
+            { !isAdminRoute && <Footer /> }
         </>
     );
 };

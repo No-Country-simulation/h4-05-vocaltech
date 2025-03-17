@@ -97,8 +97,8 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.opacity-60 {
-    opacity: .6;
+.opacity-70 {
+    opacity: .7;
 }
 
 .icon-services {
@@ -120,6 +120,35 @@
     aspect-ratio: 9/9;
     object-fit: cover;
     object-position: top;
+}
+
+.bg-footer {
+    background: linear-gradient(221.95deg, #2575FC -15.34%, #052855 9.38%, #6A11CB 100.06%);
+}
+
+.bg-footer a {
+    text-decoration: none;
+}
+
+.bg-footer a:hover {
+    color: var(--secondary) !important;
+}
+
+.bg-footer button {
+    color: var(--light);
+}
+
+.bg-footer button:hover {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-medium {
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {

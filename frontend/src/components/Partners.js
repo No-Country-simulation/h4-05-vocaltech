@@ -19,7 +19,7 @@ export const Partners = () => {
                     <div className="pt-5 pt-lg-0 col-md-7 mx-md-auto me-lg-0 col-lg-9">
                         <img src="./images/blue-arrow.png" alt="Icono flecha azul" className="d-none d-md-block
                             position-absolute start-0" width={200} />
-                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-60">
+                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
                             <img src="./images/icon-voz-logo.png" width={70} height="70px" alt="Vos y tu Voz icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">Vos y tu Voz</p>
@@ -52,7 +52,7 @@ export const Partners = () => {
                     <div className="pt-5 col-md-7 mx-md-auto me-lg-0 col-lg-9">
                         <img src="./images/purple-arrow.png" alt="Icono flecha morada" className="d-none d-md-block
                             position-absolute start-0" width={200} />
-                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-60">
+                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
                             <img src="./images/icon-no-country-logo.png" width={70} height="70px" alt="No Country icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">No-Country</p>
