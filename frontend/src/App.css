@@ -155,6 +155,17 @@
     width: auto !important;
 }
 
+.accordion-button:focus {
+    color: var(--dark-purple) !important;
+    border: 1px solid var(--dark-purple) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--light) !important;
+    box-shadow: none !important;
+}
+
 @media (min-width: 768px) {
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
