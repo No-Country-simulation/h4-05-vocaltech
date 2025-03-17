@@ -105,6 +105,23 @@
     color: var(--dark-purple);
 }
 
+.why-us {
+    background-image: url("../public/images/bg-why-us.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.badge {
+    background-color: var(--dark-purple);
+}
+
+.video {
+    aspect-ratio: 9/9;
+    object-fit: cover;
+    object-position: top;
+}
+
 @media (min-width: 768px) {
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

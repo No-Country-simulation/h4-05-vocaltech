@@ -4,7 +4,7 @@ import { faArrowRight, faSearch, faTrophy, faMicrophone } from "@fortawesome/fre
 
 export const Services = () => {
     return (
-        <section className="services container py-5">
+        <section className="services container py-5 mb-5">
             <div className="col-lg-7 mx-lg-auto">
                 <p className="small-subtitle text-lightgray lead text-center">SERVICIOS</p>
                 <h2 className="subtitle text-black display-2 fw-bolder text-center pb-5">
