@@ -7,13 +7,12 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LeadRequest {
-
-    private Long profileId;
-    private Long serviceId;
+public class EntrepreneurLeadRequest {
     private Long[] selectedOptions;
     private String voiceRecordingPath;
     private String fullname;
+    private String socialMedia;
+    private String projectSector;
     private String email;
-
+    private String phone;
 }
