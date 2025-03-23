@@ -9,17 +9,14 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "admin_destiny")
-public class AdminDestiny {
-
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "form_id", nullable = false)
-    private Form form;
+    private String value;
 
-    @Column(name = "role_id", nullable = false)
-    private Long roleId;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "service_id", nullable = false)
+    private Service service;
 }

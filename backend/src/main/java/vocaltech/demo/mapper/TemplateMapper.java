@@ -26,7 +26,7 @@ public class TemplateMapper {
                 .subject(template.getSubject())
                 .body(template.getBody())
                 .role_id(template.getRole_id())
-                .service_id(template.getOption().getId())
+                .optionId(template.getOption().getId())
                 .build();
     }
 }
