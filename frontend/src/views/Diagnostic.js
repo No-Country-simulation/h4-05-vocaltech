@@ -1,6 +1,5 @@
 import { Header } from '../components/diagnostic/Header';
 import { Form as DiagnosticForm } from "../components/diagnostic/Form";
-import { CallToAction } from "../components/diagnostic/CallToAction";
 import { Testimonials } from "../components/testimonial/Testimonials";
 
 export const Diagnostic = () => {
@@ -8,9 +7,6 @@ export const Diagnostic = () => {
         <section className="diagnostic">
             <Header />
             <DiagnosticForm />
-            <section className="call-to-action call-to-action-diagnostic">
-                <CallToAction />
-            </section>
             <Testimonials />
         </section>
     );

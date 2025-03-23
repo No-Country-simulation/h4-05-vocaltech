@@ -1,40 +1,68 @@
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 export const Partners = () => {
     return (
-        <section id="partners" className="container partners py-5">
-            <h2 className="display-7 fw-bolder text-center pb-5">Nuestra alianza</h2>
+        <section className="partners container py-5">
+            <div className="col-lg-7 mx-lg-auto">
+                <p className="small-subtitle text-lightgray lead text-center pt-5 mt-2 pt-lg-4">NOSOTROS</p>
+                <h2 className="subtitle text-black display-2 fw-bolder text-center pb-5">
+                    Juntos, impulsamos tu crecimiento
+                </h2>
+            </div>
             <div className="row mb-4">
-                <div className="col-xl-10 text-xl-center mx-lg-auto">
-                    <p className="lead pb-3"><strong className="fw-bold">Vos y Tu Voz </strong> y <strong className="fw-bold"> No Country </strong> han formado una alianza estratégica 
-                        con un objetivo claro: transformar el talento humano y la innovación tecnológica en 
-                        los pilares del éxito empresarial.
-                    </p> 
-                    <p className="pb-3">Desde el acompañamiento a emprendedores en las primeras etapas 
-                        de sus proyectos hasta el fortalecimiento de equipos de liderazgo en grandes empresas, 
-                        <strong> nuestra colaboración ofrece soluciones personalizadas y de alto impacto</strong>. 
-                    </p>
-                    <p className="pb-5">Ya seas un emprendedor buscando inversores o una empresa
-                        interesada en desarrollar su equipo, nuestra alianza te brindará las herramientas 
-                        necesarias para <strong>alcanzar el éxito</strong>.
-                    </p>
+                <div className="col-lg-5 text-center">
+                    <img src="./images/woman.png" alt="Mujer" className="woman-img" />
                 </div>
-                <div className="text-center">
-                    <div className="row align-items-center gap-5 gap-md-0">
-                        <div className="col-md-5 col-lg-4 col-xl-3 mx-auto me-lg-0">  
-                            <img
-                                src="./images/logo-voz.png"
-                                className="img-fluid w-50"
-                                alt="Vos y tu Voz logo"
+                <div className="col-lg-7 position-relative">
+                    <div className="pt-5 pt-lg-0 col-md-7 mx-md-auto me-lg-0 col-lg-9">
+                        <img src="./images/blue-arrow.png" alt="Icono flecha azul" className="d-none d-md-block
+                            position-absolute start-0" width={200} />
+                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
+                            <img src="./images/icon-voz-logo.png" width={70} height="70px" alt="Vos y tu Voz icono" />
+                            <span>
+                                <p className="text-black lead fw-bold mb-2">Vos y tu Voz</p>
+                                <p className="mb-0">Más de 20 años ayudando a mejorar la 
+                                    comunicación, liderazgo y presentaciones a través de la voz.
+                                </p>
+                            </span>
                             
-                            />
-                        </div>
-                        <div className="col-md-6 col-lg-5 col-xl-4 mx-auto pe-md-5 ms-lg-0"> 
-                            <img
-                                src="./images/logo-no-country.png"
-                                className="img-fluid"
-                                alt="No Country logo"
-                            />
-                        </div>
-                    </div> 
+                        </div> 
+                    </div>
+                    <div className="pt-5 col-md-9 mx-md-auto me-lg-0 col-lg-12 position-relative block-partner">
+                        <div className="p-3 p-lg-4 bg-white rounded-4 shadow-md gap-4 text-center text-xl-start d-xl-flex">
+                            <img src="./images/vocaltech-logo.png" width={150} height={25} alt="Vocaltech logo" />
+                            <span>
+                                <p className="text-black lead fw-bold mb-2 mt-3 mt-xl-0">Alianza</p>
+                                <p className="lead">Combinamos la experiencia de ambos mundos para brindar 
+                                    soluciones integrales y personalizadas.
+                                </p>
+                                <Link to="/">
+                                    <button
+                                        type="button"
+                                        className="btn btn-general btn-lightblue-personalized px-3 py-2 fw-bold text-white">
+                                        Descubre más sobre Vocaltech 
+                                        <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
+                                    </button>
+                                </Link>
+                            </span>
+                        </div> 
+                    </div>
+                    <div className="pt-5 col-md-7 mx-md-auto me-lg-0 col-lg-9">
+                        <img src="./images/purple-arrow.png" alt="Icono flecha morada" className="d-none d-md-block
+                            position-absolute start-0" width={200} />
+                        <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
+                            <img src="./images/icon-no-country-logo.png" width={70} height="70px" alt="No Country icono" />
+                            <span>
+                                <p className="text-black lead fw-bold mb-2">No-Country</p>
+                                <p className="mb-0">Especialistas en MVPs, reskilling y upskilling para 
+                                    crear soluciones innovadoras y equipos preparados para el mercado actual.
+                                </p>
+                            </span>
+                            
+                        </div> 
+                    </div>
                 </div>
             </div>
         </section>

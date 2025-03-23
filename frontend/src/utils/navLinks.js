@@ -1,6 +1,6 @@
 export const navLinks = [
-    { to: "/", label: "Nuestra Alianza" },
-    { to: "/emprendedor", label: "Emprendedor" },
-    { to: "/empresa", label: "Empresa" },
-    { to: "/diagnostico", label: "Diagnóstico" },
+    { to: "/emprendedores", label: "Emprendedores" },
+    { to: "/empresas", label: "Empresas" },
+    { to: "/nosotros", label: "Nosotros" },
+    { to: "/contacto", label: "Contacto" },
 ];

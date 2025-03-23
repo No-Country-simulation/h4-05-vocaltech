@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { NavbarVocalTech } from "../components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
@@ -12,11 +12,12 @@ import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
 import { Users } from "../views/admin/Users";
-import { FooterVocalTech } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
+import { AboutUs } from "../views/AboutUs";
 
 export const AppRoutes = () => {
     const location = useLocation(); 
@@ -27,11 +28,12 @@ export const AppRoutes = () => {
         <>
             <ScrollToTop />
             { !isAdminRoute && <Chatbot /> }
-            { !isAdminRoute && <NavbarVocalTech /> }
+            { !isAdminRoute && <Navbar /> }
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/emprendedor" element={<Entrepreneur />} />
                 <Route path="/empresa" element={<Company />} />
+                <Route path="/nosotros" element={<AboutUs />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin" 
@@ -53,7 +55,7 @@ export const AppRoutes = () => {
                     <Route path="users" element={<Users />} />
                 </Route>
             </Routes>
-            { !isAdminRoute && <FooterVocalTech /> }
+            { !isAdminRoute && <Footer /> }
         </>
     );
 };

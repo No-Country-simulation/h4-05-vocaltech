@@ -1,33 +1,29 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export const CallToAction = () => {
     return (
-        <section className="container py-5 my-5 text-center text-md-start">
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="digital-lines-top"></div>
-            <div className="row align-items-center">
-                <div className="col-md-6 pe-lg-5">
-                    <h2 className="display-5 pb-4 fw-bolder">¡Da el siguiente paso hoy mismo!</h2>
-                   
-                </div>
-                <div className="col-md-6">
-                    <p className="lead pb-5">Descubre cómo podemos ayudarte a lograr tus objetivos. 
-                        Completa nuestro diagnóstico personalizado o agenda una cita para comenzar a 
-                        transformar tu proyecto
-                    </p>
-                    <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3">
-                        <Link to="/diagnostico" className="w-100 zindex">
-                            <button type="button" className="btn rounded-pill btn-personalized 
-                                btn-call-to-action w-50">
-                                ¡Hazlo AHORA!
-                            </button>
-                        </Link>
-                    </div>
-                </div>
+        <section className="container py-5 mb-5">
+            <img src="./images/square.png" alt="Cuadrado" width={300} 
+                className="position-absolute start-0 bottom-0" style={{ zIndex: "-1" }} />
+            <img src="./images/square.png" alt="Cuadrado" width={400} 
+                className="position-absolute end-0 top-0" style={{ zIndex: "-1", transform: "rotate(180deg)" }} />
+            <div className="col-lg-10 mx-lg-auto text-center">
+                <h2 className="subtitle text-black display-2 fw-bolder">
+                    VocalTech le pone voz y tecnología a tu proyecto
+                </h2>
+                <p className="pt-3 pb-2 lead">Empieza hoy mismo: soluciones para emprendedores y empresas.</p>
+                <Link to="/">
+                    <button
+                        type="button"
+                        className="btn btn-general btn-header btn-multicolor-personalized px-3 
+                        py-2 fw-bold text-white">
+                        Obtener Diagnóstico ahora 
+                        <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
+                    </button>
+                </Link>
             </div>
-            <div className="digital-lines-bottom"></div>
         </section>
     );
 };

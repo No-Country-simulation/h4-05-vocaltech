@@ -1,21 +1,48 @@
 /******** General headers **************************************/
 
-.landing-header, .entrepreneur-header, .company-header {
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-.entrepreneur-header, .company-header {
-    padding: 3rem 1rem;
-    position: relative;
+.span-top-header {
+    background-color: #6a11cb1c;
+    border-color: var(--dark-purple) !important;
 }
 
 /******** Landing Header **************************************/
 
 .landing-header {
-    background: linear-gradient(135deg, #cac8ff,  #52528b); 
-    overflow: hidden;
+    background-image: url("../../public/images/bg-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    min-height: 738px;
 }
+
+.section-bottom-header {
+    background-color: var(--dark);
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.scrolling {
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    white-space: nowrap;
+}
+  
+.scrolling {
+    animation: scroll 15s linear infinite;
+}
+  
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+ 
 
 /******** Entrepreneur Header **************************************/
 
@@ -68,6 +95,46 @@
     z-index: 1;
 }
 
+/******** AboutUs Header **************************************/
+
+.aboutus-header {
+    width:100%;
+    background-image: url("../../public/images/bg-aboutus-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Toma todo el alto de la pantalla */
+    min-height: 738px; /* Mínimo de 738px */
+    position: relative; /* Esto es importante para la posición de los elementos hijos */
+}
+
+.aboutus-header-h1 {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    width: 636px;
+    border-radius: 12px;
+    border: 3px solid #FFFFFF;
+    background: rgba(127, 31, 232, 0.48);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
 .text-gradient {
     background: linear-gradient(to right, #B77C44, #FEE5BB, #BF854A); /* Standard syntax */  
     background-clip: text;  
@@ -79,53 +146,17 @@
 /******** Medidas Header **************************************/
 
 @media (min-width: 768px) {
-    .entrepreneur-header .container {
-        overflow: visible !important;
+    .title-header {
+        font-size: 55px;
+    }    
+    .span-top-header {
+        font-size: 18px;
     }
-    .circle-bg-right {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        height: 300px;
-        position: absolute;
-        left: -20px;
-        top: -25px;
-        width: 300px; 
-        z-index: 1;
-    }
-    .circle-bg-left {
-        left: auto;
-        right: 0;
-    }
-    .btn-landing {
-        width: 50% !important;
+    .span-bottom-header {
+        font-size: 24px;
     }
 }
 
-@media (min-width: 1024px) {
-    .img-entrepreneur, .img-company {
-        height: 300px;
-        width: 300px;
-    }
-    .circle-bg {
-        top: 0px;
-    }
-    .circle-bg-left {
-        bottom: -35px;
-    }
-    .btn-landing {
-        width: 90% !important;
-    }
-}
+@media (min-width: 1024px) {}
 
-@media (min-width: 1200px) {
-    .img-entrepreneur, .img-company {
-        height: 350px;
-        width: 350px;
-    }
-    .circle-bg-left {
-        bottom: -15px;
-    }
-    .btn-landing {
-        width: 90% !important;
-    }
-}
+@media (min-width: 1200px) {}
