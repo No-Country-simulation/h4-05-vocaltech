@@ -17,6 +17,7 @@ import { ScrollToTop } from "../components/ScrollToTop";
 import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
+import { AboutUs } from "../views/AboutUs";
 
 export const AppRoutes = () => {
     const location = useLocation(); 
@@ -32,6 +33,7 @@ export const AppRoutes = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/emprendedor" element={<Entrepreneur />} />
                 <Route path="/empresa" element={<Company />} />
+                <Route path="/nosotros" element={<AboutUs />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin" 
