@@ -31,7 +31,7 @@ export const Header = () => {
               <Link to="/" onClick={handleScroll} className="w-100">
                 <button
                   type="button"
-                  className="btn rounded-pill btn-personalized btn-landing"
+                  className="btn rounded-pill btn-dark btn-landing"
                 >
                   Conoce más
                 </button>

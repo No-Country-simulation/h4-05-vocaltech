@@ -24,19 +24,19 @@ export const Header = () => {
             <Link to="/agendar-cita" className="w-100">
               <button
                 type="button"
-                className="btn btn-personalized rounded-4 px-3 w-100"
+                className="btn btn-dark rounded-4 px-3 w-100"
               >
                 Agendar reunión
-                <FontAwesomeIcon icon={faArrowRight} className="ms-2"/>
+                <FontAwesomeIcon icon={faArrowRight} className="ms-2 d-none d-sm-inline"/>
               </button>
             </Link>
             <Link to="/diagnostico" className="w-100">
               <button
                 type="button"
-                className="btn btn-dark rounded-4 btn-personalized px-3 w-100"
+                className="btn btn-primary rounded-4 px-3 w-100"
               >
                 Diagnostica tu caso
-                <FontAwesomeIcon icon={faArrowRight} className="ms-2"/>
+                <FontAwesomeIcon icon={faArrowRight} className="ms-2 d-none d-sm-inline"/> 
               </button>
             </Link>
           </div>
