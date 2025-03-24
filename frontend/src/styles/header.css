@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    min-height: 738px;
+    min-height: fit-content;
 }
 
 .section-bottom-header {

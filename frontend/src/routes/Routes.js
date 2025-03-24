@@ -3,7 +3,6 @@ import { Navbar } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
-import { Diagnostic } from "../views/Diagnostic";
 import { Login } from "../views/admin/Login";
 import { Admin } from "../views/admin/Admin";
 import { Appointment } from "../views/Appointment";
@@ -18,23 +17,27 @@ import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 import { AboutUs } from "../views/AboutUs";
+import { NewDiagnostic } from "../views/NewDiagnostic";
+import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 
 export const AppRoutes = () => {
     const location = useLocation();
     const isAdminRoute = location.pathname.startsWith("/admin");
+    const isDiagnosticRoute = location.pathname.startsWith("/diagnostico");
     const { isAuthenticated } = useAuth();
 
     return (
         <>
             <ScrollToTop />
             {!isAdminRoute && <Chatbot />}
-            {!isAdminRoute && <Navbar />}
+            {!isAdminRoute && !isDiagnosticRoute && <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/emprendedores" element={<Entrepreneur />} />
                 <Route path="/empresas" element={<Company />} />
                 <Route path="/nosotros" element={<AboutUs />} />
-                <Route path="/diagnostico" element={<Diagnostic />} />
+                <Route path="/diagnostico" element={<NewDiagnostic />} />
+                <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}

@@ -276,6 +276,169 @@
     min-width: 300px;
 }
 
+/******** Diagnostic Section **************************************/
+
+.diagnostic {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Añadir esto para centrar los elementos horizontalmente */
+    padding: 62px 0px 80px;
+    position: relative;
+}
+
+.diagnostic-back {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 700;
+    position: absolute;
+    left: 7vw;
+    top: 32px;
+  }
+
+  .diagnostic-cards-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  .diagnostic-cards-section h2{
+    font-family: 'Manrope', 'sans-serif';
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-size: 1.5rem;
+    color: #424242;
+    font-weight: bold;
+}
+
+.diagnostic-cards-section-subtitle{
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 30%;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.diagnostic-cards-section-choice{
+    font-family: 'Manrope', 'sans-serif';
+    color: #424242;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-top: 1.2rem;
+
+}
+
+/******** Diagnostic Cards **************************************/
+
+.diagnostic-card {
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 300px;
+    height: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.diagnostic-card.communication {
+    background: #3F8AED;
+}
+
+.diagnostic-card.technology {
+    background: #2A897D;
+}
+
+.diagnostic-card.mixed {
+    background: #8326E9;
+}
+
+.diagnostic-card.hovered {
+    background: #172554;
+    
+}
+
+.diagnostic-card-title {
+    color: white;
+    margin-bottom: 0;
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.diagnostic-card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(118, 120, 124, 0.5);
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(2px);    
+}
+
+.diagnostic-card-footer p {
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 20%;
+    color: white; /* Equivalente a text-white */
+    margin-bottom: 0;
+}
+
+.diagnostic-entrepreneur-link {
+    width: 172;
+    height: 45;
+    gap: 10px;
+    border-radius: 16px;
+    border-width: 1px;
+    padding: 10px;
+    border: 1px solid #000000;
+    background: #C415D7;
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.diagnostic-executive-link {
+    width: 172;
+    height: 45;
+    gap: 10px;
+    border-radius: 16px;
+    border-width: 1px;
+    padding: 10px;
+    background: linear-gradient(90.52deg, #6A11CB -31.81%, #2575FC 182.44%);
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 
 @media (min-width: 768px) {
     .shadow-md-form {
