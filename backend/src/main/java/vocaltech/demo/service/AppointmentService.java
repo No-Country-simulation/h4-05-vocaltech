@@ -14,6 +14,9 @@ public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
 
+    @Autowired
+    private LeadRepository leadRepository;
+
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
@@ -22,7 +25,19 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
-    public Appointment saveAppointment(Appointment appointment) {
+    public Appointment createAppointment(Appointment appointment) {
+        return appointmentRepository.save(appointment);
+    }
+
+    public
+
+    public Appointment updateAppointment(Long id, Appointment appointmentDetails) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Appointment no encontrado"));
+        appointment.setStartDate(appointmentDetails.getStartDate());
+        appointment.setStatus(appointmentDetails.getStatus());
+        appointment.setMeetingLink(appointmentDetails.getMeetingLink());
+        appointment.setEmail(appointmentDetails.getEmail());
         return appointmentRepository.save(appointment);
     }
 

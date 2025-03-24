@@ -23,8 +23,12 @@ public class Appointment {
     @Column(name = "status", nullable = false)
     private String status;
 
-    @Column(name = "id_lead", nullable = false)
-    private int leadId;
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "id_lead", nullable = false)
+    private Lead leadId;
 
     @Column(name = "meeting_link")
     private String meetingLink; // Campo para el enlace de la reunión
@@ -56,6 +60,10 @@ public class Appointment {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 
     public int getLeadId() {
         return leadId;
