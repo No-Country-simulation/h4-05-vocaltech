@@ -1,7 +1,12 @@
 /******** General headers **************************************/
 
 .span-top-header {
-    background-color: #6a11cb1c;
+    background-color: #65319d1c;
+    border-color: var(--dark-purple) !important;
+}
+
+.span-top-section-header {
+    background-color: #65319dd4;
     border-color: var(--dark-purple) !important;
 }
 
