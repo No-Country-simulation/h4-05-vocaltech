@@ -2,6 +2,7 @@ import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import ExecutiveForm from "../components/ExecutiveForm"
 
 
 export const ExecutiveDiagnostic = () => {
@@ -65,6 +66,7 @@ export const ExecutiveDiagnostic = () => {
             <img src="/images/executive-hero.png" width="796" height="313" alt="Ejecutivo de Empresa" className="mx-3 mb-3" />
 
             {/* Form */}
+            <ExecutiveForm />
         </section>
     );
 };
