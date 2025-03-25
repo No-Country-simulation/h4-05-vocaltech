@@ -7,9 +7,9 @@ import "../../styles/header.css";
 export const Header = () => {
   return (
     <section className="container py-5 overflow-hidden">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-5 pt-5">
         <div className="col-sm-12 col-md-8 col-lg-6 text-center mb-5 ">
-          <span className="d-inline-block text-white bg-primary rounded-4 px-3 py-2 ">
+          <span className="d-inline-block span-top-section-header border text-white rounded-4 px-3 py-2 ">
             <FontAwesomeIcon icon={faBuilding} className="me-2"/>
             Empresas
           </span>
@@ -24,7 +24,7 @@ export const Header = () => {
             <Link to="/agendar-cita" className="w-100">
               <button
                 type="button"
-                className="btn btn-dark rounded-4 px-3 w-100"
+                className="btn btn-dark-personalized text-white rounded-4 px-3 w-100"
               >
                 Agendar reunión
                 <FontAwesomeIcon icon={faArrowRight} className="ms-2 d-none d-sm-inline"/>
@@ -33,7 +33,7 @@ export const Header = () => {
             <Link to="/diagnostico" className="w-100">
               <button
                 type="button"
-                className="btn btn-primary rounded-4 px-3 w-100"
+                className="btn btn-multicolor-personalized text-white rounded-4 px-3 w-100"
               >
                 Diagnostica tu caso
                 <FontAwesomeIcon icon={faArrowRight} className="ms-2 d-none d-sm-inline"/> 

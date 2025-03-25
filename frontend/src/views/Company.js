@@ -6,7 +6,7 @@ import "../styles/process.css";
 
 export const Company = () => (
     <section className="company overflow-hidden">
-        <section className=" px-0 pt-0 pb-xl-0" style={{backgroundImage: "url(./images/bg-header.png)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "bottom", height: "auto"}}>
+        <section className=" px-0 pt-0 pb-xl-0" style={{ backgroundImage: "url(./images/bg-header.png)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "bottom", height: "auto" }}>
             <Header />
         </section>
         <Services />

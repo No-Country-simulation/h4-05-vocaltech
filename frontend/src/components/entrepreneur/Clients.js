@@ -21,7 +21,7 @@ export const Clients = () => {
             <Link to="/agendar-cita" className="w-100 text-md-end text-lg-end">
               <button
                 type="button"
-                className="btn btn-personalized rounded-4 w-sm-100 w-md-100 w-lg-100 w-75"
+                className="btn btn-dark-personalized text-white rounded-4 w-sm-100 w-md-100 w-lg-100 w-75"
               >
                 Agendar reunión
                 <FontAwesomeIcon icon={faArrowRight} className="ms-2"/>
@@ -30,7 +30,7 @@ export const Clients = () => {
             <Link to="/diagnostico" className="w-100 text-md-start text-lg-start">
               <button
                 type="button"
-                className="btn rounded-4 btn-personalized w-sm-100 w-md-100 w-lg-100 w-75"
+                className="btn rounded-4 btn-multicolor-personalized text-white w-sm-100 w-md-100 w-lg-100 w-75"
               >
                 Diagnostica tu caso
                 <FontAwesomeIcon icon={faArrowRight} className="ms-2"/>

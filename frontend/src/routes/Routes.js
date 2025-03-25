@@ -1,41 +1,46 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { NavbarVocalTech } from "../components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { Home } from "../views/Home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
-import { Diagnostic } from "../views/Diagnostic";
 import { Login } from "../views/admin/Login";
-import { Admin } from "../views/admin/Admin"; 
+import { Admin } from "../views/admin/Admin";
 import { Appointment } from "../views/Appointment";
 import { Home as AdminHome } from "../views/admin/Home";
 import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
 import { Users } from "../views/admin/Users";
-import { FooterVocalTech } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
+import { AboutUs } from "../views/AboutUs";
+import { NewDiagnostic } from "../views/NewDiagnostic";
+import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 
 export const AppRoutes = () => {
-    const location = useLocation(); 
+    const location = useLocation();
     const isAdminRoute = location.pathname.startsWith("/admin");
+    const isDiagnosticRoute = location.pathname.startsWith("/diagnostico");
     const { isAuthenticated } = useAuth();
 
     return (
         <>
             <ScrollToTop />
-            { !isAdminRoute && <Chatbot /> }
-            { !isAdminRoute && <NavbarVocalTech /> }
+            {!isAdminRoute && <Chatbot />}
+            {!isAdminRoute && !isDiagnosticRoute && <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/emprendedor" element={<Entrepreneur />} />
-                <Route path="/empresa" element={<Company />} />
-                <Route path="/diagnostico" element={<Diagnostic />} />
+                <Route path="/emprendedores" element={<Entrepreneur />} />
+                <Route path="/empresas" element={<Company />} />
+                <Route path="/nosotros" element={<AboutUs />} />
+                <Route path="/diagnostico" element={<NewDiagnostic />} />
+                <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
-                <Route path="/login-admin" 
-                    element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />} 
+                <Route path="/login-admin"
+                    element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}
                 />
                 <Route path="/admin-dashboard/*" element={
                     isAuthenticated ? (
@@ -53,7 +58,7 @@ export const AppRoutes = () => {
                     <Route path="users" element={<Users />} />
                 </Route>
             </Routes>
-            { !isAdminRoute && <FooterVocalTech /> }
+            {!isAdminRoute && <Footer />}
         </>
     );
 };

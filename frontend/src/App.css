@@ -28,12 +28,6 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.services strong, 
-.partners strong,
-.services .strong {
-    color: var(--color-accent-1) !important;
-}
-
 .icon-benefit {
     color: var(--color-accent-1);
 }
@@ -45,17 +39,6 @@
 .form-select:focus, .form-control:focus {
     border-color: #dee2e6 !important;
     box-shadow: none !important;
-}
-
-.btn-footer {
-    background-color: var(--bg-light);
-    border: none;
-    color: var(--color-text-dark);
-}
-
-.btn-footer:hover {
-    background-color: var(--color-accent-1);
-    color: var(--color-text-light);
 }
 
 .pagination .page-link  {
@@ -77,6 +60,386 @@
     box-shadow: none !important;
 }
 
+.bg-special-gray {
+    background-color: #FBFBFD;
+}
+
+.text-special-gray {
+    color: #D4D3F6;
+}
+
+.text-lightgray {
+    color: var(--light-gray);
+}
+
+.text-black {
+    color: var(--dark);
+}
+
+.text-gray {
+    color: var(--dark-gray);
+}
+
+.small-subtitle {
+    font-weight: 400;
+}
+
+.subtitle-card-services {
+    color: var(--light-gray);
+    font-size: 13px;
+}
+
+.woman-img {
+    width: 90%;
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.opacity-70 {
+    opacity: .7;
+}
+
+.icon-services {
+    color: var(--dark-purple);
+}
+
+.why-us {
+    background-image: url("../public/images/bg-why-us.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.badge {
+    background-color: var(--dark-purple);
+}
+
+.video {
+    aspect-ratio: 9/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.bg-footer {
+    background: linear-gradient(221.95deg, #2575FC -15.34%, #052855 9.38%, #6A11CB 100.06%);
+}
+
+.bg-footer a {
+    text-decoration: none;
+}
+
+.bg-footer a:hover {
+    color: var(--secondary) !important;
+}
+
+.bg-footer button {
+    color: var(--light);
+}
+
+.bg-footer button:hover {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-medium {
+    font-size: 14px;
+}
+
+.call-to-action button {
+    width: auto !important;
+}
+
+.accordion-button:focus {
+    color: var(--dark-purple) !important;
+    border: 1px solid var(--dark-purple) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--light) !important;
+    box-shadow: none !important;
+}
+
+/******** AboutUs Section **************************************/
+
+.section-who-we-are {
+    width: 100%;
+    padding: 112px 223px 80px;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.section-who-we-are h3{
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.section-who-we-are p{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #424242;
+
+}
+
+.section-the-alliance{
+    width: 100%;
+    padding: 112px 223px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center
+}
+
+.section-the-alliance p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #424242;
+}
+
+.section-last-fortresses {
+    width: 100%;
+    padding: 112px 223px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 74px;
+}
+
+.section-last-fortresses h3{
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #000000;
+}
+
+.section-last-fortresses p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #424242;
+}
+
+.global-reach-container {
+    width: 158px;
+}
+
+.global-reach {
+    font-family: 'DM Sans', 'sans-serif';
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    background: linear-gradient(226.96deg, #2575FC -14.85%, #052855 31.53%, #6A11CB 76.16%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.global-reach p{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0%;
+    color: #424242;
+}
+
+.our-services {
+    width: 100%;
+    padding: 112px 223px 80px;
+}
+
+.aboutus-services{
+    width: 100%;
+    padding: 112px 223px 80px;
+}
+
+.card-service {
+    min-width: 300px;
+}
+
+/******** Diagnostic Section **************************************/
+
+.diagnostic {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Añadir esto para centrar los elementos horizontalmente */
+    padding: 62px 0px 80px;
+    position: relative;
+}
+
+.diagnostic-back {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 700;
+    position: absolute;
+    left: 7vw;
+    top: 32px;
+  }
+
+  .diagnostic-cards-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  .diagnostic-cards-section h2{
+    font-family: 'Manrope', 'sans-serif';
+    line-height: 120%;
+    letter-spacing: 0%;
+    font-size: 1.5rem;
+    color: #424242;
+    font-weight: bold;
+}
+
+.diagnostic-cards-section-subtitle{
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 30%;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.diagnostic-cards-section-choice{
+    font-family: 'Manrope', 'sans-serif';
+    color: #424242;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-top: 1.2rem;
+
+}
+
+/******** Diagnostic Cards **************************************/
+
+.diagnostic-card {
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 300px;
+    height: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.diagnostic-card.communication {
+    background: #3F8AED;
+}
+
+.diagnostic-card.technology {
+    background: #2A897D;
+}
+
+.diagnostic-card.mixed {
+    background: #8326E9;
+}
+
+.diagnostic-card.hovered {
+    background: #172554;
+    
+}
+
+.diagnostic-card-title {
+    color: white;
+    margin-bottom: 0;
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.diagnostic-card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(118, 120, 124, 0.5);
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(2px);    
+}
+
+.diagnostic-card-footer p {
+    font-family: 'Manrope', 'sans-serif';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 20%;
+    color: white; /* Equivalente a text-white */
+    margin-bottom: 0;
+}
+
+.diagnostic-entrepreneur-link {
+    width: 172;
+    height: 45;
+    gap: 10px;
+    border-radius: 16px;
+    border-width: 1px;
+    padding: 10px;
+    border: 1px solid #000000;
+    background: #C415D7;
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.diagnostic-executive-link {
+    width: 172;
+    height: 45;
+    gap: 10px;
+    border-radius: 16px;
+    border-width: 1px;
+    padding: 10px;
+    background: linear-gradient(90.52deg, #6A11CB -31.81%, #2575FC 182.44%);
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
 @media (min-width: 768px) {
     .shadow-md-form {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -84,6 +447,12 @@
     .bg-md-light-form {
         background-color: #f8f9fa;
     }
+    .subtitle {
+        font-size: 45px;
+    }   
+    .woman-img {
+        width: 50%;
+    }  
 }
 
 @media (min-width: 919px) {
@@ -93,26 +462,28 @@
 }
 
 @media (min-width: 1024px) {
-    .header-padding {
-        padding-bottom: 4.6rem;
-    }
     .diagnostic form {
         width: 80%;
     }
     .calendly-inline-widget {
         height: 150vh !important;
     }
+    .woman-img {
+        width: 155%;
+    } 
 }
 
 @media (min-width: 1200px) {
-    .header-padding {
-        padding-bottom: 6.6rem;
-        padding-top: 2rem;
-    }
     .diagnostic form {
         width: 70%;
     }
     .calendly-inline-widget {
         height: 120vh !important;
+    }
+    .woman-img {
+        width: 125%;
+    } 
+    .block-partner {
+        left: -70px;
     }
 }
