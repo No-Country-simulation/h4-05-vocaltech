@@ -20,7 +20,7 @@ export const NewDiagnostic = () => {
 
             <div className="diagnostic-cards-section">
                 <div className="d-flex flex-column gap-3">
-                    <h2>
+                    <h2 className="diagnostic-cards-section-h2">
                         ¿Qué necesitas construir o mejorar?
                     </h2>
                     <p className="diagnostic-cards-section-subtitle">
