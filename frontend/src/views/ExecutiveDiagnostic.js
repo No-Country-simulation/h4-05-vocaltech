@@ -3,16 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import ExecutiveForm from "../components/ExecutiveForm"
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 export const ExecutiveDiagnostic = () => {
+    const [step, setStep] = useState(0);
+
+    const navigate = useNavigate();
+    const handleBack = () => {
+        if (step !== 0)
+            setStep(prevStep => prevStep - 1)
+        if (step === 0)
+            navigate("/diagnostico");
+    };
 
     return (
         <section className="diagnostic">
-            <Link className="diagnostic-back" to="/diagnostico">
-                <FontAwesomeIcon icon={faArrowLeftLong} to={"/"} className="ms-2 fa-lg" />
+            <button className="diagnostic-back" onClick={handleBack}>
+                <FontAwesomeIcon icon={faArrowLeftLong} className="ms-2 fa-lg" />
                 Regresar
-            </Link>
+            </button>
             <img src="/images/vocaltech-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3 mb-3" />
             <div className="d-flex justify-content-center align-items-center mt-5 overflow-auto">
                 <div className="d-flex align-items-center w-100" style={{ minWidth: '320px', maxWidth: '600px' }}>
@@ -66,7 +77,7 @@ export const ExecutiveDiagnostic = () => {
             <img src="/images/executive-hero.png" width="796" height="313" alt="Ejecutivo de Empresa" className="mx-3 mb-3" />
 
             {/* Form */}
-            <ExecutiveForm />
+            <ExecutiveForm step={step} setStep={setStep} />
         </section>
     );
 };

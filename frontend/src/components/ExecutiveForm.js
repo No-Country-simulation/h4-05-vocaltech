@@ -2,9 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-const ExecutiveForm = () => {
-
-    const [step, setStep] = useState(0);
+const ExecutiveForm = ({ step, setStep }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -44,7 +42,7 @@ const ExecutiveForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (step === 5 && isStep6NotComplete()) {
+        if (step === 3 && isStep4NotComplete()) {
             alert("Por favor, seleccione todas las opciones .");
             return;
         }
@@ -64,29 +62,17 @@ const ExecutiveForm = () => {
 
     const isStep2NotComplete = () => {
         return (
-            form.selectedOptions.length < 1
+            form.selectedOptions.length < 4
         );
     };
 
     const isStep3NotComplete = () => {
         return (
-            form.selectedOptions.length < 4
+            form.selectedOptions.length < 6
         );
     };
 
     const isStep4NotComplete = () => {
-        return (
-            form.selectedOptions.length < 5
-        );
-    };
-
-    const isStep5NotComplete = () => {
-        return (
-            form.selectedOptions.length < 7
-        );
-    };
-
-    const isStep6NotComplete = () => {
         return (
             form.voiceRecordingPath.trim() === ""
         );
@@ -94,9 +80,14 @@ const ExecutiveForm = () => {
 
 
     const handleNextStep = (event) => {
-        console.log(form.selectedOptions)
         if (step === 0 && isStep1NotComplete()) {
             alert("Por favor, seleccione todas las opciones .");
+            return;
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (step === 0 && !emailPattern.test(form.enterpriseEmail)) {
+            alert("El email no tiene un formato correcto.");
             return;
         }
 
@@ -106,16 +97,6 @@ const ExecutiveForm = () => {
         }
 
         if (step === 2 && isStep3NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
-            return;
-        }
-
-        if (step === 3 && isStep4NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
-            return;
-        }
-
-        if (step === 4 && isStep5NotComplete()) {
             alert("Por favor, seleccione todas las opciones .");
             return;
         }
@@ -247,9 +228,230 @@ const ExecutiveForm = () => {
                 </div>
             )}
 
+            {step === 1 &&
+                <div>
+                    <div className="mb-4">
+                        <h2 className="diagnostic-cards-section-h2">2. Comunicación y Liderazgo</h2>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            1. ¿Cómo describirías tu capacidad para influir y liderar a tu equipo?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Consigo que me escuchen y actúen con claridad", id: 25 },
+                                { label: "A veces siento que mi mensaje no genera el impacto esperado", id: 26 },
+                                { label: "Me cuesta que las personas sigan mis ideas", id: 27 },
+                            ].map((q1, index) => (
+                                <div key={q1.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q1"
+                                        value={q1.id}
+                                        id={`q1-${q1.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q1" && option.id === q1.id)}
+                                        onChange={() => handleSelection("q1", q1.id)}
+                                    />
+                                    <label htmlFor={`q1-${q1.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q1" && option.id === q1.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q1.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            2. ¿Tu voz transmite autoridad y seguridad al hablar?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Sí, me siento seguro/a al expresarme", id: 28 },
+                                { label: "A veces dudo si mi voz refuerza mi liderazgo", id: 29 },
+                                { label: "No, siento que mi voz no ayuda a mi comunicación", id: 30 },
+                            ].map((q2, index) => (
+                                <div key={q2.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q2"
+                                        value={q2.id}
+                                        id={`q2-${q2.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q2" && option.id === q2.id)}
+                                        onChange={() => handleSelection("q2", q2.id)}
+                                    />
+                                    <label htmlFor={`q2-${q2.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q2" && option.id === q2.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q2.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            3. ¿Qué tan cómodo/a te sientes en conversaciones difíciles (negociaciones, feedback, gestión de conflictos)?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Manejo bien estas situaciones", id: 31 },
+                                { label: "A veces me cuesta encontrar las palabras adecuadas", id: 32 },
+                                { label: "Evito este tipo de conversaciones", id: 33 },
+                            ].map((q3, index) => (
+                                <div key={q3.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q3"
+                                        value={q3.id}
+                                        id={`q3-${q3.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q3" && option.id === q3.id)}
+                                        onChange={() => handleSelection("q3", q3.id)}
+                                    />
+                                    <label htmlFor={`q3-${q3.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q3" && option.id === q3.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q3.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            4. ¿Te resulta fácil captar la atención y el interés de tu equipo o clientes en reuniones o presentaciones?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Sí, logro conectar y transmitir mi mensaje", id: 34 },
+                                { label: "A veces siento que no logro impactar lo suficiente", id: 35 },
+                                { label: "Me cuesta estructurar y comunicar mis ideas con claridads", id: 36 },
+                            ].map((q4, index) => (
+                                <div key={q4.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q4"
+                                        value={q4.id}
+                                        id={`q4-${q4.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q4" && option.id === q4.id)}
+                                        onChange={() => handleSelection("q4", q4.id)}
+                                    />
+                                    <label htmlFor={`q4-${q4.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q4" && option.id === q4.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q4.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>}
+
+            {step === 2 &&
+                <div>
+                    <div className="mb-4">
+                        <h2 className="diagnostic-cards-section-h2">3. Gestión y Desarrollo de Talento</h2>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            1. ¿Tienes dificultades en la contratación o retención de talento clave?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Sí, encontrar y retener talento es un desafío", id: 37 },
+                                { label: "Sí, pero más en términos de integración y cultura", id: 38 },
+                                { label: "No, nuestro equipo está consolidado", id: 39 },
+                            ].map((q5, index) => (
+                                <div key={q5.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q5"
+                                        value={q5.id}
+                                        id={`q5-${q5.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q5" && option.id === q5.id)}
+                                        onChange={() => handleSelection("q5", q5.id)}
+                                    />
+                                    <label htmlFor={`q5-${q5.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q5" && option.id === q5.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q5.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            2. ¿Qué te gustaría mejorar en tu equipo?
+                        </label>
+                        <div className="mt-3">
+                            {[
+                                { label: "Mayor compromiso y alineación con la visión", id: 40 },
+                                { label: "Mejor comunicación interna y fluidez en la toma de decisiones", id: 41 },
+                                { label: "Más autonomía y liderazgo en los colaboradores", id: 42 },
+                                { label: "Otro: Especificar", id: 43 },
+                            ].map((q6, index) => (
+                                <div key={q6.id} className="form-check mb-2">
+                                    <input
+                                        type="radio"
+                                        name="q6"
+                                        value={q6.id}
+                                        id={`q6-${q6.id}`}
+                                        className="form-check-input visually-hidden"
+                                        checked={form.selectedOptions.some(option => option.category === "q6" && option.id === q6.id)}
+                                        onChange={() => handleSelection("q6", q6.id)}
+                                    />
+                                    <label htmlFor={`q6-${q6.id}`} className="form-check-label d-flex align-items-center gap-2 cursor-pointer">
+                                        <div className={`diagnostic-check-button ${form.selectedOptions.some(option => option.category === "q6" && option.id === q6.id) ? 'bg-primary border-primary' : 'light'}`}>
+                                            <span className="">
+                                                {String.fromCharCode(65 + index)}
+                                            </span>
+                                        </div>
+                                        <span className="ms-2 text-dark">{q6.label}</span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>}
+
+            {step === 3 &&
+                <div>
+                    <div className="mb-4">
+                        <h2 className="diagnostic-cards-section-h2">6. Graba Tu Pitch en 30 Segundos</h2>
+                    </div>
+
+                    <div className="mb-4">
+                        <label className="diagnostic-form-label">
+                            Estás en un ascensor con un inversor. En menos de 30 segundos, cuéntanos tu propuesta para obtener un diagnóstico personalizado.
+                        </label>
+                    </div>
+                </div>
+            }
+
             {/* Botón Siguiente */}
             {
-                step <= 4 &&
+                step <= 2 &&
                 <div className="d-flex justify-content-center">
                     <button
                         type="button"
@@ -257,6 +459,19 @@ const ExecutiveForm = () => {
                         onClick={handleNextStep}
                     >
                         Siguiente <FontAwesomeIcon icon={faArrowRight} className="text-white" style={{ fontSize: '16px' }} />
+                    </button>
+                </div>
+            }
+
+            {/* Botón Enviar Diagnóstico */}
+            {
+                step === 3 &&
+                <div className="d-flex justify-content-center">
+                    <button
+                        type="submit"
+                        className="d-flex align-items-center justify-content-center gap-4 mt-3 bg-primary text-white rounded-pill w-auto px-4 py-2"
+                    >
+                        Enviar Diagnóstico
                     </button>
                 </div>
             }
