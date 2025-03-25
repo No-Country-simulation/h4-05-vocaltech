@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import { navLinks } from "../utils/navLinks";
 import "../styles/navbar.css"
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+    const navigate = useNavigate();
+
+    const handleDiagnosticClick = () => {
+        navigate("/diagnostico");
+    };
     return (
         <div className="d-flex justify-content-center">
             <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-md">
                 <div className="container-fluid px-4 px-xl-5">
                     <Link className="navbar-brand py-0" to="/">
-                        <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
+                        <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo" />
                     </Link>
                     <button
                         className="navbar-toggler border-0 p-0"
@@ -25,7 +31,7 @@ export const Navbar = () => {
                         aria-labelledby="offcanvasNavbarLabel">
                         <div className="offcanvas-header shadow-sm py-0 px-4 mb-4">
                             <Link className="navbar-brand py-0" to="/">
-                                <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
+                                <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo" />
                             </Link>
                             <button
                                 type="button"
@@ -46,7 +52,7 @@ export const Navbar = () => {
                                     ))
                                 }
                                 <li className="nav-item" data-bs-dismiss="offcanvas">
-                                    <button className="btn btn-navbar mt-4 mt-lg-0 ms-md-3 px-3 py-2">
+                                    <button className="btn btn-navbar mt-4 mt-lg-0 ms-md-3 px-3 py-2" onClick={handleDiagnosticClick}>
                                         Obtener Diagnóstico Gratis
                                     </button>
                                 </li>
@@ -54,7 +60,7 @@ export const Navbar = () => {
                         </div>
                     </div>
                 </div>
-            </nav>  
-        </div>  
+            </nav>
+        </div>
     );
 };

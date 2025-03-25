@@ -19,6 +19,7 @@ import { CompanySelected } from "../contexts/CompanySelected";
 import { AboutUs } from "../views/AboutUs";
 import { NewDiagnostic } from "../views/NewDiagnostic";
 import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
+import { ExecutiveDiagnostic } from "../views/ExecutiveDiagnostic";
 
 export const AppRoutes = () => {
     const location = useLocation();
@@ -38,6 +39,7 @@ export const AppRoutes = () => {
                 <Route path="/nosotros" element={<AboutUs />} />
                 <Route path="/diagnostico" element={<NewDiagnostic />} />
                 <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
+                <Route path="/diagnostico/ejecutivo" element={<ExecutiveDiagnostic />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}

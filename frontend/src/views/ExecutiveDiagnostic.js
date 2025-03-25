@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
-export const EntrepreneurDiagnostic = () => {
+export const ExecutiveDiagnostic = () => {
 
     return (
         <section className="diagnostic">
@@ -60,8 +60,9 @@ export const EntrepreneurDiagnostic = () => {
                 </div>
             </div>
 
+
             {/* Hero */}
-            <img src="/images/entrepreneur-hero.png" width="796" height="313" alt="Ejecutivo de Empresa" className="mx-3 mb-3" />
+            <img src="/images/executive-hero.png" width="796" height="313" alt="Ejecutivo de Empresa" className="mx-3 mb-3" />
 
             {/* Form */}
         </section>
