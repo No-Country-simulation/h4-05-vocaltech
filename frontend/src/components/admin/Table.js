@@ -6,6 +6,7 @@ import { loader } from "../Loader";
 import { Modall } from "../Modal";
 import { useModal } from "../../hooks/useModal";
 import { DiagnosticSheet } from "./DiagnosticSheet";
+import { SendPlan } from "./SendPlan";
 import { EditAdmin } from "./EditAdmin";
 import { DeleteAdmin } from "./DeleteAdmin";
 
@@ -77,14 +78,12 @@ export const Table = ({ columns, data, isLoading, isError, getData, updateUser, 
                                         <td key={idx}>
                                             {
                                                 col.property === "diagnostic" ? 
-                                                item[col.property] ? 
+                                                item[col.property] && 
                                                     <button className="btn p-0" type="button" 
                                                         onClick={() => handleOpenModal(item, "Ficha de Diagnóstico", "diagnostic")}>
                                                         <FontAwesomeIcon icon={faEye} 
                                                             className="text-primary fs-4 icon-table" />
                                                     </button>  
-                                                    : <FontAwesomeIcon icon={faTimes} 
-                                                        className="text-danger fs-4" />
                                                 : col.property === "plan" ? (
                                                     item.status === "cancelada" || item.status === "pendiente" ? (
                                                         <FontAwesomeIcon icon={faTimes} className="text-danger fs-4" />
@@ -134,10 +133,7 @@ export const Table = ({ columns, data, isLoading, isError, getData, updateUser, 
                     typeChildren === "diagnostic" ? (
                         <DiagnosticSheet data={selectedItem} />
                     ) : typeChildren === "plan" ? (
-                        <div className="py-2">
-                            <p className="pb-1">El plan se enviará al correo {selectedItem.email}</p>
-                            <input className="w-100" type="file" />
-                        </div>
+                        <SendPlan data={selectedItem} />
                     ) : typeChildren === "edit" ? (
                         <EditAdmin item={selectedItem} closeModal={closeModal} updateUser={updateUser} />
                     ) : typeChildren === "delete" && (

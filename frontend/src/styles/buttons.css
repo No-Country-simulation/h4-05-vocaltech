@@ -1,21 +1,31 @@
-.btn-personalized {
-    background-color: var(--bg-dark);
-    color: var(--color-text-light);
-    padding: 8px 12px;
-    transform: translateZ(0);
-    transition-duration: 0.3s;
-    transition-property: transform;
-    width: 100%;
+.btn-general {
+    font-size: 0.875rem;
 }
 
-.btn-personalized:hover {
-    transform: translateY(-2px);
+.btn-header {
+    height: 46px;
+    width: 100% !important;
 }
 
-.btn-personalized:hover,
-.btn-personalized:active {
-    background-color: var(--color-accent-2) !important;
-    color: var(--color-text-dark) !important;
+.btn-dark-personalized {
+    background-color: var(--dark);
+}
+
+.btn-dark-personalized:hover {
+    background-color: rgb(26, 26, 26);
+}
+
+.btn-multicolor-personalized {
+    background: linear-gradient(to bottom right, #2575FC, #052855, #D230E3);
+}
+
+.btn-lightblue-personalized {
+    background-color: var(--secondary);
+}
+
+.btn-lightblue-personalized:hover {
+    background-color: var(--secondary);
+    opacity: .9;
 }
 
 .btn-login, 
@@ -60,10 +70,7 @@
     .btn-form-diagnostic {
         width: 50%;
     }
-}
-
-@media (min-width: 1024px) {
-    .btn-personalized {
-        width: 50%;
+    .btn-general {
+        font-size: 16px;
     }
 }

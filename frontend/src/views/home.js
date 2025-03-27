@@ -2,11 +2,11 @@ import React from "react";
 import { Header } from "../components/Header";
 import { Partners } from "../components/Partners";
 import { Services } from "../components/Services";
-import { Benefits } from "../components/Benefits";
+import { WhyUs } from "../components/WhyUs";
 import { Testimonials } from "../components/testimonial/Testimonials";
+import { FQA } from "../components/FQA";
 import { CallToAction } from "../components/CallToAction";
 import "../styles/header.css"
-import "../styles/callToAction.css";
 
 export const Home = () => {
     return (
@@ -14,11 +14,14 @@ export const Home = () => {
             <Header />
             <Partners />
             <Services />
-            <Benefits />
-            <section className="call-to-action">
-                <CallToAction />
+            <section className="why-us py-5">
+                <WhyUs />
             </section>
-            <Testimonials />  
+            <Testimonials /> 
+            <FQA />
+            <section className="call-to-action position-relative overflow-hidden">
+                <CallToAction /> 
+            </section>
         </>
     );
 };

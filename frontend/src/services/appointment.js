@@ -13,12 +13,12 @@ const getAppointments = async () => {
     }
 };
 
-const create = async () => {
+const create = async (data) => {
     try {
-        const response = await axios.post(`${BASE_URL}/appointments`);
+        const response = await axios.post(`${BASE_URL}/appointments`, data);
         return response.data;
         
-    } catch  {
+    } catch {
         throw new Error("");
     }
 };
