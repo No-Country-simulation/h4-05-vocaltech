@@ -19,5 +19,5 @@ public class TemplateResponse {
 
     private String body;
 
-    private Long service_id;
+    private Long optionId;
 }

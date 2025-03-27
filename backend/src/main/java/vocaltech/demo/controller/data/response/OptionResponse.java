@@ -1,6 +1,8 @@
 package vocaltech.demo.controller.data.response;
 
 import lombok.*;
+import vocaltech.demo.persistence.entity.Question;
+
 @Setter
 @Getter
 @Builder
@@ -8,5 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 public class OptionResponse {
     private Long id;
-    String value;
+    private Question question;
+    private String value;
 }
