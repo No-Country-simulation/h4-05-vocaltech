@@ -9,7 +9,7 @@ export const Header = () => {
                     Juntos, impulsamos tu crecimiento
                 </h1>
                 <div className="w-100 h-100 d-flex justify-content-center align-items-end position-relative mb-5">
-                    <img src="/images/vocaltech-light-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3" />
+                    <img src="/images/logos/vocaltech-light-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3" />
                 </div>
             </section>
             <section className="section-who-we-are">

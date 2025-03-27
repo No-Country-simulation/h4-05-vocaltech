@@ -20,7 +20,7 @@ export const Partners = () => {
                         <img src="./images/blue-arrow.png" alt="Icono flecha azul" className="d-none d-md-block
                             position-absolute start-0" width={200} />
                         <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
-                            <img src="./images/icon-voz-logo.png" width={70} height="70px" alt="Vos y tu Voz icono" />
+                            <img src="./images/logos/icon-voz-logo.png" width={70} height="70px" alt="Vos y tu Voz icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">Vos y tu Voz</p>
                                 <p className="mb-0">Más de 20 años ayudando a mejorar la 
@@ -32,7 +32,7 @@ export const Partners = () => {
                     </div>
                     <div className="pt-5 col-md-9 mx-md-auto me-lg-0 col-lg-12 position-relative block-partner">
                         <div className="p-3 p-lg-4 bg-white rounded-4 shadow-md gap-4 text-center text-xl-start d-xl-flex">
-                            <img src="./images/vocaltech-logo.png" width={150} height={25} alt="Vocaltech logo" />
+                            <img src="./images/logos/vocaltech-logo.png" width={150} height={25} alt="Vocaltech logo" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2 mt-3 mt-xl-0">Alianza</p>
                                 <p className="lead">Combinamos la experiencia de ambos mundos para brindar 
@@ -53,7 +53,7 @@ export const Partners = () => {
                         <img src="./images/purple-arrow.png" alt="Icono flecha morada" className="d-none d-md-block
                             position-absolute start-0" width={200} />
                         <div className="d-flex align-items-center bg-white p-3 p-lg-4 rounded-4 shadow-md gap-4 opacity-70">
-                            <img src="./images/icon-no-country-logo.png" width={70} height="70px" alt="No Country icono" />
+                            <img src="./images/logos/icon-no-country-logo.png" width={70} height="70px" alt="No Country icono" />
                             <span>
                                 <p className="text-black lead fw-bold mb-2">No-Country</p>
                                 <p className="mb-0">Especialistas en MVPs, reskilling y upskilling para 
