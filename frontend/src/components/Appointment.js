@@ -26,7 +26,8 @@ export const Appointment = () => {
 
                 console.log(data)
 
-                // const res = await appointmentService.create(data);
+                const res = await appointmentService.create(data);
+                console.log(res)
             } catch (error) {
                 console.log(error)
             }

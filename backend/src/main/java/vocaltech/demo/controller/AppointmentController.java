@@ -1,6 +1,7 @@
 package vocaltech.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vocaltech.demo.persistence.entity.Appointment;
@@ -29,8 +30,10 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public Appointment createAppointment(@RequestBody Appointment appointment) {
-        return appointmentService.saveAppointment(appointment);
+    public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment) {
+
+        appointment = this.appointmentService.saveAppointment(appointment);
+        return new ResponseEntity<>(appointment, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
