@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
-import { Home } from "../views/Home";
+import { Home } from "../views/home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
 import { Login } from "../views/admin/Login";
@@ -20,6 +20,7 @@ import { AboutUs } from "../views/AboutUs";
 import { NewDiagnostic } from "../views/NewDiagnostic";
 import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 import { ExecutiveDiagnostic } from "../views/ExecutiveDiagnostic";
+import { Contact } from "../views/Contact";
 
 export const AppRoutes = () => {
     const location = useLocation();
