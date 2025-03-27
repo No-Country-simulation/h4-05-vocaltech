@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { NavbarVocalTech } from "../components/Navbar";
-import { Home } from "../views/Home";
+import { Home } from "../views/home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
 import { Diagnostic } from "../views/Diagnostic";
@@ -17,6 +17,7 @@ import { ScrollToTop } from "../components/ScrollToTop";
 import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
+import { Contact } from "../views/Contact";
 
 export const AppRoutes = () => {
     const location = useLocation(); 
@@ -52,6 +53,7 @@ export const AppRoutes = () => {
                     <Route path="leads" element={<Leads />} />
                     <Route path="users" element={<Users />} />
                 </Route>
+                <Route path="/contacto" element={<Contact />}/>
             </Routes>
             { !isAdminRoute && <FooterVocalTech /> }
         </>
