@@ -1,6 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
 
 const ExecutiveForm = ({ step, setStep }) => {
 
@@ -11,6 +12,8 @@ const ExecutiveForm = ({ step, setStep }) => {
             [name]: value,
         }));
     };
+
+    const [file, setFile] = useState(null);
 
     const [form, setForm] = useState({
         fullname: "",
@@ -445,6 +448,9 @@ const ExecutiveForm = ({ step, setStep }) => {
                         <label className="diagnostic-form-label">
                             Estás en un ascensor con un inversor. En menos de 30 segundos, cuéntanos tu propuesta para obtener un diagnóstico personalizado.
                         </label>
+                    </div>
+                    <div className="form-group mb-4">
+                        <AudioRecorder file={file} setFile={setFile} />
                     </div>
                 </div>
             }
