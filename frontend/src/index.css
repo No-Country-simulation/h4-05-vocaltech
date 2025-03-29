@@ -67,3 +67,72 @@ button {
     background-color: #f1f1f1; 
     border-radius: 10px; 
 }  
+
+.bg-special-gray {
+    background-color: #FBFBFD;
+}
+
+.text-special-gray {
+    color: #D4D3F6;
+}
+
+.text-lightgray {
+    color: var(--light-gray);
+}
+
+.text-black {
+    color: var(--dark);
+}
+
+.text-gray {
+    color: var(--dark-gray);
+}
+
+.small-subtitle {
+    font-weight: 400;
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.opacity-70 {
+    opacity: .7;
+}
+
+.icon-services {
+    color: var(--dark-purple);
+}
+
+.subtitle-card-services {
+    color: var(--light-gray);
+    font-size: 13px;
+}
+
+.badge {
+    background-color: var(--dark-purple);
+}
+
+.video {
+    aspect-ratio: 9/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-medium {
+    font-size: 14px;
+}
+
+.call-to-action button {
+    width: auto !important;
+}
+
+@media (min-width: 768px) {
+    .subtitle {
+        font-size: 45px;
+    } 
+}
