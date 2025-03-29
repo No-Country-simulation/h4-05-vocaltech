@@ -2,7 +2,7 @@ export const Partners = () => {
     return (
         <section className="container">
             <div className="col-lg-12 mx-lg-auto">
-                <p className="small-subtitle text-lightgray lead text-center mt-2 pt-lg-4">
+                <p className="small-subtitle text-lightgray lead text-center">
                     NO-COUNTRY + VOS Y TU VOZ
                 </p>
                 <h2 className="subtitle text-black display-2 fw-bolder text-center pb-3">
