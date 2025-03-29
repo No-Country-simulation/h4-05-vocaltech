@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
 import { Toaster, toast } from 'sonner';
 import { diagnosticService } from "../services/diagnostic"
+import { useNavigate } from "react-router-dom";
 
 const ExecutiveForm = ({ step, setStep }) => {
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -78,6 +80,7 @@ const ExecutiveForm = ({ step, setStep }) => {
         console.log(data.specifyOther)
 
         await diagnosticService.sendExecDiagnostic(data);
+        navigate("/diagnostico/envio-exitoso");
         toast.success("Enviado exitosamente! Esté pendiente de su correo.")
 
     };
