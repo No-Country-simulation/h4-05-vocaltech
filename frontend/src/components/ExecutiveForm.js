@@ -1,6 +1,6 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
 
 const ExecutiveForm = ({ step, setStep }) => {
@@ -41,6 +41,13 @@ const ExecutiveForm = ({ step, setStep }) => {
             return { ...prevForm, selectedOptions: updatedOptions };
         });
     };
+
+    useEffect(() => {
+        if (form.selectedOptions.some(option => [40, 41, 42].includes(option.id))) {
+            setForm(prevForm => ({ ...prevForm, specifyOther: "" }));
+        }
+    }, [form.selectedOptions]);
+
 
 
     const handleSubmit = (event) => {
@@ -412,7 +419,7 @@ const ExecutiveForm = ({ step, setStep }) => {
                                 { label: "Mayor compromiso y alineación con la visión", id: 40 },
                                 { label: "Mejor comunicación interna y fluidez en la toma de decisiones", id: 41 },
                                 { label: "Más autonomía y liderazgo en los colaboradores", id: 42 },
-                                { label: "Otro: Especificar", id: 43 },
+                                { label: "Otro", id: 43 },
                             ].map((q6, index) => (
                                 <div key={q6.id} className="form-check mb-2">
                                     <input
@@ -434,6 +441,28 @@ const ExecutiveForm = ({ step, setStep }) => {
                                     </label>
                                 </div>
                             ))}
+
+                            {
+                                form.selectedOptions.some(option => option.id === 43) && (
+                                    <div className="mb-4">
+                                        <label htmlFor="fullname" className="form-label fw-semibold fs-5 pb-2">
+                                            Especificar:
+                                        </label>
+                                        <input
+                                            id="specifyOther"
+                                            name="specifyOther"
+                                            type="text"
+                                            placeholder="Escríbelo aquí."
+                                            className="form-control border-0 border-bottom text-muted"
+                                            style={{ backgroundColor: "transparent", outline: "none", boxShadow: "none" }}
+                                            value={form.specifyOther}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+
+                                )
+                            }
+
                         </div>
                     </div>
                 </div>}
