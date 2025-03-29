@@ -68,6 +68,11 @@ button {
     border-radius: 10px; 
 }  
 
+::placeholder {
+    color: #9E9E9E !important;
+    opacity: 1;
+}
+
 .bg-special-gray {
     background-color: #FBFBFD;
 }

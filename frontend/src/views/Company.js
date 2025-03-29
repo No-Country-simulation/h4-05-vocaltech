@@ -1,6 +1,5 @@
 import { Header } from "../components/company/Header";
 import { Services } from "../components/company/Services";
-import { Testimonials } from "../components/testimonial/Testimonials";
 import { Process } from "../components/entrepreneur/Process";
 import { Clients } from "../components/entrepreneur/Clients";
 import "../styles/process.css";
@@ -11,7 +10,6 @@ export const Company = () => (
             <Header />
         </section>
         <Services />
-        <Testimonials />
         <section className="bg-process">
             <Process />
         </section>
