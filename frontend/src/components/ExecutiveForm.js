@@ -2,6 +2,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
+import { Toaster, toast } from 'sonner';
+import { diagnosticService } from "../services/diagnostic"
 
 const ExecutiveForm = ({ step, setStep }) => {
 
@@ -50,13 +52,34 @@ const ExecutiveForm = ({ step, setStep }) => {
 
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (step === 3 && isStep4NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+        if (file == null) {
+            alert("Por favor, grabe su pitch.");
             return;
         }
-        console.log("submit")
+
+        console.log(form.specifyOther)
+
+        const optionsIds = form.selectedOptions.map(option => option.id);
+
+        const data = {
+            fullname: form.fullname,
+            socialMedia: form.socialMedia,
+            occupation: form.occupation,
+            enterpriseName: form.enterpriseName,
+            enterpriseEmail: form.enterpriseEmail,
+            enterpriseSector: form.enterpriseSector,
+            teamQuantity: form.teamQuantity,
+            selectedOptions: optionsIds,
+            voiceRecordingPath: form.voiceRecordingPath,
+            specifyOther: form.specifyOther,
+        };
+        console.log(data.specifyOther)
+
+        await diagnosticService.sendExecDiagnostic(data);
+        toast.success("Enviado exitosamente! Esté pendiente de su correo.")
+
     };
 
     const isStep1NotComplete = () => {
@@ -82,16 +105,9 @@ const ExecutiveForm = ({ step, setStep }) => {
         );
     };
 
-    const isStep4NotComplete = () => {
-        return (
-            form.voiceRecordingPath.trim() === ""
-        );
-    };
-
-
     const handleNextStep = (event) => {
         if (step === 0 && isStep1NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+            alert("Por favor, complete los campos.");
             return;
         }
 
@@ -117,6 +133,10 @@ const ExecutiveForm = ({ step, setStep }) => {
     return (
 
         <form className="container mt-4 px-3" onSubmit={handleSubmit} style={{ maxWidth: '796px', margin: '0 auto' }}>
+            <Toaster
+                richColors
+                position="top-center"
+            />
             {step === 0 && (
                 <div>
                     <div className="mb-4">

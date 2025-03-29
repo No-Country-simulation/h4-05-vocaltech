@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EntrepreneurLeadRequest {
-    private Long[] selectedOptions;
+    private int[] selectedOptions;
     private String voiceRecordingPath;
     private String fullname;
     private String socialMedia;

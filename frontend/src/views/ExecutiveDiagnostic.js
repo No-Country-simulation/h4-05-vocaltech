@@ -24,7 +24,7 @@ export const ExecutiveDiagnostic = () => {
                 <FontAwesomeIcon icon={faArrowLeftLong} className="ms-2 fa-lg" />
                 Regresar
             </button>
-            <img src="/images/vocaltech-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3 mb-3" />
+            <img src="/images/logos/vocaltech-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3 mb-3" />
             <div className="d-flex justify-content-center align-items-center mt-5 overflow-auto">
                 <div className="d-flex align-items-center w-100" style={{ minWidth: '320px', maxWidth: '600px' }}>
                     {/* Paso 1 */}

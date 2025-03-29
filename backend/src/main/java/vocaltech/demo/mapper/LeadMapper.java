@@ -45,6 +45,7 @@ public class LeadMapper {
                 .enterpriseEmail(executiveInputs.getEnterpriseEmail())
                 .enterpriseSector(executiveInputs.getEnterpriseSector())
                 .teamQuantity(executiveInputs.getTeamQuantity())
+                .specifyOther(executiveInputs.getSpecifyOther())
                 .build();
     }
 }

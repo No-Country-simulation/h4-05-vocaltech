@@ -17,6 +17,7 @@ import vocaltech.demo.service.implementation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -52,7 +53,11 @@ public class LeadController {
                 .build();
         entrepreneurInputs = this.entrepreneurInputsService.save(entrepreneurInputs);
 
-        Set<Option> answers = this.optionService.getOptions(request.getSelectedOptions());
+        Long[] optionsLong = Arrays.stream(request.getSelectedOptions())
+                .mapToObj(Long::valueOf)
+                .toArray(Long[]::new);
+
+        Set<Option> answers = this.optionService.getOptions(optionsLong);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String creationDate = LocalDateTime.now().format(formatter);
@@ -101,9 +106,11 @@ public class LeadController {
             @RequestBody ExecutiveLeadRequest request
     ) {
 
+        System.out.println(request.getSpecifyOther());
+
         /* Persist Lead */
 
-        Profile profile = this.profileService.getProfile(1L);
+        Profile profile = this.profileService.getProfile(2L);
 
         ExecutiveInputs executiveInputs = ExecutiveInputs.builder()
                 .occupation(request.getOccupation())
@@ -111,6 +118,7 @@ public class LeadController {
                 .enterpriseEmail(request.getEnterpriseEmail())
                 .enterpriseSector(request.getEnterpriseSector())
                 .teamQuantity(request.getTeamQuantity())
+                .specifyOther(request.getSpecifyOther())
                 .build();
         executiveInputs = this.executiveInputsService.save(executiveInputs);
 
