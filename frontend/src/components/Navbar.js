@@ -14,7 +14,7 @@ export const Navbar = () => {
             <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-md">
                 <div className="container-fluid px-4 px-xl-5">
                     <Link className="navbar-brand py-0" to="/">
-                        <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo" />
+                        <img src="./images/logos/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
                     </Link>
                     <button
                         className="navbar-toggler border-0 p-0"
@@ -31,7 +31,7 @@ export const Navbar = () => {
                         aria-labelledby="offcanvasNavbarLabel">
                         <div className="offcanvas-header shadow-sm py-0 px-4 mb-4">
                             <Link className="navbar-brand py-0" to="/">
-                                <img src="./images/vocaltech-logo.png" width={150} alt="Vocaltech logo" />
+                                <img src="./images/logos/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
                             </Link>
                             <button
                                 type="button"

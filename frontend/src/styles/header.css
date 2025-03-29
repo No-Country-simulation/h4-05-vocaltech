@@ -17,8 +17,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    min-height: fit-content;
+    height: auto;
 }
 
 .section-bottom-header {
@@ -51,101 +50,28 @@
 
 /******** Entrepreneur Header **************************************/
 
-.entrepreneur-header {
-    background: linear-gradient(90deg, rgba(147,143,244,0.9), rgba(83,90,124,0.1), rgba(14,18,36,1));
-}
-
-.img-wrapper {
-    position: relative;
-}
-
-.img-entrepreneur, .img-company {
-    border: 5px solid var(--bg-light);
-    border-radius: 50%;
-    height: 250px;
-    object-fit: cover;
-    width: 250px;
-    z-index: 2;
-}
-
-.circle-bg {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    height: 300px;
-    position: absolute;
-    right: -20px;
-    top: -25px;
-    width: 300px; 
-    z-index: 1;
-}
 
 /******** Company Header **************************************/
 
-.company-header {
-    background: linear-gradient(240deg, rgba(147,143,244,.1), rgba(83,90,124,.1), rgba(14,18,36,.9)) 
-}
-
-.img-company {
-    border: 5px solid var(--bg-light) !important;
-}
-
-.circle-bg-left {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    bottom: -65px;
-    height: 150px;
-    left: 0;
-    position: absolute;
-    width: 150px; 
-    z-index: 1;
-}
 
 /******** AboutUs Header **************************************/
 
-.aboutus-header {
-    width:100%;
+.about-us-header {
     background-image: url("../../public/images/bg-aboutus-header.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh; /* Toma todo el alto de la pantalla */
-    min-height: 738px; /* Mínimo de 738px */
-    position: relative; /* Esto es importante para la posición de los elementos hijos */
+    height: 100vh; 
 }
 
-.aboutus-header-h1 {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 180px;
-    width: 636px;
-    border-radius: 12px;
-    border: 3px solid #FFFFFF;
-    background: rgba(127, 31, 232, 0.48);
+.about-us-header span  {
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    text-align: center;
+    background: rgba(127, 31, 232, 0.48);
 }
 
-.text-gradient {
-    background: linear-gradient(to right, #B77C44, #FEE5BB, #BF854A); /* Standard syntax */  
-    background-clip: text;  
-    -webkit-background-clip: text;  
-    color: transparent;  
-    -webkit-text-fill-color: transparent;  
+.about-us-header .img-container {
+    bottom: 20px;
+    left: 0;
 }
 
 /******** Medidas Header **************************************/

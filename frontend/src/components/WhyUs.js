@@ -61,7 +61,7 @@ export const WhyUs = () => {
                 </div>
                 <div className="col-md-5">
                     <video className="video rounded-5 w-100 h-100" autoPlay loop muted>
-                        <source src="./images/video-1.mp4" type="video/mp4" />
+                        <source src="./videos/video-1.mp4" type="video/mp4" />
                         Tu navegador no soporta videos.
                     </video>
                 </div>
@@ -69,7 +69,7 @@ export const WhyUs = () => {
             <div className="row pt-3 pt-md-5">
                 <div className="col-md-5 d-none d-md-block">
                     <video className="video rounded-5 w-100 h-100" autoPlay loop muted>
-                        <source src="./images/video-2.mp4" type="video/mp4" />
+                        <source src="./videos/video-2.mp4" type="video/mp4" />
                         Tu navegador no soporta videos.
                     </video>
                 </div>
@@ -126,7 +126,7 @@ export const WhyUs = () => {
                 </div>
                 <div className="d-md-none">
                     <video className="video rounded-5 w-100 h-100" autoPlay loop muted>
-                        <source src="./images/video-2.mp4" type="video/mp4" />
+                        <source src="./videos/video-2.mp4" type="video/mp4" />
                         Tu navegador no soporta videos.
                     </video>
                 </div>

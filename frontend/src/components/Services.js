@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { Card } from "./services/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faSearch, faTrophy, faMicrophone } from "@fortawesome/free-solid-svg-icons";
-
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { services } from "../utils/services";
+  
 export const Services = () => {
     return (
         <section className="services container py-5 mb-5">
@@ -22,49 +24,19 @@ export const Services = () => {
                         </button>
                     </Link>
                 </div>
-                <div className="mb-4 mb-lg-0 col-md-6 col-lg-4">
-                    <div className="border shadow-md rounded-3 p-4 px-md-5 bg-special-gray h-100">
-                        <FontAwesomeIcon icon={faSearch} className="fs-3 icon-services" />
-                        <h3 className="text-black fw-semibold fs-3 pt-2">
-                            Diagnósticos Personalizados
-                        </h3>
-                        <p className="subtitle-card-services py-2">
-                            IDENTIFICAR NECESIDADES
-                        </p>
-                        <p>Identificamos tus necesidades y diseñamos un plan a medida que se alinea a tus 
-                            necesidades con estrategias efectivas para maximizar tu impacto.
-                        </p>
-                    </div>
-                </div>
-                <div className="mb-4 mb-lg-0 col-md-6 col-lg-4">
-                    <div className="border shadow-md rounded-3 p-4 px-md-5 bg-special-gray h-100">
-                        <FontAwesomeIcon icon={faTrophy} className="fs-3 icon-services" />
-                        <h3 className="text-black fw-semibold fs-3 pt-2">
-                            Soluciones Integrales
-                        </h3>
-                        <p className="subtitle-card-services py-2">
-                            IDEAS QUE TRANSFORMAN
-                        </p>
-                        <p>Te ayudamos a superar desafíos específicos de tu negocio o proyecto. 
-                            Comunicación, liderazgo, desarrollar un MVP funcional, acceder a talento TI 
-                            validado, y mucho más.
-                        </p>
-                    </div>
-                </div>
-                <div className="col-lg-4">
-                    <div className="border shadow-md rounded-3 p-4 px-md-5 bg-special-gray h-100">
-                        <FontAwesomeIcon icon={faMicrophone} className="fs-3 icon-services" />
-                        <h3 className="text-black fw-semibold fs-3 pt-2">
-                            Estrategias de Comunicación
-                        </h3>
-                        <p className="subtitle-card-services py-2">
-                            CONECTA DE MANERA AUTÉNTICA
-                        </p>
-                        <p>Transforma la manera en que hablas con tu equipo, tus clientes y el mundo. 
-                            Te ayudamos a transmitir tus ideas con claridad, confianza y autenticidad.
-                        </p>
-                    </div>
-                </div>
+                {
+                    services.slice(0, 3).map((service, index) => (
+                        <div className={ index === 2 ? "col-lg-4" : "mb-4 mb-lg-0 col-md-6 col-lg-4" }>
+                        <Card
+                            key={service.id}
+                            icon={service.icon}
+                            title={service.title}
+                            subtitle={service.subtitle}
+                            description={service.description}
+                        />
+                        </div>
+                    ))
+                }    
             </div>
         </section>
     );
