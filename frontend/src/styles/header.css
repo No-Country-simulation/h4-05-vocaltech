@@ -13,7 +13,7 @@
 /******** Landing Header **************************************/
 
 .landing-header {
-    background-image: url("../../public/images/bg-header.png");
+    background-image: url("../../public/images/backgrounds/bg-header.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,14 +50,31 @@
 
 /******** Entrepreneur Header **************************************/
 
+.entrepreneur-header {
+    background-image: url("../../public/images/backgrounds/bg-entrepreneur.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    min-height: 100vh;
+}
 
 /******** Company Header **************************************/
 
 
+.company-header {
+    background-image: url("../../public/images/backgrounds/bg-company.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    min-height: 100vh;
+}
+
 /******** AboutUs Header **************************************/
 
 .about-us-header {
-    background-image: url("../../public/images/bg-aboutus-header.png");
+    background-image: url("../../public/images/backgrounds/bg-aboutus-header.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

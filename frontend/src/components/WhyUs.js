@@ -19,11 +19,7 @@ export const WhyUs = () => {
                     </p>
                     <div className="d-flex flex-wrap py-3 gap-2 gap-md-5">
                         <div className="col-md-5">
-                            <h2 className="subtitle display-2 fw-bolder pb-2"
-                                style={{
-                                    background: "linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent"}}>
+                            <h2 className="subtitle display-2 fw-bolder pb-2 text-gold-gradient">
                                 +15
                             </h2>
                             <p>Empresas ya están generando resultados positivos 
@@ -31,11 +27,7 @@ export const WhyUs = () => {
                             </p>
                         </div>
                         <div className="col-md-5">
-                            <h2 className="subtitle display-2 fw-bolder pb-2"
-                                style={{
-                                    background: "linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent"}}>
+                            <h2 className="subtitle display-2 fw-bolder pb-2 text-gold-gradient">
                                 +1.000
                             </h2>
                             <p>Talleres impartidos en empresas líderes de todo LATAM.</p>
@@ -86,21 +78,13 @@ export const WhyUs = () => {
                     </p>
                     <div className="d-flex flex-wrap py-3 gap-2 gap-md-5">
                         <div className="col-md-5">
-                            <h2 className="subtitle display-2 fw-bolder pb-2"
-                                style={{
-                                    background: "linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent"}}>
+                            <h2 className="subtitle display-2 fw-bolder pb-2 text-gold-gradient">
                                 95%
                             </h2>
                             <p>De nuestros clientes emprendedores recomiendan el servicio.</p>
                         </div>
                         <div className="col-md-5">
-                            <h2 className="subtitle display-2 fw-bolder pb-2"
-                                style={{
-                                    background: "linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent"}}>
+                            <h2 className="subtitle display-2 fw-bolder pb-2 text-gold-gradient">
                                 75%
                             </h2>
                             <p>De las startups lograron atraer inversores en el primer trimestre.</p>

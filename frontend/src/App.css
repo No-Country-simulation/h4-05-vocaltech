@@ -99,6 +99,13 @@
     -webkit-text-fill-color: transparent;  
 }
 
+.text-gold-gradient {
+    background: linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%);
+    background-clip: text;
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent; 
+}
+
 .modal {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -117,10 +124,18 @@
 }
 
 .why-us {
-    background-image: url("../public/images/bg-why-us.png");
+    background-image: url("../public/images/backgrounds/bg-why-us.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.services-entrepreneur a {
+    color: var(--secondary);
+}
+
+.services-entrepreneur a:hover {
+    color: var(--primary);
 }
 
 /******** Diagnostic Section NOTA: QUITAR ESTO DE AQUI **************************************/

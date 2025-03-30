@@ -1,18 +1,19 @@
 import { Header } from "../components/company/Header";
-import { Services } from "../components/company/Services";
+import { Advantages } from "../components/company/Advantages";
 import { Process } from "../components/entrepreneur/Process";
-import { Clients } from "../components/entrepreneur/Clients";
+import { CallToAction } from "../components/company/CallToAction";
+import "../styles/header.css"
 import "../styles/process.css";
 
 export const Company = () => (
-    <section className="company overflow-hidden">
-        <section className=" px-0 pt-0 pb-xl-0" style={{ backgroundImage: "url(./images/bg-header.png)", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "bottom", height: "auto" }}>
-            <Header />
-        </section>
-        <Services />
+    <>
+        <Header />
+        <Advantages />
         <section className="bg-process">
             <Process />
         </section>
-        <Clients />
-    </section>
+        <section className="py-5 mb-5 bg-white">
+            <CallToAction />
+        </section> 
+    </>
 );
