@@ -36,6 +36,8 @@ public class LeadController {
     private final ExecutiveInputsServiceImpl executiveInputsService;
     private final LeadMapper leadMapper;
 
+    private final UserDetailsServiceImpl userDetailsService;
+
 
     @PostMapping("/entrepreneur")
     public ResponseEntity<EntrepreneurLeadResponse> createEntrepreneurLead(
@@ -78,7 +80,7 @@ public class LeadController {
 
         EntrepreneurLeadResponse response = this.leadMapper.toEntrepreneurLeadResponse(lead, entrepreneurInputs);
 
-        /* Send Templates by email */
+        /* Send email with the diagnostic results */
 
         List<Template> templates = answers.stream()
                 .map(answer -> {
@@ -87,17 +89,35 @@ public class LeadController {
                 })
                 .filter(Objects::nonNull).toList();
 
-        if (!templates.isEmpty()) {
-            String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
-            this.emailService.sendEmail(
-                    response.getEmail(),
-                    "Resultado de Diagnóstico Vocaltech.",
-                    emailTemplate);
+        String emailTemplate1 = "";
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        }
+        if (templates.isEmpty())
+            emailTemplate1 = EmailTemplates.getDiagnosticReceivedEmailTemplate(lead.getFullname());
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        if (!templates.isEmpty())
+            emailTemplate1 = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
+
+        this.emailService.sendEmail(
+                response.getEmail(),
+                "Resultado de diagnóstico Vocaltech.",
+                emailTemplate1);
+
+        /* Send email to admins to notify a new diagnostic submission */
+
+        /*String emailTemplate2 = EmailTemplates.getNewEntrepreneurDiagnosticReceivedEmailTemplate(response);
+
+        List<User> users = this.userDetailsService.getUsers();
+        List<String> adminEmails = users.stream().map(User::getEmail).toList();
+
+        adminEmails.forEach(adminEmail ->
+                this.emailService.sendEmail(
+                        adminEmail,
+                        "Nuevo diagnóstico de emprendedor recibido.",
+                        emailTemplate2
+                )
+        );*/
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
 
@@ -143,7 +163,7 @@ public class LeadController {
 
         ExecutiveLeadResponse response = this.leadMapper.toExecutiveLeadResponse(lead, executiveInputs);
 
-        /* Send Templates by email */
+        /* Send email with the diagnostic results */
 
         List<Template> templates = answers.stream()
                 .map(answer -> {
@@ -152,18 +172,35 @@ public class LeadController {
                 })
                 .filter(Objects::nonNull).toList();
 
-        if (!templates.isEmpty()) {
-            String emailTemplate = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
-            this.emailService.sendEmail(
-                    response.getEnterpriseEmail(),
-                    "Resultado de Diagnóstico Vocaltech.",
-                    emailTemplate);
+        String emailTemplate1 = "";
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        }
+        if (templates.isEmpty())
+            emailTemplate1 = EmailTemplates.getDiagnosticReceivedEmailTemplate(lead.getFullname());
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        if (!templates.isEmpty())
+            emailTemplate1 = EmailTemplates.getDiagnosticResultsEmailTemplate(lead.getFullname(), templates);
 
+        this.emailService.sendEmail(
+                response.getEnterpriseEmail(),
+                "Resultado de diagnóstico Vocaltech.",
+                emailTemplate1);
+
+        /* Send email to admins to notify a new diagnostic submission */
+
+        /*String emailTemplate2 = EmailTemplates.getNewExecutiveDiagnosticReceivedEmailTemplate(response);
+
+        List<User> users = this.userDetailsService.getUsers();
+        List<String> adminEmails = users.stream().map(User::getEmail).toList();
+
+        adminEmails.forEach(adminEmail ->
+                this.emailService.sendEmail(
+                        adminEmail,
+                        "Nuevo diagnóstico de ejecutivo recibido.",
+                        emailTemplate2
+                )
+        );*/
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping

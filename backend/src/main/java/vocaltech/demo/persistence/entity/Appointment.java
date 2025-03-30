@@ -65,11 +65,11 @@ public class Appointment {
 
     public void setName(String name) { this.name = name; }
 
-    public int getLeadId() {
+    public Lead getLeadId() {
         return leadId;
     }
 
-    public void setLeadId(int leadId) {
+    public void setLeadId(Lead leadId) {
         this.leadId = leadId;
     }
 
