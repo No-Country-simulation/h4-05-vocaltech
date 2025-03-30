@@ -22,7 +22,7 @@ export const ContactInfo = () => {
             await contactService.sendContactInfo(formData)
             navigate("/contacto/envio-exitoso");
         } catch (error) {
-            navigate("/diagnostic/error");
+            navigate("/diagnostico/error");
         } finally {
             setIsLoading(false)
         }
@@ -53,6 +53,7 @@ export const ContactInfo = () => {
                             placeholder="Tu nombre / Empresa"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            disabled={isLoading}
                         ></input>
                     </div>
                     <div className="inputBlock">
@@ -63,6 +64,7 @@ export const ContactInfo = () => {
                             placeholder="tucorreo@email.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            disabled={isLoading}
                         ></input>
                     </div>
                     <div className="inputBlock">
@@ -73,6 +75,7 @@ export const ContactInfo = () => {
                             placeholder="Asunto de la consulta"
                             value={formData.topic}
                             onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
+                            disabled={isLoading}
                         ></input>
                     </div>
                     <div className="inputBlock">
@@ -83,6 +86,7 @@ export const ContactInfo = () => {
                             placeholder="¿En qué te podemos ayudar?"
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                            disabled={isLoading}
                         ></textarea>
                     </div>
                     <div className="buttonContainer">
