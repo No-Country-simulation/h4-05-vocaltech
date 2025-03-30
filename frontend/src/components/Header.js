@@ -41,9 +41,9 @@ export const Header = () => {
                     </div>
                     <span className="d-md-flex align-items-center px-3 pb-4 pb-lg-5 justify-content-center mt-5">
                         <p className="fw-semibold text-special-gray lead mb-md-0 pe-md-2">Powered by</p>
-                        <img src="./images/light-no-country-logo.png" width={130} height={25} alt="No Country logo" />
+                        <img src="./images/logos/light-no-country-logo.png" width={130} height={25} alt="No Country logo" />
                         <p className="fw-semibold text-special-gray mb-0 px-md-2">&</p>
-                        <img src="./images/voz-logo.png" width={50} alt="Vos y tu voz logo" />
+                        <img src="./images/logos/voz-logo.png" width={50} alt="Vos y tu voz logo" />
                     </span>
                 </div>
             </div>

@@ -1,8 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
+import { Toaster, toast } from 'sonner';
+import { diagnosticService } from "../services/diagnostic"
+import { useNavigate } from "react-router-dom";
 
 const ExecutiveForm = ({ step, setStep }) => {
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -11,6 +16,8 @@ const ExecutiveForm = ({ step, setStep }) => {
             [name]: value,
         }));
     };
+
+    const [file, setFile] = useState(null);
 
     const [form, setForm] = useState({
         fullname: "",
@@ -39,14 +46,43 @@ const ExecutiveForm = ({ step, setStep }) => {
         });
     };
 
+    useEffect(() => {
+        if (form.selectedOptions.some(option => [40, 41, 42].includes(option.id))) {
+            setForm(prevForm => ({ ...prevForm, specifyOther: "" }));
+        }
+    }, [form.selectedOptions]);
 
-    const handleSubmit = (event) => {
+
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (step === 3 && isStep4NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+        if (file == null) {
+            alert("Por favor, grabe su pitch.");
             return;
         }
-        console.log("submit")
+
+        console.log(form.specifyOther)
+
+        const optionsIds = form.selectedOptions.map(option => option.id);
+
+        const data = {
+            fullname: form.fullname,
+            socialMedia: form.socialMedia,
+            occupation: form.occupation,
+            enterpriseName: form.enterpriseName,
+            enterpriseEmail: form.enterpriseEmail,
+            enterpriseSector: form.enterpriseSector,
+            teamQuantity: form.teamQuantity,
+            selectedOptions: optionsIds,
+            voiceRecordingPath: form.voiceRecordingPath,
+            specifyOther: form.specifyOther,
+        };
+        console.log(data.specifyOther)
+
+        await diagnosticService.sendExecDiagnostic(data);
+        navigate("/diagnostico/envio-exitoso");
+        toast.success("Enviado exitosamente! Esté pendiente de su correo.")
+
     };
 
     const isStep1NotComplete = () => {
@@ -72,16 +108,9 @@ const ExecutiveForm = ({ step, setStep }) => {
         );
     };
 
-    const isStep4NotComplete = () => {
-        return (
-            form.voiceRecordingPath.trim() === ""
-        );
-    };
-
-
     const handleNextStep = (event) => {
         if (step === 0 && isStep1NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+            alert("Por favor, complete los campos.");
             return;
         }
 
@@ -107,6 +136,10 @@ const ExecutiveForm = ({ step, setStep }) => {
     return (
 
         <form className="container mt-4 px-3" onSubmit={handleSubmit} style={{ maxWidth: '796px', margin: '0 auto' }}>
+            <Toaster
+                richColors
+                position="top-center"
+            />
             {step === 0 && (
                 <div>
                     <div className="mb-4">
@@ -409,7 +442,7 @@ const ExecutiveForm = ({ step, setStep }) => {
                                 { label: "Mayor compromiso y alineación con la visión", id: 40 },
                                 { label: "Mejor comunicación interna y fluidez en la toma de decisiones", id: 41 },
                                 { label: "Más autonomía y liderazgo en los colaboradores", id: 42 },
-                                { label: "Otro: Especificar", id: 43 },
+                                { label: "Otro", id: 43 },
                             ].map((q6, index) => (
                                 <div key={q6.id} className="form-check mb-2">
                                     <input
@@ -431,6 +464,28 @@ const ExecutiveForm = ({ step, setStep }) => {
                                     </label>
                                 </div>
                             ))}
+
+                            {
+                                form.selectedOptions.some(option => option.id === 43) && (
+                                    <div className="mb-4">
+                                        <label htmlFor="fullname" className="form-label fw-semibold fs-5 pb-2">
+                                            Especificar:
+                                        </label>
+                                        <input
+                                            id="specifyOther"
+                                            name="specifyOther"
+                                            type="text"
+                                            placeholder="Escríbelo aquí."
+                                            className="form-control border-0 border-bottom text-muted"
+                                            style={{ backgroundColor: "transparent", outline: "none", boxShadow: "none" }}
+                                            value={form.specifyOther}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+
+                                )
+                            }
+
                         </div>
                     </div>
                 </div>}
@@ -445,6 +500,9 @@ const ExecutiveForm = ({ step, setStep }) => {
                         <label className="diagnostic-form-label">
                             Estás en un ascensor con un inversor. En menos de 30 segundos, cuéntanos tu propuesta para obtener un diagnóstico personalizado.
                         </label>
+                    </div>
+                    <div className="form-group mb-4">
+                        <AudioRecorder file={file} setFile={setFile} />
                     </div>
                 </div>
             }

@@ -65,6 +65,8 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.DELETE, "/api/v1/templates/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/templates/**").permitAll();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/templates/**").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/contact/**").permitAll();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/contact/**").permitAll();
                     /* Swagger */
                     http.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll();

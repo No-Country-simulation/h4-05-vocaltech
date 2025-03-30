@@ -1,6 +1,9 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { AudioRecorder } from "../components/diagnostic/AudioRecorder";
+import { diagnosticService } from "../services/diagnostic"
+import { Toaster, toast } from 'sonner';
 
 const EntrepreneurForm = ({ step, setStep }) => {
 
@@ -12,13 +15,15 @@ const EntrepreneurForm = ({ step, setStep }) => {
         }));
     };
 
+    const [file, setFile] = useState(null);
+
     const [form, setForm] = useState({
         fullname: "",
         projectSector: "",
         email: "",
         phone: "",
         socialMedia: "",
-        voiceRecordingPath: "",
+        voiceRecordingPath: "de prueba",
         selectedOptions: []
     })
 
@@ -36,13 +41,28 @@ const EntrepreneurForm = ({ step, setStep }) => {
     };
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (step === 5 && isStep6NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+        if (file == null) {
+            alert("Por favor, grabe su pitch.");
             return;
         }
-        console.log("submit")
+
+        const optionsIds = form.selectedOptions.map(option => option.id)
+
+        const data = {
+            fullname: form.fullname,
+            projectSector: form.projectSector,
+            email: form.email,
+            phone: form.phone,
+            socialMedia: form.socialMedia,
+            voiceRecordingPath: form.voiceRecordingPath,
+            selectedOptions: optionsIds
+        }
+
+        await diagnosticService.sendEntrepDiagnostic(data);
+        toast.success("Enviado exitosamente! Esté pendiente de su correo.")
+
     };
 
     const isStep1NotComplete = () => {
@@ -76,12 +96,6 @@ const EntrepreneurForm = ({ step, setStep }) => {
     const isStep5NotComplete = () => {
         return (
             form.selectedOptions.length < 7
-        );
-    };
-
-    const isStep6NotComplete = () => {
-        return (
-            form.voiceRecordingPath.trim() === ""
         );
     };
 
@@ -124,6 +138,10 @@ const EntrepreneurForm = ({ step, setStep }) => {
     return (
 
         <form className="container mt-4 px-3" onSubmit={handleSubmit} style={{ maxWidth: '796px', margin: '0 auto' }}>
+            <Toaster
+                richColors
+                position="top-center"
+            />
             {step === 0 && (
                 <div>
                     <div className="mb-2">
@@ -472,6 +490,9 @@ const EntrepreneurForm = ({ step, setStep }) => {
                         <label className="diagnostic-form-label">
                             Estás en un ascensor con un inversor. En menos de 30 segundos, cuéntanos tu propuesta para obtener un diagnóstico personalizado.
                         </label>
+                    </div>
+                    <div className="form-group mb-4">
+                        <AudioRecorder file={file} setFile={setFile} />
                     </div>
                 </div>
             }

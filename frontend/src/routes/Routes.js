@@ -20,6 +20,8 @@ import { AboutUs } from "../views/AboutUs";
 import { NewDiagnostic } from "../views/NewDiagnostic";
 import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 import { ExecutiveDiagnostic } from "../views/ExecutiveDiagnostic";
+import ErrorFormSended from "../views/ErrorFormSended";
+import SuccessFormSended from "../views/SuccessFormSended";
 
 export const AppRoutes = () => {
     const location = useLocation();
@@ -40,6 +42,8 @@ export const AppRoutes = () => {
                 <Route path="/diagnostico" element={<NewDiagnostic />} />
                 <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
                 <Route path="/diagnostico/ejecutivo" element={<ExecutiveDiagnostic />} />
+                <Route path="/diagnostico/envio-exitoso" element={<SuccessFormSended />} />
+                <Route path="/diagnostico/emprendedor" element={<ErrorFormSended />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}

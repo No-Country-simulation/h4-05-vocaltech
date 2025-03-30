@@ -6,4 +6,6 @@ import vocaltech.demo.persistence.entity.Option;
 
 @Repository
 public interface OptionRepository extends JpaRepository<Option, Long> {
+    interface ContactRepository {
+    }
 }
