@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
-import { Home } from "../views/Home";
+import { Home } from "../views/home";
 import { Entrepreneur } from "../views/Entrepreneur";
 import { Company } from "../views/Company";
 import { Login } from "../views/admin/Login";
@@ -22,6 +22,7 @@ import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 import { ExecutiveDiagnostic } from "../views/ExecutiveDiagnostic";
 import ErrorFormSended from "../views/ErrorFormSended";
 import SuccessFormSended from "../views/SuccessFormSended";
+import { Contact } from "../views/Contact";
 
 export const AppRoutes = () => {
     const location = useLocation();
@@ -63,6 +64,7 @@ export const AppRoutes = () => {
                     <Route path="leads" element={<Leads />} />
                     <Route path="users" element={<Users />} />
                 </Route>
+                <Route path="/contacto" element={<Contact />}/>
             </Routes>
             {!isAdminRoute && <Footer />}
         </>
