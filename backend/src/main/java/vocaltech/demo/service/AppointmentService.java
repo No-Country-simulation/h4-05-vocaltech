@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vocaltech.demo.persistence.entity.Appointment;
 import vocaltech.demo.persistence.repository.AppointmentRepository;
+import vocaltech.demo.persistence.repository.LeadRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,9 @@ public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
 
+    @Autowired
+    private LeadRepository leadRepository;
+
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
@@ -22,7 +26,17 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
-    public Appointment saveAppointment(Appointment appointment) {
+    public Appointment createAppointment(Appointment appointment) {
+        return appointmentRepository.save(appointment);
+    }
+
+    public Appointment updateAppointment(Long id, Appointment appointmentDetails) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Appointment no encontrado"));
+        appointment.setStartDate(appointmentDetails.getStartDate());
+        appointment.setStatus(appointmentDetails.getStatus());
+        appointment.setMeetingLink(appointmentDetails.getMeetingLink());
+        appointment.setEmail(appointmentDetails.getEmail());
         return appointmentRepository.save(appointment);
     }
 

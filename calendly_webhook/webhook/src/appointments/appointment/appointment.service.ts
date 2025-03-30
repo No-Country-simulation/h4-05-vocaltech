@@ -10,7 +10,6 @@ export class AppointmentService {
 
     // Crear un appointment y retornar los datos para enviarlos a la función createAppointmentinSpringBoot
     async processCalendlyEvent(payload: CalendlyWebhookDto) {
-      log("Hola");
       console.log(payload.payload.event);
       const {start_time, location} = payload.payload.event;
       const {invitee} = payload.payload;

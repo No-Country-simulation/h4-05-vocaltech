@@ -1,9 +1,13 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
+import { diagnosticService } from "../services/diagnostic"
+import { useNavigate } from "react-router-dom";
 
 const ExecutiveForm = ({ step, setStep }) => {
+    const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -48,15 +52,38 @@ const ExecutiveForm = ({ step, setStep }) => {
         }
     }, [form.selectedOptions]);
 
-
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (step === 3 && isStep4NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+        setIsLoading(true)
+        if (file == null) {
+            alert("Por favor, grabe su pitch.");
             return;
         }
-        console.log("submit")
+
+        const optionsIds = form.selectedOptions.map(option => option.id);
+
+        const data = {
+            fullname: form.fullname,
+            socialMedia: form.socialMedia,
+            occupation: form.occupation,
+            enterpriseName: form.enterpriseName,
+            enterpriseEmail: form.enterpriseEmail,
+            enterpriseSector: form.enterpriseSector,
+            teamQuantity: form.teamQuantity,
+            selectedOptions: optionsIds,
+            voiceRecordingPath: form.voiceRecordingPath,
+            specifyOther: form.specifyOther,
+        };
+
+        try {
+            await diagnosticService.sendExecDiagnostic(data);
+            navigate("/diagnostico/envio-exitoso");
+        } catch (error) {
+            navigate("/diagnostico/error");
+        } finally {
+            setIsLoading(false)
+        }
+
     };
 
     const isStep1NotComplete = () => {
@@ -82,16 +109,9 @@ const ExecutiveForm = ({ step, setStep }) => {
         );
     };
 
-    const isStep4NotComplete = () => {
-        return (
-            form.voiceRecordingPath.trim() === ""
-        );
-    };
-
-
     const handleNextStep = (event) => {
         if (step === 0 && isStep1NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+            alert("Por favor, complete los campos.");
             return;
         }
 
@@ -479,7 +499,7 @@ const ExecutiveForm = ({ step, setStep }) => {
                         </label>
                     </div>
                     <div className="form-group mb-4">
-                        <AudioRecorder file={file} setFile={setFile} />
+                        {!isLoading && <AudioRecorder file={file} setFile={setFile} />}
                     </div>
                 </div>
             }
@@ -505,8 +525,16 @@ const ExecutiveForm = ({ step, setStep }) => {
                     <button
                         type="submit"
                         className="d-flex align-items-center justify-content-center gap-4 mt-3 bg-primary text-white rounded-pill w-auto px-4 py-2"
+                        disabled={isLoading}
                     >
-                        Enviar Diagnóstico
+                        {isLoading ? (
+                            <>
+                                <FontAwesomeIcon icon={faSpinner} spin className="me-2" />
+                                Enviando...
+                            </>
+                        ) : (
+                            "Enviar Diagnóstico"
+                        )}
                     </button>
                 </div>
             }

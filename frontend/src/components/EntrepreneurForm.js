@@ -1,9 +1,13 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
+import { AudioRecorder } from "../components/diagnostic/AudioRecorder";
+import { diagnosticService } from "../services/diagnostic"
+import { useNavigate } from "react-router-dom";
 
 const EntrepreneurForm = ({ step, setStep }) => {
+    const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -21,7 +25,7 @@ const EntrepreneurForm = ({ step, setStep }) => {
         email: "",
         phone: "",
         socialMedia: "",
-        voiceRecordingPath: "",
+        voiceRecordingPath: "de prueba",
         selectedOptions: []
     })
 
@@ -39,13 +43,35 @@ const EntrepreneurForm = ({ step, setStep }) => {
     };
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (step === 5 && isStep6NotComplete()) {
-            alert("Por favor, seleccione todas las opciones .");
+        setIsLoading(true)
+        if (file == null) {
+            alert("Por favor, grabe su pitch.");
             return;
         }
-        console.log("submit")
+
+        const optionsIds = form.selectedOptions.map(option => option.id)
+
+        const data = {
+            fullname: form.fullname,
+            projectSector: form.projectSector,
+            email: form.email,
+            phone: form.phone,
+            socialMedia: form.socialMedia,
+            voiceRecordingPath: form.voiceRecordingPath,
+            selectedOptions: optionsIds
+        }
+
+        try {
+            await diagnosticService.sendEntrepDiagnostic(data);
+            navigate("/diagnostico/envio-exitoso");
+        } catch (error) {
+            navigate("/diagnostico/error");
+        } finally {
+            setIsLoading(false)
+        }
+
     };
 
     const isStep1NotComplete = () => {
@@ -79,12 +105,6 @@ const EntrepreneurForm = ({ step, setStep }) => {
     const isStep5NotComplete = () => {
         return (
             form.selectedOptions.length < 7
-        );
-    };
-
-    const isStep6NotComplete = () => {
-        return (
-            form.voiceRecordingPath.trim() === ""
         );
     };
 
@@ -477,7 +497,7 @@ const EntrepreneurForm = ({ step, setStep }) => {
                         </label>
                     </div>
                     <div className="form-group mb-4">
-                        <AudioRecorder file={file} setFile={setFile} />
+                        {!isLoading && <AudioRecorder file={file} setFile={setFile} />}
                     </div>
                 </div>
             }
@@ -505,8 +525,16 @@ const EntrepreneurForm = ({ step, setStep }) => {
                     <button
                         type="submit"
                         className="d-flex align-items-center justify-content-center gap-4 mt-3 bg-primary text-white rounded-pill w-auto px-4 py-2"
+                        disabled={isLoading}
                     >
-                        Enviar Diagnóstico
+                        {isLoading ? (
+                            <>
+                                <FontAwesomeIcon icon={faSpinner} spin className="me-2" />
+                                Enviando...
+                            </>
+                        ) : (
+                            "Enviar Diagnóstico"
+                        )}
                     </button>
                 </div>
             }

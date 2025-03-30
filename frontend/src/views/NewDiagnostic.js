@@ -15,7 +15,7 @@ export const NewDiagnostic = () => {
                 <FontAwesomeIcon icon={faArrowLeftLong} to={"/"} className="ms-2 fa-lg" />
                 Regresar
             </Link>
-            <img src="/images/vocaltech-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3 mb-3" />
+            <img src="/images/logos/vocaltech-logo.png" width="328" height="54" alt="Vocaltech Logo" className="mx-3 mb-3" />
             <ProgressBar />
 
             <div className="diagnostic-cards-section">
