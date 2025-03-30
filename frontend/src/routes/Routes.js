@@ -43,7 +43,7 @@ export const AppRoutes = () => {
                 <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
                 <Route path="/diagnostico/ejecutivo" element={<ExecutiveDiagnostic />} />
                 <Route path="/diagnostico/envio-exitoso" element={<SuccessFormSended />} />
-                <Route path="/diagnostico/emprendedor" element={<ErrorFormSended />} />
+                <Route path="/diagnostico/error" element={<ErrorFormSended />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}

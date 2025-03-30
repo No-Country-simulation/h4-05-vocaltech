@@ -25,11 +25,9 @@ const sendDiagnostic = async (data) => {
 const sendEntrepDiagnostic = async (data) => {
     try {
         const response = await axios.post(`${BASE_URL}/leads/entrepreneur`, data);
-        console.log(response.data)
         return response.data;
-
-    } catch {
-        window.alert("Error al enviar el formulario. Intente nuevamente!");
+    } catch (error) {
+        throw error;
     }
 };
 
@@ -39,8 +37,8 @@ const sendExecDiagnostic = async (data) => {
         console.log(response.data)
         return response.data;
 
-    } catch {
-        throw new Error("Error al enviar el formulario. Intente nuevamente!");
+    } catch (error) {
+        throw error;
     }
 };
 

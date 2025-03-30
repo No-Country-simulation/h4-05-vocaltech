@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheckCircle, faCalendar, faHome } from "@fortawesome/free-solid-svg-icons"
 
 export default function SuccessFormSended() {
     return (
         <div className="container d-flex align-items-center justify-content-center min-vh-100 py-5">
-            <div className="card shadow-lg" style={{ maxWidth: "500px" }}>
+            <div style={{ maxWidth: "500px" }}>
                 <div className="card-body p-4">
                     <div className="text-center mb-4">
-                        <i className="fas fa-check-circle text-success fa-4x mb-3"></i>
+                        <FontAwesomeIcon icon={faCheckCircle} className="text-success mb-3" size="4x" />
                         <h1 className="h3 fw-bold mb-3">Gracias por completar el diagnóstico</h1>
                         <p className="text-muted">Nos comunicaremos a la brevedad.</p>
                     </div>
@@ -19,9 +21,26 @@ export default function SuccessFormSended() {
                             <p className="mb-0 fw-medium">¿Quieres feedback inmediato?</p>
                         </div>
                         <p className="mb-3 text-muted">Agenda una sesión gratuita para potenciar tu comunicación y tu negocio.</p>
-                        <Link to="/agendar-cita" className="btn btn-primary w-100">
-                            Agendar cita
-                        </Link>
+                        <div className="d-flex flex-column gap-3 w-100">
+                            <Link
+                                to="/agendar-cita"
+                                className="btn d-flex align-items-center justify-content-center gap-3"
+                                style={{ backgroundColor: "#ff5722", color: "white" }} // Naranja rojizo
+                            >
+                                <FontAwesomeIcon icon={faCalendar} className="text-white" size="1x" />
+                                <span>Agendar cita</span>
+                            </Link>
+                            <Link
+                                to="/"
+                                className="btn btn-primary d-flex align-items-center justify-content-center gap-3"
+                            >
+                                <FontAwesomeIcon icon={faHome} className="text-white" size="1x" />
+                                <span>Volver al inicio</span>
+                            </Link>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

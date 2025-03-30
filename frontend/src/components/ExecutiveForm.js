@@ -1,12 +1,12 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
-import { Toaster, toast } from 'sonner';
 import { diagnosticService } from "../services/diagnostic"
 import { useNavigate } from "react-router-dom";
 
 const ExecutiveForm = ({ step, setStep }) => {
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -52,16 +52,13 @@ const ExecutiveForm = ({ step, setStep }) => {
         }
     }, [form.selectedOptions]);
 
-
-
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true)
         if (file == null) {
             alert("Por favor, grabe su pitch.");
             return;
         }
-
-        console.log(form.specifyOther)
 
         const optionsIds = form.selectedOptions.map(option => option.id);
 
@@ -77,11 +74,15 @@ const ExecutiveForm = ({ step, setStep }) => {
             voiceRecordingPath: form.voiceRecordingPath,
             specifyOther: form.specifyOther,
         };
-        console.log(data.specifyOther)
 
-        await diagnosticService.sendExecDiagnostic(data);
-        navigate("/diagnostico/envio-exitoso");
-        toast.success("Enviado exitosamente! Esté pendiente de su correo.")
+        try {
+            await diagnosticService.sendExecDiagnostic(data);
+            navigate("/diagnostico/envio-exitoso");
+        } catch (error) {
+            navigate("/diagnostico/error");
+        } finally {
+            setIsLoading(false)
+        }
 
     };
 
@@ -136,10 +137,6 @@ const ExecutiveForm = ({ step, setStep }) => {
     return (
 
         <form className="container mt-4 px-3" onSubmit={handleSubmit} style={{ maxWidth: '796px', margin: '0 auto' }}>
-            <Toaster
-                richColors
-                position="top-center"
-            />
             {step === 0 && (
                 <div>
                     <div className="mb-4">
@@ -502,7 +499,7 @@ const ExecutiveForm = ({ step, setStep }) => {
                         </label>
                     </div>
                     <div className="form-group mb-4">
-                        <AudioRecorder file={file} setFile={setFile} />
+                        {!isLoading && <AudioRecorder file={file} setFile={setFile} />}
                     </div>
                 </div>
             }
@@ -528,8 +525,16 @@ const ExecutiveForm = ({ step, setStep }) => {
                     <button
                         type="submit"
                         className="d-flex align-items-center justify-content-center gap-4 mt-3 bg-primary text-white rounded-pill w-auto px-4 py-2"
+                        disabled={isLoading}
                     >
-                        Enviar Diagnóstico
+                        {isLoading ? (
+                            <>
+                                <FontAwesomeIcon icon={faSpinner} spin className="me-2" />
+                                Enviando...
+                            </>
+                        ) : (
+                            "Enviar Diagnóstico"
+                        )}
                     </button>
                 </div>
             }
