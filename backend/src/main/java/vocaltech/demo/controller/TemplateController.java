@@ -25,7 +25,7 @@ public class TemplateController {
 
     @PostMapping
     public ResponseEntity<TemplateResponse> createTemplate(@RequestBody TemplateRequest request) {
-        Option option = this.optionService.getOption(request.getOptionId());
+        Option option = this.optionService.getOption(request.getOption_id());
 
         Template template = this.templateMapper.toTemplate(request, option);
 
@@ -49,7 +49,7 @@ public class TemplateController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TemplateResponse> updateTemplate(@PathVariable Long id, @RequestBody TemplateRequest request) {
-        Option option = this.optionService.getOption(request.getOptionId());
+        Option option = this.optionService.getOption(request.getOption_id());
 
         Template template = this.templateMapper.toTemplate(request, option);
 

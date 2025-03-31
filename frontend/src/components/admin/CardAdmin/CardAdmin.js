@@ -11,7 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import "../../../styles/buttons.css";
 import "../../../styles/templates.css";
 
-export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, onUpdate }) => {
+export const CardAdmin = ({ id, roleId, optionId, title, subject, description, onUpdate }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalType, setModalType] = useState("");
@@ -43,7 +43,7 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
         title: cardTitle,
         subject: cardSubject,
         body: content,
-        service_id: serviceId
+        option_id: optionId
       });
       console.log(response);
       toast.success("Plantilla actualizada con éxito!");
@@ -67,9 +67,9 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
     setShowModal(true);
   };
 
-  const handleConfirmDelete = async(event) => {
+  const handleConfirmDelete = async (event) => {
     event.preventDefault();
-    
+
     try {
       const response = await templateService.deleteTemplates(id);
       console.log(response);
@@ -122,31 +122,31 @@ export const CardAdmin = ({ id, roleId, serviceId, title, subject, description, 
           <form onSubmit={handleSubmit}>
             <div className="form-group mb-4">
               <label className="fw-bold" htmlFor="title">Título</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  id="title"
-                  value={cardTitle}
-                  onChange={(e) => setCardTitle(e.target.value)}
-                />
+              <input
+                className="form-control"
+                type="text"
+                id="title"
+                value={cardTitle}
+                onChange={(e) => setCardTitle(e.target.value)}
+              />
             </div>
             <div className="form-group mb-4">
               <label className="w-bold" htmlFor="asunto">Asunto</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  id="asunto"
-                  value={cardSubject}
-                  onChange={(e) => setCardSubject(e.target.value)}
-                />
+              <input
+                className="form-control"
+                type="text"
+                id="asunto"
+                value={cardSubject}
+                onChange={(e) => setCardSubject(e.target.value)}
+              />
             </div>
             <div className="form-group">
               <label className="fw-bold mb-2" htmlFor="descripcion">Descripción</label>
-                <ReactQuill
-                  theme="snow"
-                  value={content}
-                  onChange={setContent}
-                />
+              <ReactQuill
+                theme="snow"
+                value={content}
+                onChange={setContent}
+              />
             </div>
             <div className="text-center">
               <button

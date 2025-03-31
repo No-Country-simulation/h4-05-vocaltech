@@ -23,9 +23,9 @@ export const CardTemplates = () => {
     }
   };
 
-   useEffect(() => {
-     fetchTemplates();
-   }, [shouldRefetch]);
+  useEffect(() => {
+    fetchTemplates();
+  }, [shouldRefetch]);
 
   const handleRefetch = () => {
     setShouldRefetch(prev => !prev);
@@ -37,7 +37,7 @@ export const CardTemplates = () => {
 
   return loading ? (
     <LoadingTemplates />
-   ) : (
+  ) : (
     <>
       {
         templates.length > 0 ? (
@@ -46,7 +46,7 @@ export const CardTemplates = () => {
               <CardAdmin
                 id={template.id}
                 roleId={template.role_id}
-                serviceId={template.service_id}
+                optionId={template.option_id}
                 title={template.title}
                 subject={template.subject}
                 description={template.body}
