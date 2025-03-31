@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
+import { useModal } from "../../hooks/useModal";
+import { Modall } from "../Modal";
+import { EntrepLeadSheet } from "./EntrepLeadSheet";
 
 const EntrepLeadsTable = ({ entrepreneurLeads }) => {
+    const { showModal, openModal, closeModal } = useModal();
+    const [selectedItem, setSelectedItem] = useState({});
+    const [title, setTitle] = useState("");
+    const [typeChildren, setTypeChildren] = useState("");
+
+
+    const handleOpenModal = (item, title, children) => {
+        setSelectedItem(item);
+        setTitle(title);
+        setTypeChildren(children)
+        openModal();
+    };
+
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
@@ -31,6 +47,16 @@ const EntrepLeadsTable = ({ entrepreneurLeads }) => {
 
     return (
         <div className="table-responsive text-center pb-5 pt-3 px-2">
+            <Modall
+                showModal={showModal}
+                closeModal={closeModal}
+                title={title}>
+                {
+                    typeChildren === "diagnostic" &&
+                    <EntrepLeadSheet data={selectedItem} />
+
+                }
+            </Modall>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -54,7 +80,7 @@ const EntrepLeadsTable = ({ entrepreneurLeads }) => {
                                 </audio>
                             ) : "N/A"}</td>
                             <td className="align-middle">
-                                <button className="btn btn-secondary">Ver Detalle</button>
+                                <button className="btn btn-secondary" onClick={() => handleOpenModal(lead, "Ficha de Diagnóstico", "diagnostic")}>Ver Detalle</button>
                             </td>
                         </tr>
                     ))}
