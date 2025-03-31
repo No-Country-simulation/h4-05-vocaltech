@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder";
 import { diagnosticService } from "../services/diagnostic"
 import { useNavigate } from "react-router-dom";
+import { audioRecorderService } from "../services/audioRecorder";
 
 const EntrepreneurForm = ({ step, setStep }) => {
     const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +26,6 @@ const EntrepreneurForm = ({ step, setStep }) => {
         email: "",
         phone: "",
         socialMedia: "",
-        voiceRecordingPath: "de prueba",
         selectedOptions: []
     })
 
@@ -51,6 +51,8 @@ const EntrepreneurForm = ({ step, setStep }) => {
             return;
         }
 
+        const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
+
         const optionsIds = form.selectedOptions.map(option => option.id)
 
         const data = {
@@ -59,7 +61,7 @@ const EntrepreneurForm = ({ step, setStep }) => {
             email: form.email,
             phone: form.phone,
             socialMedia: form.socialMedia,
-            voiceRecordingPath: form.voiceRecordingPath,
+            voiceRecordingPath: uploadedAudioUrl,
             selectedOptions: optionsIds
         }
 

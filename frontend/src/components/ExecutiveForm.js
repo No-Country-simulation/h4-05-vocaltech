@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { AudioRecorder } from "../components/diagnostic/AudioRecorder"
 import { diagnosticService } from "../services/diagnostic"
+import { audioRecorderService } from "../services/audioRecorder";
 import { useNavigate } from "react-router-dom";
 
 const ExecutiveForm = ({ step, setStep }) => {
@@ -28,7 +29,6 @@ const ExecutiveForm = ({ step, setStep }) => {
         enterpriseSector: "",
         teamQuantity: 0,
         selectedOptions: [],
-        voiceRecordingPath: "",
         specifyOther: "",
     });
 
@@ -60,6 +60,8 @@ const ExecutiveForm = ({ step, setStep }) => {
             return;
         }
 
+        const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
+
         const optionsIds = form.selectedOptions.map(option => option.id);
 
         const data = {
@@ -71,7 +73,7 @@ const ExecutiveForm = ({ step, setStep }) => {
             enterpriseSector: form.enterpriseSector,
             teamQuantity: form.teamQuantity,
             selectedOptions: optionsIds,
-            voiceRecordingPath: form.voiceRecordingPath,
+            voiceRecordingPath: uploadedAudioUrl,
             specifyOther: form.specifyOther,
         };
 
