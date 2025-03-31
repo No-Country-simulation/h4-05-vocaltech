@@ -10,6 +10,7 @@ import { Home as AdminHome } from "../views/admin/Home";
 import { Templates } from "../views/admin/Templates";
 import { Appointments } from "../views/admin/Appointments";
 import { Leads } from "../views/admin/Leads";
+import { Subscriptions } from "../views/admin/Subscriptions";
 import { Users } from "../views/admin/Users";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
@@ -63,6 +64,7 @@ export const AppRoutes = () => {
                     <Route path="templates" element={<Templates />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="leads" element={<Leads />} />
+                    <Route path="subscriptions" element={<Subscriptions />} />
                     <Route path="users" element={<Users />} />
                 </Route>
                 <Route path="/contacto" element={<Contact />} />

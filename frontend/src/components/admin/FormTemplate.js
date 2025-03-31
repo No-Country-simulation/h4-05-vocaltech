@@ -59,27 +59,6 @@ export const FormTemplate = ({ onUpdate, closeModal }) => {
     }));
   };
 
-  /*const handleSelectedQuestion = (event) => {
-    setSelectedQuestion(event.target.value);
-    const serviceNames = {
-      '1': "Levantamiento de capital",
-      '2': "Pitch a inversores",
-      '3': "Comunicación efectiva para ventas",
-      '4': "Construcción de MVP",
-      '7': "Reskilling - Upskilling",
-      '5': "Comunicación y liderazgo",
-      '6': "Cultura empresarial",
-      '8': "Evidencia de comportamiento",
-      '9': "Contratación de nuevo talento",
-    };
-
-    setNewTemplate((prev) => ({
-      ...prev,
-      service_id: event.target.value,
-      title: serviceNames[event.target.value],
-    }));
-  };*/
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewTemplate((prevState) => ({ ...prevState, [name]: value }));

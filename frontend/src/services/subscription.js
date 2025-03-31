@@ -11,6 +11,17 @@ const sendSubscription = async (data) => {
     }
 };
 
+const getSubscriptions = async () => {
+    try {
+        const response = await axios.get(`${BASE_URL}/subscription`);
+        console.log(response.data)
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
+
 export const subscriptionService = {
-    sendSubscription
+    sendSubscription,
+    getSubscriptions
 };
