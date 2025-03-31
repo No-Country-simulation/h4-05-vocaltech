@@ -16,8 +16,11 @@ const addUser = async (token, user) => {
 };
 
 const getUsers = async () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const token = user?.token;
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const token = user?.token || "";
+    if (!token) {
+        throw new Error("No se encontró un token de autenticación. Inicie sesión nuevamente.");
+    }
 
     try {
         const response = await axios.get(`${BASE_URL}/users`, {

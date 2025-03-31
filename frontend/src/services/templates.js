@@ -2,10 +2,17 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const user = JSON.parse(localStorage.getItem("user"));
-const token = user.token;
+const getToken = () => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    return user?.token || "";
+};
 
 export const addTemplates = async (data) => {
+    const token = getToken();
+    if (!token) {
+        throw new Error("No tiene permisos para realizar esta acción. Vuelva a iniciar sesión.");
+    }
+
     try {
         const response = await axios.post(`${BASE_URL}/templates`, data, {
             headers: {
@@ -24,6 +31,11 @@ export const addTemplates = async (data) => {
 };
 
 export const getTemplates = async () => {
+    const token = getToken();
+    if (!token) {
+        throw new Error("No tiene permisos para acceder a este recurso. Vuelva a iniciar sesión.");
+    }
+
     try {
         const response = await axios.get(`${BASE_URL}/templates`, {
             headers: {
@@ -46,6 +58,11 @@ export const getTemplates = async () => {
 };
 
 export const editTemplates = async (data) => {
+    const token = getToken();
+    if (!token) {
+        throw new Error("No tiene permisos para realizar esta acción. Vuelva a iniciar sesión.");
+    }
+
     try {
         const response = await axios.put(`${BASE_URL}/templates/${data.id}`, data, {
             headers: {
@@ -66,6 +83,11 @@ export const editTemplates = async (data) => {
 };
 
 export const deleteTemplates = async (id) => {
+    const token = getToken();
+    if (!token) {
+        throw new Error("No tiene permisos para realizar esta acción. Vuelva a iniciar sesión.");
+    }
+
     try {
         await axios.delete(`${BASE_URL}/templates/${id}`, {
             headers: {
