@@ -130,216 +130,60 @@
     background-size: cover;
 }
 
-.services-entrepreneur a {
+.services-entrepreneur a,
+.services-company a {
     color: var(--secondary);
 }
 
-.services-entrepreneur a:hover {
+.services-entrepreneur a:hover,
+.services-company a:hover {
     color: var(--primary);
 }
 
-/******** Diagnostic Section NOTA: QUITAR ESTO DE AQUI **************************************/
+/******** Diagnostic **************************************/
 
-.diagnostic {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Añadir esto para centrar los elementos horizontalmente */
-    padding: 62px 0px 80px;
-    position: relative;
-}
-
-.diagnostic-back {
-    background-color: transparent;
-    display: flex;
-    gap: 16px;
-    align-items: center;
+.link-back {
     text-decoration: none;
-    font-size: 16px;
-    color: #000000;
-    font-family: 'Manrope', 'sans-serif';
-    font-weight: 700;
-    position: absolute;
-    left: 7vw;
-    top: 32px;
-  }
-
-  .diagnostic-cards-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-
-  .diagnostic-cards-section-h2 {
-    font-family: 'Manrope', 'sans-serif';
-    line-height: 120%;
-    letter-spacing: 0%;
-    font-size: 1.5rem;
-    color: #424242;
-    font-weight: bold;
 }
 
-.diagnostic-form-label {
-    font-family: 'Manrope', 'sans-serif';
-    color: #424242;
-    font-family: Manrope;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 145%;
-    letter-spacing: 0%;
-    margin: 1.2rem 0;
+.initial-diagnostic .card-footer {
+    background-color: rgba(255, 255, 255, .3);
 }
 
-.diagnostic-cards-section-subtitle{
-    font-family: 'Manrope', 'sans-serif';
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 100%;
-    letter-spacing: 30%;
-    color: #6c757d;
-    margin-top: 0.5rem;
+.overlay {
+    background-color: rgba(23, 37, 84, .97);
+    opacity: 0;
+    transition: .5s ease;
+}
+  
+.card:hover .overlay {
+    opacity: 1;
+}
+  
+.icon-bolt-diagnostic {
+    background-color: #C415D7;
+    border-radius: 50%;
+    color: rgb(23, 37, 84);
+    font-size: 12px;
+    padding: 6px 7px;
 }
 
-.diagnostic-cards-section-choice{
-    font-family: 'Manrope', 'sans-serif';
-    color: #424242;
-    font-family: Manrope;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    margin-top: 1.2rem;
-
+.icon-check-diagnostic {
+    font-size: 10px;
 }
 
-/******** Diagnostic Cards NOTA: QUITAR ESTO DE AQUI **************************************/
-
-.diagnostic-card {
-    position: relative;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    width: 300px;
-    height: 350px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.diagnostic-card.communication {
-    background: #3F8AED;
-}
-
-.diagnostic-card.technology {
-    background: #2A897D;
-}
-
-.diagnostic-card.mixed {
-    background: #8326E9;
-}
-
-.diagnostic-card.hovered {
-    background: #172554;
-    
-}
-
-.diagnostic-card-title {
-    color: white;
-    margin-bottom: 0;
-    font-family: 'Manrope', 'sans-serif';
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-
-}
-
-.diagnostic-card-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(118, 120, 124, 0.5);
-    padding: 0.5rem 1rem;
-    backdrop-filter: blur(2px);    
-}
-
-.diagnostic-card-footer p {
-    font-family: 'Manrope', 'sans-serif';
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 20%;
-    color: white; /* Equivalente a text-white */
-    margin-bottom: 0;
-}
-
-.diagnostic-entrepreneur-link {
-    width: 172;
-    height: 45;
-    gap: 10px;
-    border-radius: 16px;
-    border-width: 1px;
-    padding: 10px;
-    border: 1px solid #000000;
-    background: #C415D7;
-    font-family: Manrope;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-.diagnostic-executive-link {
-    width: 172;
-    height: 45;
-    gap: 10px;
-    border-radius: 16px;
-    border-width: 1px;
-    padding: 10px;
-    background: linear-gradient(90.52deg, #6A11CB -31.81%, #2575FC 182.44%);
-    font-family: Manrope;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-.diagnostic-check-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5rem;
-    height: 2rem;
-    border-width: 2px;
-    border-radius: 0.5rem;
-}
-
-.diagnostic-check-button.light {
-    border: 2px solid #ada9a9de;
-}
-
-.diagnostic-check-button span{
-    color: #8f8f8fde;
-    font-family: 'Manrope', 'sans-serif';
-    font-weight: 700;
+.items-card {
+    font-size: 14px;
 }
 
 /******** Admin dashboard **************************************/
+
 .navbar-bg {
     background-color: #293696 !important;
 }
 
 .admin-select {
-        color: black !important;
+    color: black !important;
 }
 
 @media (min-width: 768px) {
