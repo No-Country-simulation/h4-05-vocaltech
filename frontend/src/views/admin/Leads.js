@@ -1,26 +1,23 @@
 import { useState, useEffect } from "react";
 import { Toaster, toast } from "sonner";
-import { columnsTable } from "../../utils/columnsTable";
-import { Table } from "../../components/admin/Table";
-import { SelectRole } from "../../components/SelectRole";
-import { useCompanySelect } from "../../contexts/CompanySelected";
 import { diagnosticService } from "../../services/diagnostic";
+import EntrepLeadsTable from "../../components/admin/EntrepLeadsTable";
+import ExecLeadsTable from "../../components/admin/ExecLeadsTable";
 
 export const Leads = () => {
-    const [leadsData, setLeadsData] = useState([]);
-    const { selectedCompany } = useCompanySelect();
-    const [selectedRole, setSelectedRole] = useState("Todos");
-    const [filteredLeads, setFilteredLeads] = useState([]);
+    const [entrepLeadsData, setEntrepLeadsData] = useState([]);
+    const [execLeadsData, setExecLeadsData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    
+
     const getData = async () => {
         setIsLoading(true);
         setIsError(false);
-        
+
         try {
             const response = await diagnosticService.getLeads();
-            setLeadsData(response);
+            setEntrepLeadsData(response.entrepreneurLeads)
+            setExecLeadsData(response.executiveLeads)
         } catch (error) {
             toast.error(error.message);
             setIsError(true);
@@ -33,47 +30,23 @@ export const Leads = () => {
         getData();
     }, []);
 
-    useEffect(() => {
-        const leadsByCompany = selectedCompany === 0 || selectedCompany === "General"
-            ? leadsData
-            : leadsData.filter(lead => lead.roles.some(role => role.id === selectedCompany)
-        );
-
-        const filteredLeads = selectedRole === 0 || selectedRole === "Todos"
-            ? leadsByCompany
-            : leadsByCompany.filter(lead => lead.profile.id === selectedRole);
-
-        const formattedLeads = filteredLeads.map(lead => ({
-            ...lead,
-            creationDate: lead.creationDate.split(" ")[0].split("-").reverse().join("-")  
-        }));
-
-        const sortedLeads = formattedLeads.reverse();
-
-        setFilteredLeads(sortedLeads); 
-    }, [selectedCompany, selectedRole, leadsData]); 
-
     return (
         <section>
             <div className="pb-3 d-md-flex justify-content-between">
-                <h2>Leads</h2>
-                <div className="d-flex flex-column align-items-end">
-                    <label htmlFor="selectRole" className="form-label">Filtrar por</label>
-                    <SelectRole all selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
-                </div>
+                <h2>Leads de Emprendedores</h2>
             </div>
-            {
-                selectedCompany === 1 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
-                        data={filteredLeads} getData={getData} />
-                ) : selectedCompany === 2 ? (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
-                        data={filteredLeads} getData={getData} />
-                ) : (
-                    <Table columns={columnsTable.leads} isLoading={isLoading} isError={isError} 
-                        data={filteredLeads} getData={getData} />
-                )
-            }
+
+            {!isError && !isLoading && <EntrepLeadsTable entrepreneurLeads={entrepLeadsData} />}
+
+            <br />
+            <div className="pb-3 d-md-flex justify-content-between">
+                <h2>Leads de Ejecutivos</h2>
+            </div>
+
+            {!isError && !isLoading && <ExecLeadsTable executiveLeads={execLeadsData} />}
+
+            {isError && !isLoading && "Ha ocurrido un error"}
+
             <Toaster
                 richColors
                 position="top-center"

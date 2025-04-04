@@ -17,5 +17,5 @@ public class TemplateRequest {
 
     private String body;
 
-    private Long optionId;
+    private Long option_id;
 }

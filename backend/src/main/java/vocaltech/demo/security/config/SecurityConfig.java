@@ -50,34 +50,34 @@ public class SecurityConfig {
 
                     // PUBLIC Endpoints
                     http.requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/api/v1/users/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/services/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/questions/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/options/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/leads/**").permitAll();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/leads/**").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/api/v1/leads/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/appointments/**").permitAll();
                     http.requestMatchers(HttpMethod.DELETE, "/api/v1/appointments/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/appointments/**").permitAll();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/appointments/**").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/api/v1/templates/**").permitAll();
-                    http.requestMatchers(HttpMethod.DELETE, "/api/v1/templates/**").permitAll();
-                    http.requestMatchers(HttpMethod.POST, "/api/v1/templates/**").permitAll();
-                    http.requestMatchers(HttpMethod.PUT, "/api/v1/templates/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/contact/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/contact/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/subscription/**").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/api/v1/subscription/**").permitAll();
                     /* Swagger */
                     http.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll();
 
                     // PRIVATE Endpoints
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/users/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/users/**").authenticated();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/users/**").authenticated();
                     http.requestMatchers(HttpMethod.DELETE, "/api/v1/users/**").authenticated();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/leads/**").authenticated();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/templates/**").authenticated();
+                    http.requestMatchers(HttpMethod.DELETE, "/api/v1/templates/**").authenticated();
+                    http.requestMatchers(HttpMethod.POST, "/api/v1/templates/**").authenticated();
+                    http.requestMatchers(HttpMethod.PUT, "/api/v1/templates/**").authenticated();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/subscription/**").authenticated();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();

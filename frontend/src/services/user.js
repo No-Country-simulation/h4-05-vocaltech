@@ -9,21 +9,32 @@ const addUser = async (token, user) => {
         });
 
         return response.data;
-        
-    } catch  {
+
+    } catch {
         throw new Error("Error al registrar al nuevo administrador. Intente nuevamente!");
     }
 };
 
 const getUsers = async () => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const token = user?.token || "";
+    if (!token) {
+        throw new Error("No se encontró un token de autenticación. Inicie sesión nuevamente.");
+    }
+
     try {
-        const response = await axios.get(`${BASE_URL}/users`);
+        const response = await axios.get(`${BASE_URL}/users`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
         return response.data;
-        
-    } catch  {
+    } catch {
         throw new Error("Error al traer a los administradores. Intente nuevamente!");
     }
 };
+
 
 const deleteUser = async (id, token) => {
     try {
@@ -32,8 +43,8 @@ const deleteUser = async (id, token) => {
         });
 
         return response.data;
-        
-    } catch  {
+
+    } catch {
         throw new Error("Error al eliminar al administrador. Intente nuevamente!");
     }
 };
@@ -45,8 +56,8 @@ const updateUser = async (updateData, token) => {
         });
 
         return response.data;
-        
-    } catch  {
+
+    } catch {
         throw new Error("Error al actualizar la información. Intente nuevamente!");
     }
 };
