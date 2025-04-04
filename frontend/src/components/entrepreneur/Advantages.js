@@ -18,7 +18,7 @@ export const Advantages = () => {
             </div>
             <div className="row d-flex gap-4 gap-md-0 justify-content-lg-between">
                 {
-                    advantages.map(advantage => (
+                    advantages.entrepreneur.map(advantage => (
                         <div key={advantage.id} className="col-md-4 col-lg-2 mb-md-4">
                             <Advantage
                                 imgUrl={advantage.imgUrl}
