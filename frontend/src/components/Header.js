@@ -25,7 +25,7 @@ export const Header = () => {
                         <Link to="/" className="w-100">
                             <button
                                 type="button"
-                                className="btn btn-general btn-header btn-dark-personalized px-3 py-2 fw-bold text-white">
+                                className="btn btn-general btn-dark-personalized px-3 py-2 fw-bold text-white">
                                 Soluciones para emprendedores 
                                 <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" />
                             </button>
@@ -33,7 +33,7 @@ export const Header = () => {
                         <Link to="/diagnostico" className="w-100">
                             <button
                                 type="button"
-                                className="btn btn-general btn-header btn-multicolor-personalized px-3 py-2 fw-bold text-white">
+                                className="btn btn-general btn-multicolor-personalized px-3 py-2 fw-bold text-white">
                                 Potencia tu empresa ahora 
                                 <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
                             </button>

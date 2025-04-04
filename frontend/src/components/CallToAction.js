@@ -17,7 +17,7 @@ export const CallToAction = () => {
                 <Link to="/">
                     <button
                         type="button"
-                        className="btn btn-general btn-header btn-multicolor-personalized px-3 
+                        className="btn btn-general btn-multicolor-personalized px-3 
                         py-2 fw-bold text-white">
                         Obtener Diagnóstico ahora 
                         <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 

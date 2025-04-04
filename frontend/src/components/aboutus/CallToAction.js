@@ -5,22 +5,18 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export const CallToAction = () => {
     return (
-        <section className="container">
-            <div className="row text-center">
-                <BrandsCallToAction 
-                    subtitle={"Nuestra trayectoria en Comunicación y Tech"}
-                    question={"¿Necesitas asesoría?"}>
-                    <Link to="/">
-                        <button
-                            type="button"
-                            className="btn btn-general btn-header btn-multicolor-personalized px-3 
-                            py-2 fw-bold text-white">
-                            Contáctanos ahora 
-                            <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
-                        </button>
-                    </Link>
-                </BrandsCallToAction>
-            </div>
-        </section>
+        <BrandsCallToAction 
+            subtitle={"Nuestra trayectoria en Comunicación y Tech"}
+            question={"¿Necesitas asesoría?"}>
+            <Link to="/">
+                <button
+                    type="button"
+                    className="btn btn-general btn-multicolor-personalized px-3 
+                    py-2 fw-bold text-white">
+                    Contáctanos ahora 
+                    <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
+                </button>
+            </Link>
+        </BrandsCallToAction>
     );
 };

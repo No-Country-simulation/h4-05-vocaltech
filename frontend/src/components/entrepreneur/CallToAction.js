@@ -5,32 +5,28 @@ import { BrandsCallToAction } from "../BrandsCallToAction";
 
 export const CallToAction = () => {
     return (
-        <section className="container">
-            <div className="row text-center">
-                <BrandsCallToAction 
-                    subtitle={"Empresas que confían en nuestros resultados"}
-                    question={"Construye tu futuro. Comienza hoy."}>
-                    <div className="d-flex flex-wrap flex-md-nowrap justify-content-center gap-3 mt-3 
-                        px-0 col-lg-9 col-xl-7 mx-auto px-3">
-                        <Link to="/" className="w-100">
-                            <button
-                                type="button"
-                                className="btn btn-general btn-header btn-dark-personalized px-3 py-2 fw-bold text-white">
-                                Agendar reunión con un experto 
-                                <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" />
-                            </button>
-                        </Link>
-                        <Link to="/diagnostico" className="w-100">
-                            <button
-                                type="button"
-                                className="btn btn-general btn-header btn-multicolor-personalized px-3 py-2 fw-bold text-white">
-                                Diagnosticar mi caso
-                                <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
-                            </button>
-                        </Link>
-                    </div>
-                </BrandsCallToAction>
+        <BrandsCallToAction 
+            subtitle={"Empresas que confían en nuestros resultados"}
+            question={"Construye tu futuro. Comienza hoy."}>
+            <div className="d-flex flex-wrap flex-md-nowrap justify-content-center gap-3 mt-3 
+                px-0 col-lg-9 col-xl-7 mx-auto px-3">
+                <Link to="/" className="w-100">
+                    <button
+                        type="button"
+                        className="btn btn-general btn-dark-personalized px-3 py-2 fw-bold text-white">
+                        Agendar reunión con un experto 
+                        <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" />
+                    </button>
+                </Link>
+                <Link to="/diagnostico" className="w-100">
+                    <button
+                        type="button"
+                        className="btn btn-general btn-multicolor-personalized px-3 py-2 fw-bold text-white">
+                        Diagnosticar mi caso
+                        <FontAwesomeIcon icon={faArrowRight} className="d-none d-md-inline ms-2" /> 
+                    </button>
+                </Link>
             </div>
-        </section>
+        </BrandsCallToAction>
     );
 };
