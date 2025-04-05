@@ -46,22 +46,6 @@ public class ContactController {
                 emailTemplate1
         );
 
-        /* Send email to admins to notify a new diagnostic submission */
-
-        String emailTemplate2 = EmailTemplates.getNewContactNotificationEmailTemplate(
-                request.getName(),
-                request.getEmail(),
-                request.getTopic(),
-                request.getMessage()
-        );
-        adminEmails.forEach(adminEmail ->
-                this.emailService.sendEmail(
-                        adminEmail,
-                        "Nueva consulta recibida.",
-                        emailTemplate2
-                )
-        );
-
         return new ResponseEntity<>(contact, HttpStatus.CREATED);
     }
 
