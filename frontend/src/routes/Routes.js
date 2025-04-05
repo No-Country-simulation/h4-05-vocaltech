@@ -25,6 +25,7 @@ import ErrorFormSended from "../views/ErrorFormSended";
 import SuccessFormSended from "../views/SuccessFormSended";
 import { Contact } from "../views/Contact";
 import SuccessContactInfoSended from "../views/SuccessContactInfoSended"
+import { Queries } from "../views/admin/Queries";
 
 export const AppRoutes = () => {
     const location = useLocation();
@@ -65,6 +66,7 @@ export const AppRoutes = () => {
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="leads" element={<Leads />} />
                     <Route path="subscriptions" element={<Subscriptions />} />
+                    <Route path="queries" element={<Queries />} />
                     <Route path="users" element={<Users />} />
                 </Route>
                 <Route path="/contacto" element={<Contact />} />

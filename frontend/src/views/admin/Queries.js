@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Toaster, toast } from "sonner";
-import { subscriptionService } from "../../services/subscription";
-import SubscriptionsTable from "../../components/admin/SubscriptionsTable"
+import { contactService } from "../../services/contact";
+import QueryTable from "../../components/admin/QueryTable";
 
-export const Subscriptions = () => {
+export const Queries = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -13,7 +13,7 @@ export const Subscriptions = () => {
         setIsError(false);
 
         try {
-            const response = await subscriptionService.getSubscriptions();
+            const response = await contactService.getContacts();
             setData(response)
         } catch (error) {
             toast.error(error.message);
@@ -30,12 +30,12 @@ export const Subscriptions = () => {
     return (
         <section>
             <div className="pb-3 d-md-flex justify-content-between">
-                <h2>Subscriptores</h2>
+                <h2>Consultas</h2>
             </div>
 
             {isLoading && <p>Cargando... (puede demorar unos minutos)...</p>}
 
-            {!isError && !isLoading && <SubscriptionsTable subscriptionsData={data} />}
+            {!isError && !isLoading && <QueryTable contactData={data} />}
 
             <br />
 

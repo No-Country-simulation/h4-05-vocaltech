@@ -4,5 +4,6 @@ export const sidebarLinks = [
     { to: "/admin-dashboard/appointments", label: "Citas" },
     { to: "/admin-dashboard/leads", label: "Leads" },
     { to: "/admin-dashboard/subscriptions", label: "Subscriptores" },
+    { to: "/admin-dashboard/queries", label: "Consultas" },
     { to: "/admin-dashboard/users", label: "Administradores" },
 ];

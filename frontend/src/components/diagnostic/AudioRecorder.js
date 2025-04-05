@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faPauseCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faPlayCircle, faPauseCircle, faTimes, faStopCircle, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { audioRecorderService } from "../../services/audioRecorder";
 
@@ -79,8 +79,8 @@ export const AudioRecorder = ({ file, setFile }) => {
                 onClick={() => (isRecording ? handleStopRecording() : handleStartRecording())}>
                 {
                     isRecording ?
-                        <FontAwesomeIcon icon={faPauseCircle} className="fs-1 align-middle icon-audio-recorder" />
-                        : <FontAwesomeIcon icon={faPlayCircle} className="fs-1 align-middle icon-audio-recorder" />
+                        <FontAwesomeIcon icon={faStopCircle} className="fs-1 align-middle icon-audio-recorder" />
+                        : <FontAwesomeIcon icon={faMicrophone} className="fs-1 align-middle icon-audio-recorder" />
                 }
             </button>
             <small className="d-block pt-2">00:{time.toString().padStart(2, "0")} / 01:00</small>

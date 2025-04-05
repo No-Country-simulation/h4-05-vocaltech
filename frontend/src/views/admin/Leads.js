@@ -36,12 +36,16 @@ export const Leads = () => {
                 <h2>Leads de Emprendedores</h2>
             </div>
 
+            {isLoading && <p>Cargando... (puede demorar unos minutos)...</p>}
+
             {!isError && !isLoading && <EntrepLeadsTable entrepreneurLeads={entrepLeadsData} />}
 
             <br />
             <div className="pb-3 d-md-flex justify-content-between">
                 <h2>Leads de Ejecutivos</h2>
             </div>
+
+            {isLoading && <p>Cargando... (puede demorar unos minutos)...</p>}
 
             {!isError && !isLoading && <ExecLeadsTable executiveLeads={execLeadsData} />}
 

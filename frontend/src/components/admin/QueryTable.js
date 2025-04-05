@@ -1,35 +1,20 @@
 import React, { useState } from 'react';
-import { useModal } from "../../hooks/useModal";
-import { Modall } from "../Modal";
-import { ExectLeadSheet } from './ExectLeadsSheet';
 
-const ExecLeadsTable = ({ executiveLeads }) => {
-    const { showModal, openModal, closeModal } = useModal();
-    const [selectedItem, setSelectedItem] = useState({});
-    const [title, setTitle] = useState("");
-    const [typeChildren, setTypeChildren] = useState("");
-
-    const handleOpenModal = (item, title, children) => {
-        setSelectedItem(item);
-        setTitle(title);
-        setTypeChildren(children)
-        openModal();
-    };
-
+const QueryTable = ({ contactData }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
     // Calcular los índices de los items que se mostrarán
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = executiveLeads.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = contactData.slice(indexOfFirstItem, indexOfLastItem);
 
     // Función para cambiar de página
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // Función para ir a la página siguiente
     const nextPage = () => {
-        if (currentPage < Math.ceil(executiveLeads.length / itemsPerPage)) {
+        if (currentPage < Math.ceil(contactData.length / itemsPerPage)) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -42,59 +27,39 @@ const ExecLeadsTable = ({ executiveLeads }) => {
     };
 
     // Calcular el número total de páginas
-    const totalPages = Math.ceil(executiveLeads.length / itemsPerPage);
+    const totalPages = Math.ceil(contactData.length / itemsPerPage);
 
     return (
         <div className="table-responsive text-center pb-5 pt-3 px-2">
-            <Modall
-                showModal={showModal}
-                closeModal={closeModal}
-                title={title}>
-                {
-                    typeChildren === "diagnostic" &&
-                    <ExectLeadSheet data={selectedItem} />
-
-                }
-            </Modall>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre Cliente</th>
+                        <th>Nro</th>
                         <th>Correo Electrónico</th>
                         <th>Teléfono</th>
-                        <th>Fecha de creación</th>
-                        <th>Pitch</th>
+                        <th>Contacto</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {currentItems.map((lead) => (
-                        <tr key={lead.id}>
-                            <td className="align-middle">{lead.fullname}</td>
-                            <td className="align-middle">{lead.enterpriseEmail}</td>
+                    {currentItems.map((query, index) => (
+                        <tr key={query.id}>
+                            <td className="align-middle">{index + 1}</td>
+                            <td className="align-middle">{query.email}</td>
                             <td className="align-middle">
-                                {lead.phone ? (
+                                {query.phone ? (
                                     <a
-                                        href={`https://wa.me/${lead.phone.replace(/\D/g, '')}`}
+                                        href={`https://wa.me/${query.phone.replace(/\D/g, '')}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {lead.phone}
+                                        {query.phone}
                                     </a>
                                 ) : (
                                     <span className="text-muted">Sin número</span>
                                 )}
                             </td>
-                            <td className="align-middle">{lead.creationDate}</td>
-                            <td>{lead.voiceRecordingPath ? (
-                                <audio controls>
-                                    <source src={lead.voiceRecordingPath} type="audio/mpeg" />
-                                    Tu navegador no soporta el elemento de audio.
-                                </audio>
-                            ) : "N/A"}</td>
-                            <td className="align-middle">
-                                <button className="btn btn-primary" onClick={() => handleOpenModal(lead, "Ficha de Diagnóstico", "diagnostic")}>Ver Detalle</button>
-                            </td>
+                            <td className="align-middle">{query.message}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -124,4 +89,4 @@ const ExecLeadsTable = ({ executiveLeads }) => {
     );
 };
 
-export default ExecLeadsTable;
+export default QueryTable;

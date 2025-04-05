@@ -62,6 +62,7 @@ const EntrepLeadsTable = ({ entrepreneurLeads }) => {
                     <tr>
                         <th>Nombre Cliente</th>
                         <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
                         <th>Fecha de creación</th>
                         <th>Pitch</th>
                         <th></th>
@@ -72,6 +73,19 @@ const EntrepLeadsTable = ({ entrepreneurLeads }) => {
                         <tr key={lead.id}>
                             <td className="align-middle">{lead.fullname}</td>
                             <td className="align-middle">{lead.email}</td>
+                            <td className="align-middle">
+                                {lead.phone ? (
+                                    <a
+                                        href={`https://wa.me/${lead.phone.replace(/\D/g, '')}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {lead.phone}
+                                    </a>
+                                ) : (
+                                    <span className="text-muted">Sin número</span>
+                                )}
+                            </td>
                             <td className="align-middle">{lead.creationDate}</td>
                             <td>{lead.voiceRecordingPath ? (
                                 <audio controls>
