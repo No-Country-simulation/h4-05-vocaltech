@@ -18,6 +18,7 @@ const sendSubscription = async (data) => {
 
 const getSubscriptions = async () => {
     const token = getToken();
+
     if (!token) {
         throw new Error("No tiene permisos para acceder a este recurso. Inicie sesión nuevamente.");
     }
