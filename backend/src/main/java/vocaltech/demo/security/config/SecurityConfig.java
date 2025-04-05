@@ -60,7 +60,6 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.POST, "/api/v1/appointments/**").permitAll();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/appointments/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/contact/**").permitAll();
-                    http.requestMatchers(HttpMethod.GET, "/api/v1/contact/**").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/api/v1/subscription/**").permitAll();
                     /* Swagger */
                     http.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll();
@@ -78,6 +77,7 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.POST, "/api/v1/templates/**").authenticated();
                     http.requestMatchers(HttpMethod.PUT, "/api/v1/templates/**").authenticated();
                     http.requestMatchers(HttpMethod.GET, "/api/v1/subscription/**").authenticated();
+                    http.requestMatchers(HttpMethod.GET, "/api/v1/contact/**").authenticated();
                 })
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
