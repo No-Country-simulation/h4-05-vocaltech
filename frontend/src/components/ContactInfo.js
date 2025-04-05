@@ -11,6 +11,7 @@ export const ContactInfo = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         topic: '',
         message: ''
     });
@@ -64,6 +65,17 @@ export const ContactInfo = () => {
                             placeholder="tucorreo@email.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            disabled={isLoading}
+                        ></input>
+                    </div>
+                    <div className="inputBlock">
+                        <label for="phone">Telefono *</label>
+                        <input id="phone"
+                            type="text"
+                            name="phone"
+                            placeholder="+54 9 11 1234-5678"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             disabled={isLoading}
                         ></input>
                     </div>
