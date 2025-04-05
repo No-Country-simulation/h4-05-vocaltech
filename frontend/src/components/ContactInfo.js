@@ -18,6 +18,14 @@ export const ContactInfo = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const { name, email, phone, topic, message } = formData;
+
+        if (!name || !email || !phone || !topic || !message) {
+            alert("Por favor, completá todos los campos antes de enviar.");
+            return;
+        }
+
         setIsLoading(true)
         try {
             await contactService.sendContactInfo(formData)
