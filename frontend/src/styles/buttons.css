@@ -17,7 +17,7 @@
 }
 
 .btn-lightblue-personalized {
-    background-color: var(--secondary);
+    background-color: var(--secondary) !important;
 }
 
 .btn-lightblue-personalized:hover {
@@ -25,8 +25,20 @@
     opacity: .9;
 }
 
+.btn-orange-personalized {
+    background-color: #ff5722;
+}
+
+.btn-orange-personalized:hover {
+    background-color: #ff5622ec;
+}
+
 .btn-pink-personalized {
     background-color: #C415D7;
+}
+
+.btn-pink-personalized:hover {
+    background-color: #c415d7ea;
 }
 
 .btn-multicolor-light-personalized {
@@ -55,12 +67,6 @@
 .btn-form-diagnostic:active {
     background-color: var(--color-accent-2) !important;
     color: var(--color-text-dark) !important;
-}
-
-.btn-audio-recorder,
-.btn-audio-recorder:hover,
-.btn-audio-recorder:active {
-    background-color: var(--bg-dark) !important;
 }
 
 .btn-audio-recorder:disabled {
