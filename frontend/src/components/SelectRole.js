@@ -13,7 +13,7 @@ export const SelectRole = ({ all, selectedRole, setSelectedRole }) => {
                 ) : <option value="Seleccionar" disabled>Seleccionar</option>
             }
             <option value="1">Emprendedor</option>
-            <option value="2">Empresa</option>
+            <option value="2">Ejecutivo</option>
         </select>
     );
 };

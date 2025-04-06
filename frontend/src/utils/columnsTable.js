@@ -7,10 +7,12 @@ const appointments = [
 ];
 
 const leads = [
-    { title: "Nombre Cliente", property: "name" },
+    { title: "Nombre Cliente", property: "fullname" },
     { title: "Correo Electrónico", property: "email" },
-    { title: "Diagnóstico", property: "diagnostic" },
+    { title: "Teléfono", property: "phone" },
     { title: "Fecha de creación", property: "creationDate" },
+    { title: "Pitch", property: "voiceRecordingPath" },
+    { title: "Diágnostico", property: "diagnostic" },
 ];
 
 const users = [

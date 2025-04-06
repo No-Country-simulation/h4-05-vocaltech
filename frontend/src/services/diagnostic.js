@@ -1,23 +1,11 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const getToken = () => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    return user?.token || "";
-};
 
-const getLeads = async () => {
-    const token = getToken();
-
-    if (!token) {
-        throw new Error("No tiene permisos para acceder a este recurso.. Inicie sesión nuevamente.");
-    }
-
+const getLeads = async (token) => {
     try {
         const response = await axios.get(`${BASE_URL}/leads`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            headers: { Authorization: `Bearer ${token}` }
         });
 
         return response.data;

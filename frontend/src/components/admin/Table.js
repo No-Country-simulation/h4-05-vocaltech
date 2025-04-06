@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faEye, faCloudDownloadAlt, faEnvelope, faPen, faTrash, faSyncAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faPen, faTrash, faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 import { PaginationComponent as Pagination } from "../Pagination";
 import { loader } from "../Loader";
 import { Modall } from "../Modal";
@@ -72,34 +72,33 @@ export const Table = ({ columns, data, isLoading, isError, getData, updateUser, 
                                 <td colSpan={columns.length}>No hay datos para mostrar</td>
                             </tr>
                         ) : (currentItems.map((item, index) => (
-                            <tr key={index}>
+                            <tr key={index} className="align-middle">
                                 {
                                     columns.map((col, idx) => (
                                         <td key={idx}>
                                             {
-                                                col.property === "diagnostic" ?
-                                                    item[col.property] &&
+                                                col.property === "email" ? 
+                                                    <a href={`mailto:${item[col.property]}`}>
+                                                        {item[col.property]}
+                                                    </a>
+                                                : col.property === "phone" ?
+                                                    item[col.property] !== "N/A" ? (
+                                                        <a href={`https://wa.me/${item[col.property]}`} target="_blank" rel="noopener noreferrer">
+                                                            {item[col.property]}
+                                                        </a>
+                                                    ) : "N/A"
+                                                : col.property === "voiceRecordingPath" ? 
+                                                    <audio controls>
+                                                        <source src={item[col.property]} type="audio/webm" />
+                                                            Tu navegador no soporta el elemento de audio.
+                                                    </audio>
+                                                : col.property === "diagnostic" ?
                                                     <button className="btn p-0" type="button"
                                                         onClick={() => handleOpenModal(item, "Ficha de Diagnóstico", "diagnostic")}>
                                                         <FontAwesomeIcon icon={faEye}
                                                             className="text-primary fs-4 icon-table" />
                                                     </button>
-                                                    : col.property === "plan" ? (
-                                                        item.status === "cancelada" || item.status === "pendiente" ? (
-                                                            <FontAwesomeIcon icon={faTimes} className="text-danger fs-4" />
-                                                        ) : item[col.property] ? (
-                                                            <button className="btn p-0">
-                                                                <FontAwesomeIcon icon={faCloudDownloadAlt}
-                                                                    className="text-success fs-4 icon-table" />
-                                                            </button>
-                                                        ) : (
-                                                            <button className="btn p-0" type="button"
-                                                                onClick={() => handleOpenModal(item, "Enviar plan de trabajo", "plan")}>
-                                                                <FontAwesomeIcon icon={faEnvelope}
-                                                                    className="text-warning fs-4 icon-table" />
-                                                            </button>
-                                                        )
-                                                    ) : col.property === "acciones" ? (
+                                                : col.property === "acciones" ? (
                                                         <div className="d-flex justify-content-evenly">
                                                             <button className="btn p-0" type="button"
                                                                 onClick={() => handleOpenModal(item, "Editar administrador", "edit")}>
@@ -110,7 +109,7 @@ export const Table = ({ columns, data, isLoading, isError, getData, updateUser, 
                                                                 <FontAwesomeIcon icon={faTrash} className="text-danger fs-4" />
                                                             </button>
                                                         </div>
-                                                    ) : item[col.property]
+                                                ) : item[col.property]
                                             }
                                         </td>
                                     ))
