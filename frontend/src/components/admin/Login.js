@@ -47,9 +47,9 @@ export const Login = () => {
     };
 
     return (
-        <div>
+        <div className="pt-5 mt-4 mt-md-1 mt-lg-5 mt-xl-4">
             <form onSubmit={handleSubmit} className="p-md-5 bg-md-light-form rounded shadow-md-form">
-                <p className="fs-3 text-center fw-bold pb-4">Inicio de sesión</p>
+                <p className="fs-3 text-center fw-bold pb-4 text-black">Inicio de sesión</p>
                 <div className="form-group mb-4">
                     <label htmlFor="email" className="form-label">Correo Electrónico</label>
                     <input type="email" className="form-control" id="email" autoComplete="email" 
@@ -62,7 +62,8 @@ export const Login = () => {
                         onChange={handlePasswordChange} required placeholder="contraseña" />
                     <small className="text-danger">{errorPass}</small>
                 </div>
-                <button type="submit" disabled={isLoading} className="btn btn-login rounded-pill w-100">
+                <button type="submit" disabled={isLoading} className="btn btn-general
+                    btn-lightblue-personalized w-auto text-white">
                     {
                         isLoading ? (
                             <loader.GeneralLoader />
