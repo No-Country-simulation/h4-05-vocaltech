@@ -2,7 +2,7 @@ import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import EntrepreneurForm from "../components/EntrepreneurForm"
+// import EntrepreneurForm from "../components/EntrepreneurForm"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -77,7 +77,7 @@ export const EntrepreneurDiagnostic = () => {
             <img src="/images/entrepreneur-hero.png" width="796" height="313" alt="Ejecutivo de Empresa" className="mx-3 mb-3" />
 
             {/* Form */}
-            <EntrepreneurForm step={step} setStep={setStep} />
+            {/* <EntrepreneurForm step={step} setStep={setStep} />*/}
 
         </section>
     );
