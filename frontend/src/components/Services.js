@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Card } from "./services/Card";
+import { Service } from "./cards/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { services } from "../utils/services";
@@ -27,7 +27,7 @@ export const Services = () => {
                 {
                     services.slice(0, 3).map((service, index) => (
                         <div className={ index === 2 ? "col-lg-4" : "mb-4 mb-lg-0 col-md-6 col-lg-4" }>
-                        <Card
+                        <Service
                             key={service.id}
                             icon={service.icon}
                             title={service.title}

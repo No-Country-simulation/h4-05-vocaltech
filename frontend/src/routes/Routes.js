@@ -18,11 +18,8 @@ import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 import { AboutUs } from "../views/AboutUs";
-import { NewDiagnostic } from "../views/NewDiagnostic";
+import { Diagnostic } from "../views/Diagnostic";
 import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
-import { ExecutiveDiagnostic } from "../views/ExecutiveDiagnostic";
-import ErrorFormSended from "../views/ErrorFormSended";
-import SuccessFormSended from "../views/SuccessFormSended";
 import { Contact } from "../views/Contact";
 import SuccessContactInfoSended from "../views/SuccessContactInfoSended"
 import { Queries } from "../views/admin/Queries";
@@ -43,11 +40,8 @@ export const AppRoutes = () => {
                 <Route path="/emprendedores" element={<Entrepreneur />} />
                 <Route path="/empresas" element={<Company />} />
                 <Route path="/nosotros" element={<AboutUs />} />
-                <Route path="/diagnostico" element={<NewDiagnostic />} />
+                <Route path="/diagnostico" element={<Diagnostic />} />
                 <Route path="/diagnostico/emprendedor" element={<EntrepreneurDiagnostic />} />
-                <Route path="/diagnostico/ejecutivo" element={<ExecutiveDiagnostic />} />
-                <Route path="/diagnostico/envio-exitoso" element={<SuccessFormSended />} />
-                <Route path="/diagnostico/error" element={<ErrorFormSended />} />
                 <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}

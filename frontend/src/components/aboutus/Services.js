@@ -1,4 +1,4 @@
-import { Card } from "../services/Card";
+import { Service } from "../cards/Service";
 import { services } from "../../utils/services";
   
 export const Services = () => {
@@ -16,7 +16,7 @@ export const Services = () => {
                 {
                     services.map(service => (
                         <div className="mb-4 col-md-6 col-lg-4">
-                        <Card
+                        <Service
                             key={service.id}
                             icon={service.icon}
                             title={service.title}
