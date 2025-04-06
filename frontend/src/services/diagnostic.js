@@ -26,10 +26,16 @@ const getLeads = async () => {
     }
 };
 
-
-const sendDiagnostic = async (data) => {
+const sendDiagnostic = async (user, data) => {
     try {
-        const response = await axios.post(`${BASE_URL}/leads`, data);
+        let response;
+        
+        if(user === "entrepreneur") {
+            response = await axios.post(`${BASE_URL}/leads/entrepreneur`, data);
+        } else {
+            response = await axios.post(`${BASE_URL}/leads/executive`, data);
+        }
+        
         return response.data;
 
     } catch {
@@ -37,29 +43,7 @@ const sendDiagnostic = async (data) => {
     }
 };
 
-const sendEntrepDiagnostic = async (data) => {
-    try {
-        const response = await axios.post(`${BASE_URL}/leads/entrepreneur`, data);
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
-};
-
-const sendExecDiagnostic = async (data) => {
-    try {
-        const response = await axios.post(`${BASE_URL}/leads/executive`, data);
-        console.log(response.data)
-        return response.data;
-
-    } catch (error) {
-        throw error;
-    }
-};
-
 export const diagnosticService = {
     sendDiagnostic,
-    sendEntrepDiagnostic,
-    sendExecDiagnostic,
     getLeads,
 }; 

@@ -1,58 +1,42 @@
-import { useState, useEffect } from "react";
-import { Toaster, toast } from 'sonner';
-import { loader } from "../Loader";
-import { SelectRole } from "../SelectRole";
-import { Services } from "./Services";
-import { Needs } from "./Needs";
+import { useState } from "react";
+import { Title } from "./Title";
+import { Entrepreneur } from "./Entrepreneur";
+import { Company } from "./Company";
+import { loader } from "../Loader"
+import { Modall } from "../Modal";
 import { AudioRecorder } from "./AudioRecorder";
+import { ScrollToTop } from "../ScrollToTop";
+import { initializeForm } from "../../utils/initializeForm";
+import { isCurrentStepValid } from "../../utils/isCurrentStepValid";
 import { audioRecorderService } from "../../services/audioRecorder";
 import { diagnosticService } from "../../services/diagnostic";
+import { useModal } from "../../hooks/useModal";
 
-export const Form = () => {
-    const [selectedRole, setSelectedRole] = useState("Seleccionar");
-    const [selectedService, setSelectedService] = useState("Seleccionar");
-    const [selectedNeeds, setSelectedNeeds] = useState([]); 
-    const [file, setFile] = useState(null); 
-    const [fullname, setFullname] = useState("");
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState("");
+export const Form = ({ user, setIsSentSucessfully, setIsErrorSending }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const { showModal, openModal, closeModal } = useModal();
+    const [step, setStep] = useState(0); 
+    const [form, setForm] = useState(initializeForm(user));
+    const [file, setFile] = useState(null);
+    const [errors, setErrors] = useState({});
 
-    const handleEmailChange = (e) => {
-        const emailValue = e.target.value;
-        setEmail(emailValue);
-        const publicDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com"];
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const domain = emailValue.split("@")[1];
-        
-        if (!emailRegex.test(emailValue)) {
-            setEmailError("Ingrese un correo válido.");
-            return;
-        }
+    const nextStep = () => { if (step < lastStep) return setStep(prev => prev + 1) };
     
-        if (selectedRole === 2 && domain && publicDomains.includes(domain)) {
-            setEmailError("Debe ingresar un correo corporativo.");
+    const prevStep = () => {
+        if(file) {
+            openModal();
         } else {
-            setEmailError("");
-        }
-    };
-    
-    const handleFullnameChange = (e) => setFullname(e.target.value);
-
-    const reset = () => {
-        setSelectedService("Seleccionar");
-        setSelectedNeeds([]);
-        setFile(null);
-        setFullname("");
-        setEmail("");
-        setEmailError("");
-        
-        window.scrollTo({
-            behavior: "smooth" ,
-            top: 0,   
-        });
+            setStep(prev => (prev > 0 ? prev - 1 : prev));
+        } 
     }
 
+    const lastStep = user === "entrepreneur" ? 5 : 3;
+
+    const handleNext = async () => {
+        const valid = await isCurrentStepValid(user, step, form, setErrors);
+        if (valid) nextStep();
+    };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -61,101 +45,79 @@ export const Form = () => {
             const uploadedAudioUrl = await audioRecorderService.uploadToCloudinary(file);
             
             const data = {
-                profileId: selectedRole,
-                serviceId: selectedService,
-                selectedOptions: selectedNeeds,
+                ...form, 
+                selectedOptions: Object.values(form.selectedOptions),
                 voiceRecordingPath: uploadedAudioUrl,
-                fullname: fullname,
-                email: email
             };
 
-            await diagnosticService.sendDiagnostic(data);
-            setSelectedRole("Seleccionar");
-            reset();
-            toast.success("Enviado exitosamente! Esté pendiente de su correo.")
+            await diagnosticService.sendDiagnostic(user, data);
+            setIsSentSucessfully(true);
         } catch (error) {
-            toast.error(error.message);
+            setIsErrorSending(true);
         } finally {
             setIsLoading(false);
         }
     };
 
-    useEffect(() => {
-        reset();
-    }, [selectedRole]);
-
     return (
-        <div className="container pb-5 mb-4">
-            <form onSubmit={handleSubmit} className="p-md-5 mx-auto bg-md-light-form rounded shadow-md-form">
-                <div className="form-group mb-4">
-                    <label htmlFor="selectRole" className="form-label fw-bold">¿Cuál es tu perfil?</label>
-                        <SelectRole selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
-                </div>
-                <div className="form-group mb-4">
-                    <Services selectedRole={selectedRole} selectedService={selectedService} 
-                        setSelectedService={setSelectedService} />
-                </div>
-                <div className="form-group mb-4">
-                    <Needs selectedRole={selectedRole} selectedService={selectedService} selectedNeeds={selectedNeeds} 
-                        setSelectedNeeds={setSelectedNeeds} />
-                </div>
-                {
-                    selectedService !== "Seleccionar" && (
-                        <>
-                            <div className="form-group mb-4">
-                                <p className="fw-bold pb-3">
-                                    {
-                                        selectedRole === 1 ? "Grabar o cargar un audio de tu pitch (30-60 segundos)" 
-                                        : "Grabar o cargar un audio sobre el problema/necesidad de tu empresa (30-60 segundos)"
-                                    }
-                                </p>
-                                <AudioRecorder file={file} setFile={setFile} />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label htmlFor="fullname" className="form-label fw-bold">Nombre Completo</label>
-                                <input 
-                                    id="fullname" 
-                                    name="fullname" 
-                                    className="form-control" 
-                                    placeholder="Vocaltech" 
-                                    onChange={handleFullnameChange} 
-                                />
-                            </div>
-                            <div className="form-group mb-4">
-                                <label htmlFor="email" className="form-label fw-bold">Correo Electrónico</label>
-                                <input 
-                                    autoComplete="email" 
-                                    id="email" 
-                                    name="email" 
-                                    type="email"
-                                    className="form-control" 
-                                    placeholder="prueba@vocaltech.com" 
-                                    onChange={handleEmailChange} 
-                                />
-                                {
-                                    emailError && (<small className="text-danger">{emailError}</small>)
-                                }
-                            </div>
-                            <div className="text-center">
-                                <button 
-                                    disabled={selectedNeeds.length === 0 || !file || !fullname || !email || isLoading || emailError } 
-                                    type="submit" 
-                                    className="btn rounded-pill btn-form-diagnostic">
-                                    {
-                                        isLoading ? (
-                                            <loader.GeneralLoader />
-                                        ) : "Enviar"
-                                    }
-                                </button>
-                            </div>
-                        </>
-                    )
+        <div className="col-md-10 col-lg-8 mx-auto">
+            <ScrollToTop step={step} />
+            { user === "entrepreneur" && step === 0 && <img src="/images/diagnostic/entrepreneur-hero.png" 
+                alt="Emprendedor" className="rounded-4 w-100" /> 
+            }
+            { user === "company" && step === 0 && <img src="/images/diagnostic/executive-hero.png" 
+                alt="Ejectivo de empresa" className="rounded-4 w-100" /> 
+            }
+            <form onSubmit={handleSubmit} className="w-100">
+                <Title user={user} step={step} />
+                { user === "entrepreneur" && <Entrepreneur step={step} form={form} 
+                    setForm={setForm} errors={errors} /> 
                 }
+                { user === "company" && <Company user={user} step={step} form={form} 
+                    setForm={setForm} errors={errors} /> 
+                }
+                { step === lastStep && <AudioRecorder file={file} setFile={setFile} disabled={isLoading} /> }
+
+                <div className="d-flex justify-content-center gap-2 mt-4 col-lg-9 col-xl-7 mx-auto">
+                    <button 
+                        onClick={prevStep} 
+                        disabled={step === 0 || isLoading} 
+                        type="button"
+                        className="btn btn-lightblue-personalized px-4 py-2 fw-bold 
+                        text-white">
+                        Anterior
+                    </button>
+                    <button 
+                        onClick={step === lastStep && file ? undefined : handleNext} 
+                        disabled={step === lastStep && !file} 
+                        type={step === lastStep && file ? "submit" : "button"}
+                        className="btn btn-lightblue-personalized px-4 py-2 fw-bold text-white">
+                        { 
+                            step === lastStep ? (
+                                isLoading ? ( <loader.GeneralLoader /> ) : "Enviar"
+                            ) : "Siguiente" 
+                        }
+                    </button>
+                </div>
             </form>
-            <Toaster
-                richColors
-                position="top-center"
-            />
+            <Modall
+                showModal={showModal}
+                closeModal={closeModal}
+                title="¿Estás seguro?">
+                <p>Si vuelves atrás, la grabación o el archivo adjunto se perderá. 
+                    ¿Estás seguro que quieres hacerlo?</p>
+                <button 
+                    onClick={() => {
+                        setStep(prev => (prev > 0 ? prev - 1 : prev));
+                        setFile(null);
+                        closeModal();
+                    }} 
+                    type="button"
+                    className="btn btn-lightblue-personalized px-4 py-2 fw-bold 
+                    text-white">
+                    Confirmar
+                </button>
+            </Modall>
         </div>
     );
 };

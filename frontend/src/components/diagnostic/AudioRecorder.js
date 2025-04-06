@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faPauseCircle, faTimes, faStopCircle, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faStopCircle, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { audioRecorderService } from "../../services/audioRecorder";
 
-export const AudioRecorder = ({ file, setFile }) => {
+export const AudioRecorder = ({ file, setFile, disabled }) => {
     const [isRecording, setIsRecording] = useState(false);
     const [time, setTime] = useState(0);
     const [fileInputValue, setFileInputValue] = useState("");
@@ -74,13 +74,17 @@ export const AudioRecorder = ({ file, setFile }) => {
 
     return (
         <>
-            <p className="pb-2">Pulse para iniciar la grabación de voz</p>
-            <button type="button" className="btn btn-audio-recorder rounded-circle p-3" disabled={fileInputValue}
+            <p className="lead">Estás en un ascensor con un inversor. En menos de 30 segundos (en lo posible), 
+                cuéntanos tu propuesta para obtener un diagnóstico personalizado.
+            </p>
+            <p>Pulse para iniciar la grabación de voz o adjunte un archivo</p>
+            <button type="button" className="btn btn-audio-recorder" 
+                disabled={fileInputValue || disabled}
                 onClick={() => (isRecording ? handleStopRecording() : handleStartRecording())}>
                 {
                     isRecording ?
-                        <FontAwesomeIcon icon={faStopCircle} className="fs-1 align-middle icon-audio-recorder" />
-                        : <FontAwesomeIcon icon={faMicrophone} className="fs-1 align-middle icon-audio-recorder" />
+                        <FontAwesomeIcon icon={faStopCircle} className="fs-1 text-black" />
+                        : <FontAwesomeIcon icon={faMicrophone} className="fs-1 text-black" />
                 }
             </button>
             <small className="d-block pt-2">00:{time.toString().padStart(2, "0")} / 01:00</small>
@@ -96,13 +100,13 @@ export const AudioRecorder = ({ file, setFile }) => {
                 )
             }
             <div className="py-4">
-                <input className="w-100" disabled={isRecording || (mediaBlobUrl && file)}
+                <input className="w-100" disabled={isRecording || (mediaBlobUrl && file) || (disabled)}
                     type="file" accept="audio/*" onChange={handleAudioUpload} value={fileInputValue} />
             </div>
             {
                 file && (
                     <button type="button" className="btn btn-danger rounded-pill"
-                        onClick={handleAudioDelete}>
+                        onClick={handleAudioDelete} disabled={disabled}>
                         Eliminar grabación o archivo <FontAwesomeIcon icon={faTimes} />
                     </button>
                 )
