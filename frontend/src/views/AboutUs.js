@@ -13,7 +13,7 @@ export const AboutUs = () => {
                 <Partners />
             </section> 
             <Services /> 
-            <section className="call-to-action py-5 mb-5 bg-white">
+            <section className="call-to-action py-5 bg-white">
                 <CallToAction />
             </section> 
         </>

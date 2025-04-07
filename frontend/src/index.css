@@ -136,6 +136,10 @@ button {
     width: auto !important;
 }
 
+.bg-darkblue {
+    background-color: #0F0625;
+}
+
 @media (min-width: 768px) {
     .subtitle {
         font-size: 45px;

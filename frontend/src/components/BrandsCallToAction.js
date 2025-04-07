@@ -3,7 +3,7 @@ import { Brand } from "./Brand";
 
 export const BrandsCallToAction = ({ subtitle, question, children }) => {
     return (
-        <section className="container">
+        <section className="container mb-5">
             <div className="row text-center">
                 <p className="small-subtitle text-lightgray lead">
                     CLIENTES

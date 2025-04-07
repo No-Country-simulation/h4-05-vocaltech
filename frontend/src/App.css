@@ -133,6 +133,10 @@
     color: var(--primary);
 }
 
+.icon-check-process {
+    color: var(--secondary);
+}
+
 /******** Diagnostic **************************************/
 
 .link-back {
