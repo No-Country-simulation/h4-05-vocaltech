@@ -7,7 +7,7 @@ import { advantages } from "../../utils/advantages";
 export const Advantages = () => {
     return (
         <section className="services-entrepreneur container py-5">
-            <div className="col-lg-5">
+            <div className="col-lg-6">
                 <h2 className="subtitle text-black display-3 text-center d-md-none fw-bolder pb-3">
                     Beneficios para tu emprendimiento
                 </h2>

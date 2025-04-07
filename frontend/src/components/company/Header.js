@@ -6,7 +6,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export const Header = () => {
     return (
         <section className="company-header px-3 pb-5 px-md-4">
-            <div className="container pt-5 text-center">
+            <div className="container py-5 mb-lg-3 text-center">
                 <div className="row pt-5 mt-5 px-3 px-md-4">
                     <span className="fs-6 badge rounded-pill w-auto mx-auto">
                         <FontAwesomeIcon icon={faBuilding} className="me-1" /> Empresas

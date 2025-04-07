@@ -1,10 +1,10 @@
 export const Header = () => {
     return (
-        <section className="about-us-header px-3 pb-4 pb-lg-5 px-md-4">
-            <div className="container pt-5 text-center">
-                <div className="row pt-5 mt-5 px-md-4">
-                    <span className="border border-white rounded-2 border-2 mt-md-4 mx-auto mt-lg-5 
-                        col-lg-9 col-xl-8">
+        <section className="about-us-header px-3 pb-5 px-md-4 position-relative">
+            <div className="container py-5 mb-5 text-center">
+                <div className="row pt-5 py-md-5 mt-5 mb-lg-5 px-md-4">
+                    <span className="border border-white rounded-2 border-2 mt-md-4 mx-auto my-lg-5 
+                        col-lg-9 col-xl-8 mb-xl-2">
                         <h1 className="display-1 py-3 fw-bold text-white title-header">
                             Juntos, impulsamos tu crecimiento
                         </h1>
