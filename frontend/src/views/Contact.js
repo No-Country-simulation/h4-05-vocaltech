@@ -1,8 +1,5 @@
-import { Header } from "../components/entrepreneur/Header";
-import { ContactInfo } from "../components/ContactInfo";
+import { ContactInfo } from "../components/contact/Info";
 
-export const Contact = () => (
-    <>
-    <ContactInfo />
-    </>
-)
+export const Contact = () => {
+    return <ContactInfo />;
+};

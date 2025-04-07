@@ -10,8 +10,8 @@ const sendContactInfo = async (data) => {
     try {
         const response = await axios.post(`${BASE_URL}/contact`, data);
         return response.data;
-    } catch (error) {
-        throw error;
+    } catch  {
+        throw new Error("Error al enviar el formulario. Intente nuevamente!");
     }
 };
 

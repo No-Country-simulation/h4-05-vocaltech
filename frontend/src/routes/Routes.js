@@ -21,7 +21,6 @@ import { AboutUs } from "../views/AboutUs";
 import { Diagnostic } from "../views/Diagnostic";
 import { EntrepreneurDiagnostic } from "../views/EntrepreneurDiagnostic";
 import { Contact } from "../views/Contact";
-import SuccessContactInfoSended from "../views/SuccessContactInfoSended"
 import { Queries } from "../views/admin/Queries";
 
 export const AppRoutes = () => {
@@ -64,7 +63,6 @@ export const AppRoutes = () => {
                     <Route path="users" element={<Users />} />
                 </Route>
                 <Route path="/contacto" element={<Contact />} />
-                <Route path="/contacto/envio-exitoso" element={<SuccessContactInfoSended />} />
             </Routes>
             {!isAdminRoute && <Footer />}
         </>
