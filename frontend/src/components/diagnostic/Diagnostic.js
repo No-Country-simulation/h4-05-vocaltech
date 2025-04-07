@@ -4,7 +4,7 @@ import { Feature } from "../cards/Feature";
 import { features } from "../../utils/features";
 import { Form } from "./Form";
 import { SentSucessfully } from "./SentSucessfully";
-import { ErrorSending } from "./ErrorSending";
+import { ErrorSending } from "../ErrorSending";
 
 export const Diagnostic = () => {
     const [user, setUser] = useState("");

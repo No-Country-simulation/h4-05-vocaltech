@@ -1,4 +1,4 @@
-import { loader } from "./Loader";
+import { loader } from "../Loader";
 
 export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText }) => {
     return (

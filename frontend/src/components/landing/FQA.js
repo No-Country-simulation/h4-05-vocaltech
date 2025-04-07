@@ -1,4 +1,4 @@
-import { frequencyQuestions } from "../utils/FQA";
+import { frequencyQuestions } from "../../utils/FQA";
 
 export const FQA = () => {
     return (

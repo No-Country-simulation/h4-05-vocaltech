@@ -14,7 +14,6 @@ import { Subscriptions } from "../views/admin/Subscriptions";
 import { Users } from "../views/admin/Users";
 import { Footer } from "../components/Footer";
 import { ScrollToTop } from "../components/ScrollToTop";
-import { Chatbot } from "../components/Chatbot";
 import { useAuth } from "../contexts/Auth";
 import { CompanySelected } from "../contexts/CompanySelected";
 import { AboutUs } from "../views/AboutUs";
@@ -32,7 +31,6 @@ export const AppRoutes = () => {
     return (
         <>
             <ScrollToTop />
-            {!isAdminRoute && <Chatbot />}
             {!isAdminRoute && !isDiagnosticRoute && <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />

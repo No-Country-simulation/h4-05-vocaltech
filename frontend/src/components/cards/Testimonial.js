@@ -1,4 +1,4 @@
-export const Card = ({ name, role, description, imgUrl, logoCompany  }) => {
+export const Testimonial = ({ name, role, description, imgUrl, logoCompany  }) => {
     return (
         <div className="border shadow-md rounded-3 py-4 px-3 bg-special-gray h-100">
             <div className="card-body">

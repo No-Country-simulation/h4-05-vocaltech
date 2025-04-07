@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Brand } from "../Brand";
 import { Form } from "./Form";
 import { SentSucessfully } from "./SentSucessfully"
-import { ErrorSending } from "../diagnostic/ErrorSending";
+import { ErrorSending } from "../ErrorSending";
 import { brands } from "../../utils/brands";
 
 export const ContactInfo = () => {

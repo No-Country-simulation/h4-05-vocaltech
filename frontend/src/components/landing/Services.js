@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Service } from "./cards/Service";
+import { Service } from "../cards/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { services } from "../utils/services";
+import { services } from "../../utils/services";
   
 export const Services = () => {
     return (

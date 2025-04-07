@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Carousel } from "react-bootstrap";
-import { Card } from "./Card";
+import { Testimonial } from "../cards/Testimonial"
 import { testimonials } from "../../utils/testimonials";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
@@ -44,7 +44,7 @@ export const Testimonials = () => {
                         {
                             testimonials.map((testimonial) => (
                                 <Carousel.Item key={testimonial.id}>
-                                    <Card
+                                    <Testimonial
                                         name={testimonial.name}
                                         role={testimonial.role}
                                         description={testimonial.description}

@@ -1,11 +1,11 @@
 import React from "react";
-import { Header } from "../components/Header";
-import { Partners } from "../components/Partners";
-import { Services } from "../components/Services";
-import { WhyUs } from "../components/WhyUs";
-import { Testimonials } from "../components/testimonial/Testimonials";
-import { FQA } from "../components/FQA";
-import { CallToAction } from "../components/CallToAction";
+import { Header } from "../components/landing/Header";
+import { Partners } from "../components/landing/Partners";
+import { Services } from "../components/landing/Services";
+import { WhyUs } from "../components/landing/WhyUs";
+import { Testimonials } from "../components/landing/Testimonials";
+import { FQA } from "../components/landing/FQA";
+import { CallToAction } from "../components/landing/CallToAction";
 import "../styles/header.css"
 
 export const Home = () => {

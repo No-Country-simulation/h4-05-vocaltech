@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ScrollToTop } from "../ScrollToTop";
+import { ScrollToTop } from "./ScrollToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle, faHome } from "@fortawesome/free-solid-svg-icons"
 

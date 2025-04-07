@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "../Form";
+import { Form } from "./Form";
 import { Toaster, toast } from "sonner";
 import { userService } from "../../services/user";
 import { useAuth } from "../../contexts/Auth";
