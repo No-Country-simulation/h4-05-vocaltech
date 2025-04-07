@@ -6,32 +6,22 @@ import { socialLinks } from "../utils/socialLinks";
 import { loader } from "./Loader";
 import { subscriptionService } from "../services/subscription";
 import { schemas } from "../utils/schemas";
+import { validate } from "../utils/validate";
 
 export const Footer = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [form, setForm] = useState({ email: "" });
-    const [error, setError] = useState("");
-
-    const valid = async () => {
-        try {
-            await schemas.subscription[0].validate(form, { abortEarly: false });
-            setError("");
-            return true;
-        } catch (err) {
-            setError(err.inner[0]?.message);
-            return false;
-        }
-    };
+    const [error, setError] = useState({});
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true)
 
-        const isValid = await valid();
-        
+        const isValid = await validate(schemas.subscription, form, setError);
+                
         if (!isValid) {
             setIsLoading(false);
-            return; 
+            return;
         }
 
         try {
@@ -86,7 +76,7 @@ export const Footer = () => {
                                 }
                             </button>
                         </form>
-                        { error && <p className="invalid-feedback d-block mt-0">{error}</p> }
+                        { error && <p className="invalid-feedback d-block mt-0">{error.email}</p> }
                         <p className="text-white text-small">Al suscribirte, aceptas nuestra <Link className="text-white text-decoration-underline" to="/">Política de Privacidad</Link> y
                             consientes recibir actualizaciones.
                         </p>
