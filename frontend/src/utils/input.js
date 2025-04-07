@@ -1,4 +1,4 @@
-export const inputDiagnostic = {
+const diagnostic = {
     entrepreneur: [
         { 
             id: "fullname", 
@@ -76,3 +76,35 @@ export const inputDiagnostic = {
         },
     ]
 };
+
+const contact = [
+    {
+        id: "name", 
+        label: "Nombre y Apellido / Empresa", 
+        placeholder: "Tu nombre / Empresa", 
+        type: "text" 
+    },
+    { 
+        id: "email", 
+        label: "Correo Electrónico", 
+        placeholder: "ejemplo@correo.com", 
+        type: "email" 
+    },
+    { 
+        id: "phone", 
+        label: "Teléfono", 
+        placeholder: "+5491112345678", 
+        type: "tel" 
+    },
+    {
+        id: "topic", 
+        label: "Asunto", 
+        placeholder: "Asunto de la consulta", 
+        type: "text" 
+    },
+];
+
+export const input = {
+    diagnostic,
+    contact
+}

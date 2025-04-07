@@ -56,16 +56,27 @@ const company = [
     }),
 ];
 
-
 const subscription = [
     yup.object({
         email: yup.string().email().required("Este campo es obligatorio")
             .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i, "Formato de correo inválido")
+    }),
+];
+
+const contact = [
+    yup.object({
+        name: yup.string().required("Este campo es obligatorio"),
+        email: yup.string().email().required("Este campo es obligatorio")
+            .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i, "Formato de correo inválido"),
+        phone: yup.string().required("Este campo es obligatorio"),
+        topic: yup.string().required("Este campo es obligatorio"),
+        message: yup.string().required("Este campo es obligatorio"),
     }),
 ]
 
 export const schemas = {
     entrepreneur,
     company,
-    subscription
+    subscription,
+    contact
 };

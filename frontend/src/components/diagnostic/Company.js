@@ -1,6 +1,6 @@
 import { Input } from "./Input";
 import { Check } from "./Check";
-import { inputDiagnostic } from "../../utils/inputDiagnostic";
+import { input } from "../../utils/input";
 import { checklistDiagnostic } from "../../utils/checklistDiagnostic";
 
 export const Company = ({ user, step, form, setForm, errors }) => {
@@ -8,7 +8,7 @@ export const Company = ({ user, step, form, setForm, errors }) => {
         <>
             {
                 step === 0 && (
-                    inputDiagnostic.company.map(item => (
+                    input.diagnostic.company.map(item => (
                         <Input key={item.id} {...item} setForm={setForm} 
                             value={form[item.id]} errors={errors} />
                     ))

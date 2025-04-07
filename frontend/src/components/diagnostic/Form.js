@@ -16,7 +16,7 @@ export const Form = ({ user, setIsSentSucessfully, setIsErrorSending }) => {
     const [isLoading, setIsLoading] = useState(false);
     const { showModal, openModal, closeModal } = useModal();
     const [step, setStep] = useState(0); 
-    const [form, setForm] = useState(initializeForm(user));
+    const [form, setForm] = useState(initializeForm.diagnostic(user));
     const [file, setFile] = useState(null);
     const [errors, setErrors] = useState({});
 

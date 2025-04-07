@@ -1,4 +1,4 @@
-export const initializeForm = (user) => {
+const diagnostic = (user) => {
     if (user === "entrepreneur") {
         return {
             fullname: "",
@@ -21,4 +21,19 @@ export const initializeForm = (user) => {
             selectedOptions: []
         };
     }
+};
+
+const contact = () => {
+    return {
+        name: "",
+        email: "",
+        phone: "",
+        topic: "",
+        message: "",
+    };
+};
+
+export const initializeForm = {
+    diagnostic,
+    contact
 };
