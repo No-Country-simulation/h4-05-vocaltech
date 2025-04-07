@@ -96,17 +96,17 @@ export const Table = ({ columns, data, isLoading, isError, getData, updateUser, 
                                                     <button className="btn p-0" type="button"
                                                         onClick={() => handleOpenModal(item, "Ficha de Diagnóstico", "diagnostic")}>
                                                         <FontAwesomeIcon icon={faEye}
-                                                            className="text-primary fs-4 icon-table" />
+                                                            className="text-primary fs-5 icon-table" />
                                                     </button>
                                                 : col.property === "acciones" ? (
                                                         <div className="d-flex justify-content-evenly">
                                                             <button className="btn p-0" type="button"
                                                                 onClick={() => handleOpenModal(item, "Editar administrador", "edit")}>
-                                                                <FontAwesomeIcon icon={faPen} className="text-warning fs-4" />
+                                                                <FontAwesomeIcon icon={faPen} className="text-warning fs-5" />
                                                             </button>
                                                             <button className="btn p-0" type="button"
                                                                 onClick={() => handleOpenModal(item, "Eliminar administrador", "delete")}>
-                                                                <FontAwesomeIcon icon={faTrash} className="text-danger fs-4" />
+                                                                <FontAwesomeIcon icon={faTrash} className="text-danger fs-5" />
                                                             </button>
                                                         </div>
                                                 ) : item[col.property]

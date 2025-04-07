@@ -22,8 +22,14 @@ const users = [
     { title: "Acciones", property: "acciones" },
 ];
 
+const subscribers = [
+    { title: "Nro", property: "nro" },
+    { title: "Correo Electrónico", property: "email" }
+]
+
 export const columnsTable = {
     appointments,
     leads,
-    users
+    users,
+    subscribers
 };
