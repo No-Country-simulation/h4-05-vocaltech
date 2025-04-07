@@ -1,7 +1,7 @@
 const diagnostic = {
     entrepreneur: {
         step1: {
-            question: "1. ¿En qué etapa se encuentra tu emprendimiento?",
+            question: "1. ¿En qué etapa se encuentra tu emprendimiento? (*)",
             options: [
                 { id: 1, option: "Idea Inicial", question: "q1"},
                 { id: 2, option: "Validando Mercado", question: "q1"},
@@ -11,7 +11,7 @@ const diagnostic = {
         },
         step2: [
             {
-                question: "1. ¿Crees que las personas te entienden cuando te comunicas?",
+                question: "1. ¿Crees que las personas te entienden cuando te comunicas? (*)",
                 options: [
                     { id: 5, option: "Sí", question: "q2"},
                     { id: 6, option: "Puede mejorar", question: "q2"},
@@ -19,7 +19,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "2. ¿Tienes un pitch efectivo que genere interés en segundos?",
+                question: "2. ¿Tienes un pitch efectivo que genere interés en segundos? (*)",
                 options: [
                     { id: 8, option: "Sí, funciona y da resultados", question: "q3"},
                     { id: 9, option: "Sí, pero podría ser más impactante", question: "q3"},
@@ -27,7 +27,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "3. ¿Tu voz transmite seguridad y capta la atención del público?",
+                question: "3. ¿Tu voz transmite seguridad y capta la atención del público? (*)",
                 options: [
                     { id: 11, option: "Sí, mi voz refuerza mi mensaje", question: "q4"},
                     { id: 12, option: "A veces siento que no impacta lo suficiente", question: "q4"},
@@ -36,7 +36,7 @@ const diagnostic = {
             }
         ],
         step3: {
-            question: "1. ¿Cuál es tu situación con el desarrollo del producto o MVP?",
+            question: "1. ¿Cuál es tu situación con el desarrollo del producto o MVP? (*)",
             options: [
                 { id: 14, option: "Aún no lo hemos desarrollado", question: "q5"},
                 { id: 15, option: "Estamos trabajando en un prototipo", question: "q5"},
@@ -46,7 +46,7 @@ const diagnostic = {
         },
         step4: [
             {
-                question: "1. ¿Buscas talento estratégico para crecer?",
+                question: "1. ¿Buscas talento estratégico para crecer? (*)",
                 options: [
                     { id: 18, option: "Sí, pero necesitamos mejorar el proceso de selección", question: "q6"},
                     { id: 19, option: "Sí, pero aún no tenemos un plan claro", question: "q6"},
@@ -54,7 +54,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "2. ¿Cuál es el mayor desafío de tu equipo?",
+                question: "2. ¿Cuál es el mayor desafío de tu equipo? (*)",
                 options: [
                     { id: 21, option: "Reclutamiento", question: "q7"},
                     { id: 22, option: "Onboarding", question: "q7"},
@@ -67,7 +67,7 @@ const diagnostic = {
     company: {
         step1: [
             {
-                question: "1. ¿Cómo describirías tu capacidad para influir y liderar a tu equipo?",
+                question: "1. ¿Cómo describirías tu capacidad para influir y liderar a tu equipo? (*)",
                 options: [
                     { id: 25, option: "Consigo que me escuchen y actúen con claridad", question: "q1"},
                     { id: 26, option: "A veces siento que mi mensaje no genera el impacto esperado", question: "q1"},
@@ -75,7 +75,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "2. ¿Tu voz transmite autoridad y seguridad al hablar?",
+                question: "2. ¿Tu voz transmite autoridad y seguridad al hablar? (*)",
                 options: [
                     { id: 28, option: "Sí, me siento seguro/a al expresarme", question: "q2"},
                     { id: 29, option: "A veces dudo si mi voz refuerza mi liderazgo", question: "q2"},
@@ -83,7 +83,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "3. ¿Qué tan cómodo/a te sientes en conversaciones difíciles (negociaciones, feedback, gestión de conflictos)?",
+                question: "3. ¿Qué tan cómodo/a te sientes en conversaciones difíciles (negociaciones, feedback, gestión de conflictos)? (*)",
                 options: [
                     { id: 31, option: "Manejo bien estas situaciones", question: "q3"},
                     { id: 32, option: "A veces me cuesta encontrar las palabras adecuadas", question: "q3"},
@@ -91,7 +91,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "4. ¿Te resulta fácil captar la atención y el interés de tu equipo o clientes en reuniones o presentaciones?",
+                question: "4. ¿Te resulta fácil captar la atención y el interés de tu equipo o clientes en reuniones o presentaciones? (*)",
                 options: [
                     { id: 34, option: "Sí, logro conectar y transmitir mi mensaje", question: "q4"},
                     { id: 35, option: "A veces siento que no logro impactar lo suficiente", question: "q4"},
@@ -101,7 +101,7 @@ const diagnostic = {
         ],
         step2: [
             {
-                question: "1. ¿Tienes dificultades en la contratación o retención de talento clave?",
+                question: "1. ¿Tienes dificultades en la contratación o retención de talento clave? (*)",
                 options: [
                     { id: 37, option: "Sí, encontrar y retener talento es un desafío", question: "q5"},
                     { id: 38, option: "Sí, pero más en términos de integración y cultura", question: "q5"},
@@ -109,7 +109,7 @@ const diagnostic = {
                 ]
             },
             {
-                question: "2. ¿Qué te gustaría mejorar en tu equipo?",
+                question: "2. ¿Qué te gustaría mejorar en tu equipo? (*)",
                 options: [
                     { id: 40, option: "Mayor compromiso y alineación con la visión", question: "q6"},
                     { id: 41, option: "Mejor comunicación interna y fluidez en la toma de decisiones", question: "q6"},
