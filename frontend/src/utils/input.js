@@ -107,4 +107,4 @@ const contact = [
 export const input = {
     diagnostic,
     contact
-}
+};

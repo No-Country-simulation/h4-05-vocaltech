@@ -1,4 +1,4 @@
-export const checklistDiagnostic = {
+const diagnostic = {
     entrepreneur: {
         step1: {
             question: "1. ¿En qué etapa se encuentra tu emprendimiento?",
@@ -119,4 +119,8 @@ export const checklistDiagnostic = {
             }
         ]
     }
+};
+
+export const checklist = {
+    diagnostic
 };

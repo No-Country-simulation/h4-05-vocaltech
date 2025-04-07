@@ -1,7 +1,7 @@
 import { Input } from "./Input";
 import { Check } from "./Check";
 import { input } from "../../utils/input";
-import { checklistDiagnostic } from "../../utils/checklistDiagnostic";
+import { checklist } from "../../utils/checklist";
 
 export const Company = ({ user, step, form, setForm, errors }) => {
     return (
@@ -15,7 +15,7 @@ export const Company = ({ user, step, form, setForm, errors }) => {
                 )
             }
             {
-                step === 1 && checklistDiagnostic.company.step1.map((item, index) => (
+                step === 1 && checklist.diagnostic.company.step1.map((item, index) => (
                     <Check key={index} item={item} form={form} setForm={setForm} errors={errors} />
                 ))
             }
@@ -23,7 +23,7 @@ export const Company = ({ user, step, form, setForm, errors }) => {
                 step === 2 && (
                     <>
                         {
-                            checklistDiagnostic.company.step2.map((item, index) => (
+                            checklist.diagnostic.company.step2.map((item, index) => (
                                 <Check key={index} user={user} item={item} form={form}
                                     setForm={setForm} errors={errors} />
                             ))

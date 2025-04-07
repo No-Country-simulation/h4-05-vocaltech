@@ -1,7 +1,7 @@
 import { Input } from "./Input";
 import { Check } from "./Check";
 import { input } from "../../utils/input";
-import { checklistDiagnostic } from "../../utils/checklistDiagnostic";
+import { checklist } from "../../utils/checklist";
 
 export const Entrepreneur = ({ step, form, setForm, errors }) => {
     return (
@@ -15,20 +15,20 @@ export const Entrepreneur = ({ step, form, setForm, errors }) => {
                 )
             }
             {   step === 1 &&  
-                    <Check item={checklistDiagnostic.entrepreneur.step1} form={form} 
+                    <Check item={checklist.diagnostic.entrepreneur.step1} form={form} 
                         setForm={setForm} errors={errors} /> 
             }
             {
-                step === 2 && checklistDiagnostic.entrepreneur.step2.map((item, index) => (
+                step === 2 && checklist.diagnostic.entrepreneur.step2.map((item, index) => (
                     <Check key={index} item={item} form={form} setForm={setForm} errors={errors} />
                 ))
             }
             {   step === 3 && 
-                    <Check item={checklistDiagnostic.entrepreneur.step3} form={form} 
+                    <Check item={checklist.diagnostic.entrepreneur.step3} form={form} 
                         setForm={setForm} errors={errors} /> 
             }
             {
-                step === 4 && checklistDiagnostic.entrepreneur.step4.map((item, index) => (
+                step === 4 && checklist.diagnostic.entrepreneur.step4.map((item, index) => (
                     <Check key={index} item={item} form={form} setForm={setForm} errors={errors} />
                 ))
             }
