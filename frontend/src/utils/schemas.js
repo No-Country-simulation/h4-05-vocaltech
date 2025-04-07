@@ -56,7 +56,16 @@ const company = [
     }),
 ];
 
+
+const subscription = [
+    yup.object({
+        email: yup.string().email().required("Este campo es obligatorio")
+            .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i, "Formato de correo inválido")
+    }),
+]
+
 export const schemas = {
     entrepreneur,
-    company
+    company,
+    subscription
 };

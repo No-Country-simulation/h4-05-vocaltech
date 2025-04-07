@@ -1,29 +1,48 @@
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { socialLinks } from "../utils/socialLinks";
 import { useState } from "react";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import { Toaster, toast } from 'sonner';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { socialLinks } from "../utils/socialLinks";
+import { loader } from "./Loader";
 import { subscriptionService } from "../services/subscription";
+import { schemas } from "../utils/schemas";
 
 export const Footer = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [form, setForm] = useState({ email: "" });
+    const [error, setError] = useState("");
+
+    const valid = async () => {
+        try {
+            await schemas.subscription[0].validate(form, { abortEarly: false });
+            setError("");
+            return true;
+        } catch (err) {
+            setError(err.inner[0]?.message);
+            return false;
+        }
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true)
 
+        const isValid = await valid();
+        
+        if (!isValid) {
+            setIsLoading(false);
+            return; 
+        }
+
         try {
             await subscriptionService.sendSubscription(form);
             toast.success("¡Suscripción enviada con éxito!");
-        } catch (error) {
-            toast.error("Hubo un error al enviar la suscripción.");
-        } finally {
             setForm({ email: "" })
+        } catch (error) {
+            toast.error(error.message);
+        } finally {
             setIsLoading(false)
         }
-
     };
 
     return (
@@ -44,8 +63,11 @@ export const Footer = () => {
                         </p>
                         <form className="pb-3 d-flex flex-wrap flex-md-nowrap gap-2 pe-lg-5" onSubmit={handleSubmit}>
                             <div className="col-12 col-md-8 pb-2 pb-md-0">
-                                <input type="email" className="form-control bg-transparent
-                                    rounded-0 py-2 px-3" id="email" placeholder="Introduce tu correo"
+                                <input 
+                                    type="email" 
+                                    className="form-control bg-transparent rounded-0 py-2 px-3" 
+                                    id="email" 
+                                    placeholder="Introduce tu correo"
                                     value={form.email}
                                     disabled={isLoading}
                                     onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -54,17 +76,17 @@ export const Footer = () => {
                             <button
                                 type="submit"
                                 className="btn bg-transparent rounded-0 border py-2 px-3 w-100"
-                                disabled={isLoading}
-                            >
-                                {isLoading ? (
-                                    <>
-                                        <FontAwesomeIcon icon={faSpinner} spin /> Enviando...
-                                    </>
-                                ) : (
-                                    "Suscribirse"
-                                )}
+                                disabled={isLoading}>
+                                {
+                                    isLoading ? (
+                                        <loader.GeneralLoader />
+                                    ) : (
+                                        "Suscribirse"
+                                    )
+                                }
                             </button>
                         </form>
+                        { error && <p className="invalid-feedback d-block mt-0">{error}</p> }
                         <p className="text-white text-small">Al suscribirte, aceptas nuestra <Link className="text-white text-decoration-underline" to="/">Política de Privacidad</Link> y
                             consientes recibir actualizaciones.
                         </p>
@@ -88,9 +110,8 @@ export const Footer = () => {
                         <ul className="text-medium">
                             {
                                 socialLinks.map((link, index) => (
-                                    <li className="pb-3">
+                                    <li className="pb-3" key={index}>
                                         <Link
-                                            key={index}
                                             to={link.url}
                                             className="text-white">
                                             <FontAwesomeIcon icon={link.icon} className="me-3" /> {link.text}

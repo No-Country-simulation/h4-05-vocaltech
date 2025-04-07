@@ -26,14 +26,13 @@ export const Services = () => {
                 </div>
                 {
                     services.slice(0, 3).map((service, index) => (
-                        <div className={ index === 2 ? "col-lg-4" : "mb-4 mb-lg-0 col-md-6 col-lg-4" }>
-                        <Service
-                            key={service.id}
-                            icon={service.icon}
-                            title={service.title}
-                            subtitle={service.subtitle}
-                            description={service.description}
-                        />
+                        <div key={service.id} className={ index === 2 ? "col-lg-4" : "mb-4 mb-lg-0 col-md-6 col-lg-4" }>
+                            <Service
+                                icon={service.icon}
+                                title={service.title}
+                                subtitle={service.subtitle}
+                                description={service.description}
+                            />
                         </div>
                     ))
                 }    

@@ -7,7 +7,7 @@ const sendSubscription = async (data) => {
         const response = await axios.post(`${BASE_URL}/subscription`, data);
         return response.data;
     } catch (error) {
-        throw error;
+        throw new Error("Hubo un error al enviar la suscripción. Intente nuevamente!");
     }
 };
 
