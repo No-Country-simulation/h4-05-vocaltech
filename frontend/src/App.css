@@ -139,7 +139,7 @@
     text-decoration: none;
 }
 
-.initial-diagnostic .card-footer {
+.diagnostic .card-footer {
     background-color: rgba(255, 255, 255, .3);
 }
 
@@ -149,7 +149,7 @@
     transition: .5s ease;
 }
   
-.initial-diagnostic .card:hover .overlay {
+.diagnostic .card:hover .overlay {
     opacity: 1;
 }
   
@@ -165,7 +165,7 @@
     font-size: 10px;
 }
 
-.initial-diagnostic .items-card {
+.diagnostic .items-card {
     font-size: 14px;
 }
 
