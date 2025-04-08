@@ -38,7 +38,7 @@ export const Partners = () => {
                                 <p className="lead">Combinamos la experiencia de ambos mundos para brindar 
                                     soluciones integrales y personalizadas.
                                 </p>
-                                <Link to="/">
+                                <Link to="/nosotros">
                                     <button
                                         type="button"
                                         className="btn btn-general btn-lightblue-personalized px-3 py-2 fw-bold text-white">

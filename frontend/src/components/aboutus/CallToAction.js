@@ -8,7 +8,7 @@ export const CallToAction = () => {
         <BrandsCallToAction 
             subtitle={"Nuestra trayectoria en Comunicación y Tech"}
             question={"¿Necesitas asesoría?"}>
-            <Link to="/">
+            <Link to="/contacto">
                 <button
                     type="button"
                     className="btn btn-general btn-multicolor-personalized px-3 

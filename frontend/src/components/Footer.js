@@ -84,15 +84,17 @@ export const Footer = () => {
                     <div className="col-lg-2">
                         <p className="fw-semibold">Servicios</p>
                         <ul className="text-medium">
-                            <li className="pb-3"><Link className="text-white" to="/">Para Empresas</Link></li>
-                            <li><Link className="text-white" to="/">Para Emprendedores</Link></li>
+                            <li className="pb-3">
+                                <Link className="text-white" to="/empresas">Para Empresas</Link>
+                            </li>
+                            <li><Link className="text-white" to="/emprendedores">Para Emprendedores</Link></li>
                         </ul>
                     </div>
                     <div className="col-lg-2">
                         <p className="fw-semibold">Institucional</p>
                         <ul className="text-medium">
-                            <li className="pb-3"><Link className="text-white" to="/">Nosotros</Link></li>
-                            <li><Link className="text-white" to="/">Contacto</Link></li>
+                            <li className="pb-3"><Link className="text-white" to="/nosotros">Nosotros</Link></li>
+                            <li><Link className="text-white" to="/contacto">Contacto</Link></li>
                         </ul>
                     </div>
                     <div className="col-lg-2">

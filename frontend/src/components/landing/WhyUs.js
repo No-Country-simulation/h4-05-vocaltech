@@ -33,15 +33,16 @@ export const WhyUs = () => {
                             <p>Talleres impartidos en empresas líderes de todo LATAM.</p>
                         </div>
                     </div>
-                    <div className="d-flex flex-wrap flex-lg-nowrap gap-3 gap-lg-0 pb-4 pb-md-0">
-                        <Link to="/">
+                    <div className="d-flex flex-wrap align-items-center flex-lg-nowrap gap-3 gap-lg-0 
+                        pb-4 pb-md-0">
+                        <Link to="/diagnostico">
                             <button
                                 type="button"
                                 className="btn btn-general text-white btn-lightblue-personalized px-3 py-2 fw-bold">
                                 Diagnosticar mi empresa 
                             </button>
                         </Link>
-                        <Link to="/">
+                        <Link to="/empresas">
                             <button
                                 type="button"
                                 className="btn ms-lg-3 text-white">
@@ -90,15 +91,16 @@ export const WhyUs = () => {
                             <p>De las startups lograron atraer inversores en el primer trimestre.</p>
                         </div>
                     </div>
-                    <div className="d-flex flex-wrap flex-lg-nowrap gap-3 gap-lg-0 pb-4 pb-md-0">
-                        <Link to="/">
+                    <div className="d-flex flex-wrap align-items-center flex-lg-nowrap gap-3 gap-lg-0 
+                        pb-4 pb-md-0">
+                        <Link to="/diagnostico">
                             <button
                                 type="button"
                                 className="btn btn-general text-white btn-lightblue-personalized px-3 py-2 fw-bold">
                                 Diagnosticar mi emprendimiento 
                             </button>
                         </Link>
-                        <Link to="/">
+                        <Link to="/emprendedores">
                             <button
                                 type="button"
                                 className="btn ms-lg-3 text-white">

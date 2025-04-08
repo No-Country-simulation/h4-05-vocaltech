@@ -14,7 +14,7 @@ export const CallToAction = () => {
                     VocalTech le pone voz y tecnología a tu proyecto
                 </h2>
                 <p className="pt-3 pb-2 lead">Empieza hoy mismo: soluciones para emprendedores y empresas.</p>
-                <Link to="/">
+                <Link to="/diagnostico">
                     <button
                         type="button"
                         className="btn btn-general btn-multicolor-personalized px-3 

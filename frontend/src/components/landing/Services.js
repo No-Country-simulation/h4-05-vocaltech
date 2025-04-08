@@ -15,7 +15,7 @@ export const Services = () => {
             </div>
             <div className="row">
                 <div className="d-flex justify-content-end pe-0 mb-3">
-                    <Link to="/">
+                    <Link to="/nosotros#all-services">
                         <button
                             type="button"
                             className="btn text-black py-0">

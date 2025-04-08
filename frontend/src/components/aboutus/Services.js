@@ -3,7 +3,7 @@ import { services } from "../../utils/services";
   
 export const Services = () => {
     return (
-        <section className="services-about-us container py-5">
+        <section id="all-services" className="services-about-us container py-5">
             <div className="col-lg-7 mx-lg-auto">
                 <p className="small-subtitle text-lightgray lead text-center">
                     SERVICIOS ADAPTADOS A TUS NECESIDADES

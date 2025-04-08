@@ -21,7 +21,7 @@ export const Header = () => {
                     </p>
                     <div className="d-flex flex-wrap flex-md-nowrap justify-content-center gap-3 mt-3 
                         px-0 col-lg-9 col-xl-7 mx-auto">
-                        <Link to="/" className="w-100">
+                        <Link to="/agendar-cita" className="w-100">
                             <button
                                 type="button"
                                 className="btn btn-general btn-dark-personalized px-3 py-2 fw-bold text-white">
