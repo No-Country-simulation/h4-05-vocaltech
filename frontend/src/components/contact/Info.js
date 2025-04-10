@@ -10,24 +10,24 @@ export const ContactInfo = () => {
     const [isErrorSending, setIsErrorSending] = useState(false);
 
     return (
-        <section className="contact container py-5 mt-5 mb-md-5">
+        <section className="contact container py-5">
             {
                 isSentSucessfully ? (
                     <SentSucessfully />
                 ) : isErrorSending ? (
                     <ErrorSending />
                 ) : (
-                    <div className="row pt-lg-5 mt-lg-4">
+                    <div className="row pt-lg-5 my-5">
                         <div className="col-lg-6 pe-xl-5">
                             <h2 className="subtitle text-black display-3 text-center text-lg-start 
                                 fw-bolder pb-3 pt-5 pt-lg-0 pe-xl-5">
                                 Contactar al equipo de Vocaltech
                             </h2>
-                            <p className="lead text-center text-lg-start pb-md-3">Las mejores ideas cobran vida cuando se 
+                            <p className="lead text-center text-lg-start pb-3">Las mejores ideas cobran vida cuando se 
                                 comunican con claridad y estrategia. En VocalTech, te ayudamos a conectar, liderar
                                 y construir con impacto.
                             </p>
-                            <p className="lead pb-md-3">Escríbenos y comencemos a crear juntos.</p>
+                            <p className="lead pb-3">Escríbenos y comencemos a crear juntos.</p>
                             <p className="lead fw-semibold text-lightgray pb-3">Miles de emprendedores y empresas ya confían en 
                                 VocalTech para impulsar su comunicación y desarrollo, ¿te sumas?
                             </p>
@@ -41,7 +41,7 @@ export const ContactInfo = () => {
                                 }
                             </div>
                         </div>
-                        <div className="col-lg-6 pt-5 pt-lg-0">
+                        <div className="col-lg-6 pt-5 mt-3 mt-md-0 pt-lg-0">
                             <Form 
                                 setIsSentSucessfully={setIsSentSucessfully}
                                 setIsErrorSending={setIsErrorSending} 
