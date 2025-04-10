@@ -24,7 +24,7 @@ export const Process = () => {
             </h2>
             <p className="lead pb-4 text-white text-md-center">Un proceso simple para grandes resultados</p>
             <div className="row"> 
-                <div className="d-flex pt-md-5">
+                <div className="d-flex flex-wrap pt-md-5">
                     <div className="col-md-6 col-lg-5 col-xl-4 pe-md-5">
                         <p className="text-lightgray fw-bold"> 
                             <FontAwesomeIcon icon={faCircleCheck} className="icon-check-process me-2"/>PASO 1
@@ -42,7 +42,7 @@ export const Process = () => {
                         </video>
                     </div>
                 </div>
-                <div className="d-flex pt-5 mt-lg-5">
+                <div className="d-flex flex-wrap pt-5 mt-lg-5">
                     <div className="d-md-none">
                         <p className="text-lightgray fw-bold"> 
                             <FontAwesomeIcon icon={faCircleCheck} className="icon-check-process me-2"/>PASO 2
@@ -70,7 +70,7 @@ export const Process = () => {
                         </p>
                     </div>
                 </div>
-                <div className="d-flex pt-5 mt-lg-5">
+                <div className="d-flex flex-wrap pt-5 mt-lg-5">
                     <div className="col-md-6 col-lg-5 col-xl-4 pe-md-5">
                         <p className="text-lightgray fw-bold"> 
                             <FontAwesomeIcon icon={faCircleCheck} className="icon-check-process me-2"/>PASO 3

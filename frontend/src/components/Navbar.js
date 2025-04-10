@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom";
 import { navLinks } from "../utils/navLinks";
 import "../styles/navbar.css"
-import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-    const navigate = useNavigate();
-
-    const handleDiagnosticClick = () => {
-        navigate("/diagnostico");
-    };
     return (
         <div className="d-flex justify-content-center">
             <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-md">
@@ -52,9 +46,11 @@ export const Navbar = () => {
                                     ))
                                 }
                                 <li className="nav-item" data-bs-dismiss="offcanvas">
-                                    <button className="btn btn-navbar mt-4 mt-lg-0 ms-md-3 px-3 py-2" onClick={handleDiagnosticClick}>
-                                        Obtener Diagnóstico Gratis
-                                    </button>
+                                    <Link to="/diagnostico">
+                                        <button className="btn btn-navbar mt-4 mt-lg-0 ms-md-3 px-3 py-2">
+                                            Obtener Diagnóstico Gratis
+                                        </button>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

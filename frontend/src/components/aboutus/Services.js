@@ -15,9 +15,8 @@ export const Services = () => {
             <div className="row">
                 {
                     services.map(service => (
-                        <div className="mb-4 col-md-6 col-lg-4">
+                        <div key={service.id} className="mb-4 col-md-6 col-lg-4">
                         <Service
-                            key={service.id}
                             icon={service.icon}
                             title={service.title}
                             subtitle={service.subtitle}
