@@ -8,6 +8,7 @@ import { ErrorSending } from "../ErrorSending";
 
 export const Diagnostic = () => {
     const [user, setUser] = useState("");
+    const [step, setStep] = useState(0); 
     const [isSentSucessfully, setIsSentSucessfully] = useState(false);
     const [isErrorSending, setIsErrorSending] = useState(false);
     const getUser = (user) => setUser(user);
@@ -62,9 +63,11 @@ export const Diagnostic = () => {
                     </>
                 ) : (
                     <>
-                        <Header />
+                        <Header step={step}  />
                         <Form 
                             user={user} 
+                            step={step}
+                            setStep={setStep}
                             setIsSentSucessfully={setIsSentSucessfully}
                             setIsErrorSending={setIsErrorSending} 
                         />

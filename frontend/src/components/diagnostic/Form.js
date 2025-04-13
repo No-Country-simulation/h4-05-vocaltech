@@ -12,10 +12,9 @@ import { audioRecorderService } from "../../services/audioRecorder";
 import { diagnosticService } from "../../services/diagnostic";
 import { useModal } from "../../hooks/useModal";
 
-export const Form = ({ user, setIsSentSucessfully, setIsErrorSending }) => {
+export const Form = ({ step, setStep, user, setIsSentSucessfully, setIsErrorSending }) => {
     const [isLoading, setIsLoading] = useState(false);
     const { showModal, openModal, closeModal } = useModal();
-    const [step, setStep] = useState(0); 
     const [form, setForm] = useState(initializeForm.diagnostic(user));
     const [file, setFile] = useState(null);
     const [errors, setErrors] = useState({});
