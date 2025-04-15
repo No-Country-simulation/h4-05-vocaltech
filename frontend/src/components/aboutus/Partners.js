@@ -35,32 +35,30 @@ export const Partners = () => {
                         style={{ width: '150px', height: '150px' }} />
                 </div>
             </div>
-            <div className="row pt-5">
-                <div className="col-md-12 d-flex flex-wrap">
-                    <div className="col-md-3">
-                        <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
-                            +15
-                        </h2>
-                        <p>Presencia en Paises</p>
-                    </div>
-                    <div className="col-md-3">
-                        <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
-                            +5.000
-                        </h2>
-                        <p>Talentos IT Validados</p>
-                    </div>
-                    <div className="col-md-3">
-                        <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
-                            +20
-                        </h2>
-                        <p>Roles Tech</p>
-                    </div>
-                    <div className="col-md-3">
-                        <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
-                            +1.000
-                        </h2>
-                        <p>Talleres impartidos</p>
-                    </div>
+            <div className="row pt-5 text-center">
+                <div className="col-md-3 mb-3 mb-md-0">
+                    <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
+                        +15
+                    </h2>
+                    <p>Presencia en Paises</p>
+                </div>
+                <div className="col-md-3 mb-3 mb-md-0">
+                    <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
+                        +5.000
+                    </h2>
+                    <p>Talentos IT Validados</p>
+                </div>
+                <div className="col-md-3 mb-3 mb-md-0">
+                    <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
+                        +20
+                    </h2>
+                    <p>Roles Tech</p>
+                </div>
+                <div className="col-md-3">
+                    <h2 className="subtitle display-2 fw-bolder pb-2 text-multicolor-gradient">
+                        +1.000
+                    </h2>
+                    <p>Talleres impartidos</p>
                 </div>
             </div>
         </section>

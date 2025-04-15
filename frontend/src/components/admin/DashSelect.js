@@ -10,7 +10,7 @@ export const DashSelect = () => {
 
     return (
         <>
-            <p className="form-label text-white">Seleccionar Organización</p>
+            <p className="form-label">Seleccionar Organización</p>
             <select name={selectedCompany} className="form-select admin-select" onChange={handleChange}>
                 <option value="general">General</option>
                 <option value="1">No Country</option>

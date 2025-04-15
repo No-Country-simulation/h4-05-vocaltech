@@ -59,7 +59,7 @@ button {
 }
   
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-accent-2); 
+    background: linear-gradient(226.96deg, #2575FC -14.85%, #052855 31.53%, #6A11CB 76.16%); 
     border-radius: 10px;  
 }
   
