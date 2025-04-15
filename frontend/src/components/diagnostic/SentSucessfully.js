@@ -13,22 +13,12 @@ export const SentSucessfully = () => {
             </h1>
             <p className="text-gray">Nos comunicaremos a la brevedad.</p>
             <hr className="my-4" />
-            <p className="lead text-black">¿Quieres feedback inmediato?</p>
-            <p className="text-gray pb-3">Agenda una sesión gratuita para potenciar tu comunicación y tu negocio.</p>
             <div className="d-flex flex-wrap gap-3 mt-3">
-                <Link to="/agendar-cita" className="w-100">
-                    <button
-                        type="button"
-                        className="btn btn-general btn-orange-personalized px-3 py-2 fw-bold text-white">
-                        <FontAwesomeIcon icon={faCalendar} className="me-2" />
-                        Agendar cita
-                    </button>
-                </Link>
                 <Link to="/" className="w-100">
                     <button
                         type="button"
                         className="btn btn-general btn-lightblue-personalized px-3 py-2 fw-bold text-white">
-                        <FontAwesomeIcon icon={faHome} className="me-2" /> 
+                        <FontAwesomeIcon icon={faHome} className="me-2" />
                         Volver al inicio
                     </button>
                 </Link>
