@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { ScrollToTop } from "../ScrollToTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheckCircle, faCalendar, faHome } from "@fortawesome/free-solid-svg-icons"
+import { faCheckCircle, faHome } from "@fortawesome/free-solid-svg-icons"
 
 export const SentSucessfully = () => {
     return (
@@ -16,15 +16,7 @@ export const SentSucessfully = () => {
             <p className="lead text-black">¿Quieres feedback inmediato?</p>
             <p className="text-gray pb-3">Agenda una sesión gratuita para potenciar tu comunicación y tu negocio.</p>
             <div className="d-flex flex-wrap gap-3 mt-3">
-                <Link to="/agendar-cita" className="w-100">
-                    <button
-                        type="button"
-                        className="btn btn-general btn-orange-personalized px-3 py-2 fw-bold text-white">
-                        <FontAwesomeIcon icon={faCalendar} className="me-2" />
-                        Agendar cita
-                    </button>
-                </Link>
-                <Link to="/" className="w-100">
+                <Link to="/">
                     <button
                         type="button"
                         className="btn btn-general btn-lightblue-personalized px-3 py-2 fw-bold text-white">
