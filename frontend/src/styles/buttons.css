@@ -1,0 +1,87 @@
+.btn-general {
+    font-size: 0.875rem;
+    height: 46px;
+    width: 100% !important;
+}
+
+.btn-dark-personalized {
+    background-color: var(--dark);
+}
+
+.btn-dark-personalized:hover {
+    background-color: rgb(26, 26, 26);
+}
+
+.btn-multicolor-personalized {
+    background: linear-gradient(to bottom right, #2575FC, #052855, #D230E3);
+}
+
+.btn-lightblue-personalized {
+    background-color: var(--secondary) !important;
+}
+
+.btn-lightblue-personalized:hover {
+    background-color: var(--secondary);
+    opacity: .9;
+}
+
+.btn-orange-personalized {
+    background-color: #ff5722;
+}
+
+.btn-orange-personalized:hover {
+    background-color: #ff5622ec;
+}
+
+.btn-pink-personalized {
+    background-color: #C415D7;
+}
+
+.btn-pink-personalized:hover {
+    background-color: #c415d7ea;
+}
+
+.btn-multicolor-light-personalized {
+    background: linear-gradient(to right, #6A11CB, #2575FC);
+}
+
+.btn-login, 
+.btn-form-diagnostic {
+    background-color: var(--bg-dark);
+    color: var(--color-text-light);
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.btn-logout {
+    border: 2px solid var(--color-accent-2) !important;
+    color: var(--color-text-light);
+}
+
+.btn-login:hover, 
+.btn-logout:hover, 
+.btn-form-diagnostic:hover,
+.btn-login:disabled, 
+.btn-form-diagnostic:disabled,
+.btn-login:active,
+.btn-form-diagnostic:active {
+    background-color: var(--color-accent-2) !important;
+    color: var(--color-text-dark) !important;
+}
+
+.btn-audio-recorder:disabled {
+    background-color: rgba(118, 118, 118, 0.5) !important;
+}
+
+.btn:focus-visible {
+    box-shadow: none !important;
+}
+
+@media (min-width: 768px) {
+    .btn-form-diagnostic {
+        width: 50%;
+    }
+    .btn-general {
+        font-size: 16px;
+    }
+}

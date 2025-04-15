@@ -1,0 +1,108 @@
+/******** General headers **************************************/
+
+.span-top-header {
+    background-color: #65319d1c;
+    border-color: var(--dark-purple) !important;
+}
+
+.span-top-section-header {
+    background-color: #65319dd4;
+    border-color: var(--dark-purple) !important;
+}
+
+/******** Landing Header **************************************/
+
+.landing-header {
+    background-image: url("../../public/images/backgrounds/bg-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+.section-bottom-header {
+    background-color: var(--dark);
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.scrolling {
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    white-space: nowrap;
+}
+  
+.scrolling {
+    animation: scroll 15s linear infinite;
+}
+  
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+ 
+
+/******** Entrepreneur Header **************************************/
+
+.entrepreneur-header {
+    background-image: url("../../public/images/backgrounds/bg-entrepreneur.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+/******** Company Header **************************************/
+
+
+.company-header {
+    background-image: url("../../public/images/backgrounds/bg-company.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+/******** AboutUs Header **************************************/
+
+.about-us-header {
+    background-image: url("../../public/images/backgrounds/bg-aboutus-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+.about-us-header span  {
+    backdrop-filter: blur(24px);
+    background: rgba(127, 31, 232, 0.48);
+}
+
+.about-us-header .img-container {
+    bottom: 20px;
+    left: 0;
+}
+
+/******** Medidas Header **************************************/
+
+@media (min-width: 768px) {
+    .title-header {
+        font-size: 55px;
+    }    
+    .span-top-header {
+        font-size: 18px;
+    }
+    .span-bottom-header {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1024px) {}
+
+@media (min-width: 1200px) {}

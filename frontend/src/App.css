@@ -1,0 +1,226 @@
+/******** Menu Admin **************************************/
+
+.navbar-bg {
+    background-color: var(--bg-dark);
+}
+
+/******** Tablas Admin **************************************/
+
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.table th, .table td {
+    padding: 16px; 
+}
+
+.table th, .table td {
+    white-space: nowrap; 
+}
+
+/******** Calendario **************************************/
+
+.calendly-inline-widget {
+    height: 200vh !important;
+    min-width: 100% !important;
+}
+
+/******** Paginación Tablas Admin **************************************/
+
+.pagination .page-link  {
+    background-color: transparent !important;
+    border: none;
+    color: var(--color-text-dark);
+}
+
+.pagination .disabled>.page-link {
+    background-color: rgba(59, 63, 66, 0.1) !important;
+}
+
+.pagination .active>.page-link {
+    color: var(--color-accent-1);
+    font-weight: bold;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none !important;
+}
+
+/******** Footer **************************************/
+
+.bg-footer {
+    background: linear-gradient(221.95deg, #2575FC -15.34%, #052855 9.38%, #6A11CB 100.06%);
+}
+
+.bg-footer a {
+    text-decoration: none;
+}
+
+.bg-footer a:hover {
+    color: var(--secondary) !important;
+}
+
+.bg-footer button {
+    color: var(--light);
+}
+
+.bg-footer button:hover {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+/******** FQA **************************************/
+
+.accordion-button:focus {
+    color: var(--dark-purple) !important;
+    border: 1px solid var(--dark-purple) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--light) !important;
+    box-shadow: none !important;
+}
+
+/******** Otros **************************************/
+
+.text-multicolor-gradient {
+    background: linear-gradient(226.96deg, #2575FC -14.85%, #052855 31.53%, #6A11CB 76.16%);
+    background-clip: text;
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+}
+
+.text-gold-gradient {
+    background: linear-gradient(254.51deg, #B77C44 28.08%, #FEE5BB 46.5%, #BF854A 67.95%, #FCDFB3 85.67%, #C0864B 102.89%, #FBE8D4 122.57%);
+    background-clip: text;
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent; 
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-select, .form-control {
+    color: var(--color-text-dark) !important;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+.woman-img {
+    width: 90%;
+}
+
+.why-us {
+    background-image: url("../public/images/backgrounds/bg-why-us.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.services-entrepreneur a,
+.services-company a {
+    color: var(--secondary);
+}
+
+.services-entrepreneur a:hover,
+.services-company a:hover {
+    color: var(--primary);
+}
+
+.icon-check-process {
+    color: var(--secondary);
+}
+
+/******** Diagnostic **************************************/
+
+.link-back {
+    text-decoration: none;
+}
+
+.diagnostic .card-footer {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.overlay {
+    background-color: rgba(23, 37, 84, .97);
+    opacity: 0;
+    transition: .5s ease;
+}
+  
+.diagnostic .card:hover .overlay {
+    opacity: 1;
+}
+  
+.icon-bolt-diagnostic {
+    background-color: #C415D7;
+    border-radius: 50%;
+    color: rgb(23, 37, 84);
+    font-size: 12px;
+    padding: 6px 7px;
+}
+
+.icon-check-diagnostic {
+    font-size: 10px;
+}
+
+.diagnostic .items-card {
+    font-size: 14px;
+}
+
+/******** Admin dashboard **************************************/
+
+.navbar-bg {
+    background-color: #293696 !important;
+}
+
+.admin-select {
+    color: black !important;
+}
+
+@media (min-width: 768px) {
+    .shadow-md-form {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    .bg-md-light-form {
+        background-color: #f8f9fa;
+    } 
+    .contact form {
+        background-color: #ffffff;
+    }
+    .woman-img {
+        width: 50%;
+    }  
+}
+
+@media (min-width: 919px) {
+    .calendly-inline-widget {
+        height: 170vh !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .calendly-inline-widget {
+        height: 150vh !important;
+    }
+    .woman-img {
+        width: 155%;
+    } 
+}
+
+@media (min-width: 1200px) {
+    .calendly-inline-widget {
+        height: 120vh !important;
+    }
+    .woman-img {
+        width: 125%;
+    } 
+    .block-partner {
+        left: -70px;
+    }
+}
