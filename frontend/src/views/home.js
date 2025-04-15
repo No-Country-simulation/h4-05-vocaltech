@@ -17,10 +17,10 @@ export const Home = () => {
             <section className="why-us py-5">
                 <WhyUs />
             </section>
-            <Testimonials /> 
+            <Testimonials />
             <FQA />
             <section className="call-to-action position-relative overflow-hidden">
-                <CallToAction /> 
+                <CallToAction />
             </section>
         </>
     );
