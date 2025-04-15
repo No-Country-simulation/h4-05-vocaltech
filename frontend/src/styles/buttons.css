@@ -9,11 +9,21 @@
 }
 
 .btn-dark-personalized:hover {
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(19, 19, 19);
+}
+
+.btn-dark-personalized:active {
+    background-color: var(--dark) !important;
 }
 
 .btn-multicolor-personalized {
     background: linear-gradient(to bottom right, #2575FC, #052855, #D230E3);
+    background-size: 130% 130%;
+    transition: background-position 0.3s ease, background-size 0.3s ease;
+}
+
+.btn-multicolor-personalized:hover {
+    background-position: 100% 50%;
 }
 
 .btn-lightblue-personalized {
@@ -38,11 +48,21 @@
 }
 
 .btn-pink-personalized:hover {
-    background-color: #c415d7ea;
+    background-color: #c415d7d7;
+}
+
+.btn-pink-personalized:active {
+    background-color: #C415D7 !important;
 }
 
 .btn-multicolor-light-personalized {
     background: linear-gradient(to right, #6A11CB, #2575FC);
+    background-size: 130% 130%;
+    transition: background-position 0.3s ease, background-size 0.3s ease;
+}
+
+.btn-multicolor-light-personalized:hover {
+    background-position: 100% 50%;
 }
 
 .btn-login, 

@@ -35,6 +35,10 @@
     color: var(--light);
 }
 
+.btn-navbar:active {
+    color: var(--light) !important;
+}
+
 .navbar-toggler-icon {
     background-size: 80%;
 }
