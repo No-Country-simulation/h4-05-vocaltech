@@ -1,23 +1,8 @@
-import { useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 export const Process = () => { 
-    const videoRefs = [useRef(null), useRef(null), useRef(null)];
-
-    const handleMouseEnter = (index) => {
-        if (videoRefs[index].current) {
-            videoRefs[index].current.play();
-        }
-    };
-
-    const handleMouseLeave = (index) => {
-        if (videoRefs[index].current) {
-            videoRefs[index].current.pause();
-        }
-    };
-
-    return (
+   return (
         <div className="process container mb-5">
             <h2 className="subtitle text-white display-3 text-center fw-bolder pb-3">
                 Cómo funciona
@@ -36,9 +21,9 @@ export const Process = () => {
                         </p>
                     </div>
                     <div className="col-md-6 col-lg-7 col-xl-8 ps-xl-5">
-                        <video ref={videoRefs[0]} src="/videos/step1.mp4" type="video/mp4" 
-                            muted className="img-fluid w-100 rounded-3"
-                            onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
+                        <video className="img-fluid w-100 rounded-3" autoPlay loop muted playsInline preload="auto">
+                            <source src="/videos/step1.mp4" type="video/mp4" />
+                            Tu navegador no soporta videos.
                         </video>
                     </div>
                 </div>
@@ -54,9 +39,9 @@ export const Process = () => {
                         </p>
                     </div>
                     <div className="col-md-6 col-lg-7 col-xl-8 pe-xl-5">
-                        <video ref={videoRefs[1]} src="/videos/step2.mp4" type="video/mp4" 
-                            muted className="img-fluid w-100 rounded-3"
-                            onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
+                        <video className="img-fluid w-100 rounded-3" autoPlay loop muted playsInline preload="auto">
+                            <source src="/videos/step2.mp4" type="video/mp4" />
+                            Tu navegador no soporta videos.
                         </video>
                     </div>
                     <div className="col-md-6 col-lg-5 col-xl-4 d-none d-md-block text-md-end ps-md-5">
@@ -82,9 +67,9 @@ export const Process = () => {
                         </p>
                     </div>
                     <div className="col-md-6 col-lg-7 col-xl-8 ps-xl-5">
-                        <video ref={videoRefs[2]} src="/videos/step3.mp4" type="video/mp4" 
-                            muted className="img-fluid w-100 rounded-3"
-                            onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
+                        <video className="img-fluid w-100 rounded-3" autoPlay loop muted playsInline preload="auto">
+                            <source src="/videos/step3.mp4" type="video/mp4" />
+                            Tu navegador no soporta videos.
                         </video>
                     </div>
                 </div>
