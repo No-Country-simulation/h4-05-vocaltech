@@ -88,7 +88,7 @@ export const Form = ({ step, setStep, user, setIsSentSucessfully, setIsErrorSend
                     </button>
                     <button 
                         onClick={step === lastStep && file ? undefined : handleNext} 
-                        disabled={step === lastStep && !file} 
+                        disabled={(step === lastStep && !file) || (isLoading)} 
                         type={step === lastStep && file ? "submit" : "button"}
                         className="btn btn-lightblue-personalized px-4 py-2 fw-bold text-white">
                         { 
