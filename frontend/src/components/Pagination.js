@@ -19,30 +19,28 @@ export const PaginationComponent = ({ totalPages, currentPage, onPageChange }) =
     }
 
     return (
-        <>
-        <Pagination className="justify-content-center pt-2 mb-0">
-            <Pagination.Prev
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-            />
-            {
-                Array.from({ length: endPage - startPage + 1 }, (_, index) => (
-                    <Pagination.Item
-                        key={startPage + index}
-                        active={startPage + index === currentPage}
-                        onClick={() => handlePageChange(startPage + index)}>
-                        {startPage + index}
-                    </Pagination.Item>
-                ))
-            }
-            <Pagination.Next
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-            />
-        </Pagination>
-        <div className="justify-content-center pt-3">
-                <small>Página {currentPage} de {totalPages}</small>
-            </div>
-        </>
+        <div className="d-flex flex-wrap justify-content-center pt-3">
+            <Pagination>
+                <Pagination.Prev
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                />
+                {
+                    Array.from({ length: endPage - startPage + 1 }, (_, index) => (
+                        <Pagination.Item
+                            key={startPage + index}
+                            active={startPage + index === currentPage}
+                            onClick={() => handlePageChange(startPage + index)}>
+                            {startPage + index}
+                        </Pagination.Item>
+                    ))
+                }
+                <Pagination.Next
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                />
+            </Pagination>
+            <small className="w-100 text-center">Página {currentPage} de {totalPages}</small>
+        </div>
     );
 };

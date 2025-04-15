@@ -5,7 +5,7 @@ import "../styles/navbar.css"
 export const Navbar = () => {
     return (
         <div className="d-flex justify-content-center">
-            <nav className="navbar navbar-expand-lg position-fixed bg-white shadow-md">
+            <nav className="navbar navbar-landing navbar-expand-lg position-fixed bg-white shadow-md">
                 <div className="container-fluid px-4 px-xl-5">
                     <Link className="navbar-brand py-0" to="/">
                         <img src="./images/logos/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
@@ -19,11 +19,11 @@ export const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                        className="offcanvas offcanvas-start"
+                        className="offcanvas canvas-landing offcanvas-start"
                         tabIndex="-1"
                         id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
-                        <div className="offcanvas-header shadow-sm py-0 px-4 mb-4">
+                        <div className="offcanvas-header canvas-header-landing shadow-sm py-0 px-4 mb-4">
                             <Link className="navbar-brand py-0" to="/">
                                 <img src="./images/logos/vocaltech-logo.png" width={150} alt="Vocaltech logo"/>
                             </Link>

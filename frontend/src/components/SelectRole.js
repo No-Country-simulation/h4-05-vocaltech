@@ -6,7 +6,7 @@ export const SelectRole = ({ all, selectedRole, setSelectedRole }) => {
 
     return (
         <select id="selectRole" name={selectedRole}  value={selectedRole} aria-label="Seleccionar rol" 
-            className="form-select w-100" onChange={handleChange}>
+            className="form-select" onChange={handleChange}>
             {
                 all ? (
                     <option value="Todos">Todos</option>

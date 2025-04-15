@@ -37,7 +37,7 @@ export const Subscriptions = () => {
 
     return (
         <section>
-            <h2 className="pb-5">Subscriptores</h2>
+            <h2 className="pb-3">Subscriptores</h2>
             <Table columns={columnsTable.subscribers} isLoading={isLoading} isError={isError} 
                 data={data} getData={getData} />
             <Toaster

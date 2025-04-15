@@ -1,18 +1,22 @@
-/******** Menu Admin **************************************/
-
-.navbar-bg {
-    background-color: var(--bg-dark);
-}
-
 /******** Tablas Admin **************************************/
 
 .table-responsive {
     border: 1px solid #dee2e6;
-    border-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
-.table th, .table td {
+.table th {
+    background-color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
     padding: 16px; 
+    text-transform: uppercase;
+}
+
+.table td {
+    font-size: 14px;
+    padding: 8px 16px;
 }
 
 .table th, .table td {
@@ -137,6 +141,10 @@
     color: var(--secondary);
 }
 
+.admin-select {
+    color: black !important;
+}
+
 /******** Diagnostic **************************************/
 
 .link-back {
@@ -171,16 +179,6 @@
 
 .diagnostic .items-card {
     font-size: 14px;
-}
-
-/******** Admin dashboard **************************************/
-
-.navbar-bg {
-    background-color: #293696 !important;
-}
-
-.admin-select {
-    color: black !important;
 }
 
 @media (min-width: 768px) {

@@ -11,10 +11,9 @@ export const Home = () => {
     useEffect(() => {
         
         const data = [
-            { title: 'Leads Totales', quantity: user.metrics.leads },
-            { title: 'Citas Pendientes', quantity: user.metrics.pendingAppointments },
-            { title: 'Citas en la última semana', quantity: user.metrics.lastAppointments },
-            { title: 'Planes de Trabajo enviados', quantity: user.metrics.sentPlans },
+            { title: "Leads", quantity: user.metrics.leads },
+            { title: "Convertidos", quantity: user.metrics.pendingAppointments },
+            { title: "Pendientes", quantity: user.metrics.lastAppointments },
         ];
 
         setGeneralData(data);
@@ -28,19 +27,19 @@ export const Home = () => {
             {
                 selectedCompany === 1 ? (
                     generalData.map((data, index) => (
-                        <div key={index} className="col-md-6 mb-4">
+                        <div key={index} className="col-md-6 col-lg-4 col-xl-3 mb-4">
                             <InfoCard title={data.title} quantity={data.quantity} />
                         </div>
                     ))
                 ) : selectedCompany === 2 ? (
                     generalData.map((data, index) => (
-                        <div key={index} className="col-md-6 mb-4">
+                        <div key={index} className="col-md-6 col-lg-4 col-xl-3 mb-4">
                             <InfoCard title={data.title} quantity={data.quantity} />
                         </div>
                     ))
                 ) : (
                     generalData.map((data, index) => (
-                        <div key={index} className="col-md-6 mb-4">
+                        <div key={index} className="col-md-6 col-lg-4 col-xl-3 mb-4">
                             <InfoCard title={data.title} quantity={data.quantity} />
                         </div>
                     ))

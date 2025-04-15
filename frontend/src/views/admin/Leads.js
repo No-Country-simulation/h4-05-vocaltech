@@ -56,10 +56,10 @@ export const Leads = () => {
     
     return (
         <section>
-            <div className="pb-3 d-md-flex justify-content-between">
-                <h2>Leads</h2>
-                <div className="d-flex flex-column align-items-end">
-                    <label htmlFor="selectRole" className="form-label">Filtrar por</label>
+            <h2 className="pb-3">Gestión de Leads</h2>
+            <div className="px-2 py-3 d-md-flex justify-content-md-end border rounded-top">
+                <div className="d-flex flex-row align-items-center">
+                    <label htmlFor="selectRole" className="form-label mb-0 me-2 text-nowrap">Filtrar por</label>
                     <SelectRole all selectedRole={selectedRole} setSelectedRole={setSelectedRole} />
                 </div>
             </div>

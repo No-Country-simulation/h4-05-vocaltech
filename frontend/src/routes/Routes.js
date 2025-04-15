@@ -6,7 +6,6 @@ import { Company } from "../views/Company";
 import { AboutUs } from "../views/AboutUs";
 import { Contact } from "../views/Contact";
 import { Diagnostic } from "../views/Diagnostic";
-import { Appointment } from "../views/Appointment";
 import { Login } from "../views/admin/Login";
 import { Admin } from "../views/admin/Admin";
 import { Home as AdminHome } from "../views/admin/Home";
@@ -38,7 +37,6 @@ export const AppRoutes = () => {
                 <Route path="/nosotros" element={<AboutUs />} />
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="/diagnostico" element={<Diagnostic />} />
-                <Route path="/agendar-cita" element={<Appointment />} />
                 <Route path="/login-admin"
                     element={isAuthenticated ? <Navigate to="/admin-dashboard" /> : <Login />}
                 />
