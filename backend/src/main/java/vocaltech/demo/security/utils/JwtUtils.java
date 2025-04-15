@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Component
 public class JwtUtils {
 
-    private final int TOKEN_EXPIRATION_IN_MILLIS = 1800000;
+    private final int TOKEN_EXPIRATION_IN_MILLIS = 1000 * 60 * 30; // 30'
 
     @Value("${security.jwt.privateKey}")
     private String privateKey;

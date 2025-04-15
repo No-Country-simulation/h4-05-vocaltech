@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .cors(c -> {
                     CorsConfigurationSource source = request -> {
                         CorsConfiguration configuration = new CorsConfiguration();
-                        configuration.setAllowedOrigins(List.of("http://localhost:3000", "https://frontend-three-sigma-96.vercel.app"));
+                        configuration.setAllowedOrigins(List.of("http://localhost:3000", "https://frontend-three-sigma-96.vercel.app,", "https://vocaltech.co", "https://www.vocaltech.co"));
                         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
                         configuration.setAllowedHeaders(List.of("*"));
                         configuration.setAllowCredentials(true);
