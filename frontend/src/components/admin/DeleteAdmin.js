@@ -27,7 +27,7 @@ export const DeleteAdmin = ({ data, closeModal, deleteUser }) => {
     return (
         <div className="container">
             <p>¿Estás seguro de eliminar a {data.fullname}?</p>
-            <button type="button" className="btn btn-login rounded-pill w-100" disabled={isLoading} 
+            <button type="button" className="btn btn-general btn-danger" disabled={isLoading} 
                 onClick={handleSubmit}>
                 {
                     isLoading ? (

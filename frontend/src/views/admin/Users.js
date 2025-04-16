@@ -63,14 +63,14 @@ export const Users = () => {
 
     return (
         <section>
-            <div className="pb-3 d-md-flex justify-content-between">
-                <h2>Administradores</h2>
+            <h2 className="pb-3">Administradores</h2>
+            <div className="px-2 py-3 d-md-flex justify-content-md-end border rounded-top">
                 {
                     (selectedCompany === 1 || selectedCompany === 2) && (
                         <div className="pt-4 pt-md-0 d-flex flex-column align-items-end">
                             <button
                                 type="button"
-                                className="btn-personalized rounded-pill w-100"
+                                className="btn btn-general btn-dark-personalized text-white"
                                 onClick={openModal}>
                                 <FontAwesomeIcon className="me-2" icon={faPlus} />Agregar admin
                             </button>

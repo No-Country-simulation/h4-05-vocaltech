@@ -50,12 +50,12 @@ export const AppRoutes = () => {
                     )
                 }>
                     <Route index element={<AdminHome />} />
-                    <Route path="templates" element={<Templates />} />
-                    <Route path="appointments" element={<Appointments />} />
+                    <Route path="plantillas" element={<Templates />} />
+                    <Route path="citas" element={<Appointments />} />
                     <Route path="leads" element={<Leads />} />
-                    <Route path="subscriptions" element={<Subscriptions />} />
-                    <Route path="queries" element={<Queries />} />
-                    <Route path="users" element={<Users />} />
+                    <Route path="subscriptores" element={<Subscriptions />} />
+                    <Route path="consultas" element={<Queries />} />
+                    <Route path="usuarios-admin" element={<Users />} />
                 </Route>
             </Routes>
             {!isAdminRoute && <Footer />}

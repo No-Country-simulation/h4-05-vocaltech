@@ -50,7 +50,7 @@ export const Form = ({ isLoading, data, handleChange, handleSubmit, buttonText }
             <div className="d-flex justify-content-center">
                 <button
                     type="submit"
-                    className="btn btn-login rounded-pill w-100" disabled={isLoading}>
+                    className="btn btn-general btn-lightblue-personalized text-white" disabled={isLoading}>
                     {
                         isLoading ? (
                             <loader.GeneralLoader />
