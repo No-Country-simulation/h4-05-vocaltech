@@ -410,9 +410,9 @@ export const FormTemplate = ({ onUpdate, closeModal }) => {
                   onChange={handleQuillChange}
                 />
               </div>
-              <div className="text-center">
+              <div className="text-center pt-4">
                 <button
-                  className="btn btn-form-diagnostic rounded-pill mt-4"
+                  className="btn btn-general btn-lightblue-personalized text-white"
                   type="submit">
                   Guardar
                 </button>

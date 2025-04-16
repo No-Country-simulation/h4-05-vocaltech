@@ -41,7 +41,7 @@ export const Templates = () => {
         <div className="pt-4 pt-md-0 d-flex flex-column align-items-end">
           <button
             type="button"
-            className="btn-personalized rounded-pill w-100"
+            className="btn btn-general btn-dark-personalized text-white"
             onClick={openModal}>
             <FontAwesomeIcon className="me-2" icon={faPlus} />Crear Plantilla
           </button>
