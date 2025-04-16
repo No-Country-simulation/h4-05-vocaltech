@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const API_GATEWAY_URL = process.env.API_GATEWAY_URL;
+const API_GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL;
 
 const getLeads = async (token) => {
     try {
