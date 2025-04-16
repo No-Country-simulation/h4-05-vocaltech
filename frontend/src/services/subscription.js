@@ -5,7 +5,7 @@ const API_GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL;
 
 const sendSubscription = async (data) => {
     try {
-        const response = await axios.post(`${API_GATEWAY_URL}/subscription`, data);
+        const response = await axios.post(`${API_GATEWAY_URL}/subscriptions`, data);
         return response.data;
     } catch (error) {
         throw new Error("Hubo un error al enviar la suscripción. Intente nuevamente!");
