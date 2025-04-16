@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_GATEWAY_URL = process.env.API_GATEWAY_URL;
 const getToken = () => {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
     return user?.token || "";
@@ -8,9 +9,9 @@ const getToken = () => {
 
 const sendContactInfo = async (data) => {
     try {
-        const response = await axios.post(`${BASE_URL}/contact`, data);
+        const response = await axios.post(`${API_GATEWAY_URL}/contact`, data);
         return response.data;
-    } catch  {
+    } catch {
         throw new Error("Error al enviar el formulario. Intente nuevamente!");
     }
 };

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_GATEWAY_URL = process.env.API_GATEWAY_URL;
 
 const getLeads = async (token) => {
     try {
@@ -17,13 +18,13 @@ const getLeads = async (token) => {
 const sendDiagnostic = async (user, data) => {
     try {
         let response;
-        
-        if(user === "entrepreneur") {
-            response = await axios.post(`${BASE_URL}/leads/entrepreneur`, data);
+
+        if (user === "entrepreneur") {
+            response = await axios.post(`${API_GATEWAY_URL}/leads/entrepreneur`, data);
         } else {
-            response = await axios.post(`${BASE_URL}/leads/executive`, data);
+            response = await axios.post(`${API_GATEWAY_URL}/leads/executive`, data);
         }
-        
+
         return response.data;
 
     } catch {
