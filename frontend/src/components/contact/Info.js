@@ -10,14 +10,14 @@ export const ContactInfo = () => {
     const [isErrorSending, setIsErrorSending] = useState(false);
 
     return (
-        <section className="contact container py-5">
+        <>
             {
                 isSentSucessfully ? (
                     <SentSucessfully />
                 ) : isErrorSending ? (
                     <ErrorSending />
                 ) : (
-                    <div className="row pt-lg-5 my-5">
+                    <div className="row pt-lg-5 mt-5">
                         <div className="col-lg-6 pe-xl-5">
                             <h2 className="subtitle text-black display-3 text-center text-lg-start 
                                 fw-bolder pb-3 pt-5 pt-lg-0 pe-xl-5">
@@ -50,6 +50,6 @@ export const ContactInfo = () => {
                     </div>
                 )
             }
-        </section>
+        </>
     );
 };

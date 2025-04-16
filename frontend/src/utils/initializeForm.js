@@ -23,7 +23,7 @@ const diagnostic = (user) => {
     }
 };
 
-const contact = () => {
+const query = () => {
     return {
         name: "",
         email: "",
@@ -35,5 +35,5 @@ const contact = () => {
 
 export const initializeForm = {
     diagnostic,
-    contact
+    query
 };

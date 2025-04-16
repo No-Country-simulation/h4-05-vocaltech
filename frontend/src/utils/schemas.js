@@ -63,7 +63,7 @@ const subscription = [
     }),
 ];
 
-const contact = [
+const query = [
     yup.object({
         name: yup.string().required("Este campo es obligatorio"),
         email: yup.string().email().required("Este campo es obligatorio")
@@ -78,5 +78,5 @@ export const schemas = {
     entrepreneur,
     company,
     subscription,
-    contact
+    query
 };

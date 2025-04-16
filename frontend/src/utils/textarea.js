@@ -1,4 +1,4 @@
-const contact = [
+const query = [
     {
         id: "message", 
         label: "Mensaje (*)", 
@@ -8,5 +8,5 @@ const contact = [
 ];
 
 export const textarea = {
-    contact
-}
+    query
+};

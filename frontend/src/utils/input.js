@@ -77,7 +77,7 @@ const diagnostic = {
     ]
 };
 
-const contact = [
+const query = [
     {
         id: "name", 
         label: "Nombre y Apellido / Empresa (*)", 
@@ -106,5 +106,5 @@ const contact = [
 
 export const input = {
     diagnostic,
-    contact
+    query
 };

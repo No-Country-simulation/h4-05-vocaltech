@@ -9,18 +9,18 @@ import { textarea } from "../../utils/textarea";
 import { initializeForm } from "../../utils/initializeForm";
 import { schemas } from "../../utils/schemas";
 import { validate } from "../../utils/validate";
-import { contactService } from "../../services/contact";
+import { queriesService } from "../../services/queries";
 
 export const Form = ({ setIsSentSucessfully, setIsErrorSending }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [form, setForm] = useState(initializeForm.contact);
+    const [form, setForm] = useState(initializeForm.query);
     const [errors, setErrors] = useState({});
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
 
-        const isValid = await validate(schemas.contact, form, setErrors);
+        const isValid = await validate(schemas.query, form, setErrors);
         
         if (!isValid) {
             setIsLoading(false);
@@ -28,7 +28,7 @@ export const Form = ({ setIsSentSucessfully, setIsErrorSending }) => {
         }
 
         try {
-            await contactService.sendContactInfo(form);
+            await queriesService.sendQuery(form);
             setIsSentSucessfully(true);
         } catch (error) {
             setIsErrorSending(true);
@@ -41,13 +41,13 @@ export const Form = ({ setIsSentSucessfully, setIsErrorSending }) => {
         <form className="p-md-5 rounded-4 shadow-md-form" onSubmit={handleSubmit}>
             <p className="fs-3 fw-bold pb-2 text-black">Formulario de Contacto</p>
             {
-                input.contact.map(item => (
+                input.query.map(item => (
                     <Input key={item.id} {...item} setForm={setForm} 
                         value={form[item.id]} errors={errors} />
                 ))
             }
             {
-                textarea.contact.map(item => (
+                textarea.query.map(item => (
                     <Textarea key={item.id} {...item} setForm={setForm} 
                         value={form[item.id]} errors={errors} />
                 ))

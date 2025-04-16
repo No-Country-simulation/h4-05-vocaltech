@@ -63,7 +63,7 @@ export const Users = () => {
 
     return (
         <section>
-            <div className="pb-5 d-md-flex justify-content-between">
+            <div className="pb-3 d-md-flex justify-content-between">
                 <h2>Administradores</h2>
                 {
                     (selectedCompany === 1 || selectedCompany === 2) && (
